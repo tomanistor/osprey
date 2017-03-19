@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono');
 
+/*Modular font sizing used
+http://www.modularscale.com/?1.25&em&1.333&web&text
+http://typographyhandbook.com/
+Implement SCSS modular font in the future*/
+
+html, *, *:before, *:after {
+    box-sizing: inherit;
+}
+
 * {
     border: 0;
     font: inherit;
@@ -12,7 +21,7 @@
 
 body {
     font-family: 'Proxima Nova', 'Open Sans Condensed Bold', sans-serif;
-    font-size: 22pt;
+    font-size: 1em;
     line-height: 1.7;
     color: #1d1313;
     max-width: 700px;
@@ -93,7 +102,7 @@ em,q,em,dfn {
 }
 
 .heading,.serif,h1,h2,h3 {
-    font-family:"Old Standard TT",serif;
+    font-family:"Proxima Nova",serif;
 }
 
 strong {
@@ -113,7 +122,7 @@ del,s {
 }
 
 blockquote {
-    font-family:"Old Standard TT",serif;
+    font-family:"Proxima Nova",serif;
     text-align:center;
     padding:50px;
 }
@@ -124,7 +133,7 @@ blockquote p {
 }
 
 blockquote:before,blockquote:after {
-    font-family:"Old Standard TT",serif;
+    font-family:"Proxima Nova",serif;
     content:'\201C';
     font-size:35px;
     color:#403c3b;
@@ -142,37 +151,37 @@ hr {
 }
 
 h1 {
-    font-size:35px;
+    font-size: 3.157rem;
 }
 
 h2 {
-    font-size:28px;
+    font-size: 2.369rem;
 }
 
 h3 {
-    font-size:22px;
-    margin-top:18px;
-}
-
-h1 a,h2 a,h3 a {
-    text-decoration:none;
+    font-size: 1.777rem;
+    margin-top: 18px;
 }
 
 h1,h2 {
-    margin-top:28px;
+    margin-top: 28px;
+}
+
+h1 a,h2 a,h3 a {
+    text-decoration: none;
+}
+
+a {
+    font-weight: bold;
 }
 
 #sub-header, time {
     color:#403c3b;
-    font-size:13px;
-}
-
-#sub-header {
-    margin: 0 4px;
+    font-size: 1.3rem;
 }
 
 #nav h1 a {
-    font-size:35px;
+    font-size: 4.209rem;
     color:#1d1313;
     line-height:120%;
 }
@@ -202,18 +211,14 @@ ul li:before {
 }
 
 #content {
-    text-align:left;
-    width:100%;
-    font-size:15px;
-    padding:60px 0 80px;
+    text-align: left;
+    width: 100%;
+    font-size: 1.25rem;
+    padding: 60px 0 80px;
 }
 
 #content h1,#content h2 {
     margin-bottom:5px;
-}
-
-#content h2 {
-    font-size:25px;
 }
 
 #content .entry-content {
@@ -221,11 +226,7 @@ ul li:before {
 }
 
 #content time {
-    margin-left:3px;
-}
-
-#content h1 {
-    font-size:30px;
+    margin-left: 3px;
 }
 
 .highlight {
@@ -275,7 +276,7 @@ ul li:before {
 }
 
 #not-found a {
-    font-family:"Old Standard TT",serif;
+    font-family:"Proxima Nova",serif;
     font-size: 200px;
     text-decoration: none;
     display: inline-block;
