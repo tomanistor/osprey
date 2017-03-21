@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono');
+
+// colors
+$black: black;
+$color_night_rider_approx: #1d1313;
+$color_black_haze_approx: #f7f7f7;
+$color_masala_approx: #403c3b;
+
+// fonts
+$font-header: "Proxima Nova", "sans-serif";
+$font-body: "Open Sans Condensed Bold", "sans-serif";
+$font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+
+// Modular font sizing used
+// http://www.modularscale.com/?1.25&em&1.333&web&text
+// http://typographyhandbook.com/
+// Implement SCSS modular font in the future
+
+//@extend-elements
+//original selectors
+//blockquote:before, blockquote:after
+%extend_1 {
+	font-family: $font-header;
+	content: '\201C';
+	font-size: 35px;
+	color: $color_masala_approx;
+}
+
+* {
+	box-sizing: border-box;
+	border: 0;
+	font: inherit;
+	font-size: 100%;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0;
+	color: $black;
+	&:before {
+		box-sizing: border-box;
+	}
+	&:after {
+		box-sizing: border-box;
+	}
+}
+
+html {
+    box-sizing: inherit;
+}
+
+body {
+	font-family: $font-header, $font-body;
+	font-size: 1em;
+	line-height: 1.7;
+	color: $color_night_rider_approx;
+	max-width: 700px;
+	margin: auto;
+}
+p {
+	margin: 20px 0;
+	code {
+		font-family: $font-code;
+	}
+}
+a {
+	font-weight: bold;
+    text-decoration: none;
+	img {
+		border: none;
+	}
+}
+img {
+	margin: 10px auto 10px auto;
+	max-width: 100%;
+	display: block;
+}
+pre {
+	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
+	background-color: $color_black_haze_approx;
+	margin-top: 0;
+	margin-bottom: 16px;
+	word-wrap: normal;
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+	> code {
+		padding: 0;
+		margin: 0;
+		font-size: 100%;
+		//Instead of the line below you could use @include word-break($value)
+		word-break: normal;
+		white-space: pre;
+		background: transparent;
+		border: 0;
+	}
+	code {
+		display: inline;
+		max-width: auto;
+		padding: 0;
+		margin: 0;
+		overflow: visible;
+		line-height: inherit;
+		word-wrap: normal;
+		background-color: transparent;
+		border: 0;
+	}
+	code::before {
+		content: normal;
+	}
+	code::after {
+		content: normal;
+	}
+}
+code {
+	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
+	background-color: $color_black_haze_approx;
+	font-size: 12px;
+	padding: 4px;
+	font-family: $font-code;
+}
+em {
+	font-style: italic;
+}
+q {
+	font-style: italic;
+	&:before {
+		content: "\201C";
+	}
+	&:after {
+		content: "\201D";
+	}
+}
+dfn {
+	font-style: italic;
+}
+.sans {
+	font-family: "Open Sans", "Myriad Pro", "Myriad", "sans-serif";
+}
+.mono {
+	font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+}
+tt {
+	font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+}
+li {
+	margin-left: 20px;
+	code {
+		font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+	}
+}
+.heading {
+	font-family: $font-header, "serif";
+}
+.serif {
+	font-family: $font-header, "serif";
+}
+h1 {
+	font-family: $font-header, "serif";
+	font-size: 3.157rem;
+	margin-top: 28px;
+	a {
+		text-decoration: none;
+	}
+}
+h2 {
+	font-family: $font-header, "serif";
+	font-size: 2.369rem;
+	margin-top: 28px;
+	a {
+		text-decoration: none;
+	}
+}
+h3 {
+	font-family: $font-header, "serif";
+	font-size: 1.777rem;
+	margin-top: 18px;
+	a {
+		text-decoration: none;
+	}
+}
+
+strong {
+	font-weight: 600;
+}
+
+del {
+	text-decoration: line-through;
+}
+
+s {
+	@extend del;
+}
+
+blockquote {
+	font-family: $font-header, "serif";
+	text-align: center;
+	padding: 50px;
+	p {
+		display: inline-block;
+		font-style: italic;
+	}
+	&:before {
+		@extend %extend_1;
+	}
+	&:after {
+		@extend %extend_1;
+		content: '\201D';
+	}
+}
+
+hr {
+	width: 40%;
+	height: 1px;
+	background: $color_masala_approx;
+	margin: 25px auto;
+}
+
+#sub-header {
+	color: $color_masala_approx;
+	font-size: 1.3rem;
+}
+
+time {
+	color: $color_masala_approx;
+	font-size: 1.3rem;
+}
+
+#nav {
+	text-align: center;
+	position: static;
+	margin-top: 60px;
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	ul {
+		display: table;
+		margin: 8px auto 0 auto;
+		li:before {
+			content: '';
+			margin-right: 0;
+		}
+	}
+	li {
+		list-style-type: none;
+		display: table-cell;
+		font-size: 15px;
+		padding: 0 20px;
+	}
+	h1 a {
+		font-size: 4.209rem;
+		color: $color_night_rider_approx;
+		line-height: 120%;
+	}
+}
+
+.posts_listing {
+	margin: 0 0 50px;
+	a {
+		text-decoration: none;
+	}
+	li {
+		margin: 0 0 25px 15px;
+		&:before {
+			content: '';
+			margin-right: 0;
+		}
+		a:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+#content {
+	text-align: left;
+	width: 100%;
+	font-size: 1.25rem;
+	padding: 60px 0 80px;
+	h1 {
+		margin-bottom: 5px;
+	}
+	h2 {
+		margin-bottom: 5px;
+	}
+	.entry-content {
+		margin-top: 15px;
+	}
+	time {
+		margin-left: 3px;
+	}
+}
+.highlight {
+	margin: 10px 0;
+}
+#links {
+	margin: 50px 0 0;
+	:nth-child(2) {
+		float: right;
+	}
+}
+#not-found {
+	text-align: center;
+	a {
+		font-family: $font-header, "serif";
+		font-size: 200px;
+		text-decoration: none;
+		display: inline-block;
+		padding-top: 225px;
+	}
+}
+@media(max-width: 750px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#nav {
+		li {
+			font-size: 13px;
+			padding: 0 15px;
+		}
+		h1 a {
+			font-size: 28px;
+		}
+	}
+	#content {
+		margin-top: 0;
+		padding-top: 50px;
+		font-size: 14px;
+		h1 {
+			font-size: 25px;
+		}
+		h2 {
+			font-size: 22px;
+		}
+	}
+	.posts_listing li div {
+		font-size: 12px;
+	}
+}
+@media(max-width: 400px) {
+	body {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	#nav {
+		li {
+			font-size: 12px;
+			padding: 0 10px;
+		}
+		h1 a {
+			font-size: 22px;
+		}
+	}
+	#content {
+		margin-top: 0;
+		padding-top: 20px;
+		font-size: 12px;
+		h1 {
+			font-size: 20px;
+		}
+		h2 {
+			font-size: 18px;
+		}
+	}
+	.posts_listing li div {
+		font-size: 12px;
+	}
+}
+ul li {
+	margin-left: 5px;
+	list-style-type: none;
+	&:before {
+		content: "\00BB \0020";
+	}
+}
