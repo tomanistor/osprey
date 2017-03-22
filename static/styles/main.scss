@@ -1,44 +1,79 @@
 @import url('https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono');
 
-// colors
+// Colors
 $black: black;
 $color_night_rider_approx: #1d1313;
 $color_black_haze_approx: #f7f7f7;
 $color_masala_approx: #403c3b;
 
-// fonts
+// Fonts
 $font-header: "Proxima Nova", "sans-serif";
 $font-body: "Open Sans Condensed Bold", "sans-serif";
 $font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
 
-// Modular font sizing used
-// http://www.modularscale.com/?1.25&em&1.333&web&text
-// http://typographyhandbook.com/
-// Implement SCSS modular font in the future
+// Modular font scale
+// Large: http://www.modularscale.com/?1.25&em&1.333&web&text
+// Medium: http://www.modularscale.com/?1.25&em&1.25&web&text
+// SMall: http://www.modularscale.com/?1.1&em&1.25&web&text
 
-//@extend-elements
-//original selectors
-//blockquote:before, blockquote:after
-%extend_1 {
-	font-family: $font-header;
-	content: '\201C';
-	font-size: 35px;
-	color: $color_masala_approx;
+$font-scale-large: (
+    h1: 2.961rem,
+    h2: 2.221rem,
+    h3: 1.666rem,
+    p: 1.25rem
+);
+
+$font-scale-medium: (
+    h1: 2.441rem,
+    h2: 1.953em,
+    h3: 1.563rem,
+    p: 1.25rem,
+);
+
+$font-scale-small: (
+    h1: 2.148rem,
+    h2: 1.719rem,
+    h3: 1.375rem,
+    p: 1.1rem
+);
+
+$base-line-height: 1.7;
+$base-font-size: 1.25rem;
+$vertical-rhythm: $base-line-height * $base-font-size;
+
+$breakpoint-medium: 48em;
+$breakpoint-small: 25em;
+
+@mixin size($level) {
+    font-size: map-get($font-scale-large, $level);
+    @media (max-width: $breakpoint-medium) {
+        font-size: map-get($font-scale-medium, $level);
+    }
+    @media (max-width: $breakpoint-small) {
+        font-size: map-get($font-scale-small, $level);
+    }
+}
+
+@media(max-width: 48em) {
+	.content {
+		padding-top: 50px;
+	}
+}
+@media(max-width: 25em) {
+	.content {
+		padding-top: 20px;
+	}
 }
 
 * {
 	box-sizing: border-box;
 	border: 0;
 	font: inherit;
-	font-size: 100%;
 	vertical-align: baseline;
 	margin: 0;
 	padding: 0;
 	color: $black;
-	&:before {
-		box-sizing: border-box;
-	}
-	&:after {
+	&:before, &:after {
 		box-sizing: border-box;
 	}
 }
@@ -48,36 +83,70 @@ html {
 }
 
 body {
+    @include size(p);
 	font-family: $font-header, $font-body;
-	font-size: 1em;
-	line-height: 1.7;
+	line-height: $base-line-height;
 	color: $color_night_rider_approx;
-	max-width: 700px;
+	max-width: 740px;
+    padding: 0 1.25em;
 	margin: auto;
 }
+
 p {
-	margin: 20px 0;
+	margin-bottom: $vertical-rhythm;
 	code {
 		font-family: $font-code;
 	}
 }
+
 a {
-	font-weight: bold;
+    text-shadow: 0.03em 0 #fff,
+                 -0.03em 0 #fff,
+                 0 0.03em #fff,
+                 0 -0.03em #fff,
+                 0.06em 0 #fff,
+                 -0.06em 0 #fff,
+                 0.09em 0 #fff,
+                 -0.09em 0 #fff,
+                 0.12em 0 #fff,
+                 -0.12em 0 #fff,
+                 0.15em 0 #fff,
+                 -0.15em 0 #fff,
+                 0.03em 0.075em #fff,
+                 -0.03em 0.075em #fff,
+                 0.06em 0.075em #fff,
+                 -0.06em 0.075em #fff,
+                 0.09em 0.075em #fff,
+                 -0.09em 0.075em #fff,
+                 0.12em 0.075em #fff,
+                 -0.12em 0.075em #fff,
+                 0.15em 0.075em #fff,
+                 -0.15em 0.075em #fff;
+    background-image: linear-gradient(#0783AB,#0783AB);
+    background-size: 1px 2px;
+    background-repeat: repeat-x;
+    background-position: 0 90%;
     text-decoration: none;
+    transition: color .2s ease-in-out;
+    &:hover {
+        color: #0783AB;
+    }
 	img {
 		border: none;
 	}
 }
+
 img {
 	margin: 10px auto 10px auto;
 	max-width: 100%;
 	display: block;
 }
+
 pre {
 	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
 	background-color: $color_black_haze_approx;
 	margin-top: 0;
-	margin-bottom: 16px;
+    margin-bottom: $vertical-rhythm;
 	word-wrap: normal;
 	padding: 16px;
 	overflow: auto;
@@ -105,25 +174,24 @@ pre {
 		background-color: transparent;
 		border: 0;
 	}
-	code::before {
-		content: normal;
-	}
-	code::after {
+	code::before, code::after {
 		content: normal;
 	}
 }
+
 code {
-	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
-	background-color: $color_black_haze_approx;
+    font-family: $font-code;
 	font-size: 12px;
+    background-color: $color_black_haze_approx;
 	padding: 4px;
-	font-family: $font-code;
 }
+
 em {
 	font-style: italic;
 }
+
 q {
-	font-style: italic;
+	@extend em;
 	&:before {
 		content: "\201C";
 	}
@@ -131,6 +199,7 @@ q {
 		content: "\201D";
 	}
 }
+
 dfn {
 	font-style: italic;
 }
@@ -143,37 +212,45 @@ dfn {
 tt {
 	font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
 }
-li {
-	margin-left: 20px;
-	code {
-		font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+
+ul, ol {
+    margin-bottom: $vertical-rhythm;
+    li {
+        margin-left: 1.25em;
+        code {
+            font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+        }
+    }
+}
+
+ul li {
+	list-style-type: none;
+	&:before {
+		content: "\00BB \0020";
 	}
 }
-.heading {
-	font-family: $font-header, "serif";
-}
-.serif {
-	font-family: $font-header, "serif";
-}
+
 h1 {
+    @include size(h1);
 	font-family: $font-header, "serif";
-	font-size: 3.157rem;
 	margin-top: 28px;
 	a {
 		text-decoration: none;
 	}
 }
+
 h2 {
+    @include size(h2);
 	font-family: $font-header, "serif";
-	font-size: 2.369rem;
 	margin-top: 28px;
 	a {
 		text-decoration: none;
 	}
 }
+
 h3 {
+    @include size(h3);
 	font-family: $font-header, "serif";
-	font-size: 1.777rem;
 	margin-top: 18px;
 	a {
 		text-decoration: none;
@@ -184,101 +261,70 @@ strong {
 	font-weight: 600;
 }
 
-del {
+del, s {
 	text-decoration: line-through;
 }
 
-s {
-	@extend del;
+%blockquote {
+	font-family: $font-header;
+	content: '\201C';
+	font-size: 35px;
+	color: $color_masala_approx;
 }
 
 blockquote {
 	font-family: $font-header, "serif";
 	text-align: center;
-	padding: 50px;
+	padding: 25px;
 	p {
 		display: inline-block;
 		font-style: italic;
 	}
 	&:before {
-		@extend %extend_1;
+		@extend %blockquote;
 	}
 	&:after {
-		@extend %extend_1;
+		@extend %blockquote;
 		content: '\201D';
 	}
 }
 
-hr {
-	width: 40%;
-	height: 1px;
-	background: $color_masala_approx;
-	margin: 25px auto;
-}
-
-#sub-header {
-	color: $color_masala_approx;
-	font-size: 1.3rem;
-}
-
-time {
-	color: $color_masala_approx;
-	font-size: 1.3rem;
-}
-
-#nav {
-	text-align: center;
-	position: static;
-	margin-top: 60px;
-	a {
-		text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
-	ul {
-		display: table;
-		margin: 8px auto 0 auto;
-		li:before {
-			content: '';
-			margin-right: 0;
-		}
-	}
-	li {
-		list-style-type: none;
-		display: table-cell;
-		font-size: 15px;
-		padding: 0 20px;
-	}
-	h1 a {
-		font-size: 4.209rem;
-		color: $color_night_rider_approx;
-		line-height: 120%;
-	}
+.title {
+    text-align: center;
+    position: static;
+    margin-top: 60px;
+    a {
+        text-decoration: none;
+    }
 }
 
 .posts_listing {
-	margin: 0 0 50px;
-	a {
-		text-decoration: none;
-	}
-	li {
-		margin: 0 0 25px 15px;
-		&:before {
-			content: '';
-			margin-right: 0;
-		}
-		a:hover {
-			text-decoration: underline;
-		}
-	}
+    margin: 0 0 50px;
+    a {
+        text-decoration: none;
+    }
+    li {
+        margin: 0 0 25px 15px;
+        &:before {
+            content: '';
+            margin-right: 0;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
-#content {
+.sub-header, time {
+    @include size(p);
+	color: $color_masala_approx;
+}
+
+.content {
 	text-align: left;
 	width: 100%;
-	font-size: 1.25rem;
 	padding: 60px 0 80px;
+    margin-top: 0;
 	h1 {
 		margin-bottom: 5px;
 	}
@@ -292,87 +338,25 @@ time {
 		margin-left: 3px;
 	}
 }
+
 .highlight {
 	margin: 10px 0;
 }
+
 #links {
 	margin: 50px 0 0;
 	:nth-child(2) {
 		float: right;
 	}
 }
+
 #not-found {
 	text-align: center;
 	a {
-		font-family: $font-header, "serif";
+		font-family: $font-header;
 		font-size: 200px;
 		text-decoration: none;
 		display: inline-block;
 		padding-top: 225px;
-	}
-}
-@media(max-width: 750px) {
-	body {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	#nav {
-		li {
-			font-size: 13px;
-			padding: 0 15px;
-		}
-		h1 a {
-			font-size: 28px;
-		}
-	}
-	#content {
-		margin-top: 0;
-		padding-top: 50px;
-		font-size: 14px;
-		h1 {
-			font-size: 25px;
-		}
-		h2 {
-			font-size: 22px;
-		}
-	}
-	.posts_listing li div {
-		font-size: 12px;
-	}
-}
-@media(max-width: 400px) {
-	body {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
-	#nav {
-		li {
-			font-size: 12px;
-			padding: 0 10px;
-		}
-		h1 a {
-			font-size: 22px;
-		}
-	}
-	#content {
-		margin-top: 0;
-		padding-top: 20px;
-		font-size: 12px;
-		h1 {
-			font-size: 20px;
-		}
-		h2 {
-			font-size: 18px;
-		}
-	}
-	.posts_listing li div {
-		font-size: 12px;
-	}
-}
-ul li {
-	margin-left: 5px;
-	list-style-type: none;
-	&:before {
-		content: "\00BB \0020";
 	}
 }

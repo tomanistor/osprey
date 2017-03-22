@@ -28,11 +28,6 @@
     </head>
 
     <body>
-        <section id=nav>
+        <section class="title">
             <h1><a href="/">{{ .Site.Params.sitename }}</a></h1>
-            <ul>
-                {{ range .Site.Menus.main }}
-                <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-                {{ end }}
-            </ul>
         </section>
