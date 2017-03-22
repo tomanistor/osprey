@@ -8,5 +8,5 @@ features = []
 min_version = 0.19
 
 [author]
-  name = "Toma Nistor"
-  homepage = "https://tomanistor.com"
+    name = "Toma Nistor"
+    homepage = "https://tomanistor.com"

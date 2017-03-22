@@ -9,7 +9,6 @@
         <meta name="referrer" content="no-referrer">
         <base href="{{ .Site.BaseURL }}">
         {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
-
         <title>
             {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
             {{ if eq $url "/" }}
@@ -19,15 +18,24 @@
             {{ end }}
         </title>
         <link rel="canonical" href="{{ .Permalink }}">
-
         <link rel="stylesheet" href="styles/main.css" type="text/css">
-
         {{ if .RSSLink }}
         <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
         {{ end }}
     </head>
 
     <body>
-        <section class="title">
-            <h1><a href="/">{{ .Site.Params.sitename }}</a></h1>
-        </section>
+        <header>
+            <h1>{{ .Site.Params.sitename }}</h1>
+        </header>
+        <div class="nav">
+            <ul>
+                {{ range .Site.Menus.main }}
+                <li><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></li>
+                {{ end }}
+            </ul>
+        </div>
+        <section class="page">
+            <section class="container">
+                <!-- <section class="title">
+                </section> -->

@@ -37,12 +37,12 @@ $font-scale-small: (
     p: 1.1rem
 );
 
-$base-line-height: 1.7;
-$base-font-size: 1.25rem;
-$vertical-rhythm: $base-line-height * $base-font-size;
+$base-line-height: 1.6;
+$base-font-size: 1.25rem; // 20px
+$vertical-rhythm: $base-line-height * $base-font-size; // 2.125em or 34px
 
-$breakpoint-medium: 48em;
-$breakpoint-small: 25em;
+$breakpoint-medium: 48em; // 768px
+$breakpoint-small: 25em; // 400px
 
 @mixin size($level) {
     font-size: map-get($font-scale-large, $level);
@@ -54,14 +54,24 @@ $breakpoint-small: 25em;
     }
 }
 
+@mixin base($level) {
+    map-get: ($font-scale-large, $level);
+    @media (max-width: $breakpoint-medium) {
+        map-get: ($font-scale-medium, $level);
+    }
+    @media (max-width: $breakpoint-small) {
+        map-get: ($font-scale-small, $level);
+    }
+}
+
 @media(max-width: 48em) {
-	.content {
-		padding-top: 50px;
+	body .content {
+		padding-top: $vertical-rhythm * 1.5;
 	}
 }
 @media(max-width: 25em) {
-	.content {
-		padding-top: 20px;
+	body .content {
+		padding-top: $vertical-rhythm;
 	}
 }
 
@@ -87,9 +97,19 @@ body {
 	font-family: $font-header, $font-body;
 	line-height: $base-line-height;
 	color: $color_night_rider_approx;
-	max-width: 740px;
-    padding: 0 1.25em;
-	margin: auto;
+    padding-top: 450px;
+}
+
+.page {
+    background-color: #fff;
+    padding: $vertical-rhythm 0;
+    position: relative;
+}
+
+.container {
+    max-width: 43.750rem; // 700px
+    padding: 0 $vertical-rhythm;
+    margin: auto;
 }
 
 p {
@@ -100,37 +120,7 @@ p {
 }
 
 a {
-    text-shadow: 0.03em 0 #fff,
-                 -0.03em 0 #fff,
-                 0 0.03em #fff,
-                 0 -0.03em #fff,
-                 0.06em 0 #fff,
-                 -0.06em 0 #fff,
-                 0.09em 0 #fff,
-                 -0.09em 0 #fff,
-                 0.12em 0 #fff,
-                 -0.12em 0 #fff,
-                 0.15em 0 #fff,
-                 -0.15em 0 #fff,
-                 0.03em 0.075em #fff,
-                 -0.03em 0.075em #fff,
-                 0.06em 0.075em #fff,
-                 -0.06em 0.075em #fff,
-                 0.09em 0.075em #fff,
-                 -0.09em 0.075em #fff,
-                 0.12em 0.075em #fff,
-                 -0.12em 0.075em #fff,
-                 0.15em 0.075em #fff,
-                 -0.15em 0.075em #fff;
-    background-image: linear-gradient(#0783AB,#0783AB);
-    background-size: 1px 2px;
-    background-repeat: repeat-x;
-    background-position: 0 90%;
     text-decoration: none;
-    transition: color .2s ease-in-out;
-    &:hover {
-        color: #0783AB;
-    }
 	img {
 		border: none;
 	}
@@ -232,8 +222,8 @@ ul li {
 
 h1 {
     @include size(h1);
-	font-family: $font-header, "serif";
-	margin-top: 28px;
+	font-family: $font-header;
+	margin-top: $vertical-rhythm;
 	a {
 		text-decoration: none;
 	}
@@ -241,8 +231,8 @@ h1 {
 
 h2 {
     @include size(h2);
-	font-family: $font-header, "serif";
-	margin-top: 28px;
+	font-family: $font-header;
+	margin-top: $vertical-rhythm;
 	a {
 		text-decoration: none;
 	}
@@ -250,8 +240,8 @@ h2 {
 
 h3 {
     @include size(h3);
-	font-family: $font-header, "serif";
-	margin-top: 18px;
+	font-family: $font-header;
+	margin-top: $vertical-rhythm;
 	a {
 		text-decoration: none;
 	}
@@ -289,6 +279,37 @@ blockquote {
 	}
 }
 
+header {
+    height: 500px;
+    width: 100%;
+    background-color: #0783AB;
+    position: fixed;
+    padding-top: $vertical-rhythm * 2;
+    top: 0;
+    text-align: center;
+}
+
+.nav {
+    height: 80px;
+    position: relative;
+    z-index: 100;
+    text-align: center;
+    background-color: #e7e7e7;
+    ul {
+        height: inherit;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex-grow: 2;
+        margin: 0;
+    }
+    ul li, li:before {
+        display: inline;
+        content: "";
+        margin: 0;
+    }
+}
+
 .title {
     text-align: center;
     position: static;
@@ -299,7 +320,7 @@ blockquote {
 }
 
 .posts_listing {
-    margin: 0 0 50px;
+    margin: 0 0 $vertical-rhythm;
     a {
         text-decoration: none;
     }
@@ -318,25 +339,48 @@ blockquote {
 .sub-header, time {
     @include size(p);
 	color: $color_masala_approx;
+    margin-bottom: $vertical-rhythm;
 }
 
 .content {
 	text-align: left;
 	width: 100%;
-	padding: 60px 0 80px;
-    margin-top: 0;
-	h1 {
-		margin-bottom: 5px;
-	}
-	h2 {
-		margin-bottom: 5px;
-	}
-	.entry-content {
-		margin-top: 15px;
-	}
 	time {
 		margin-left: 3px;
 	}
+    a {
+        text-shadow: 0.03em 0 #fff,
+                     -0.03em 0 #fff,
+                     0 0.03em #fff,
+                     0 -0.03em #fff,
+                     0.06em 0 #fff,
+                     -0.06em 0 #fff,
+                     0.09em 0 #fff,
+                     -0.09em 0 #fff,
+                     0.12em 0 #fff,
+                     -0.12em 0 #fff,
+                     0.15em 0 #fff,
+                     -0.15em 0 #fff,
+                     0.03em 0.075em #fff,
+                     -0.03em 0.075em #fff,
+                     0.06em 0.075em #fff,
+                     -0.06em 0.075em #fff,
+                     0.09em 0.075em #fff,
+                     -0.09em 0.075em #fff,
+                     0.12em 0.075em #fff,
+                     -0.12em 0.075em #fff,
+                     0.15em 0.075em #fff,
+                     -0.15em 0.075em #fff;
+        background-image: linear-gradient(#0783AB,#0783AB);
+        background-size: 1px 2px;
+        background-repeat: repeat-x;
+        background-position: 0 90%;
+        text-decoration: none;
+        transition: color .2s ease-in-out;
+        &:hover {
+            color: #0783AB;
+        }
+    }
 }
 
 .highlight {
