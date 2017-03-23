@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono');
+@import "flexbox";
+@import url("https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono");
 
 // Colors
 $black: black;
@@ -54,25 +55,18 @@ $breakpoint-small: 25em; // 400px
     }
 }
 
-@mixin base($level) {
-    map-get: ($font-scale-large, $level);
-    @media (max-width: $breakpoint-medium) {
-        map-get: ($font-scale-medium, $level);
-    }
-    @media (max-width: $breakpoint-small) {
-        map-get: ($font-scale-small, $level);
-    }
-}
-
 @media(max-width: 48em) {
-	body .content {
-		padding-top: $vertical-rhythm * 1.5;
+	body .page {
+        padding: 0;
 	}
 }
 @media(max-width: 25em) {
-	body .content {
-		padding-top: $vertical-rhythm;
+	body .page {
+        padding: 0;
 	}
+    .flex-grid {
+        display: block;
+    }
 }
 
 * {
@@ -97,12 +91,12 @@ body {
 	font-family: $font-header, $font-body;
 	line-height: $base-line-height;
 	color: $color_night_rider_approx;
-    padding-top: 450px;
+    // padding-top: calc(100vh - 4em);
 }
 
 .page {
     background-color: #fff;
-    padding: $vertical-rhythm 0;
+    padding: $vertical-rhythm * 2 0 $vertical-rhythm * 2;
     position: relative;
 }
 
@@ -280,21 +274,29 @@ blockquote {
 }
 
 header {
-    height: 500px;
-    width: 100%;
-    background-color: #0783AB;
-    position: fixed;
-    padding-top: $vertical-rhythm * 2;
-    top: 0;
+    height: 100vh;
+    background-color: #d6d0ca;
+    padding-top: 80px;
     text-align: center;
 }
 
-.nav {
-    height: 80px;
-    position: relative;
+.nav-fixed {
+    position: fixed;
+    top: 0;
+}
+
+nav {
+    height: $vertical-rhythm * 2;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
     z-index: 100;
     text-align: center;
-    background-color: #e7e7e7;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, .4 );
+    h3 {
+        margin: 0;
+    }
     ul {
         height: inherit;
         display: flex;
