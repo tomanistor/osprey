@@ -1,13 +1,14 @@
 .flex-grid {
     display: flex;
-}
-
-.row {
-    display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    height:100%;
+    background-color: #888;
+    img {
+        width: 100%;
+        max-width: none;
+    }
 }
 
 .col {
-    flex: 1;
+    flex: 1 0 auto;
 }
