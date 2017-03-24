@@ -1,7 +1,10 @@
 {{ partial "header.html" . }}
 {{ partial "gallery.html" . }}
 
-<section class="container">
+<section class="container" id="blog">
+    <div class="row center-xs">
+        <div class="col-xs-12"><h1>Blog</h1></div>
+    </div>
     <section class="content">
         <ul class="posts_list">
             {{ range first 10 .Data.Pages }}
@@ -18,4 +21,5 @@
     </section>
 </section>
 
+{{ partial "contact.html" . }}
 {{ partial "footer.html" . }}
