@@ -9,12 +9,4 @@ $(document).ready(function() {
         }
     });
 
-    // Formspree AJAX
-    $.ajax({
-        url: "https://formspree.io/toma@tomanistor.com",
-        method: "POST",
-        data: {message: "Thanks for the message! I'll get back to you shortly."},
-        dataType: "json"
-    });
-
 });

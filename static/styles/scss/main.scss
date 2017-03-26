@@ -25,7 +25,7 @@
 // 	@include baseline-grid;
 // }
 
-@import url("https://fonts.googleapis.com/css?family=Proxima+Nova|Open+Sans+Condensed+Bold|PT+Mono");
+@import url("https://fonts.googleapis.com/css?family=Proxima+Nova|Lora");
 @import "flexboxgrid";
 
 // Colors
@@ -35,8 +35,8 @@ $color_black_haze_approx: #f7f7f7;
 $color_masala_approx: #403c3b;
 
 // Fonts
-$font-header: "Proxima Nova", "sans-serif";
-$font-body: "Open Sans Condensed Bold", "sans-serif";
+$font-header: "Lora", "sans-serif";
+$font-body: "Proxima Nova", "sans-serif";
 $font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
 
 // Modular font scale
@@ -112,7 +112,7 @@ html {
 
 body {
     @include size(p);
-	font-family: $font-header, $font-body;
+	font-family: $font-body;
 	line-height: $base-line-height;
 	color: $color_night_rider_approx;
     // padding-top: calc(100vh - 4em);
@@ -237,32 +237,18 @@ ul li {
 	}
 }
 
-h1 {
-    @include size(h1);
-	font-family: $font-header;
-	margin-top: $vertical-rhythm;
-	a {
-		text-decoration: none;
-	}
+h1, h2, h3 {
+    font-family: $font-header;
+    margin-top: $vertical-rhythm;
+    letter-spacing: 2px;
+    a {
+        text-decoration: none;
+    }
 }
 
-h2 {
-    @include size(h2);
-	font-family: $font-header;
-	margin-top: $vertical-rhythm;
-	a {
-		text-decoration: none;
-	}
-}
-
-h3 {
-    @include size(h3);
-	font-family: $font-header;
-	margin-top: $vertical-rhythm;
-	a {
-		text-decoration: none;
-	}
-}
+h1 { @include size(h1); }
+h2 { @include size(h2); }
+h3 { @include size(h3); }
 
 strong {
 	font-weight: 600;
@@ -319,19 +305,9 @@ nav {
     box-shadow: 0 2px 3px rgba(0, 0, 0, .4 );
     h3 {
         margin: 0;
-    }
-    ul {
-        height: inherit;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-grow: 2;
-        margin: 0;
-    }
-    ul li, li:before {
-        display: inline;
-        content: "";
-        margin: 0;
+        font-family: $font-body;
+        text-transform: uppercase;
+        letter-spacing: 2px;
     }
 }
 
@@ -462,13 +438,16 @@ nav {
     width: 100%;
     opacity: 0;
     transition: .2s ease;
-    background-color: #0783AB;
+    background-color: #000;
 }
 
 .contact {
     width: 100%;
     background-color: #f5f5f5;
     padding-bottom: $vertical-rhythm * 2;
+    form {
+        margin-top: $vertical-rhythm;
+    }
 }
 
 input {

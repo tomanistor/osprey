@@ -28,11 +28,14 @@
         <header>
             <h1>{{ .Site.Params.sitename }}</h1>
         </header>
-        <nav>
-            <ul>
+        <nav class="row middle-xs center-xs">
+            <!-- <ul>
                 {{ range .Site.Menus.main }}
                 <li><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></li>
                 {{ end }}
-            </ul>
+            </ul> -->
+            {{ range .Site.Menus.main }}
+            <div class="col-xs-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
+            {{ end }}
         </nav>
         <section class="page">
