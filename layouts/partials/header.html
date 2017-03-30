@@ -6,7 +6,7 @@
         <meta name="HandheldFriendly" content="True">
         <meta name="MobileOptimized" content="320">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="referrer" content="no-referrer">
+        <meta name="referrer" content="no-referrer-when-downgrade">
         <base href="{{ .Site.BaseURL }}">
         {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
         <title>
@@ -27,7 +27,7 @@
     <body>
         <header>
             <div class="row middle-xs center-xs">
-                <div class="col-xs-12"><a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></a></div>
+                <div class="col-xs-3"><a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></a></div>
             </div>
             <div class="row middle-xs center-xs">
                 <div class="col-xs-12"><h1>{{ .Site.Params.sitename }}<span class="cursor">|</span></h1></div>

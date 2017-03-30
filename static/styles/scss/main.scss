@@ -25,7 +25,7 @@
 // 	@include baseline-grid;
 // }
 
-@import url("https://fonts.googleapis.com/css?family=Proxima+Nova|Lora");
+@import url("https://fonts.googleapis.com/css?family=Rubik|Bitter");
 @import "flexboxgrid";
 
 // Colors
@@ -36,8 +36,8 @@ $smoke: #F7F7F7;
 $accent: #DA784D;
 
 // Fonts
-$font-header: "Lora", "sans-serif";
-$font-body: "Proxima Nova", "sans-serif";
+$font-header: "Bitter", "Roboto Slab", "serif";
+$font-body: "Rubik", "Poppins", "sans-serif";
 $font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
 
 // Modular font scale
@@ -394,7 +394,7 @@ nav {
         background-image: linear-gradient($accent,$accent);
         background-size: 1px 2px;
         background-repeat: repeat-x;
-        background-position: 0 90%;
+        background-position: 0 95%;
         text-decoration: none;
         transition: color .2s ease-in-out;
         &:hover {
