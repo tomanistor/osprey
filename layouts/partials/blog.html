@@ -9,7 +9,7 @@
                 {{ if eq .Type "post" }}
                     <article>
                         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-                        <div id=sub-header>
+                        <div class=sub-header>
                           {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
                         </div>
                     </article>

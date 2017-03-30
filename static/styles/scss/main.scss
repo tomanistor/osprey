@@ -358,7 +358,7 @@ nav {
 
 .sub-header, time {
     @include size(p);
-	color: $accent;
+	color: $storm;
     margin-bottom: $vertical-rhythm;
 }
 
@@ -456,14 +456,13 @@ nav {
     height: 100%;
     width: 100%;
     opacity: 0;
-    transition: .3s ease;
+    transition: .2s ease;
     background-color: $black;
-    font-size: $vertical-rhythm;
-    h1, a{
+    h2, h3, a{
         color: #FFF;
         font-family: $font-body;
     }
-    a:hover {
+    h3:hover, a:hover {
         color: $accent;
     }
 }
@@ -506,4 +505,15 @@ textarea {
     @extend input;
     min-height: $vertical-rhythm * 4;
     overflow: auto;
+}
+
+footer {
+    height: $vertical-rhythm * 6;
+    background-color: $black;
+    a {
+        color: #FFF;
+    }
+    a:hover {
+        color: $accent;
+    }
 }
