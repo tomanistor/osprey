@@ -26,16 +26,19 @@
 
     <body>
         <header>
-            <h1>{{ .Site.Params.sitename }}</h1>
+            <div class="row middle-xs center-xs">
+                <div class="col-xs-12"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></div>
+            </div>
+            <div class="row middle-xs center-xs">
+                <div class="col-xs-12"><h1>{{ .Site.Params.sitename }}<span class="cursor">|</span></h1></div>
+            </div>
         </header>
         <nav class="row middle-xs center-xs">
-            <!-- <ul>
-                {{ range .Site.Menus.main }}
-                <li><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></li>
-                {{ end }}
-            </ul> -->
+            <div class="col-xs-1" style="display: none">
+                <a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-85px.png"></a>
+            </div>
             {{ range .Site.Menus.main }}
-            <div class="col-xs-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
+            <div class="col-xs-2"><h3><a href="{{ .URL }}">{{ .Pre }} {{ .Name }}</a></h3></div>
             {{ end }}
         </nav>
         <section class="page">

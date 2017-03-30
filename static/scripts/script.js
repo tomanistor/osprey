@@ -4,8 +4,11 @@ $(document).ready(function() {
     $(window).scroll(function() {
         if( $(this).scrollTop() > $(this).height() - $("nav").height() ) {
             $("nav").addClass("nav-fixed");
+            $("nav > div").first().fadeIn();
+
         } else {
             $("nav").removeClass("nav-fixed");
+            $("nav > div").first().fadeOut();
         }
     });
 
