@@ -290,7 +290,7 @@ blockquote {
 header {
     height: 100vh;
     background-color: #FFF;
-    padding-top: $vertical-rhythm * 5;
+    // padding-top: $vertical-rhythm * 5;
     img {
         max-height: $vertical-rhythm * 6;
     }
@@ -335,7 +335,7 @@ nav {
         font-weight: 600;
     }
     img {
-        max-height: 2em;
+        max-width: 2em;
     }
 }
 
@@ -407,7 +407,7 @@ nav {
 	margin: 10px 0;
 }
 
-#links {
+.links {
 	margin: 50px 0 0;
 	:nth-child(2) {
 		float: right;
