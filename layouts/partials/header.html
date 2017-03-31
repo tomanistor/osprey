@@ -28,19 +28,31 @@
         <header class="row middle-xs center-xs">
             <div class="col-xs-12">
                 <div class="row middle-xs center-xs">
-                    <div class="col-xs-3"><a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></a></div>
+                    <div class="col-xs-12"><a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></a></div>
                 </div>
                 <div class="row middle-xs center-xs">
                     <div class="col-xs-12"><h1>{{ .Site.Params.sitename }}<span class="cursor">|</span></h1></div>
                 </div>
             </div>
         </header>
-        <nav class="row middle-xs center-xs">
-            <div class="col-xs-1" style="display: none">
+        <nav class="row middle-xs center-sm">
+            <div class="col-xs-6 col-sm-1" style="display: none;">
                 <a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-85px.png"></a>
             </div>
             {{ range .Site.Menus.main }}
             <div class="col-xs-3 col-md-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
             {{ end }}
+            <div class="col-xs-6 hidden" style="display: none;">
+                <a href="javascript:void(0);" class="nav-icon">&#9776;</a>
+            </div>
         </nav>
+        <section class="nav-full row middle-xs center-xs">
+            <div class="col-xs-12">
+                <div class="row middle-xs center-xs">
+                    {{ range .Site.Menus.main }}
+                    <div class="col-xs-12"><h1><a href="{{ .URL }}">{{ .Name }}</a></h1></div>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
         <section class="page">
