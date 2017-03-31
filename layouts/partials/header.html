@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="chrome=1">
-        <meta name="HandheldFriendly" content="True">
-        <meta name="MobileOptimized" content="320">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="referrer" content="no-referrer-when-downgrade">
-        <base href="{{ .Site.BaseURL }}">
-        {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
         <title>
             {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
             {{- if eq $url "" -}}
@@ -17,27 +9,49 @@
             {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{- .Title }} | {{ .Site.Title -}} {{ end }}
             {{- end -}}
         </title>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <base href="{{ .Site.BaseURL }}">
+        {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+        {{ if .Site.Params.author }}<meta name="author" content="{{ .Site.Params.author }}">{{ end }}
+        {{ if .Site.Params.twitter }}
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
+        <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
+        {{ end }}
+        <meta property="og:title" content="{{ .Site.Title }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ .Site.BaseURL }}">
+        {{ if .Site.Params.opengraphImage}}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.opengraphImage}}">{{ end }}
+        {{ if .Site.Params.description }}<meta property="og:description" content="{{ .Site.Params.description}}">{{ end }}
+
         <link rel="canonical" href="{{ .Permalink }}">
         {{ if .RSSLink }}
         <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
         {{ end }}
         <link rel="stylesheet" href="styles/main.css" type="text/css">
+        {{ if .Site.GoogleAnalytics }} {{ template "_internal/google_analytics.html" . }} {{ end }}
     </head>
 
     <body>
         <header class="row middle-xs center-xs">
             <div class="col-xs-12">
                 <div class="row middle-xs center-xs">
-                    <div class="col-xs-12"><img src="/images/logo/Toma-Nistor-Logo-450px.png"></div>
+                    <div class="col-xs-12"><img src="{{ .Site.Params.logoBig}}"></div>
                 </div>
                 <div class="row middle-xs center-xs">
-                    <div class="col-xs-12"><h1>{{ .Site.Params.sitename }}<span class="cursor">|</span></h1></div>
+                    <div class="col-xs-12"><h1>{{ .Site.Title }}<span class="cursor">|</span></h1></div>
                 </div>
             </div>
         </header>
         <nav class="row middle-xs center-sm">
             <div class="col-xs-6 col-sm-1 logo">
-                <a href="{{ .Site.BaseURL }}"><img src="/images/logo/Toma-Nistor-Logo-85px.png"></a>
+                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall}}"></a>
             </div>
             {{ range .Site.Menus.main }}
             <div class="col-xs-3 col-md-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
