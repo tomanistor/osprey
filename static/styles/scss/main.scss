@@ -86,7 +86,7 @@ $breakpoint-small: 25em; // 400px
         padding: $vertical-rhythm;
 	}
     nav {
-        div:not(:first-child) {
+        div:not(:first-child):not(:last-child) {
             display: none;
         }
         div:last-child {
@@ -96,7 +96,7 @@ $breakpoint-small: 25em; // 400px
 }
 @media(max-width: 25em) {
 	body .container {
-        padding: 500 $vertical-rhythm;
+        padding: 0 $vertical-rhythm;
 	}
 }
 
@@ -344,6 +344,9 @@ nav {
     }
     img {
         max-width: 2em;
+    }
+    .nav-toggle {
+        display: none;
     }
 }
 .nav-fixed {

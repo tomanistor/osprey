@@ -5,14 +5,12 @@ $(document).ready(function() {
     $(window).scroll(function() {
         if( $(this).scrollTop() > $(this).height() - $("nav").height() ) {
             $("nav").addClass("nav-fixed");
-            $("nav > div").first().fadeIn();
-            $("nav > div").last().fadeIn();
-            // $("nav > div").last().removeClass("hidden");
+            $("nav > div.logo").find("a").fadeIn();
+            $("nav > div.nav-toggle").find("a").fadeIn();
         } else {
             $("nav").removeClass("nav-fixed");
-            $("nav > div").first().fadeOut();
-            $("nav > div").last().fadeOut();
-            // $("nav > div").last().addClass("hidden");
+            $("nav > div.logo").find("a").fadeOut();
+            $("nav > div.nav-toggle").find("a").fadeOut();
         }
     });
 
