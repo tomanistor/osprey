@@ -89,7 +89,7 @@ $breakpoint-small: 25em; // 400px
         div:not(:first-child):not(:last-child) {
             display: none;
         }
-        div:last-child {
+        div.nav-toggle a {
             display: block;
         }
     }
@@ -345,7 +345,10 @@ nav {
     img {
         max-width: 2em;
     }
-    .nav-toggle {
+    .nav-toggle a {
+        display: none;
+    }
+    div.logo {
         display: none;
     }
 }
