@@ -1,15 +1,12 @@
         </section>
-        <!-- jQuery CDN -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
         <script src="/scripts/script.js" type="text/javascript"></script>
-        <script src="/scripts/contact-form.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     </body>
     <footer class="row middle-xs center-xs">
-        <!-- <div class=""> -->
-            {{ if .Site.Params.github }}<div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>{{ end }}
-            {{ if .Site.Params.linkedin }}<div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>{{ end }}
-            {{ if .Site.Params.twitter }}<div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>{{ end }}
-        <!-- </div> -->
+        {{ if .Site.Params.github }}<div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>{{ end }}
+        {{ if .Site.Params.linkedin }}<div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>{{ end }}
+        {{ if .Site.Params.twitter }}<div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>{{ end }}
     </footer>
 </html>

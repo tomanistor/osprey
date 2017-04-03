@@ -14,8 +14,16 @@ $(document).ready(function() {
         }
     });
 
+    // Offcanvas nav activation
     $(".nav-icon").click(function(){
         $(".nav-full").toggleClass("active");
         $(".page").toggleClass("active");
+        $(this).find("img").toggle();
     });
+
+    // Highlight.js initialization
+    $('pre code').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
+
 });

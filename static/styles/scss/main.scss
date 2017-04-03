@@ -1,30 +1,3 @@
-// $body-width: 700px;
-// $baseline: 16px;
-// @mixin baseline-grid {
-// 	$columns: 16;
-// 	$column-color: rgba(200,0,0,.2);
-// 	$baseline-color: rgba(56,255,255,.8);
-//
-// 	// These are all automatically calculated
-// 	$gutter-width: 20px;  // Change if you like
-// 	$gutters: ($columns - 1);
-// 	$column-width: $body-width / $columns;
-//
-// 	background-image: -webkit-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
-// 							-webkit-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
-// 	background-image: -moz-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
-// 							-moz-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
-// 	background-image: -o-linear-gradient(0deg, $column-color $column-width, transparent $gutter-width),
-// 							-o-linear-gradient(top, rgba(0,0,0,0) 95%, $baseline-color 100%);
-// 	background-size: ($column-width + $gutter-width) 100%, 100% $baseline;
-// 	background-position: 10px 0px; // Use to offset and center your grid
-// }
-//
-// // Example call
-// body {
-// 	@include baseline-grid;
-// }
-
 @import url("https://fonts.googleapis.com/css?family=Rubik|Bitter");
 @import "flexboxgrid";
 
@@ -121,14 +94,56 @@ body {
 	line-height: $base-line-height;
 	color: $black;
 }
-.page {
-    background-color: #fff;
-    position: relative;
-    transform: translate(0px, 0px);
-    transition: 0.15s ease;
+header {
+    height: 100vh;
+    background-color: #FFF;
+    img {
+        max-height: $vertical-rhythm * 6;
+    }
+    h1 {
+        font-family: $font-body;
+    }
+    .cursor {
+        animation: 1s blink step-end infinite;
+    }
 }
-.page.active {
-    transform: translate(-100vw, 0px);
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: $black;
+  }
+}
+nav {
+    height: $vertical-rhythm * 2;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    bottom: 0;
+    z-index: 100;
+    text-align: center;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .4 );
+    h3 {
+        margin: 0;
+        font-family: $font-body;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 600;
+    }
+    img {
+        max-width: 2em;
+    }
+    .nav-toggle a {
+        display: none;
+    }
+    div.logo {
+        display: none;
+    }
+}
+.nav-fixed {
+    position: fixed;
+    top: 0;
 }
 .nav-full {
     position: fixed;
@@ -150,24 +165,26 @@ body {
 .nav-full.active {
     transform: translate(-100vw, 0px);
 }
-
+.page {
+    background-color: #fff;
+    position: relative;
+    transform: translate(0px, 0px);
+    transition: 0.15s ease;
+}
+.page.active {
+    transform: translate(-100vw, 0px);
+}
 .container {
     max-width: 43.750rem; // 700px
     padding: $vertical-rhythm * 2 0 $vertical-rhythm * 2;
     margin: auto;
 }
-
-.hidden {
-    display: none;
-}
-
 p {
 	margin-bottom: $vertical-rhythm;
 	code {
 		font-family: $font-code;
 	}
 }
-
 h1, h2, h3 {
     font-family: $font-header;
     margin-top: $vertical-rhythm;
@@ -176,11 +193,9 @@ h1, h2, h3 {
         text-decoration: none;
     }
 }
-
 h1 { @include size(h1); }
 h2 { @include size(h2); }
 h3 { @include size(h3); }
-
 strong {
 	font-weight: 600;
 }
@@ -199,20 +214,17 @@ q {
 		content: "\201D";
 	}
 }
-
 a {
     text-decoration: none;
 	img {
 		border: none;
 	}
 }
-
 img {
 	margin: 0 auto;
 	max-width: 100%;
 	display: block;
 }
-
 pre {
 	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
 	background-color: $smoke;
@@ -248,21 +260,18 @@ pre {
 		content: normal;
 	}
 }
-
 code {
     font-family: $font-code;
 	font-size: 12px;
     background-color: $smoke;
 	padding: 4px;
 }
-
 .sans {
 	font-family: "Open Sans", "Myriad Pro", "Myriad", "sans-serif";
 }
 .mono, tt {
 	font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
 }
-
 ul, ol {
     margin-bottom: $vertical-rhythm;
     li {
@@ -272,14 +281,12 @@ ul, ol {
         }
     }
 }
-
 ul li {
 	list-style-type: none;
 	&:before {
 		content: "\00BB \0020";
 	}
 }
-
 %blockquote {
 	font-family: $font-header;
 	content: '\201C';
@@ -301,60 +308,6 @@ blockquote {
 		@extend %blockquote;
 		content: '\201D';
 	}
-}
-
-header {
-    height: 100vh;
-    background-color: #FFF;
-    img {
-        max-height: $vertical-rhythm * 6;
-    }
-    h1 {
-        font-family: $font-body;
-    }
-    .cursor {
-        animation: 1s blink step-end infinite;
-    }
-}
-
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: $black;
-  }
-}
-
-nav {
-    height: $vertical-rhythm * 2;
-    width: 100%;
-    background-color: #fff;
-    position: absolute;
-    bottom: 0;
-    z-index: 100;
-    text-align: center;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, .4 );
-    h3 {
-        margin: 0;
-        font-family: $font-body;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 600;
-    }
-    img {
-        max-width: 2em;
-    }
-    .nav-toggle a {
-        display: none;
-    }
-    div.logo {
-        display: none;
-    }
-}
-.nav-fixed {
-    position: fixed;
-    top: 0;
 }
 
 .posts_listing {
