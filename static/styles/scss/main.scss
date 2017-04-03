@@ -87,6 +87,7 @@ $breakpoint-small: 25em; // 400px
 }
 html {
     box-sizing: inherit;
+    overflow-x:hidden;  
 }
 body {
     @include size(p);
@@ -118,7 +119,7 @@ header {
 nav {
     height: $vertical-rhythm * 2;
     width: 100%;
-    background-color: #fff;
+    background-color: #FFF;
     position: absolute;
     bottom: 0;
     z-index: 100;
@@ -132,7 +133,7 @@ nav {
         font-weight: 600;
     }
     img {
-        max-width: 2em;
+        max-width: 2.5em;
     }
     .nav-toggle a {
         display: none;

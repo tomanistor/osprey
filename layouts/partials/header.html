@@ -71,9 +71,9 @@
                 </div>
             </div>
         </header>
-        <nav class="row middle-xs center-sm">
-            <div class="col-xs-6 col-sm-1 logo">
-                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall}}" alt="{{ .Site.Title }}"></a>
+        <nav class="row middle-xs center-xs">
+            <div class="col-xs-6 col-sm-1 logo" style="display: none;">
+                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
             </div>
             {{ range .Site.Menus.main }}
             <div class="col-xs-3 col-md-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
