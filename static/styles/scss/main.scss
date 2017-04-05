@@ -87,7 +87,7 @@ $breakpoint-small: 25em; // 400px
 }
 html {
     box-sizing: inherit;
-    overflow-x:hidden;  
+    overflow-x:hidden;
 }
 body {
     @include size(p);
@@ -131,6 +131,9 @@ nav {
         text-transform: uppercase;
         letter-spacing: 2px;
         font-weight: 600;
+    }
+    a > .active {
+        color: $accent;
     }
     img {
         max-width: 2.5em;
