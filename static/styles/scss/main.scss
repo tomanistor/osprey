@@ -233,7 +233,7 @@ pre {
 	font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
 	background-color: $smoke;
 	margin-top: 0;
-    margin-bottom: $vertical-rhythm;
+  margin-bottom: $vertical-rhythm;
 	word-wrap: normal;
 	padding: 16px;
 	overflow: auto;
@@ -251,7 +251,6 @@ pre {
 	}
 	code {
 		display: inline;
-		max-width: auto;
 		padding: 0;
 		margin: 0;
 		overflow: visible;
@@ -265,9 +264,9 @@ pre {
 	}
 }
 code {
-    font-family: $font-code;
-	font-size: 12px;
-    background-color: $smoke;
+  font-family: $font-code;
+  font-size: 90%;
+  background-color: $smoke;
 	padding: 4px;
 }
 .sans {
