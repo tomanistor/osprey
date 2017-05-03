@@ -58,7 +58,7 @@ $breakpoint-small: 25em; // 400px
 
 @media(max-width: 48em) {
 	body .container {
-        padding: $vertical-rhythm;
+        padding: $vertical-rhythm * 2 $vertical-rhythm;
 	}
     nav {
         // Hide menu links between logo and hamburger menu
@@ -72,7 +72,7 @@ $breakpoint-small: 25em; // 400px
 }
 @media(max-width: 25em) {
 	body .container {
-        padding: 0 $vertical-rhythm;
+        padding: $vertical-rhythm * 2 $vertical-rhythm;
 	}
 }
 
