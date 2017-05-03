@@ -24,14 +24,14 @@ $(document).ready(function() {
         // });
     });
 
-    // Full screen nav activation
+    // Full screen nav open on click
     $(".nav-icon").click(function(){
         $(".nav-full").toggleClass("active");
         $(".page").toggleClass("active");
         $(this).find("img").toggle();
     });
 
-    // Close full screen nav on link click
+    // Full screen nav close on click
     $(".nav-full").find("a").click(function(){
         $(".nav-full").toggleClass("active");
         $(".page").toggleClass("active");

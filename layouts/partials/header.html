@@ -73,6 +73,7 @@
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T94X59P"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
+        {{ if .IsHome }}
         <header class="row middle-xs center-xs">
             <div class="col-xs-12">
                 <div class="row middle-xs center-xs">
@@ -83,6 +84,7 @@
                 </div>
             </div>
         </header>
+        {{ end }}
         <nav class="row middle-xs center-xs">
             <div class="col-xs-6 col-sm-1 logo" style="display: none;">
                 <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>

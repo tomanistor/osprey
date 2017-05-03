@@ -1,7 +1,11 @@
         </section>
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="/scripts/script.js" type="text/javascript"></script>
+        {{ if .IsHome }}
+        <script src="/scripts/index.js" type="text/javascript"></script>
+        {{ else }}
+        <script src="/scripts/main.js" type="text/javascript"></script>
+        {{ end }}
         <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
     </body>
     <footer class="row middle-xs center-xs">
