@@ -6,14 +6,14 @@ $(document).ready(function() {
         var scrollPosition = $(this).scrollTop();
         if( scrollPosition > $(this).height() - $("nav").height() ) {
             $("nav").addClass("nav-fixed");
-            $("nav > div.logo").fadeIn();
-            $("nav > div.nav-toggle").fadeIn();
+            $("nav > div.logo").css('visibility','visible').fadeIn();
+            $("nav > div.nav-toggle").css('visibility','visible').fadeIn();
         } else {
             $("nav").removeClass("nav-fixed");
-            $("nav > div.logo").fadeOut();
-            $("nav > div.nav-toggle").fadeOut();
+            $("nav > div.logo").css('visibility','hidden').fadeOut();
+            $("nav > div.nav-toggle").css('visibility','hidden').fadeOut();
         }
-        // // Active nav link changes on scroll
+        // // TODO Active nav link changes on scroll
         // $(".section").each(function() {
         //     var target = $(this).offset().top;
         //     var id = $(this).attr("id");
@@ -38,8 +38,7 @@ $(document).ready(function() {
         $(".nav-icon").find("img").toggle();
     });
 
-    // Highlight active nav link
-
+    // TODO Highlight active nav link
 
     // Highlight.js initialization
     $('pre code').each(function(i, block) {

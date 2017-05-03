@@ -61,6 +61,7 @@ $breakpoint-small: 25em; // 400px
         padding: $vertical-rhythm;
 	}
     nav {
+        // Hide menu links between logo and hamburger menu
         div:not(:first-child):not(:last-child) {
             display: none;
         }
@@ -140,10 +141,10 @@ nav {
     img {
         max-width: 2.5em;
     }
-    .nav-toggle a {
-        display: none;
+    div.logo, div.nav-toggle {
+        visibility: hidden;
     }
-    div.logo {
+    .nav-toggle a {
         display: none;
     }
 }

@@ -2,8 +2,8 @@ $(document).ready(function() {
 
     // Nav is fixed to top
     $("nav").addClass("nav-fixed");
-    $("nav > div.logo").fadeIn();
-    $("nav > div.nav-toggle").fadeIn();
+    $("nav > div.logo").css('visibility','visible').fadeIn();
+    $("nav > div.nav-toggle").css('visibility','visible').fadeIn();
 
     // Full screen nav open on click
     $(".nav-icon").click(function(){
