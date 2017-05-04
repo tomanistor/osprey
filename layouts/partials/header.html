@@ -10,12 +10,14 @@
         <!-- End Google Tag Manager -->
 
         <title>
-            {{- $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" -}}
-            {{- if eq $url "" -}}
-            {{- .Site.Title -}}
-            {{- else -}}
-            {{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{- .Title }} | {{ .Site.Title -}} {{ end }}
-            {{- end -}}
+            {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            {{ if .IsHome }}
+                {{ .Site.Title }}
+            {{ else if .Params.heading }}
+                {{ .Params.heading }}
+            {{ else }}
+                {{ .Title }} | {{ .Site.Title }}
+            {{ end }}
         </title>
 
         <meta charset="utf-8">
@@ -26,18 +28,22 @@
         <meta name="referrer" content="no-referrer-when-downgrade">
         <meta name="generator" content="{{ .Hugo.Generator }}" />
         <base href="{{ .Site.BaseURL }}">
-        {{ if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">{{ end }}
+        {{ if .Description }}<meta name="description" content="{{ .Description }}">
+        {{ else if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">
+        {{ else if .Summary }}<meta name="description" content="{{ .Summary }}">{{ end }}
         {{ if .Site.Params.author }}<meta name="author" content="{{ .Site.Params.author }}">{{ end }}
         {{ if .Site.Params.twitter }}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
         <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
         {{ end }}
-        <meta property="og:title" content="{{ .Site.Title }}">
+        <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
         <meta property="og:type" content="website">
         <meta property="og:url" content="{{ .Site.BaseURL }}">
         {{ if .Site.Params.opengraphImage}}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.opengraphImage}}">{{ end }}
-        {{ if .Site.Params.description }}<meta property="og:description" content="{{ .Site.Params.description}}">{{ end }}
+        {{ if .Description }}<meta name="og:description" content="{{ .Description }}">
+        {{ else if .Site.Params.description }}<meta property="og:description" content="{{ .Site.Params.description}}">
+        {{ else if .Summary }}<meta name="og:description" content="{{ .Summary }}">{{ end }}
 
         {{ if .Site.Params.favicon }}
         <link rel="apple-touch-icon" sizes="57x57" href="/images/logo/apple-icon-57x57.png">
