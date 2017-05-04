@@ -489,7 +489,7 @@ textarea {
 footer {
     height: $vertical-rhythm * 6;
     background-color: $black;
-    a {
+    div, a {
         color: #FFF;
     }
     a:hover {
