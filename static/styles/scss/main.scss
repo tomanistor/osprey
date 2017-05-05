@@ -74,7 +74,11 @@ $breakpoint-small: 25em; // 400px
 	body .container {
         padding: $vertical-rhythm * 2 $vertical-rhythm;
 	}
+    header {
+        height: 120%;
+    }
 }
+
 
 * {
 	box-sizing: border-box;
@@ -101,23 +105,24 @@ body {
 header {
     height: 100vh;
     background-color: #FFF;
-    img {
-        max-height: $vertical-rhythm * 6;
+    ::after {
+        content: '';
+        position: fixed;
+        top: -100px;
+        bottom: -100px;
+        left: 0;
+        right: 0;
+        z-index: 1;
     }
-    h1 {
-        font-family: $font-body;
-    }
-    .cursor {
-        animation: 1s blink step-end infinite;
-    }
+    div { z-index: 101; }
+    img { max-height: $vertical-rhythm * 6; }
+    h1 { font-family: $font-body;}
+    .cursor { animation: 1s blink step-end infinite; }
+    // Fix mobile browser bug not displaying 100vh correctly
 }
 @keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: $black;
-  }
+    from, to { color: transparent; }
+    50% { color: $black; }
 }
 nav {
     height: $vertical-rhythm * 2;
@@ -175,7 +180,6 @@ nav {
 }
 .page {
     background-color: #fff;
-    position: relative;
     transform: translate(0px, 0px);
     transition: 0.15s ease;
 }
@@ -414,14 +418,17 @@ blockquote {
     img {
         padding: $vertical-rhythm * 3;
     }
+    .learn-academy {
+        background-color: #7ac143;
+    }
     .rfg {
         background-color: #263248;
     }
-    .volunteerup {
-        background-color: #EFEFEF;
-    }
     .rhinolinings {
         background-color: #222;
+    }
+    .volunteerup {
+        background-color: #EFEFEF;
     }
 }
 
