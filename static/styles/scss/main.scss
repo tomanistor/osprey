@@ -74,9 +74,6 @@ $breakpoint-small: 25em; // 400px
 	body .container {
         padding: $vertical-rhythm * 2 $vertical-rhythm;
 	}
-    header {
-        height: 120%;
-    }
 }
 
 
@@ -105,20 +102,10 @@ body {
 header {
     height: 100vh;
     background-color: #FFF;
-    ::after {
-        content: '';
-        position: fixed;
-        top: -100px;
-        bottom: -100px;
-        left: 0;
-        right: 0;
-        z-index: 1;
-    }
     div { z-index: 101; }
     img { max-height: $vertical-rhythm * 6; }
     h1 { font-family: $font-body;}
     .cursor { animation: 1s blink step-end infinite; }
-    // Fix mobile browser bug not displaying 100vh correctly
 }
 @keyframes "blink" {
     from, to { color: transparent; }
@@ -455,7 +442,7 @@ blockquote {
 }
 
 .blog {
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .contact {

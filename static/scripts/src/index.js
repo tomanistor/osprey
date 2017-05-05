@@ -46,3 +46,24 @@ $(document).ready(function() {
     });
 
 });
+
+// Mobile browsers viewport height bug fix
+function mobileViewport() {
+    var HEIGHT_CHANGE_TOLERANCE = 100; // Approximately URL bar height in Chrome
+    var element = $(this);
+    var viewportHeight = $(window).height();
+
+    $(window).resize(function () {
+        if (Math.abs(viewportHeight - $(window).height()) > HEIGHT_CHANGE_TOLERANCE) {
+            viewportHeight = $(window).height();
+            update();
+        }
+    });
+
+    function update() {
+        element.css("height", viewportHeight + "px");
+    }
+
+    update();
+}
+$("header").each(mobileViewport);
