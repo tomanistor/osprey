@@ -38,17 +38,23 @@ $(document).ready(function() {
         $(".nav-icon").find("img").toggle();
     });
 
-    // TODO Highlight active nav link
-
     // Highlight.js initialization
     $('pre code').each(function(i, block) {
         hljs.highlightBlock(block);
     });
 
+    // Formspree AJAX contact form
+    $.ajax({
+        url: "https://formspree.io/toma@tomanistor.com",
+        method: "POST",
+        data: {message: "Thanks for your email! I'll get back to you soon."},
+        dataType: "application/json"
+    });
+
 });
 
 // Mobile browsers viewport height bug fix
-function mobileViewport() {
+function fullMobileViewport() {
     var HEIGHT_CHANGE_TOLERANCE = 100; // Approximately URL bar height in Chrome
     var element = $(this);
     var viewportHeight = $(window).height();
@@ -66,4 +72,4 @@ function mobileViewport() {
 
     update();
 }
-$("header").each(mobileViewport);
+$("header").each(fullMobileViewport);
