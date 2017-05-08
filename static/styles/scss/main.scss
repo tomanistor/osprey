@@ -280,10 +280,7 @@ ul, ol {
     }
 }
 ul li {
-	list-style-type: none;
-	&:before {
-		content: "\00BB \0020";
-	}
+	list-style-type: disc;
 }
 %blockquote {
 	font-family: $font-header;
@@ -307,7 +304,6 @@ blockquote {
 		content: '\201D';
 	}
 }
-
 .posts_listing {
     margin: 0 0 $vertical-rhythm;
     a {
@@ -324,13 +320,11 @@ blockquote {
         }
     }
 }
-
 .sub-header, time {
     @include size(p);
 	color: $storm;
     margin-bottom: $vertical-rhythm;
 }
-
 .content {
 	text-align: left;
 	width: 100%;
@@ -371,18 +365,15 @@ blockquote {
         }
     }
 }
-
 .highlight {
 	margin: 10px 0;
 }
-
 .links {
 	margin: 50px 0 0;
 	:nth-child(2) {
 		float: right;
 	}
 }
-
 #not-found {
 	text-align: center;
 	a {
@@ -393,7 +384,6 @@ blockquote {
 		padding-top: 225px;
 	}
 }
-
 .gallery {
     div[class^="col-"], div[class*=" col-"] {
         padding: 0;
@@ -418,7 +408,6 @@ blockquote {
         background-color: #EFEFEF;
     }
 }
-
 .overlay {
     position: absolute;
     top: 0;
@@ -440,11 +429,9 @@ blockquote {
         color: $accent;
     }
 }
-
 .blog {
     min-height: 100vh;
 }
-
 .contact {
     width: 100%;
     background-color: $smoke;
@@ -453,7 +440,6 @@ blockquote {
         margin-top: $vertical-rhythm;
     }
 }
-
 input {
     background-color: #FFF;
     border-color: $smoke;
@@ -473,13 +459,11 @@ input {
         color: #FFF;
     }
 }
-
 textarea {
     @extend input;
     min-height: $vertical-rhythm * 4;
     overflow: auto;
 }
-
 footer {
     height: $vertical-rhythm * 6;
     background-color: $black;
