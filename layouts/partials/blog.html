@@ -1,10 +1,10 @@
-<section class="section blog" id="blog">
+<section class="blog" id="blog">
     <div class="container">
         <div class="row center-xs">
             <section class="col-xs-12"><h1>Latest Posts</h1></section>
         </div>
         <div class="row">
-            <ul class="posts_list">
+            <div class="col-xs-12 posts-list">
                 {{ range first 10 .Data.Pages }}
                 {{ if eq .Type "blog" }}
                     <article>
@@ -15,7 +15,7 @@
                     </article>
                 {{ end }}
                 {{ end }}
-            </ul>
+            </div>
         </div>
     </div>
 </section>

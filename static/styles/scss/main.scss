@@ -304,19 +304,11 @@ blockquote {
 		content: '\201D';
 	}
 }
-.posts_listing {
+.posts-list {
     margin: 0 0 $vertical-rhythm;
-    a {
-        text-decoration: none;
-    }
-    li {
-        margin: 0 0 25px 15px;
-        &:before {
-            content: "";
-            margin-right: 0;
-        }
+    h2 {
         a:hover {
-            text-decoration: underline;
+            color: $accent;
         }
     }
 }
@@ -457,6 +449,7 @@ input {
     &[type="submit"]:hover {
         background-color: $accent;
         color: #FFF;
+        cursor: pointer;
     }
 }
 textarea {

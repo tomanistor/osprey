@@ -43,14 +43,6 @@ $(document).ready(function() {
         hljs.highlightBlock(block);
     });
 
-    // Formspree AJAX contact form
-    $.ajax({
-        url: "https://formspree.io/toma@tomanistor.com",
-        method: "POST",
-        data: {message: "Thanks for your email! I'll get back to you soon."},
-        dataType: "application/json"
-    });
-
 });
 
 // Mobile browsers viewport height bug fix

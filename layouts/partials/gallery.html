@@ -1,5 +1,24 @@
-<section class="section gallery" id="work">
+<section class="gallery" id="work">
     <div class="row">
+
+        <!-- TODO -->
+        <!-- {{ range first 10 .Data.Pages }}
+        {{ if eq .Type "gallery" }}
+        <div class="col-xs-12 col-md-6 col-lg-3">
+            <img src="/images/{{ .Params.image}}" alt="{{ .Params.alt }}">
+            <div class="row middle-xs center-xs overlay">
+                <div class="col-xs-12">
+                    <h2>{{ .Title }}</h2>
+                    <div class="row middle-xs center-xs">
+                        <div class="col-xs-3 col-md-4"><a href="{{ .Params.link1 }}"><h3>View</h3></a></div>
+                        <div class="col-xs-3 col-md-4"><a href="{{ .Params.link2 }}"><h3>Code</h3></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ end }}
+        {{ end }} -->
+
         <div class="col-xs-12 col-md-6 col-lg-3 volunteerup">
             <img src="/images/volunteerup.png" alt="VolunteerUP - Ruby on Rails app for non-profit organizations and volunteers">
             <div class="row middle-xs center-xs overlay">
