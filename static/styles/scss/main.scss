@@ -165,12 +165,12 @@ nav {
 .nav-full.active {
     transform: translate(-100vw, 0px);
 }
-.page {
+main {
     background-color: #fff;
     transform: translate(0px, 0px);
     transition: 0.15s ease;
 }
-.page.active {
+main.active {
     transform: translate(-100vw, 0px);
 }
 .container {

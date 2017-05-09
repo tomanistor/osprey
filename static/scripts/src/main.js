@@ -8,14 +8,14 @@ $(document).ready(function() {
     // Full screen nav open on click
     $(".nav-icon").click(function(){
         $(".nav-full").toggleClass("active");
-        $(".page").toggleClass("active");
+        $("main").toggleClass("active");
         $(this).find("img").toggle();
     });
 
     // Full screen nav close on link click
     $(".nav-full").find("a").click(function(){
         $(".nav-full").toggleClass("active");
-        $(".page").toggleClass("active");
+        $("main").toggleClass("active");
         $(".nav-icon").find("img").toggle();
     });
 
