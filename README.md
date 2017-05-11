@@ -1,3 +1,7 @@
 # Outrun
 
-Eye-catching portfolio accompanied by a clean and simple blog.
+Simple, clean, and fast one page portfolio accompanied by a blog.
+
+# Installation
+
+Currently being written... :D
