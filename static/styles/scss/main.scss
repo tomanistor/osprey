@@ -358,23 +358,18 @@ blockquote {
     }
 }
 .highlight {
-	margin: 10px 0;
+	 margin: 10px 0;
 }
 .links {
-	margin: 50px 0 0;
-	:nth-child(2) {
-		float: right;
-	}
+  	margin: 50px 0 0;
+  	:nth-child(2) {
+  		  float: right;
+  	}
 }
-#not-found {
-	text-align: center;
-	a {
-		font-family: $font-header;
-		font-size: 200px;
-		text-decoration: none;
-		display: inline-block;
-		padding-top: 225px;
-	}
+.full {
+    height: 100vh;
+    top: 0;
+    bottom: 0;
 }
 .gallery {
     div[class^="col-"], div[class*=" col-"] {
@@ -386,18 +381,6 @@ blockquote {
     }
     img {
         padding: $vertical-rhythm * 3;
-    }
-    .learn-academy {
-        background-color: #7ac143;
-    }
-    .rfg {
-        background-color: #263248;
-    }
-    .rhinolinings {
-        background-color: #222;
-    }
-    .volunteerup {
-        background-color: #EFEFEF;
     }
 }
 .overlay {
@@ -421,7 +404,7 @@ blockquote {
         color: $accent;
     }
 }
-.blog {
+.blog, {
     min-height: 100vh;
 }
 .contact {
