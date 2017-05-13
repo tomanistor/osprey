@@ -104,7 +104,7 @@ header {
     background-color: #FFF;
     div { z-index: 101; }
     img { max-height: $vertical-rhythm * 6; }
-    h1 { font-family: $font-body;}
+    h1 { font-family: $font-body; }
     .cursor { animation: 1s blink step-end infinite; }
 }
 @keyframes "blink" {
@@ -404,7 +404,7 @@ blockquote {
         color: $accent;
     }
 }
-.blog, {
+.blog {
     min-height: 100vh;
 }
 .contact {
