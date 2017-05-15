@@ -62,6 +62,7 @@ googleAnalytics = ""
 ```
 
 ## Using Outrun
+The two main content types are blog posts and gallery images.
 
 ### Blog Posts
 To create a new blog post, run:
