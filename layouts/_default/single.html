@@ -1,0 +1,26 @@
+{{ partial "header.html" . }}
+
+<section class="container">
+    <section class="content">
+      <h1>{{ if .Params.heading }} {{ .Params.heading }} {{ else }} {{ .Title }} {{ end }}</h1>
+
+      <div class="sub-header">
+        {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
+      </div>
+
+      <div class="entry-content">
+        {{ .Content }}
+      </div>
+
+      <div class="links">
+        {{ if .PrevInSection }}
+          &laquo; <a class="basic-alignment left" href="{{.PrevInSection.Permalink}}">{{.PrevInSection.Title}}</a>
+        {{ end }}
+        {{ if .NextInSection }}
+          <a class="basic-alignment left" href="{{.NextInSection.Permalink}}">{{.NextInSection.Title}}</a> &raquo;
+        {{ end }}
+      </div>
+    </section>
+</section>
+
+{{ partial "footer.html" . }}

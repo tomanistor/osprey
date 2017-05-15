@@ -1,0 +1,32 @@
+        </main>
+        <footer class="row middle-xs center-xs">
+            {{ if .Site.Params.github }}
+            <div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
+            {{ end }}
+            {{ if .Site.Params.linkedin }}
+            <div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
+            {{ end }}
+            {{ if .Site.Params.twitter }}
+            <div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
+            {{ end }}
+            {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
+            <div class="col-xs-12">
+                {{ if .Site.Params.copyright }}
+                Copyright &copy; {{ .Now.Format "2006" }} {{ .Site.Title }}.
+                {{ end }}
+                {{ if .Site.Params.credit }}
+                Theme developed by <a href="https://tomanistor.com">Toma Nistor</a>.
+                {{ end }}
+            </div>
+            {{ end }}
+            <!-- Scripts -->
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            {{ if .IsHome }}
+            <script src="/scripts/index.js" type="text/javascript"></script>
+            {{ else }}
+            <script src="/scripts/main.js" type="text/javascript"></script>
+            {{ end }}
+            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
+        </footer>
+    </body>
+</html>

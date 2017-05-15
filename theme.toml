@@ -1,0 +1,12 @@
+name = "Outrun"
+license = "GNU3.0"
+licenselink = "https://github.com/tomanistor/outrun/blob/master/LICENSE"
+description = "Clean, responsive portfolio accompanied by a minimalist blog."
+homepage = "https://github.com/tomanistor/outrun"
+tags = ["blog", "portfolio", "gallery", "minimalist", "responsive", "flexbox"]
+features = ["blog", "portfolio", "google analytics"]
+min_version = 0.19
+
+[author]
+    name = "Toma Nistor"
+    homepage = "https://tomanistor.com"

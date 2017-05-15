@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+    <head>
+        {{ if .Site.Params.googleTagManager }}
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer','{{ .Site.Params.googleTagManager }}');</script>
+        <!-- End Google Tag Manager -->
+        {{ end }}
+
+        <title>
+            {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+            {{ if .IsHome }}
+                {{ .Site.Title }}
+            {{ else if .Params.heading }}
+                {{ .Params.heading }}
+            {{ else }}
+                {{ .Title }} | {{ .Site.Title }}
+            {{ end }}
+        </title>
+
+        <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end}}">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="referrer" content="no-referrer-when-downgrade">
+        <meta name="generator" content="{{ .Hugo.Generator }}">
+        <base href="{{ .Site.BaseURL }}">
+        {{ if .Description }}<meta name="description" content="{{ .Description }}">
+        {{ else if .Site.Params.description }}<meta name="description" content="{{ .Site.Params.description }}">
+        {{ else if .Summary }}<meta name="description" content="{{ .Summary }}">{{ end }}
+        {{ if .Site.Params.author }}<meta name="author" content="{{ .Site.Params.author }}">{{ end }}
+        {{ if .Site.Params.twitter }}
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
+        <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
+        {{ end }}
+        <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+        <meta property="og:type" content="website">
+        <meta property="og:url" content="{{ .Site.BaseURL }}">
+        {{ if .Site.Params.opengraphImage}}<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.opengraphImage}}">{{ end }}
+        {{ if .Description }}<meta name="og:description" content="{{ .Description }}">
+        {{ else if .Site.Params.description }}<meta property="og:description" content="{{ .Site.Params.description}}">
+        {{ else if .Summary }}<meta name="og:description" content="{{ .Summary }}">{{ end }}
+
+        {{ if .Site.Params.favicon }}
+        <link rel="apple-touch-icon" sizes="57x57" href="/images/logo/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="/images/logo/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/images/logo/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="/images/logo/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/images/logo/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="/images/logo/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="/images/logo/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="/images/logo/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/logo/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/logo/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/images/logo/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="/images/logo/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/favicon-16x16.png">
+        <link rel="manifest" href="images/logo/manifest.json">
+        <meta name="msapplication-TileColor" content="#FFF">
+        <meta name="msapplication-TileImage" content="/images/logo/ms-icon-144x144.png">
+        <meta name="theme-color" content="#FFF">
+        {{ end }}
+
+        <link rel="canonical" href="{{ .Permalink }}">
+        {{ if .RSSLink }}<link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">{{ end }}
+        <link rel="stylesheet" href="styles/main.css" type="text/css">
+        {{ if .Site.Params.highlightJS }}<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/styles/github.min.css">{{ end }}
+        {{ if .Site.GoogleAnalytics }}{{ template "_internal/google_analytics.html" . }}{{ end }}
+    </head>
+
+    <body>
+        {{ if .Site.Params.googleTagManager }}
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManager }}"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        {{ end }}
+
+        {{ if .IsHome }}
+        <header class="row middle-xs center-xs">
+            <div class="col-xs-12">
+                <div class="row middle-xs center-xs">
+                    <div class="col-xs-12"><img src="{{ .Site.Params.logoBig}}" alt="{{ .Site.Title }}"></div>
+                </div>
+                <div class="row middle-xs center-xs">
+                    <div class="col-xs-12"><h1>{{ .Site.Title }}<span class="cursor">|</span></h1></div>
+                </div>
+            </div>
+        </header>
+        {{ end }}
+
+        <nav class="row middle-xs center-xs">
+            <div class="col-xs-6 col-sm-1 logo">
+                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
+            </div>
+            {{ range .Site.Menus.main }}
+            <div class="col-xs-3 col-md-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
+            {{ end }}
+            <div class="col-xs-6 col-sm-1 nav-toggle">
+                <a href="" class="nav-icon" onclick="return false"><img src="/images/icon-menu.png" alt="Open Menu"><img src="/images/icon-x.png" alt="Close Menu" style="display: none;"></a>
+            </div>
+        </nav>
+        <section class="nav-full row middle-xs center-xs">
+            <div class="col-xs-12">
+                <div class="row middle-xs center-xs">
+                    {{ range .Site.Menus.main }}
+                    <div class="col-xs-12"><h1><a href="{{ .URL }}">{{ .Name }}</a></h1></div>
+                    {{ end }}
+                </div>
+            </div>
+        </section>
+        <main>
