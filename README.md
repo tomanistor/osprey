@@ -1,5 +1,7 @@
-# Outrun
-Outrun is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
+![Logo](static/images/osprey.png)
+
+# Osprey
+Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
 
 ## Features
 * Minimalist, clean, and uncluttered theme
@@ -15,11 +17,11 @@ Outrun is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 In the root of your Hugo site directory run:
 
 ```console
-$ git submodule add https://github.com/tomanistor/outrun.git themes/outrun
+$ git submodule add https://github.com/tomanistor/osprey.git themes/osprey
 ```
 
 ## Configuration
-Outrun comes with many configuration options to aid in site customization. This is an example config.toml file:
+Osprey comes with several configuration options to aid in site customization. This is an example config.toml file:
 
 ```toml
 title = "Toma Nistor"
@@ -27,7 +29,7 @@ baseURL = "https://tomanistor.com"
 tags = ["portfolio", "web design", "web developer", "ruby on rails", "javascript", "San Diego"]
 languageCode = "en-US"
 config = "config.toml"
-theme = "outrun"
+theme = "osprey"
 canonifyurls = true
 googleAnalytics = ""
 
@@ -61,7 +63,7 @@ googleAnalytics = ""
     weight = 3
 ```
 
-## Using Outrun
+## Using Osprey
 The two main content types are blog posts and gallery images.
 
 ### Blog Posts
@@ -92,4 +94,4 @@ link2 = "https://github.com/tomanistor"
 ```
 
 ## License
-This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/outrun/LICENSE.md).
+This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/LICENSE).
