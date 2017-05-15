@@ -14,7 +14,9 @@ Outrun is a simple, clean, and fast one page portfolio accompanied by a blog.
 ## Installation
 In the root of your Hugo site directory run:
 
+```console
 $ git submodule add https://github.com/tomanistor/outrun.git themes/outrun
+```
 
 ## Configuration
 Outrun comes with many configuration options to aid in site customization. This is an example config.toml file:
@@ -31,11 +33,11 @@ googleAnalytics = ""
 
 [Params]
     author = "Toma Nistor"
-    description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA. I enjoy using multiple tools to engineer and build powerful websites and apps."
-    logoBig = "/images/logo/Toma-Nistor-Logo-450px.png"
-    logoSmall = "/images/logo/Toma-Nistor-Logo-150px.png"
+    description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
+    logoBig = "/images/logo/Toma-Nistor-logo-big.png"
+    logoSmall = "/images/logo/Toma-Nistor-logo-small.png"
     favicon = "favicon.ico"
-    opengraphImage = "/images/logo/Toma-Nistor-Logo-Banner-Dark.png"
+    opengraphImage = "/images/logo/Toma-Nistor-banner.png"
     twitter = "TomaNistor"
     linkedin = "tomanistor"
     github = "tomanistor"
@@ -57,6 +59,35 @@ googleAnalytics = ""
     name = "Contact"
     url  = "/#contact"
     weight = 3
+```
+
+## Using outrun
+
+### Blog Posts
+To create a new blog post, run:
+
+```console
+$ hugo new blog/post-title.md
+```
+### Gallery Images
+To add a new image to your portfolio, run:
+
+```console
+$ hugo new gallery/image-title.md
+```
+
+The gallery archetype comes with its own configuration. Here is an example:
+
+```md
++++
+date = "2017-05-10T21:35:17-07:00"
+title = "Image Title"
+image = "image-file.png"
+alt = "This is a description of the image"
+color = "#7ac143"
+link1 = "https://tomanistor.com"
+link2 = "https://github.com/tomanistor"
++++
 ```
 
 ## License
