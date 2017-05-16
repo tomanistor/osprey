@@ -1,4 +1,4 @@
-![Logo](static/images/osprey.png)
+![Logo](static/images/osprey-logo.png)
 
 # Osprey
 Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
@@ -6,11 +6,14 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 ## Features
 * Minimalist, clean, and uncluttered theme
 * Portfolio display gallery
-* Contact form by [Formspree](https://formspree.com)
+* [Formspree](https://formspree.io) contact form
 * Responsive Flexbox Grid
-* Styling done in SCSS
+* [SASS](http://sass-lang.com/) styling
 * Minimized/compressed CSS and JavaScript files
-* SEO-friendly
+* Syntax highlighting with [Highlight.js](https://highlightjs.org/)
+* SEO-friendly construction
+* [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
+* [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
 * Quick loading speeds
 
 ## Installation
@@ -24,26 +27,26 @@ $ git submodule add https://github.com/tomanistor/osprey.git themes/osprey
 Osprey comes with several configuration options to aid in site customization. This is an example config.toml file:
 
 ```toml
-title = "Toma Nistor"
+title = "Osprey Example Site"
 baseURL = "https://tomanistor.com"
-tags = ["portfolio", "web design", "web developer", "ruby on rails", "javascript", "San Diego"]
+tags = ["portfolio", "web design", "blog"]
 languageCode = "en-US"
 config = "config.toml"
 theme = "osprey"
-canonifyurls = true
+canonifyURLS = true
 googleAnalytics = ""
 
 [Params]
     author = "Toma Nistor"
     description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-    logoBig = "/images/logo/Toma-Nistor-logo-big.png"
-    logoSmall = "/images/logo/Toma-Nistor-logo-small.png"
+    logoBig = "/images/osprey-logo.png"
+    logoSmall = "/images/osprey-logo.png"
     favicon = "favicon.ico"
-    opengraphImage = "/images/logo/Toma-Nistor-banner.png"
+    opengraphImage = "/images/osprey.png"
     twitter = "TomaNistor"
     linkedin = "tomanistor"
     github = "tomanistor"
-    email = "toma@tomanistor.com"
+    email = ""
     googleTagManger = ""
     highlightJS = true
     copyright = true
@@ -94,4 +97,4 @@ link2 = "https://github.com/tomanistor"
 ```
 
 ## License
-This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/LICENSE).
+This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE.md).
