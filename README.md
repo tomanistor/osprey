@@ -1,4 +1,4 @@
-![Logo](static/images/osprey-logo.png)
+![Logo](https://github.com/tomanistor/osprey/static/images/osprey-logo.png)
 
 # Osprey
 Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
@@ -17,7 +17,7 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * Quick loading speeds
 
 ## Screenshot
-![Screenshot](images/tn.png)
+![Screenshot](https://github.com/tomanistor/osprey/images/tn.png)
 
 ## Installation
 
@@ -29,7 +29,7 @@ $ cd themes
 $ git clone https://github.com/tomanistor/osprey.git
 ```
 
-### Option 2:
+### Option 2: Create Submodule
 Create a submodule linked directly to the theme's GitHub repository in order to receive updates:
 
 ```console
