@@ -1,4 +1,4 @@
-![Logo](https://github.com/tomanistor/osprey/static/images/osprey-logo.png)
+![Logo](https://github.com/tomanistor/osprey/blob/master/static/images/osprey-logo.png)
 
 # Osprey
 Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
@@ -17,7 +17,7 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * Quick loading speeds
 
 ## Screenshot
-![Screenshot](https://github.com/tomanistor/osprey/images/tn.png)
+![Screenshot](https://github.com/tomanistor/osprey/blob/master/images/tn.png)
 
 ## Installation
 
