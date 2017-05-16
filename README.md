@@ -16,11 +16,37 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
 * Quick loading speeds
 
+## Screenshot
+![Screenshot](images/tn.png)
+
 ## Installation
+
+### Option 1: Clone Repository
 In the root of your Hugo site directory run:
 
 ```console
+$ cd themes
+$ git clone https://github.com/tomanistor/osprey.git
+```
+
+### Option 2:
+Create a submodule linked directly to the theme's GitHub repository in order to receive updates:
+
+```console
 $ git submodule add https://github.com/tomanistor/osprey.git themes/osprey
+```
+
+Then run:
+
+```console
+$ git submodule init
+$ git submodule update
+```
+
+To update theme submodule, run:
+
+```console
+$ git submodule foreach git pull
 ```
 
 ## Configuration
