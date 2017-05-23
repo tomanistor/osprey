@@ -1,4 +1,4 @@
-![Logo](https://github.com/tomanistor/osprey/blob/master/static/images/osprey-logo.png)
+![Logo](https://github.com/tomanistor/osprey/blob/master/images/osprey-logo.png)
 
 # Osprey
 Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
@@ -6,6 +6,7 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 ## Features
 * Minimalist, clean, and uncluttered theme
 * Portfolio display gallery
+* [Disqus](https://disqus.com) comments
 * [Formspree](https://formspree.io) contact form
 * Responsive Flexbox Grid
 * [SASS](http://sass-lang.com/) styling
