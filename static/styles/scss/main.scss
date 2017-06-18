@@ -127,7 +127,7 @@ nav {
         letter-spacing: 2px;
         font-weight: 600;
     }
-    a > .active {
+    a > .active, a:hover {
         color: $accent;
     }
     img {
