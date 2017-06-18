@@ -16,6 +16,7 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
 * [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
 * Quick loading speeds
+* Custom CSS
 
 ## Screenshot
 ![Screenshot](https://github.com/tomanistor/osprey/blob/master/images/tn.png)
@@ -79,6 +80,7 @@ googleAnalytics = ""
     highlightJS = true
     copyright = true
     credit = true
+    customCSS = false
 
 [[menu.main]]
     name = "Work"
@@ -103,6 +105,7 @@ To create a new blog post, run:
 ```console
 $ hugo new blog/post-title.md
 ```
+
 ### Gallery Images
 To add a new image to your portfolio, run:
 
@@ -123,6 +126,20 @@ link1 = "https://tomanistor.com"
 link2 = "https://github.com/tomanistor"
 +++
 ```
+
+### Custom CSS
+To implement custom CSS sitewide, change the config.toml parameter `customCSS` from `false` to `true` and then create a `css.html` file in your `layouts/partials/` folder like the example below:
+
+```html
+<style>
+  <!-- This will remove the shadow on the navbar -->
+  nav {
+    box-shadow: none;
+  }
+</style>
+```
+
+This will render inline CSS in the head of your site and without adding an extra HTTP request.
 
 ## License
 This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE.md).
