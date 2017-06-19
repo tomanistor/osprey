@@ -1,4 +1,4 @@
-title = "Osprey Example Site"
+title = "Toma Nistor"
 baseURL = "https://tomanistor.com"
 tags = ["portfolio", "web design", "blog"]
 languageCode = "en-US"
@@ -8,6 +8,7 @@ canonifyURLS = true
 googleAnalytics = ""
 
 [Params]
+    tagline = "Osprey Example Site"
     author = "Toma Nistor"
     description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
     logoBig = "/images/osprey-logo.png"
