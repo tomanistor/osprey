@@ -63,15 +63,16 @@ config = "config.toml"
 theme = "osprey"
 canonifyURLS = true
 googleAnalytics = ""
+disqusShortname = "tomanistor"
 
 [Params]
+    tagline = "Osprey Example Site"
     author = "Toma Nistor"
     description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
     logoBig = "/images/osprey-logo.png"
     logoSmall = "/images/osprey-logo.png"
     favicon = "favicon.ico"
     opengraphImage = "/images/osprey.png"
-    disqusShortname = "tomanistor"
     twitter = "TomaNistor"
     linkedin = "tomanistor"
     github = "tomanistor"
@@ -81,6 +82,8 @@ googleAnalytics = ""
     copyright = true
     credit = true
     customCSS = false
+    cacheBustCSS = false
+    cacheBustJS = false
 
 [[menu.main]]
     name = "Work"
@@ -140,6 +143,9 @@ To implement custom CSS sitewide, change the config.toml parameter `customCSS` f
 ```
 
 This will render inline CSS in the head of your site and without adding an extra HTTP request.
+
+### Cache Busting
+To implement cache busting of CSS and JS static assets with something like Gulp.js and [gulp-hash](https://www.npmjs.com/package/gulp-hash), change the config.toml parameters `cacheBustCSS` and `cacheBustJS` from `false` to `true` and follow [this setup guide](http://danbahrami.io/articles/building-a-production-website-with-hugo-and-gulp-js/#building-a-gulp-pipeline:c9938300a3bdba2018b469c2485ca2b6).
 
 ## License
 This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE.md).
