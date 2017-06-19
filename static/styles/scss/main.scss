@@ -414,6 +414,10 @@ blockquote {
   form {
     margin-top: $vertical-rhythm;
   }
+  #form-thankyou {
+    margin: 8px 0;
+    padding: 11px;
+  }
 }
 input {
   background-color: #FFF;

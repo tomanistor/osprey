@@ -7,10 +7,10 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * Minimalist, clean, and uncluttered theme
 * Portfolio display gallery
 * [Disqus](https://disqus.com) comments
-* [Formspree](https://formspree.io) contact form
+* [Formspree](https://formspree.io) AJAX contact form
 * Responsive Flexbox Grid
 * [SASS](http://sass-lang.com/) styling
-* Minimized/compressed CSS and JavaScript files
+* Minimized/compressed CSS and JavaScript files with cachebusting hash setup
 * Syntax highlighting with [Highlight.js](https://highlightjs.org/)
 * SEO-friendly construction
 * [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
@@ -84,6 +84,7 @@ disqusShortname = "tomanistor"
     customCSS = false
     cacheBustCSS = false
     cacheBustJS = false
+    ajaxFormspree = true
 
 [[menu.main]]
     name = "Work"

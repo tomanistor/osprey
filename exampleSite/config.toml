@@ -27,6 +27,7 @@ disqusShortname = "tomanistor"
     customCSS = false
     cacheBustCSS = false
     cacheBustJS = false
+    ajaxFormspree = true
 
 [[menu.main]]
     name = "Work"
