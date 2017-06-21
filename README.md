@@ -86,6 +86,9 @@ disqusShortname = "tomanistor"
     cacheBustJS = false
     ajaxFormspree = true
 
+[permalinks]
+    gallery = "/"
+
 [[menu.main]]
     name = "Work"
     url  = "/#work"
