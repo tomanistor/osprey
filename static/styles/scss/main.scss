@@ -127,9 +127,6 @@ nav {
     letter-spacing: 2px;
     font-weight: 600;
   }
-  a > .active, a:hover {
-    color: $accent;
-  }
   img {
     max-width: 2.5em;
   }
@@ -155,11 +152,11 @@ nav {
   background-color: $black;
   transform: translate(0px, 0px);
   transition: 0.15s ease;
-  h1 a {
+  a {
     color: #FFF;
-  }
-  h1:hover, a:hover {
-    color: $accent;
+    &:hover {
+      color: $accent;
+    }
   }
 }
 .nav-full.active {
@@ -218,6 +215,7 @@ a {
   img {
     border: none;
   }
+  &:hover { color: $accent }
 }
 img {
   margin: 0 auto;
@@ -306,11 +304,6 @@ blockquote {
 }
 .posts-list {
   margin: 0 0 $vertical-rhythm;
-  h2 {
-    a:hover {
-      color: $accent;
-    }
-  }
 }
 .sub-header, time {
   @include size(p);
@@ -394,18 +387,22 @@ blockquote {
   opacity: 0;
   transition: .2s ease;
   background-color: $black;
-  h2, h3, a {
+  a {
     color: #FFF;
+    &:hover {
+      color: $accent;
+    }
   }
   h3 {
     font-family: $font-body;
   }
-  h3:hover, a:hover {
-    color: $accent;
-  }
 }
 .blog {
   min-height: 100vh;
+  h3 {
+    margin: 0 0 $vertical-rhythm;
+    font-family: $font-body;
+  }
 }
 .contact {
   width: 100%;
@@ -449,8 +446,5 @@ footer {
   background-color: $black;
   div, a {
     color: #FFF;
-  }
-  a:hover {
-    color: $accent;
   }
 }
