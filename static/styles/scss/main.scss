@@ -11,9 +11,9 @@ $smoke: #F7F7F7;
 $accent: #DA784D;
 
 // Fonts
-$font-header: "Bitter", "Roboto Slab", "serif";
-$font-body: "Rubik", "Poppins", "sans-serif";
-$font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+$font-header: "Bitter", "Roboto Slab", "Cambria", Georgia, serif;
+$font-body: "Rubik", "Poppins", "Hel­vetica", Arial, sans-serif;
+$font-code: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", monospace;
 
 // Modular font scale
 // Large: http://www.modularscale.com/?1.25&em&1.333&web&text
@@ -151,7 +151,7 @@ nav {
   height: 100%;
   background-color: $black;
   transform: translate(0px, 0px);
-  transition: 0.15s ease;
+  transition: 0.25s ease-out;
   a {
     color: #FFF;
     &:hover {
@@ -165,7 +165,7 @@ nav {
 main {
   background-color: #fff;
   transform: translate(0px, 0px);
-  transition: 0.15s ease;
+  transition: 0.25s ease-in;
 }
 main.active {
   transform: translate(-100vw, 0px);
@@ -212,6 +212,7 @@ q {
 }
 a {
   text-decoration: none;
+  transition: color .2s ease-out;
   img {
     border: none;
   }
@@ -223,7 +224,7 @@ img {
   display: block;
 }
 pre {
-  font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
+  font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
   background-color: $smoke;
   margin-top: 0;
   margin-bottom: $vertical-rhythm;
@@ -232,7 +233,7 @@ pre {
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+  font-family: $font-code;
   > code {
     padding: 0;
     margin: 0;
@@ -263,17 +264,17 @@ code {
   padding: 4px;
 }
 .sans {
-  font-family: "Open Sans", "Myriad Pro", "Myriad", "sans-serif";
+  font-family: "Open Sans", "Myriad Pro", "Myriad", sans-serif;
 }
 .mono, tt {
-  font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+  font-family: $font-code;
 }
 ul, ol {
   margin-bottom: $vertical-rhythm;
   li {
     margin-left: 1.25em;
     code {
-      font-family: "Menlo", "Monaco", "Andale Mono", "lucida console", "Courier New", "monospace";
+      font-family: $font-code;
     }
   }
 }
@@ -344,7 +345,6 @@ blockquote {
     background-repeat: repeat-x;
     background-position: 0 95%;
     text-decoration: none;
-    transition: color .2s ease-in-out;
     &:hover {
       color: $accent;
     }
@@ -363,6 +363,47 @@ blockquote {
   height: 100vh;
   top: 0;
   bottom: 0;
+}
+.about {
+  width: 100%;
+  background-color: $smoke;
+  padding-bottom: $vertical-rhythm * 2;
+  p {
+    @include size(h3);
+    margin-top: $vertical-rhythm;
+  }
+  a {
+    text-shadow: 0.03em 0 #fff,
+    -0.03em 0 #fff,
+    0 0.03em #fff,
+    0 -0.03em #fff,
+    0.06em 0 #fff,
+    -0.06em 0 #fff,
+    0.09em 0 #fff,
+    -0.09em 0 #fff,
+    0.12em 0 #fff,
+    -0.12em 0 #fff,
+    0.15em 0 #fff,
+    -0.15em 0 #fff,
+    0.03em 0.075em #fff,
+    -0.03em 0.075em #fff,
+    0.06em 0.075em #fff,
+    -0.06em 0.075em #fff,
+    0.09em 0.075em #fff,
+    -0.09em 0.075em #fff,
+    0.12em 0.075em #fff,
+    -0.12em 0.075em #fff,
+    0.15em 0.075em #fff,
+    -0.15em 0.075em #fff;
+    background-image: linear-gradient($accent,$accent);
+    background-size: 2px 3px;
+    background-repeat: repeat-x;
+    background-position: 0 95%;
+    text-decoration: none;
+    &:hover {
+      color: $accent;
+    }
+  }
 }
 .gallery {
   div[class^="col-"], div[class*=" col-"] {
@@ -385,7 +426,7 @@ blockquote {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .2s ease;
+  transition: .2s ease-out;
   background-color: $black;
   a {
     color: #FFF;
@@ -432,11 +473,12 @@ input {
   &[type="submit"] {
     background-color: $storm;
     color: #FFF;
-  }
-  &[type="submit"]:hover {
-    background-color: $accent;
-    color: #FFF;
-    cursor: pointer;
+    transition: .2s ease-out;
+    &:hover {
+      background-color: $accent;
+      color: #FFF;
+      cursor: pointer;
+    }
   }
 }
 textarea {

@@ -5,7 +5,7 @@ description = "Clean, responsive one-page portfolio accompanied by a minimalist 
 homepage = "https://github.com/tomanistor/osprey"
 tags = ["blog", "portfolio", "gallery", "minimalist", "responsive", "flexbox"]
 features = ["blog", "portfolio", "google analytics"]
-min_version = 0.19
+min_version = 0.24.1
 
 [author]
     name = "Toma Nistor"

@@ -5,7 +5,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 posts-list">
-                {{ range first 5 (where .Data.Pages "Type" "blog") }}
+                {{ range first 5 (where .Data.Pages "Section" "blog") }}
                     <article>
                         <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
                         <div class=sub-header>

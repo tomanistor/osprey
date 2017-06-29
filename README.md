@@ -64,6 +64,7 @@ theme = "osprey"
 canonifyURLS = true
 googleAnalytics = ""
 disqusShortname = "tomanistor"
+disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
     tagline = "Osprey Example Site"
@@ -87,24 +88,35 @@ disqusShortname = "tomanistor"
     ajaxFormspree = true
 
 [permalinks]
-    gallery = "/"
+    gallery = "/" # Redirect gallery index to home page
 
+[[menu.main]]
+    name = "About"
+    url  = "/#about"
+    weight = 1
 [[menu.main]]
     name = "Work"
     url  = "/#work"
-    weight = 1
+    weight = 2
 [[menu.main]]
     name = "Blog"
     url  = "/#blog"
-    weight = 2
+    weight = 3
 [[menu.main]]
     name = "Contact"
     url  = "/#contact"
-    weight = 3
+    weight = 4
 ```
 
 ## Using Osprey
 The two main content types are blog posts and gallery images.
+
+### About Section
+To create an about section that renders on the home page, run:
+
+```console
+$ hugo new about.md
+```
 
 ### Blog Posts
 To create a new blog post, run:
@@ -150,6 +162,9 @@ This will render inline CSS in the head of your site and without adding an extra
 
 ### Cache Busting
 To implement cache busting of CSS and JS static assets with something like Gulp.js and [gulp-hash](https://www.npmjs.com/package/gulp-hash), change the config.toml parameters `cacheBustCSS` and `cacheBustJS` from `false` to `true` and follow [this setup guide](http://danbahrami.io/articles/building-a-production-website-with-hugo-and-gulp-js/#building-a-gulp-pipeline:c9938300a3bdba2018b469c2485ca2b6).
+
+## Contributions
+If you'd like to help with the development of this theme, I encourage you to submit a pull request or create an issue if you find a bug. All help is appreciated.
 
 ## License
 This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE.md).

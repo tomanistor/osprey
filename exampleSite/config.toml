@@ -7,6 +7,7 @@ theme = "osprey"
 canonifyURLS = true
 googleAnalytics = ""
 disqusShortname = "tomanistor"
+disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
     tagline = "Osprey Example Site"
@@ -29,15 +30,22 @@ disqusShortname = "tomanistor"
     cacheBustJS = false
     ajaxFormspree = true
 
+[permalinks]
+    gallery = "/" # Redirect gallery index to home page
+
+[[menu.main]]
+    name = "About"
+    url  = "/#about"
+    weight = 1
 [[menu.main]]
     name = "Work"
     url  = "/#work"
-    weight = 1
+    weight = 2
 [[menu.main]]
     name = "Blog"
     url  = "/#blog"
-    weight = 2
+    weight = 3
 [[menu.main]]
     name = "Contact"
     url  = "/#contact"
-    weight = 3
+    weight = 4
