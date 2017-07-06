@@ -1,3 +1,5 @@
+# Check original documentation for the parent theme below, this will be removed/edited soon
+
 ![Logo](https://github.com/tomanistor/osprey/blob/master/images/osprey-logo.png)
 
 # Osprey
