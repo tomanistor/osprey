@@ -12,12 +12,12 @@
                 {{ .Content }}
             </div>
 
-            <div class="links">
+            <div class="pagination">
                 {{ if .PrevInSection }}
-                    <a class="basic-alignment left" href="{{ .PrevInSection.Permalink }}">&laquo; {{ .PrevInSection.Title }}</a>
+                    <a href="{{ .PrevInSection.Permalink }}">&laquo; {{ .PrevInSection.Title }}</a>
                 {{ end }}
                 {{ if .NextInSection }}
-                    <a class="basic-alignment left" href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} &raquo;</a>
+                    <a href="{{ .NextInSection.Permalink }}">{{ .NextInSection.Title }} &raquo;</a>
                 {{ end }}
             </div>
         </section>
