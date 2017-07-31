@@ -41,14 +41,7 @@ $ git submodule add https://github.com/tomanistor/osprey.git themes/osprey
 Then run:
 
 ```console
-$ git submodule init
-$ git submodule update
-```
-
-To update theme submodule, run:
-
-```console
-$ git submodule foreach git pull
+$ git submodule update --init --recursive --remote
 ```
 
 ## Configuration
