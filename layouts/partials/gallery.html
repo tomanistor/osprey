@@ -2,12 +2,55 @@
     <div class="row">
 
         {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
+        {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
 
-        <!-- For odd number of gallery items where gallery is at least 3 items, first items display together on first row -->
-        {{ if gt $galleryTotal 3 }}
-            {{ if modBool $galleryTotal 1 }}
-                {{ range first 3 (where .Site.RegularPages.Reverse "Section" "gallery") }}
+        <!-- Where gallery is an odd total -->
+        {{ if not (modBool $galleryTotal 2) }}
+            <!-- Where gallery is only one item, display it fully -->
+            {{ if eq $galleryTotal 1 }}
+                {{ range first 3 $galleryReverse }}
+                    <div class="col-xs-12" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+                        <img src="/images/{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                        <div class="row middle-xs center-xs overlay">
+                            <div class="col-xs-12">
+                                <h2>{{ .Title }}</h2>
+                                <div class="row middle-xs center-xs">
+                                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
+                                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+            <!-- Where gallery is greater than 2 items, first 3 items display together on first row -->
+            {{ if gt $galleryTotal 2 }}
+                {{ range first 3 $galleryReverse }}
                     <div class="col-xs-12 col-md-4" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+                        <img src="/images/{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                        <div class="row middle-xs center-xs overlay">
+                            <div class="col-xs-12">
+                                <h2>{{ .Title }}</h2>
+                                <div class="row middle-xs center-xs">
+                                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
+                                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ end }}
+            <!-- Where gallery is greater than 3 items, all items after the first 3 display evenly in grid colums and rows -->
+            {{ if gt $galleryTotal 3 }}
+                {{ range after 3 $galleryReverse }}
+                    <!-- Where gallery items are divisible by 3, they will appear in columns of 3 -->
+                    {{ $col := (mod $galleryTotal 3) }}
+                    <div class="col-xs-12 col-md-6
+                    {{ if gt $galleryTotal 5 }}
+                        {{ if eq $col 0 }} col-lg-4
+                        {{ else }} col-lg-3
+                        {{ end }}
+                    {{ end }}" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
                         <img src="/images/{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
                         <div class="row middle-xs center-xs overlay">
                             <div class="col-xs-12">
@@ -23,26 +66,30 @@
             {{ end }}
         {{ end }}
 
-        <!-- For even number of gallery items, all items display evenly in grid colums and rows -->
-        {{ range after 3 (where .Site.RegularPages.Reverse "Section" "gallery") }}
-            <div class="col-xs-12
-            {{ if gt $galleryTotal 1 }}col-md-6
-                {{ if gt $galleryTotal 2 }}
-                    {{ if modBool $galleryTotal 1 }}col-lg-3{{ end }}
-                    {{ if modBool $galleryTotal 2 }}col-lg-4{{ end }}
-                {{ end }}
-            {{ end }}" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                <img src="/images/{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-                <div class="row middle-xs center-xs overlay">
-                    <div class="col-xs-12">
-                        <h2>{{ .Title }}</h2>
-                        <div class="row middle-xs center-xs">
-                            {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
-                            {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
+        <!-- Where gallery is an even total, all items display evenly in grid columns and rows -->
+        {{ if modBool $galleryTotal 2 }}
+            {{ range $galleryReverse }}
+                <!-- Where gallery items are great than 7 and are divisible by 4, they will appear in colums of 4, else in colums of 2 or 3 -->
+                <div class="col-xs-12
+                {{ if gt $galleryTotal 1 }} col-md-6
+                    {{ if gt $galleryTotal 7 }}
+                        {{ if modBool $galleryTotal 4 }} col-lg-3
+                        {{ else }} col-lg-4
+                        {{ end }}
+                    {{ end }}
+                {{ end }}" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+                    <img src="/images/{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                    <div class="row middle-xs center-xs overlay">
+                        <div class="col-xs-12">
+                            <h2>{{ .Title }}</h2>
+                            <div class="row middle-xs center-xs">
+                                {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
+                                {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            {{ end }}
         {{ end }}
 
     </div>
