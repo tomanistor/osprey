@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Rubik|Bitter");
 @import "flexboxgrid";
 
-// TODO: Cleanup.
+// TODO: Cleanup
 
 // Colors
 // https://coolors.co/1e1e1e-4e6b6c-f7f7f7-ffffff-da784d
@@ -66,13 +66,18 @@ $breakpoint-small: 25em; // 400px
       display: none;
     }
     div.nav-toggle a {
-      display: block;
+      display: inline-block;
     }
   }
 }
 @media(max-width: 25em) {
   body .container {
     padding: $vertical-rhythm * 2 $vertical-rhythm;
+  }
+  nav {
+    div.logo, div.nav-toggle {
+      max-width: 50% !important;
+    }
   }
 }
 
@@ -128,10 +133,14 @@ nav {
     font-weight: 600;
   }
   img {
-    max-width: 2.5em;
+    display: inline-block;
+    max-width: 10em;
+    max-height: 2.5em;
+    vertical-align: middle;
   }
   div.logo, div.nav-toggle {
     visibility: hidden;
+    max-width: none;
   }
   .nav-toggle a {
     display: none;

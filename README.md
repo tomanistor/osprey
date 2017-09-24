@@ -136,6 +136,9 @@ link2 = "https://github.com/tomanistor"
 +++
 ```
 
+### Contact Form
+The email address specified in the config.toml file will be one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
+
 ### Custom CSS
 To implement custom CSS sitewide, change the config.toml parameter `customCSS` from `false` to `true` and then create a `css.html` file in your `layouts/partials/` folder like the example below:
 

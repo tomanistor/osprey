@@ -8,9 +8,9 @@
                 {{ .Date.Format (.Site.Params.dateform | default "January 2006") }} · {{ .ReadingTime }} minute read
             </div>
 
-            <div class="entry-content">
+            <article class="entry-content">
                 {{ .Content }}
-            </div>
+            </article>
 
             <div class="pagination">
                 {{ if .PrevInSection }}
