@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
     <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         {{ if .Site.Params.googleTagManager }}
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -51,6 +52,7 @@
 
         {{ if .Site.Params.favicon }}
         <link rel="icon" type="image/png" sizes="16x16" href="/images/logo/favicon.ico">
+	
         <meta name="theme-color" content="#FFF">
         {{ end }}
 
@@ -74,10 +76,36 @@
         <header class="row middle-xs center-xs">
             <div class="col-xs-12">
                 <div class="row middle-xs center-xs">
-                    <div class="col-xs-12"><img src="{{ .Site.Params.logoBig}}" alt="{{ .Site.Title }}"></div>
+                    <div class="col-xs-12">
+                      <img src="{{ .Site.Params.logoBig}}" alt="{{ .Site.Title }}" style ="border-radius: {{  .Site.Params.borderadius }} ;" >
+                    </div>
                 </div>
                 <div class="row middle-xs center-xs">
                     <div class="col-xs-12"><h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1></div>
+		                {{ if .Site.Params.github }}
+                    <div class="col-sm-1"><a href="https://github.com/{{ .Site.Params.github }}">
+                      <i class="fa fa-github" style="color:black; font-size: 1.50em;"></i></a></div>
+                    {{ end }}
+                    {{ if .Site.Params.linkedin }}
+                    <div class="col-sm-1"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">
+                      <i class="fa fa-linkedin" style="color:black; font-size: 1.50em;"></i>
+                    </a></a></div>
+                    {{ end }} 
+                    {{ if .Site.Params.stackoverflow }}
+                    <div class="col-sm-1"><a href="https://stackoverflow.com/users/{{ .Site.Params.stackoverflow }}">
+                      <i class="fa fa-stack-overflow" style="color:black; font-size: 1.50em;"></i>
+                    </a></a></div>
+                    {{ end }}
+                    {{ if .Site.Params.instagram }}
+                    <div class="col-sm-1"><a href="https://www.instagram.com/{{ .Site.Params.instagram }}">
+                      <i class="fa fa-instagram" style="color:black; font-size: 1.50em;"></i>
+                    </a></a></div>
+                    {{ end }}
+                    {{ if .Site.Params.facebook }}
+                    <div class="col-sm-1"><a href="https://www.facebook.com/{{ .Site.Params.facebook }}">
+                      <i class="fa fa-facebook" style="color:black; font-size: 1.50em;"></i>
+                    </a></a></div>
+                    {{ end }}
                 </div>
             </div>
         </header>
@@ -85,7 +113,7 @@
 
         <nav class="row middle-xs center-xs">
             <div class="col-xs-6 col-sm-1 logo">
-                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
+                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" style ='border-radius: {{  .Site.Params.borderadius }} ;' alt="{{ .Site.Title }}"></a>
             </div>
             {{ range .Site.Menus.main }}
             <div class="col-xs-3 col-sm-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
