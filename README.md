@@ -65,13 +65,12 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
     description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
     logoBig = "/images/osprey-logo.png"
     logoSmall = "/images/osprey-logo.png"
+    borderadius = "50%"
     favicon = "favicon.ico"
     opengraphImage = "/images/osprey.png"
     twitter = "TomaNistor"
-    linkedin = "tomanistor"
-    github = "tomanistor"
     email = ""
-    googleTagManager = ""
+    googleTagManger = ""
     highlightJS = true
     copyright = true
     credit = true
@@ -79,6 +78,11 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
     cacheBustCSS = false
     cacheBustJS = false
     ajaxFormspree = true
+    github = "andryas"
+    linkedin = "andryas"
+    stack-overflow = "12345"
+    instagram = "andryaas"
+    facebook = "andryasWK"
 
 [[menu.main]]
     name = "About"
@@ -133,6 +137,8 @@ alt = "This is a description of the image"
 color = "#7ac143"
 link1 = "https://tomanistor.com"
 link2 = "https://github.com/tomanistor"
+width = "500px" # img
+height = "500px" # img
 +++
 ```
 
