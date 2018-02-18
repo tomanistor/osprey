@@ -1,10 +1,18 @@
-{{ partial "header.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{ partial "header.html" . }}
+  <body>
+    {{ partial "body-top" . }}
+    <main>
 
-    <div class="row full center-xs middle-xs">
+      <div class="row full center-xs middle-xs">
         <div class="col-xs-12">
             <h1>404!</h1>
             <p>WHAT DID YOU DO?!</p>
         </div>
-    </div>
+      </div>
 
-{{ partial "footer.html" . }}
+    </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

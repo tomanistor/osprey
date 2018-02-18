@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  color: $black;
+  font: inherit;
+  vertical-align: baseline;
+  box-sizing: border-box;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  box-sizing: inherit;
+  overflow-x: hidden;
+}
+
+body {
+  @include size(p);
+  color: $black;
+  font-family: $font-body;
+  line-height: $base-line-height;
+}
+
+header {
+  height: 100vh;
+  background-color: $white;
+
+  div { z-index: 101; }
+  img { max-height: $vertical-rhythm * 6; }
+  h1 { font-family: $font-body; }
+  .cursor { animation: 1s blink step-end infinite; }
+}
