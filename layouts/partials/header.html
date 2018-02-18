@@ -74,7 +74,7 @@
         <header class="row middle-xs center-xs">
             <div class="col-xs-12">
                 <div class="row middle-xs center-xs">
-                    <div class="col-xs-12"><img src="{{ .Site.Params.logoBig}}" alt="{{ .Site.Title }}"></div>
+                    <div class="col-xs-12"><img src="{{ .Site.Params.logoBig }}" alt="{{ .Site.Title }}"></div>
                 </div>
                 <div class="row middle-xs center-xs">
                     <div class="col-xs-12"><h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1></div>
@@ -85,7 +85,7 @@
 
         <nav class="row middle-xs center-xs">
             <div class="col-xs-6 col-sm-1 logo">
-                <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
+                <a href="{{ .Site.BaseURL }}/#"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
             </div>
             {{ range .Site.Menus.main }}
             <div class="col-xs-3 col-sm-2"><h3><a href="{{ .URL }}">{{ .Name }}</a></h3></div>
