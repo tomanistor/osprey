@@ -2,7 +2,7 @@
 <section class="contact" id="contact">
   <div class="container">
 
-    <div class="row center-xs">
+    <div class="row">
       <div class="col-xs-12">
         <h1>Let's Chat</h1>
       </div>
@@ -16,8 +16,10 @@
         <div class="col-xs-12"><textarea name="message" placeholder="Message" required></textarea></div>
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" name="_next" value="/">
-        <div class="col-xs-6" id="form-submit"><input type="submit" value="Send"></div>
-        <div class="col-xs-12" id="form-thankyou" style="display:none;">Thanks for your email!</div>
+        <div class="col-xs-12 contact-submit">
+          <input id="form-submit" type="submit" value="Send">
+          <span id="form-thankyou" style="visibility:hidden">Thanks for your email!</span>
+        </div>
       </div>
     </form>
 

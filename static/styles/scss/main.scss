@@ -34,6 +34,7 @@
   from, to { color: transparent; }
   50% { color: $black; }
 }
+
 nav {
   height: $vertical-rhythm * 2;
   width: 100%;
@@ -262,18 +263,34 @@ h1, h2, h3 {
     font-family: $font-body;
   }
 }
+
 .contact {
   width: 100%;
   background-color: $smoke;
   padding-bottom: $vertical-rhythm * 2;
+
   form {
     margin-top: $vertical-rhythm;
   }
+
+  .contact-submit {
+    position: relative;
+  }
+
+  #form-submit {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }
+
   #form-thankyou {
-    margin: 8px 0;
-    padding: 11px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
+
 input {
   background-color: #FFF;
   border-color: $smoke;

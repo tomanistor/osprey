@@ -20,33 +20,44 @@ $('#form-contact').addEventListener('submit', function(e) {
   // Send to Formspree
   request.open('POST', 'https://formspree.io/{{ .Site.Params.email }}', true);
   request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  // Call function when the state changes
+  request.onreadystatechange = function() {
+    if (request.readyState == 4 && request.status == 200) {
+
+      // Reset form
+      $('#form-contact').reset();
+
+      var submit = $('#form-submit');
+      var thanks = $('#form-thankyou');
+
+      function thankYouFadeIn() {
+        // Fade out submit button
+        submit.style.visibility = 'hidden';
+        submit.classList.add('hide');
+        submit.classList.remove('show');
+
+        // Fade in thank you message
+        thanks.style.visibility = 'visible';
+        thanks.classList.add('show');
+        thanks.classList.remove('hide');
+        setTimeout(thankYouFadeOut, 6000);
+      };
+
+      function thankYouFadeOut() {
+        // Fade out thank you message
+        thanks.style.visibility = 'hidden';
+        thanks.classList.add('hide');
+        thanks.classList.remove('show');
+
+        // Fade in submit button
+        submit.style.visibility = 'visible';
+        submit.classList.add('show');
+        submit.classList.remove('hide');
+      };
+
+      thankYouFadeIn();
+    }
+  }
+
   request.send(JSON.stringify(data));
-
-
-  // $.ajax({
-  //   url:"https://formspree.io/{{ .Site.Params.email }}",
-  //   method:"POST",
-  //   data:{
-  //     name:name,
-  //     _replyto:email,
-  //     email:email,
-  //     _subject:subject,
-  //     message:message,
-  //   },
-  //   dataType:"json",
-  //   success:function() {
-  //     console.log("Form successfully sent");
-  //     // Reset form
-  //     $("#form-contact").get(0).reset();
-  //     // Fade out submit button, fade in thank you message, then fade out message and fade in submit button
-  //     $("#form-submit").fadeOut(function(){
-  //       $("#form-thankyou").fadeIn(function(){
-  //         $("#form-thankyou").delay(4000).fadeOut(function(){
-  //           $("#form-submit").fadeIn();
-  //         });
-  //       });
-  //     });
-  //   }
-  // });
-
 });
