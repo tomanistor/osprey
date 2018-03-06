@@ -1,0 +1,157 @@
+// Font styles
+strong {
+  font-weight: 600;
+}
+
+del,
+s {
+  text-decoration: line-through;
+}
+
+em,
+dfn {
+  font-style: italic;
+}
+
+a {
+  transition: color .2s ease-out;
+  text-decoration: none;
+
+  img {
+    border: 0;
+  }
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+
+// Code
+pre {
+  margin-top: 0;
+  margin-bottom: $vertical-rhythm;
+  padding: 16px;
+  background-color: $smoke;
+  font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+  font-family: $font-code;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  word-wrap: normal;
+
+  > code {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 100%;
+    white-space: pre;
+    word-break: normal;
+  }
+
+  code {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    line-height: inherit;
+    overflow: visible;
+    word-wrap: normal;
+
+    &::before,
+    &::after {
+      content: normal;
+    }
+  }
+}
+
+code {
+  padding: 4px;
+  background-color: $smoke;
+  font-family: $font-code;
+  font-size: 90%;
+}
+
+.sans {
+  font-family: "Open Sans", "Myriad Pro", "Myriad", sans-serif;
+}
+
+.mono,
+tt {
+  font-family: $font-code;
+}
+
+
+// Quotes
+q {
+  @extend em;
+
+  &::before {
+    content: "\201C";
+  }
+
+  &::after {
+    content: "\201D";
+  }
+}
+
+%blockquote {
+  color: $accent;
+  font-family: $font-header;
+  font-size: 35px;
+  content: '\201C';
+}
+
+blockquote {
+  padding: 25px;
+  font-family: $font-header;
+  text-align: center;
+
+  p {
+    display: inline-block;
+    font-style: italic;
+  }
+
+  &::before {
+    @extend %blockquote;
+  }
+
+  &::after {
+    @extend %blockquote;
+    content: '\201D';
+  }
+}
+
+
+// Images
+img {
+  display: block;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+
+// Lists
+ul,
+ol {
+  margin-bottom: $vertical-rhythm;
+
+  li {
+    margin-left: 1.25em;
+
+    code {
+      font-family: $font-code;
+    }
+  }
+}
+
+ul li {
+  list-style-type: disc;
+}
+
+
+// Show or hide elements
+.show { transition: opacity 600ms; }
+.hide { opacity: 0; }

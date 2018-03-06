@@ -1,6 +1,16 @@
-{{ partial "header.html" . }}
-{{ partial "about.html" . }}
-{{ partial "gallery.html" . }}
-{{ partial "blog.html" . }}
-{{ partial "contact.html" . }}
-{{ partial "footer.html" . }}
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{ partial "header.html" . }}
+  <body>
+    {{ partial "body-top" . }}
+    <main>
+
+      {{ partial "about.html" . }}
+      {{ partial "gallery.html" . }}
+      {{ partial "blog.html" . }}
+      {{ partial "contact.html" . }}
+
+    </main>
+    {{ partial "footer.html" . }}
+  </body>
+</html>

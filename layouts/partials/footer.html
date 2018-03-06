@@ -1,74 +1,39 @@
-        </main>
-        <footer class="row middle-xs center-xs">
-            {{ if .Site.Params.github }}
-            <div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
-            {{ end }}
-            {{ if .Site.Params.linkedin }}
-            <div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
-            {{ end }}
-            {{ if .Site.Params.twitter }}
-            <div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
-            {{ end }}
-            {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
-            <div class="col-xs-12">
-                {{ if .Site.Params.copyright }}
-                Copyright &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
-                {{ end }}
-                {{ if .Site.Params.credit }}
-                Theme developed by <a href="https://tomanistor.com">Toma Nistor</a>.
-                {{ end }}
-            </div>
-            {{ end }}
-            <!-- Scripts -->
-            <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-            {{ if .IsHome }}
-            <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.js{{ end }}" type="text/javascript"></script>
-            {{ if .Site.Params.ajaxFormspree }}
-            <!-- Formspree AJAX -->
-            <script>
-              $("#form-contact").on("submit", function(e) {
-                  e.preventDefault();
+<footer class="row middle-xs center-xs">
 
-                  // Store form field values
-                  var name = $("input[name=name]").val();
-                  var email = $("input[name=email").val();
-                  var subject = $("input[name=_subject").val();
-                  var message = $("textarea[name=message]").val();
+  {{ if .Site.Params.github }}
+    <div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
+  {{ end }}
 
-                  // Send to Formspree
-                  $.ajax({
-                      url:"https://formspree.io/{{ .Site.Params.email }}",
-                      method:"POST",
-                      data:{
-                          name:name,
-                          _replyto:email,
-                          email:email,
-                          _subject:subject,
-                          message:message,
-                      },
-                      dataType:"json",
-                      success:function() {
-                          console.log("Form successfully sent");
-                          // Reset form
-                          $("#form-contact").get(0).reset();
-                          // Fade out submit button, fade in thank you message, then fade out message and fade in submit button
-                          $("#form-submit").fadeOut(function(){
-                              $("#form-thankyou").fadeIn(function(){
-                                  $("#form-thankyou").delay(4000).fadeOut(function(){
-                                      $("#form-submit").fadeIn();
-                                  });
-                              });
-                          });
-                      }
-                  });
+  {{ if .Site.Params.linkedin }}
+    <div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
+  {{ end }}
 
-              });
-            </script>
-            {{ end }}
-            {{ else }}
-            <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.js{{ end }}" type="text/javascript"></script>
-            {{ end }}
-            <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.10.0/highlight.min.js"></script>
-        </footer>
-    </body>
-</html>
+  {{ if .Site.Params.twitter }}
+    <div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
+  {{ end }}
+
+  {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
+    <div class="col-xs-12">
+      {{ if .Site.Params.copyright }}
+        Copyright &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
+      {{ end }}
+      {{ if .Site.Params.credit }}
+        <a href="https://tomanistor.com" target="_blank">Theme developed by Toma Nistor</a>
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  {{ if .IsHome }}
+    <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
+    {{ if .Site.Params.ajaxFormspree }}
+      <script>
+        {{ partial "scripts/contact.min.js" . | safeJS }}
+      </script>
+    {{ end }}
+  {{ else }}
+    <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
+  {{ end }}
+
+</footer>
