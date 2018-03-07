@@ -43,6 +43,15 @@ var toggle = function(el) {
     });
   });
 
+  // Disable scroll when full screen nav is open
+  $('body').addEventListener('click', function() {
+    if ($('.nav-full').classList.contains('active')) {
+      $('html').style.overflowY = 'hidden';
+    } else {
+      $('html').style.overflowY = 'scroll';
+    }
+  });
+
   // Highlight.js initialization
   hljs.initHighlightingOnLoad();
 }());
