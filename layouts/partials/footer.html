@@ -1,15 +1,19 @@
 <footer class="row middle-xs center-xs">
 
+  {{ if .Site.Params.facebook }}
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}">Facebook</a></div>
+  {{ end }}
+  
   {{ if .Site.Params.github }}
-    <div class="col-xs-3 col-md-2"><a href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
   {{ end }}
 
   {{ if .Site.Params.linkedin }}
-    <div class="col-xs-3 col-md-2"><a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
   {{ end }}
 
   {{ if .Site.Params.twitter }}
-    <div class="col-xs-3 col-md-2"><a href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
   {{ end }}
 
   {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}

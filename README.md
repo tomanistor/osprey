@@ -70,6 +70,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
     twitter = "TomaNistor"
     linkedin = "tomanistor"
     github = "tomanistor"
+    facebook = "tomanistor"
     email = ""
     googleTagManager = ""
     highlightJS = true
