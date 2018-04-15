@@ -11,13 +11,13 @@
 
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{ if .IsHome }}
+    {{- if .IsHome -}}
         {{ .Site.Title }}
-    {{ else if .Params.heading }}
+    {{- else if .Params.heading -}}
         {{ .Params.heading }}
-    {{ else }}
+    {{- else -}}
         {{ .Title }} | {{ .Site.Title }}
-    {{ end }}
+    {{- end -}}
   </title>
 
   <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end}}">

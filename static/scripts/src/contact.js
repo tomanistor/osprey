@@ -17,9 +17,9 @@ $('#form-contact').addEventListener('submit', function(e) {
     message:message,
   }
 
-  // Send to Formspree
-  request.open('POST', 'https://formspree.io/{{ .Site.Params.email }}', true);
-  request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
+  // Send to Formspree or Basin
+  request.open('POST', '{{ if .Site.Params.ajaxFormspree }}https://formspree.io/{{ .Site.Params.email }}{{ else if .Site.Params.ajaxBasin }}{{ .Site.Params.ajaxBasin }}.json{{ end }}', true);
+  request.setRequestHeader('Accept', 'application/json; charset=UTF-8');
   // Call function when the state changes
   request.onreadystatechange = function() {
     if (request.readyState == 4 && request.status == 200) {
