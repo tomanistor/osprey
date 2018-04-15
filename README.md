@@ -140,6 +140,22 @@ link2 = "https://github.com/tomanistor"
 ### Contact Form
 The email address specified in the config.toml file will be one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
 
+### Contact Form Troubleshooting
+If you have problems with the contact form (doing nothing on submit, seems Formspree ajax implementation works only for paid users), just create a copy of `osprey/layouts/partials/body-bottom.html` file inside `your-site/layouts/partials` and remove or comment lines 4 to 8. 
+
+Should look like this.
+```
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+{{ if .IsHome }}
+  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
+{{ else }}
+  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
+{{ end }}
+```
+That will override the original osprey body-bottom.html and remove the ajax script. Now you can receive messages through your contact form without any problem.
+
+PD: This will add an extra step to the contact form, on submitting the user need to fill a captcha before sending the message.
+
 ### Custom CSS
 To implement custom CSS sitewide, change the config.toml parameter `customCSS` from `false` to `true` and then create a `css.html` file in your `layouts/partials/` folder like the example below:
 
