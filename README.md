@@ -1,33 +1,29 @@
 ![Logo](https://github.com/tomanistor/osprey/blob/master/images/osprey-logo.png)
 
 # Osprey
-
 Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfolio accompanied by a blog.
 
 ## Features
-
--   Minimalist, clean, and uncluttered theme
--   Portfolio display gallery
--   [Disqus](https://disqus.com) comments
--   [Formspree](https://formspree.io) AJAX contact form
--   Responsive Flexbox Grid
--   [SASS](http://sass-lang.com/) styling
--   Minimized/compressed CSS and JavaScript files with cachebusting hash setup
--   Syntax highlighting with [Highlight.js](https://highlightjs.org/)
--   SEO-friendly construction
--   [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
--   [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
--   Quick loading speeds
--   Custom CSS
+* Minimalist, clean, and uncluttered theme
+* Portfolio display gallery
+* [Disqus](https://disqus.com) comments
+* [Formspree](https://formspree.io) AJAX contact form (with Formspree Gold)
+* [Basin](https://usebasin.com/) AJAX contact form (free)
+* Responsive Flexbox Grid
+* [SASS](http://sass-lang.com/) styling
+* Minimized/compressed CSS and JavaScript files with cachebusting hash setup
+* Syntax highlighting with [Highlight.js](https://highlightjs.org/)
+* SEO-friendly construction
+* [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
+* [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
+* Quick loading speeds
+* Custom CSS option
 
 ## Screenshot
-
 ![Screenshot](https://github.com/tomanistor/osprey/blob/master/images/tn.png)
 
 ## Installation
-
 ### Option 1: Clone Repository
-
 In the root of your Hugo site directory run:
 
 ```console
@@ -36,7 +32,6 @@ $ git clone https://github.com/tomanistor/osprey.git
 ```
 
 ### Option 2: Create Submodule
-
 Create a submodule linked directly to the theme's GitHub repository in order to receive updates:
 
 ```console
@@ -50,7 +45,6 @@ $ git submodule update --init --recursive --remote
 ```
 
 ## Configuration
-
 Osprey comes with several configuration options to aid in site customization. This is an example config.toml file:
 
 ```toml
@@ -66,53 +60,52 @@ disqusShortname = "tomanistor"
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
-    tagline = "Osprey Example Site"
-    author = "Toma Nistor"
-    description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-    logoBig = "/images/osprey-logo.png"
-    logoSmall = "/images/osprey-logo.png"
-    favicon = "favicon.ico"
-    opengraphImage = "/images/osprey.png"
-    twitter = "TomaNistor"
-    linkedin = "tomanistor"
-    github = "tomanistor"
-    facebook = ""
-    email = ""
-    googleTagManager = ""
-    highlightJS = true
-    copyright = true
-    credit = true
-    customCSS = false
-    cacheBustCSS = false
-    cacheBustJS = false
-    # Choose either Formspree contact form or Basin contact form
-    ajaxFormspree = false
-    ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
+  tagline = "Osprey Example Site"
+  author = "Toma Nistor"
+  description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
+  logoBig = "/images/osprey-logo.png"
+  logoSmall = "/images/osprey-logo.png"
+  favicon = "favicon.ico"
+  opengraphImage = "/images/osprey.png"
+  twitter = "TomaNistor"
+  linkedin = "tomanistor"
+  github = "tomanistor"
+  facebook = ""
+  email = ""
+  googleTagManager = ""
+  highlightJS = true
+  copyright = true
+  credit = true
+  customCSS = false
+  cacheBustCSS = false
+  cacheBustJS = false
+  # Choose either Formspree contact form or Basin contact form
+  ajaxFormspree = false
+  ajaxFormspreeGold = false
+  ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
 
 [[menu.main]]
-    name = "About"
-    url  = "/#about"
-    weight = 1
+  name = "About"
+  url  = "/#about"
+  weight = 1
 [[menu.main]]
-    name = "Work"
-    url  = "/#work"
-    weight = 2
+  name = "Work"
+  url  = "/#work"
+  weight = 2
 [[menu.main]]
-    name = "Blog"
-    url  = "/#blog"
-    weight = 3
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
 [[menu.main]]
-    name = "Contact"
-    url  = "/#contact"
-    weight = 4
+  name = "Contact"
+  url  = "/#contact"
+  weight = 4
 ```
 
 ## Using Osprey
-
 The two main content types are blog posts and gallery images.
 
 ### About Section
-
 To create an about section that renders on the home page, run:
 
 ```console
@@ -120,7 +113,6 @@ $ hugo new about.md
 ```
 
 ### Blog Posts
-
 To create a new blog post, run:
 
 ```console
@@ -128,7 +120,6 @@ $ hugo new blog/post-title.md
 ```
 
 ### Gallery Images
-
 To add a new image to your portfolio, run:
 
 ```console
@@ -150,28 +141,19 @@ link2 = "https://github.com/tomanistor"
 ```
 
 ### Contact Form
+Two contact forms services are offered as options: Formspree and Basin.
 
-The email address specified in the config.toml file will be one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
+#### Formspree
+_Update 4/15/18 - [Formspree no longer offers newly set up AJAX contact forms for free. This is now a Formspree Gold feature.](https://github.com/formspree/formspree/pull/173)_ You can either use the non-AJAX version of Formspree (which redirects to a Captcha page on form submit) by setting the config.toml parameter `ajaxFormspreeGold` to `false`, sign up for Formspree Gold and set the parameter to `true`, or sign up for Basin and use their contact form service for free.
 
-### Contact Form Troubleshooting
+The email address specified in the config.toml file will be the one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
 
-If you have problems with the contact form (doing nothing on submit, seems Formspree ajax implementation works only for paid users), just create a copy of `osprey/layouts/partials/body-bottom.html` file inside `your-site/layouts/partials` and remove or comment lines 4 to 8.
+#### Basin
+Basin is an alternative, free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. To use this as an AJAX form, remove the `Redirect URL` and select `Submit this form via AJAX` on your Basin dashboard.
 
-Should look like this.
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-    {{ if .IsHome }}
-      <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
-    {{ else }}
-      <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
-    {{ end }}
-
-That will override the original osprey body-bottom.html and remove the ajax script. Now you can receive messages through your contact form without any problem.
-
-PD: This will add an extra step to the contact form, on submitting the user need to fill a captcha before sending the message.
+![Basin AJAX setup](https://github.com/tomanistor/osprey/blob/master/images/basin-ajax-setup.png)
 
 ### Custom CSS
-
 To implement custom CSS sitewide, change the config.toml parameter `customCSS` from `false` to `true` and then create a `css.html` file in your `layouts/partials/` folder like the example below:
 
 ```html
@@ -186,13 +168,10 @@ To implement custom CSS sitewide, change the config.toml parameter `customCSS` f
 This will render inline CSS in the head of your site and without adding an extra HTTP request.
 
 ### Cache Busting
-
 To implement cache busting of CSS and JS static assets with something like Gulp.js and [gulp-hash](https://www.npmjs.com/package/gulp-hash), change the config.toml parameters `cacheBustCSS` and `cacheBustJS` from `false` to `true` and follow [this setup guide](http://danbahrami.io/articles/building-a-production-website-with-hugo-and-gulp-js/#building-a-gulp-pipeline:c9938300a3bdba2018b469c2485ca2b6).
 
 ## Contributions
-
 If you'd like to help with the development of this theme, I encourage you to submit a pull request or create an issue if you find a bug. All help is appreciated.
 
 ## License
-
 This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE).
