@@ -12,11 +12,11 @@
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
     {{- if .IsHome -}}
-        {{ .Site.Title }}
+      {{ .Site.Title }}
     {{- else if .Params.heading -}}
-        {{ .Params.heading }}
+      {{ .Params.heading }}
     {{- else -}}
-        {{ .Title }} | {{ .Site.Title }}
+      {{ .Title }} | {{ .Site.Title }}
     {{- end -}}
   </title>
 
@@ -83,7 +83,7 @@
   {{ end }}
 
   {{ if .Site.Params.highlightJS }}
-    {{ if }}
+    {{ if .Site.Params.highlightJSStyle }}
       <link rel="stylesheet" href="{{ .Site.Params.highlightJSStyle }}">
     {{ else }}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
