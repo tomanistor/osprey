@@ -69,7 +69,6 @@ var toggle = function(el) {
       $('html').style.overflowY = 'scroll';
     }
   });
-
 }());
 
 // Mobile browsers viewport height bug fix

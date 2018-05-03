@@ -67,18 +67,29 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   logoSmall = "/images/osprey-logo.png"
   favicon = "favicon.ico"
   opengraphImage = "/images/osprey.png"
+  email = ""
+  googleTagManager = ""
+  customCSS = false
+
+  # Social media links in footer
   twitter = "TomaNistor"
   linkedin = "tomanistor"
   github = "tomanistor"
   facebook = ""
-  email = ""
-  googleTagManager = ""
+
+  # Copyright and theme author credit in footer
+  copyright = false
+  credit = false
+
+  # Cache busting of static resources (additional set up required)
+  cacheBustCSS = true
+  cacheBustJS = true
+
+  # Code highlighting with highlight.js
   highlightJS = true
-  copyright = true
-  credit = true
-  customCSS = false
-  cacheBustCSS = false
-  cacheBustJS = false
+  highlightJSStyle = "" # For custom highlight.js styles, add your /path/to/styles/default.css
+  highlightJSScript = "" # For custom highlight.js languages config, add your /path/to/highlight.pack.js
+
   # Choose either Formspree contact form or Basin contact form
   ajaxFormspree = false
   ajaxFormspreeGold = false

@@ -1,4 +1,12 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+{{ if .Site.Params.highlightJS }}
+  {{ if .Site.Params.highlightJSScript }}
+    <script src="{{ .Site.Params.highlightJSScript }}"></script>
+  {{ else }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  {{ end }}
+  <script>hljs.initHighlightingOnLoad();</script>
+{{ end }}
+
 {{ if .IsHome }}
   <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
   {{ if or (and (.Site.Params.ajaxFormspree) (.Site.Params.ajaxFormspreeGold)) (.Site.Params.ajaxBasin) }}

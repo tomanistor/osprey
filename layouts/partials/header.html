@@ -83,7 +83,11 @@
   {{ end }}
 
   {{ if .Site.Params.highlightJS }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    {{ if }}
+      <link rel="stylesheet" href="{{ .Site.Params.highlightJSStyle }}">
+    {{ else }}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    {{ end }}
   {{ end }}
 
   {{ if .Site.GoogleAnalytics }}
