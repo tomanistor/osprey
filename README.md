@@ -177,4 +177,4 @@ To implement cache busting of CSS and JS static assets with something like Gulp.
 If you'd like to help with the development of this theme, I encourage you to submit a pull request or create an issue if you find a bug. All help is appreciated.
 
 ## License
-This theme is released under the GNU 3.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE).
+This theme is released under the Apache 2.0 license. For more information read the [license](https://github.com/tomanistor/osprey/blob/master/LICENSE).
