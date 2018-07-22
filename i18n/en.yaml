@@ -1,0 +1,40 @@
+- id: view
+  translation: "View"
+- id: code
+  translation: "Code"
+- id: viewAll
+  translation: "View All"
+- id: letsChat
+  translation: "Let's Chat"
+- id: name
+  translation: "Name"
+- id: email
+  translation: "Email"
+- id: subject
+  translation: "Subject"
+- id: message
+  translation: "Message"
+- id: send
+  translation: "Send"
+- id: thanksForYourEmail
+  translation: "Thanks for your email!"
+- id: minuteRead
+  translation: "minute read"
+- id: latestPosts
+  translation: "Latest Posts"
+- id: enableJavaScript
+  translation: "Please enable JavaScript to view comments powered by"
+- id: 404Message
+  translation: "WHAT DID YOU DO?!"
+- id: themeDevelopedBy
+  translation: "Theme developed by"
+- id: copyright
+  translation: "Copyright"
+- id: facebook
+  translation: "Facebook"
+- id: github
+  translation: "GitHub"
+- id: linkedin
+  translation: "LinkedIn"
+- id: twitter
+  translation: "Twitter"
