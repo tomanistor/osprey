@@ -10,40 +10,54 @@ disqusShortname = "tomanistor"
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
-    tagline = "Osprey Example Site"
-    author = "Toma Nistor"
-    description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-    logoBig = "/images/osprey-logo.png"
-    logoSmall = "/images/osprey-logo.png"
-    favicon = "favicon.ico"
-    opengraphImage = "/images/osprey.png"
-    twitter = "TomaNistor"
-    linkedin = "tomanistor"
-    github = "tomanistor"
-    facebook = ""
-    email = ""
-    googleTagManger = ""
-    highlightJS = true
-    copyright = true
-    credit = true
-    customCSS = false
-    cacheBustCSS = false
-    cacheBustJS = false
-    ajaxFormspree = true
+  tagline = "Osprey Example Site"
+  author = "Toma Nistor"
+  description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
+  logoBig = "/images/osprey-logo.png"
+  logoSmall = "/images/osprey-logo.png"
+  favicon = "favicon.ico"
+  opengraphImage = "/images/osprey.png"
+  email = ""
+  googleTagManger = ""
+  customCSS = false
+
+  # Social media links in footer
+  twitter = "TomaNistor"
+  linkedin = "tomanistor"
+  github = "tomanistor"
+  facebook = ""
+
+  # Copyright and theme author credit in footer
+  copyright = true
+  credit = true
+
+  # Cache busting of static resources (additional set up required)
+  cacheBustCSS = false
+  cacheBustJS = false
+
+  # Code highlighting with highlight.js
+  highlightJS = true
+  highlightJSStyle = "" # For custom highlight.js styles, add your /path/to/styles/default.css
+  highlightJSScript = "" # For custom highlight.js languages config, add your /path/to/highlight.pack.js
+
+  # Choose either Formspree contact form or Basin contact form
+  ajaxFormspree = false
+  ajaxFormspreeGold = false
+  ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
 
 [[menu.main]]
-    name = "About"
-    url  = "/#about"
-    weight = 1
+  name = "About"
+  url  = "/#about"
+  weight = 1
 [[menu.main]]
-    name = "Work"
-    url  = "/#work"
-    weight = 2
+  name = "Work"
+  url  = "/#work"
+  weight = 2
 [[menu.main]]
-    name = "Blog"
-    url  = "/#blog"
-    weight = 3
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
 [[menu.main]]
-    name = "Contact"
-    url  = "/#contact"
-    weight = 4
+  name = "Contact"
+  url  = "/#contact"
+  weight = 4

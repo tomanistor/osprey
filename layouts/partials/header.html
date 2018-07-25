@@ -11,13 +11,13 @@
 
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{ if .IsHome }}
-        {{ .Site.Title }}
-    {{ else if .Params.heading }}
-        {{ .Params.heading }}
-    {{ else }}
-        {{ .Title }} | {{ .Site.Title }}
-    {{ end }}
+    {{- if .IsHome -}}
+      {{ .Site.Title }}
+    {{- else if .Params.heading -}}
+      {{ .Params.heading }}
+    {{- else -}}
+      {{ .Title }} | {{ .Site.Title }}
+    {{- end -}}
   </title>
 
   <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end}}">
@@ -83,7 +83,11 @@
   {{ end }}
 
   {{ if .Site.Params.highlightJS }}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    {{ if .Site.Params.highlightJSStyle }}
+      <link rel="stylesheet" href="{{ .Site.Params.highlightJSStyle }}">
+    {{ else }}
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    {{ end }}
   {{ end }}
 
   {{ if .Site.GoogleAnalytics }}

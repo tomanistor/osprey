@@ -51,7 +51,4 @@ var toggle = function(el) {
       $('html').style.overflowY = 'scroll';
     }
   });
-
-  // Highlight.js initialization
-  hljs.initHighlightingOnLoad();
 }());
