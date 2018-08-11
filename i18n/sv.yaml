@@ -38,3 +38,5 @@
   translation: "LinkedIn"
 - id: twitter
   translation: "Twitter"
+- id: email
+  translation: "Email"
