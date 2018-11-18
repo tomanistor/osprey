@@ -1,6 +1,5 @@
 (function() {
-  var $ = document.querySelector.bind(document),
-      $$ = document.querySelectorAll.bind(document)
+  var $ = document.querySelector.bind(document)
 
   $('#form-contact').addEventListener('submit', function(e) {
     e.preventDefault()
@@ -23,11 +22,12 @@
 
     // Send to Formspree or Basin
     request.open('POST', '{{ if .Site.Params.ajaxFormspree }}https://formspree.io/{{ .Site.Params.email }}{{ else if .Site.Params.ajaxBasin }}{{ .Site.Params.ajaxBasin }}.json{{ end }}', true)
-    request.setRequestHeader('{{ if .Site.Params.ajaxFormspree }}Content-Type{{ else if .Site.Params.ajaxBasin }}Accept{{ end }}', 'application/json; charset=UTF-8')
+    request.setRequestHeader('Content-Type', 'application/json')
+    request.setRequestHeader('Accept', 'application/json')
     // Call function when the state changes
     request.onreadystatechange = function() {
       if (request.readyState === 4 && request.status === 200) {
-      // Reset form
+        // Reset form
         $('#form-contact').reset()
 
         var submit = $('#form-submit'),
