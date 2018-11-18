@@ -160,7 +160,7 @@ _Update 4/15/18 - [Formspree no longer offers newly set up AJAX contact forms fo
 The email address specified in the config.toml file will be the one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
 
 #### Basin
-Basin is an alternative, free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. To use this as an AJAX form, remove the `Redirect URL` and select `Submit this form via AJAX` on your Basin dashboard.
+Basin is an alternative, free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
 ![Basin AJAX setup](https://github.com/tomanistor/osprey/blob/master/images/basin-ajax-setup.png)
 
