@@ -1,5 +1,5 @@
 name = "Osprey"
-license = "GNU3.0"
+license = "Apache License 2.0"
 licenselink = "https://github.com/tomanistor/osprey/blob/master/LICENSE.md"
 description = "Clean, responsive one-page portfolio accompanied by a minimalist blog."
 homepage = "https://github.com/tomanistor/osprey"

@@ -7,7 +7,8 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * Minimalist, clean, and uncluttered theme
 * Portfolio display gallery
 * [Disqus](https://disqus.com) comments
-* [Formspree](https://formspree.io) AJAX contact form
+* [Formspree](https://formspree.io) AJAX contact form (with Formspree Gold)
+* [Basin](https://usebasin.com/) AJAX contact form (free)
 * Responsive Flexbox Grid
 * [SASS](http://sass-lang.com/) styling
 * Minimized/compressed CSS and JavaScript files with cachebusting hash setup
@@ -16,13 +17,12 @@ Osprey is a simple, clean, and fast one-page [Hugo](https://gohugo.io/) portfoli
 * [Google Analytics](https://analytics.google.com) and [Google Tag Manager](https://tagmanager.google.com) integration
 * [OpenGraph](http://ogp.me/) and [Twitter Cards](https://dev.twitter.com/cards/overview) integration
 * Quick loading speeds
-* Custom CSS
+* Custom CSS option
 
 ## Screenshot
 ![Screenshot](https://github.com/tomanistor/osprey/blob/master/images/tn.png)
 
 ## Installation
-
 ### Option 1: Clone Repository
 In the root of your Hugo site directory run:
 
@@ -60,43 +60,57 @@ disqusShortname = "tomanistor"
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 
 [Params]
-    tagline = "Osprey Example Site"
-    author = "Toma Nistor"
-    description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
-    logoBig = "/images/osprey-logo.png"
-    logoSmall = "/images/osprey-logo.png"
-    favicon = "favicon.ico"
-    opengraphImage = "/images/osprey.png"
-    twitter = "TomaNistor"
-    linkedin = "tomanistor"
-    github = "tomanistor"
-    facebook = ""
-    email = ""
-    googleTagManager = ""
-    highlightJS = true
-    copyright = true
-    credit = true
-    customCSS = false
-    cacheBustCSS = false
-    cacheBustJS = false
-    ajaxFormspree = true
+  tagline = "Osprey Example Site"
+  author = "Toma Nistor"
+  description = "Full-stack web developer and UI/UX enthusiast based in San Diego, CA."
+  logoBig = "/images/osprey-logo.png"
+  logoSmall = "/images/osprey-logo.png"
+  favicon = "favicon.ico"
+  opengraphImage = "/images/osprey.png"
+  email = ""
+  googleTagManager = ""
+  customCSS = false
+
+  # Social media links in footer
+  twitter = "TomaNistor"
+  linkedin = "tomanistor"
+  github = "tomanistor"
+  facebook = ""
+
+  # Copyright and theme author credit in footer
+  copyright = false
+  credit = false
+
+  # Cache busting of static resources (additional set up required)
+  cacheBustCSS = true
+  cacheBustJS = true
+
+  # Code highlighting with highlight.js
+  highlightJS = true
+  highlightJSStyle = "" # For custom highlight.js styles, add your /path/to/styles/default.css
+  highlightJSScript = "" # For custom highlight.js languages config, add your /path/to/highlight.pack.js
+
+  # Choose either Formspree contact form or Basin contact form
+  ajaxFormspree = false
+  ajaxFormspreeGold = false
+  ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
 
 [[menu.main]]
-    name = "About"
-    url  = "/#about"
-    weight = 1
+  name = "About"
+  url  = "/#about"
+  weight = 1
 [[menu.main]]
-    name = "Work"
-    url  = "/#work"
-    weight = 2
+  name = "Work"
+  url  = "/#work"
+  weight = 2
 [[menu.main]]
-    name = "Blog"
-    url  = "/#blog"
-    weight = 3
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
 [[menu.main]]
-    name = "Contact"
-    url  = "/#contact"
-    weight = 4
+  name = "Contact"
+  url  = "/#contact"
+  weight = 4
 ```
 
 ## Using Osprey
@@ -138,23 +152,17 @@ link2 = "https://github.com/tomanistor"
 ```
 
 ### Contact Form
-The email address specified in the config.toml file will be one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
+Two contact forms services are offered as options: Formspree and Basin.
 
-### Contact Form Troubleshooting
-If you have problems with the contact form (doing nothing on submit, seems Formspree ajax implementation works only for paid users), just create a copy of `osprey/layouts/partials/body-bottom.html` file inside `your-site/layouts/partials` and remove or comment lines 4 to 8. 
+#### Formspree
+_Update 4/15/18 - [Formspree no longer offers newly set up AJAX contact forms for free. This is now a Formspree Gold feature.](https://github.com/formspree/formspree/pull/173)_ You can either use the non-AJAX version of Formspree (which redirects to a Captcha page on form submit) by setting the config.toml parameter `ajaxFormspreeGold` to `false`, sign up for Formspree Gold and set the parameter to `true`, or sign up for Basin and use their contact form service for free.
 
-Should look like this.
-```
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-{{ if .IsHome }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
-{{ else }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
-{{ end }}
-```
-That will override the original osprey body-bottom.html and remove the ajax script. Now you can receive messages through your contact form without any problem.
+The email address specified in the config.toml file will be the one receiving messages sent through the contact form. The contact form is operated by Formspree and requires that the form must be submitted once initially to confirm the email address being used. See instruction [here](https://formspree.io/).
 
-PD: This will add an extra step to the contact form, on submitting the user need to fill a captcha before sending the message.
+#### Basin
+Basin is an alternative, free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
+
+![Basin AJAX setup](https://github.com/tomanistor/osprey/blob/master/images/basin-ajax-setup.png)
 
 ### Custom CSS
 To implement custom CSS sitewide, change the config.toml parameter `customCSS` from `false` to `true` and then create a `css.html` file in your `layouts/partials/` folder like the example below:
