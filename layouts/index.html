@@ -7,7 +7,9 @@
 
       {{ partial "about.html" . }}
       {{ partial "gallery.html" . }}
+      {{ if not (eq (len (where .Data.Pages "Section" "blog")) 0) }}
       {{ partial "blog.html" . }}
+      {{ end }}
       {{ partial "contact.html" . }}
 
     </main>
