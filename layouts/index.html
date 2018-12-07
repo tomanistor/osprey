@@ -5,11 +5,20 @@
     {{ partial "body-top" . }}
     <main>
 
+      <!-- About -->
       {{ partial "about.html" . }}
-      {{ partial "gallery.html" . }}
+
+      <!-- Gallery -->
       {{ if not (eq (len (where .Data.Pages "Section" "blog")) 0) }}
-      {{ partial "blog.html" . }}
+        {{ partial "gallery.html" . }}
       {{ end }}
+
+      <!-- Blog -->
+      {{ if not (eq (len (where .Data.Pages "Section" "blog")) 0) }}
+        {{ partial "blog.html" . }}
+      {{ end }}
+
+      <!-- Contact -->
       {{ partial "contact.html" . }}
 
     </main>
