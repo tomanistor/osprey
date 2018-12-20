@@ -2,20 +2,7 @@
   var $ = document.querySelector.bind(document),
       $$ = document.querySelectorAll.bind(document),
 
-      toggle = function(el) {
-        // If element is visible, hide it
-        if (window.getComputedStyle(el).visibility === 'visible') {
-          el.style.visibility = 'hidden'
-          el.classList.add('hide')
-          el.classList.remove('show')
-          return
-        };
-
-        // If element is hidden, show it
-        el.style.visibility = 'visible'
-        el.classList.add('show')
-        el.classList.remove('hide')
-      }
+      menuActive = false
 
   // Nav is fixed to top
   $('nav').classList.add('nav-fixed')
@@ -30,7 +17,15 @@
     $$('.nav-full, main').forEach(function(el) {
       el.classList.toggle('active')
     })
-    this.querySelector('img').classList.toggle('img')
+    if (menuActive) {
+      this.querySelector('img:nth-of-type(1)').style.display = 'block'
+      this.querySelector('img:nth-of-type(2)').style.display = 'none'
+      menuActive = false
+    } else {
+      this.querySelector('img:nth-of-type(1)').style.display = 'none'
+      this.querySelector('img:nth-of-type(2)').style.display = 'block'
+      menuActive = true
+    }
   })
 
   // Full screen nav close on click
@@ -39,8 +34,16 @@
       $$('.nav-full, main').forEach(function(el) {
         el.classList.toggle('active')
       })
-      this.querySelector('nav-icon').classList.toggle('nav-icon')
     })
+  })
+
+  // Fix logoBig drawing over nav when click on logoSmall while nav open
+  $('.logo').addEventListener('click', function() {
+    if ($('.nav-full').classList.contains('active')) {
+      $$('.nav-full, main').forEach(function(el) {
+        el.classList.toggle('active')
+      })
+    }
   })
 
   // Disable scroll when full screen nav is open
