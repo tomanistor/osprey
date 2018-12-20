@@ -9,7 +9,7 @@
       {{ partial "about.html" . }}
 
       <!-- Gallery -->
-      {{ if not (eq (len (where .Data.Pages "Section" "blog")) 0) }}
+      {{ if not (eq (len (where .Data.Pages "Section" "gallery")) 0) }}
         {{ partial "gallery.html" . }}
       {{ end }}
 
