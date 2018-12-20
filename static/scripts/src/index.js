@@ -57,8 +57,17 @@
       $$('.nav-full, main').forEach(function(el) {
         el.classList.toggle('active')
       })
-      this.querySelector('nav-icon').classList.toggle('nav-icon')
     })
+  })
+
+  // Fix logoBig drawing over nav when click
+  // on logoSmall while nav open
+  $('.logo').addEventListener('click', function() {
+    if ($('.nav-full').classList.contains('active')) {
+      $$('.nav-full, main').forEach(function(el) {
+        el.classList.toggle('active')
+      })
+    }
   })
 
   // Disable scroll when full screen nav is open
