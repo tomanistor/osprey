@@ -6,8 +6,8 @@
 
     // Store form field values
     var name = $('input[name=name]').value,
-        email = $('input[name=email').value,
-        subject = $('input[name=_subject').value,
+        email = $('input[name=email]').value,
+        subject = $('input[name=_subject]').value,
         message = $('textarea[name=message]').value,
 
         // AJAX request
