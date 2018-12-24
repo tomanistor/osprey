@@ -9,22 +9,27 @@
   body .container {
     padding: $vertical-rhythm * 2 $vertical-rhythm;
   }
+
   nav {
     // Hide menu links between logo and hamburger menu
     div:not(:first-child):not(:last-child) {
       display: none;
     }
+
     div.nav-toggle a {
       display: inline-block;
     }
   }
 }
+
 @media(max-width: 25em) {
   body .container {
     padding: $vertical-rhythm * 2 $vertical-rhythm;
   }
+
   nav {
-    div.logo, div.nav-toggle {
+    div.logo,
+    div.nav-toggle {
       max-width: 50% !important;
     }
   }
@@ -44,6 +49,7 @@ nav {
   z-index: 100;
   text-align: center;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .4 );
+
   h3 {
     margin: 0;
     font-family: $font-body;
@@ -51,25 +57,31 @@ nav {
     letter-spacing: 2px;
     font-weight: 600;
   }
+
   img {
     display: inline-block;
     max-width: 10em;
     max-height: 2.5em;
     vertical-align: middle;
   }
-  div.logo, div.nav-toggle {
+
+  div.logo,
+  div.nav-toggle {
     visibility: hidden;
     max-width: none;
   }
+
   .nav-toggle a {
     display: none;
   }
 }
+
 .nav-fixed {
   position: fixed;
   top: 0;
   bottom: auto;
 }
+
 .nav-full {
   position: fixed;
   top: 0;
@@ -80,6 +92,7 @@ nav {
   background-color: $black;
   transform: translate(0px, 0px);
   transition: 0.25s ease-out;
+
   a {
     color: #FFF;
     &:hover {
@@ -87,32 +100,40 @@ nav {
     }
   }
 }
+
 .nav-full.active {
   transform: translate(-100vw, 0px);
 }
+
 main {
   background-color: #fff;
   transform: translate(0px, 0px);
   transition: 0.25s ease-in;
 }
+
 main.active {
   transform: translate(-100vw, 0px);
 }
+
 .container {
   max-width: 43.750rem; // 700px
   padding: $vertical-rhythm * 2 0 $vertical-rhythm * 2;
   margin: auto;
 }
+
 p {
   margin-bottom: $vertical-rhythm;
+
   code {
     font-family: $font-code;
   }
 }
+
 h1, h2, h3 {
   font-family: $font-header;
   margin-top: $vertical-rhythm;
   letter-spacing: 2px;
+
   a {
     text-decoration: none;
   }
@@ -121,17 +142,21 @@ h1, h2, h3 {
 .posts-list {
   margin: 0 0 $vertical-rhythm;
 }
+
 .sub-header, time {
   @include size(p);
   color: $storm;
   margin-bottom: $vertical-rhythm;
 }
+
 .content {
   text-align: left;
   width: 100%;
+
   time {
     margin-left: 3px;
   }
+
   a {
     text-shadow: 0.03em 0 #fff,
     -0.03em 0 #fff,
@@ -160,33 +185,41 @@ h1, h2, h3 {
     background-repeat: repeat-x;
     background-position: 0 95%;
     text-decoration: none;
+
     &:hover {
       color: $accent;
     }
   }
 }
+
 .highlight {
   margin: 10px 0;
 }
+
 .pagination {
   margin: 50px 0 0;
-  :nth-child(2) {
+
+  &:nth-child(2) {
     float: right;
   }
 }
+
 .full {
   height: 100vh;
   top: 0;
   bottom: 0;
 }
+
 .about {
   width: 100%;
   background-color: $smoke;
   padding-bottom: $vertical-rhythm * 2;
+
   p {
     @include size(h3);
     margin-top: $vertical-rhythm;
   }
+
   a {
     text-shadow: 0.03em 0 #fff,
     -0.03em 0 #fff,
@@ -215,23 +248,28 @@ h1, h2, h3 {
     background-repeat: repeat-x;
     background-position: 0 95%;
     text-decoration: none;
+
     &:hover {
       color: $accent;
     }
   }
 }
+
 .gallery {
   div[class^="col-"], div[class*=" col-"] {
     padding: 0;
     position: relative;
+
     &:hover .overlay {
       opacity: 1;
     }
   }
+
   img {
     padding: $vertical-rhythm * 3;
   }
 }
+
 .overlay {
   cursor: pointer;
   position: absolute;
@@ -244,21 +282,27 @@ h1, h2, h3 {
   opacity: 0;
   transition: .2s ease-out;
   background-color: $black;
+
   a {
     color: #FFF;
+
     &:hover {
       color: $accent;
     }
   }
+
   h2 {
     color: #FFF;
   }
+
   h3 {
     font-family: $font-body;
   }
 }
+
 .blog {
   min-height: 100vh;
+
   h3 {
     margin: 0 0 $vertical-rhythm;
     font-family: $font-body;
@@ -302,10 +346,12 @@ input {
   padding: 10px;
   margin: 8px 0;
   width: 100%;
+
   &[type="submit"] {
     background-color: $storm;
     color: #FFF;
     transition: .2s ease-out;
+
     &:hover {
       background-color: $accent;
       color: #FFF;
@@ -313,15 +359,64 @@ input {
     }
   }
 }
+
 textarea {
   @extend input;
   min-height: $vertical-rhythm * 4;
   overflow: auto;
 }
+
 footer {
   height: $vertical-rhythm * 6;
   background-color: $black;
-  div, a {
+
+  div,
+  a {
     color: #FFF;
   }
+}
+
+.gallery-modal-link {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1000; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: $black; /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }

@@ -17,18 +17,12 @@
       {{ if eq $galleryTotal 1 }}
         {{ range first 3 $galleryReverse }}
           <div class="col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <a href="#modal-{{ .Scratch.Get "$modalID" }}">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-              <div class="row middle-xs center-xs overlay">
-                <div class="col-xs-12">
-                  <h2>{{ .Title }}</h2>
-                  <div class="row middle-xs center-xs">
-                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
-                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
-                  </div>
-                </div>
-              </div>
-            </a>
+            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link">
+                <h2>{{ .Title }}</h2>
+              </a>
+            </div>
           </div>
         {{ end }}
       {{ end }}
@@ -37,18 +31,12 @@
       {{ if gt $galleryTotal 2 }}
         {{ range first 3 $galleryReverse }}
           <div class="col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <a href="#modal-{{ .Scratch.Get "$modalID" }}">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-              <div class="row middle-xs center-xs overlay">
-                <div class="col-xs-12">
-                  <h2>{{ .Title }}</h2>
-                  <div class="row middle-xs center-xs">
-                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
-                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
-                  </div>
-                </div>
-              </div>
-            </a>
+            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link">
+                <h2>{{ .Title }}</h2>
+              </a>
+            </div>
           </div>
         {{ end }}
       {{ end }}
@@ -65,18 +53,12 @@
             {{- else }} col-lg-3
             {{- end }}
           {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <a href="#modal-{{ .Scratch.Get "$modalID" }}">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-              <div class="row middle-xs center-xs overlay">
-                <div class="col-xs-12">
-                  <h2>{{ .Title }}</h2>
-                  <div class="row middle-xs center-xs">
-                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
-                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
-                  </div>
-                </div>
-              </div>
-            </a>
+            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link">
+                <h2>{{ .Title }}</h2>
+              </a>
+            </div>
           </div>
 
         {{ end }}
@@ -97,18 +79,12 @@
             {{- end }}
           {{- end }}
         {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <a href="#modal-{{ .Scratch.Get "$modalID" }}">
-            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-            <div class="row middle-xs center-xs overlay">
-              <div class="col-xs-12">
-                <h2>{{ .Title }}</h2>
-                <div class="row middle-xs center-xs">
-                  {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">View</a></h3></div>{{ end }}
-                  {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">Code</a></h3></div>{{ end }}
-                </div>
-              </div>
-            </div>
-          </a>
+          <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          <div class="row middle-xs center-xs overlay">
+            <a href="#modal-{{ .Scratch.Get "$modalID" }}" class="gallery-modal-link">
+              <h2>{{ .Title }}</h2>
+            </a>
+          </div>
         </div>
 
       {{ end }}
