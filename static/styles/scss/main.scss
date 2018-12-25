@@ -5,7 +5,7 @@
 @import "layout";
 @import "base";
 
-@media(max-width: 48em) {
+@media (max-width: 48em) {
   body .container {
     padding: $vertical-rhythm * 2 $vertical-rhythm;
   }
@@ -22,7 +22,7 @@
   }
 }
 
-@media(max-width: 25em) {
+@media (max-width: 25em) {
   body .container {
     padding: $vertical-rhythm * 2 $vertical-rhythm;
   }
@@ -35,27 +35,33 @@
   }
 }
 
-@keyframes "blink" {
-  from, to { color: transparent; }
-  50% { color: $black; }
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+
+  50% {
+    color: $black;
+  }
 }
 
 nav {
-  height: $vertical-rhythm * 2;
-  width: 100%;
-  background-color: #FFF;
   position: absolute;
-  bottom: 0;
   z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: $vertical-rhythm * 2;
+  background-color: #FFF;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
   text-align: center;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, .4 );
 
   h3 {
     margin: 0;
     font-family: $font-body;
-    text-transform: uppercase;
-    letter-spacing: 2px;
     font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
   }
 
   img {
@@ -85,16 +91,17 @@ nav {
 .nav-full {
   position: fixed;
   top: 0;
+  right: -100vw;
   bottom: 0;
   width: 100vw;
-  right: -100vw;
   height: 100%;
-  background-color: $black;
   transform: translate(0px, 0px);
-  transition: 0.25s ease-out;
+  transition: .25s ease-out;
+  background-color: $black;
 
   a {
     color: #FFF;
+
     &:hover {
       color: $accent;
     }
@@ -106,19 +113,19 @@ nav {
 }
 
 main {
-  background-color: #fff;
   transform: translate(0px, 0px);
-  transition: 0.25s ease-in;
-}
+  transition: .25s ease-in;
+  background-color: #FFF;
 
-main.active {
-  transform: translate(-100vw, 0px);
+  &.active {
+    transform: translate(-100vw, 0px);
+  }
 }
 
 .container {
-  max-width: 43.750rem; // 700px
-  padding: $vertical-rhythm * 2 0 $vertical-rhythm * 2;
+  max-width: 43.75rem; // 700px
   margin: auto;
+  padding: $vertical-rhythm * 2 0 $vertical-rhythm * 2;
 }
 
 p {
@@ -129,9 +136,11 @@ p {
   }
 }
 
-h1, h2, h3 {
-  font-family: $font-header;
+h1,
+h2,
+h3 {
   margin-top: $vertical-rhythm;
+  font-family: $font-header;
   letter-spacing: 2px;
 
   a {
@@ -143,48 +152,34 @@ h1, h2, h3 {
   margin: 0 0 $vertical-rhythm;
 }
 
-.sub-header, time {
+.sub-header,
+time {
   @include size(p);
-  color: $storm;
   margin-bottom: $vertical-rhythm;
+  color: $storm;
 }
 
 .content {
-  text-align: left;
   width: 100%;
+  text-align: left;
 
   time {
     margin-left: 3px;
   }
 
   a {
-    text-shadow: 0.03em 0 #fff,
-    -0.03em 0 #fff,
-    0 0.03em #fff,
-    0 -0.03em #fff,
-    0.06em 0 #fff,
-    -0.06em 0 #fff,
-    0.09em 0 #fff,
-    -0.09em 0 #fff,
-    0.12em 0 #fff,
-    -0.12em 0 #fff,
-    0.15em 0 #fff,
-    -0.15em 0 #fff,
-    0.03em 0.075em #fff,
-    -0.03em 0.075em #fff,
-    0.06em 0.075em #fff,
-    -0.06em 0.075em #fff,
-    0.09em 0.075em #fff,
-    -0.09em 0.075em #fff,
-    0.12em 0.075em #fff,
-    -0.12em 0.075em #fff,
-    0.15em 0.075em #fff,
-    -0.15em 0.075em #fff;
-    background-image: linear-gradient($accent,$accent);
-    background-size: 1px 2px;
+    background-image: linear-gradient($accent, $accent);
     background-repeat: repeat-x;
     background-position: 0 95%;
+    background-size: 1px 2px;
     text-decoration: none;
+    text-shadow: .03em 0 #FFF, -.03em 0 #FFF, 0 .03em #FFF, 0 -.03em #FFF,
+    .06em 0 #FFF, -.06em 0 #FFF, .09em 0 #FFF, -.09em 0 #FFF,
+    .12em 0 #FFF, -.12em 0 #FFF, .15em 0 #FFF, -.15em 0 #FFF,
+    .03em .075em #FFF, -.03em .075em #FFF, .06em .075em #FFF,
+    -.06em .075em #FFF, .09em .075em #FFF, -.09em .075em #FFF,
+    .12em .075em #FFF, -.12em .075em #FFF, .15em .075em #FFF,
+    -.15em .075em #FFF;
 
     &:hover {
       color: $accent;
@@ -205,15 +200,15 @@ h1, h2, h3 {
 }
 
 .full {
-  height: 100vh;
   top: 0;
   bottom: 0;
+  height: 100vh;
 }
 
 .about {
   width: 100%;
-  background-color: $smoke;
   padding-bottom: $vertical-rhythm * 2;
+  background-color: $smoke;
 
   p {
     @include size(h3);
@@ -221,33 +216,18 @@ h1, h2, h3 {
   }
 
   a {
-    text-shadow: 0.03em 0 #fff,
-    -0.03em 0 #fff,
-    0 0.03em #fff,
-    0 -0.03em #fff,
-    0.06em 0 #fff,
-    -0.06em 0 #fff,
-    0.09em 0 #fff,
-    -0.09em 0 #fff,
-    0.12em 0 #fff,
-    -0.12em 0 #fff,
-    0.15em 0 #fff,
-    -0.15em 0 #fff,
-    0.03em 0.075em #fff,
-    -0.03em 0.075em #fff,
-    0.06em 0.075em #fff,
-    -0.06em 0.075em #fff,
-    0.09em 0.075em #fff,
-    -0.09em 0.075em #fff,
-    0.12em 0.075em #fff,
-    -0.12em 0.075em #fff,
-    0.15em 0.075em #fff,
-    -0.15em 0.075em #fff;
-    background-image: linear-gradient($accent,$accent);
-    background-size: 2px 3px;
+    background-image: linear-gradient($accent, $accent);
     background-repeat: repeat-x;
     background-position: 0 95%;
+    background-size: 2px 3px;
     text-decoration: none;
+    text-shadow: .03em 0 #FFF, -.03em 0 #FFF, 0 .03em #FFF, 0 -.03em #FFF,
+    .06em 0 #FFF, -.06em 0 #FFF, .09em 0 #FFF, -.09em 0 #FFF,
+    .12em 0 #FFF, -.12em 0 #FFF, .15em 0 #FFF, -.15em 0 #FFF,
+    .03em .075em #FFF, -.03em .075em #FFF, .06em .075em #FFF,
+    -.06em .075em #FFF, .09em .075em #FFF, -.09em .075em #FFF,
+    .12em .075em #FFF, -.12em .075em #FFF, .15em .075em #FFF,
+    -.15em .075em #FFF;
 
     &:hover {
       color: $accent;
@@ -256,9 +236,10 @@ h1, h2, h3 {
 }
 
 .gallery {
-  div[class^="col-"], div[class*=" col-"] {
-    padding: 0;
+  div[class^="col-"],
+  div[class*=" col-"] {
     position: relative;
+    padding: 0;
 
     &:hover .overlay {
       opacity: 1;
@@ -271,17 +252,17 @@ h1, h2, h3 {
 }
 
 .overlay {
-  cursor: pointer;
   position: absolute;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  height: 100%;
   width: 100%;
-  opacity: 0;
+  height: 100%;
   transition: .2s ease-out;
+  opacity: 0;
   background-color: $black;
+  cursor: pointer;
 
   a {
     color: #FFF;
@@ -311,8 +292,8 @@ h1, h2, h3 {
 
 .contact {
   width: 100%;
-  background-color: $smoke;
   padding-bottom: $vertical-rhythm * 2;
+  background-color: $smoke;
 
   form {
     margin-top: $vertical-rhythm;
@@ -324,8 +305,8 @@ h1, h2, h3 {
 
   #form-submit {
     display: block;
-    margin: 0 auto;
     width: 50%;
+    margin: 0 auto;
   }
 
   #form-thankyou {
@@ -337,20 +318,20 @@ h1, h2, h3 {
 }
 
 input {
-  background-color: #FFF;
-  border-color: $smoke;
-  border-radius: 3px;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
   border-width: 1px;
   border-style: solid;
+  border-radius: 3px;
+  border-color: $smoke;
+  background-color: #FFF;
   color: $black;
-  padding: 10px;
-  margin: 8px 0;
-  width: 100%;
 
   &[type="submit"] {
+    transition: .2s ease-out;
     background-color: $storm;
     color: #FFF;
-    transition: .2s ease-out;
 
     &:hover {
       background-color: $accent;
@@ -377,46 +358,47 @@ footer {
 }
 
 .gallery-modal-link {
-  height: 100%;
-  width: 100%;
-  position: absolute;
   display: flex;
-  justify-content: center;
+  position: absolute;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
-  padding-top: 100px; /* Location of the box */
-  left: 0;
+  display: none;
+  position: fixed;
+  z-index: 1000;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: $black; /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: $black;
+  background-color: rgba(33, 33, 33, .75);
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
   width: 80%;
+  margin: auto;
+  padding: 30px;
+  border-top: 20px solid $black;
+  border-radius: 3px;
+  background-color: $smoke;
+  box-shadow: 0 0 50px 0 rgba(33, 33, 33, 1);
 }
 
 .close {
-  color: #aaaaaa;
   float: right;
-  font-size: 28px;
+  font-size: 30px;
   font-weight: bold;
-}
+  line-height: .5;
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: $accent;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }

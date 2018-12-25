@@ -8,7 +8,14 @@
     <!-- Modal content -->
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal... {{ .UniqueID }}</p>
+      <h2>{{ .Params.title }}</h2>
+
+      <article class="entry-content">
+        {{ .Content }}
+
+        {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">View</a></h3>{{ end }}
+        {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">Code</a></h3>{{ end }}
+      </article>
     </div>
 
   </div>
