@@ -2,6 +2,7 @@
 @import "flexboxgrid";
 @import "colors";
 @import "typography";
+@import "animation";
 @import "layout";
 @import "base";
 
@@ -32,17 +33,6 @@
     div.nav-toggle {
       max-width: 50% !important;
     }
-  }
-}
-
-@keyframes blink {
-  from,
-  to {
-    color: transparent;
-  }
-
-  50% {
-    color: $black;
   }
 }
 
@@ -367,30 +357,57 @@ footer {
 }
 
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 1000;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 0;
+  height: 0;
   overflow-x: hidden;
+  transition: opacity .2s ease-out;
+  opacity: 0;
   background-color: $black;
   background-color: rgba(33, 33, 33, .75);
 }
 
-.modal-content {
+.modal.active {
+  width: 100%;
+  height: 100%;
+  transition: opacity .5s ease-out;
+  opacity: 1;
+}
+
+.modal-box {
+  position: relative;
   width: 80%;
   margin: auto;
-  padding: 30px;
-  border-top: 20px solid $black;
+  // border-top: 20px solid $black;
   border-radius: 3px;
   background-color: $smoke;
   box-shadow: 0 0 50px 0 rgba(33, 33, 33, 1);
 }
 
+.modal-header-img-container {
+  max-height: 300px;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+
+  img {
+    max-height: inherit;
+    padding: 40px;
+  }
+}
+
+.modal-content {
+  padding: 30px;
+}
+
 .close {
-  float: right;
+  position: absolute;
+  top: -20px;
+  right: -30px;
+  color: $smoke;
   font-size: 30px;
   font-weight: bold;
   line-height: .5;
