@@ -20,6 +20,10 @@ html {
 
 body {
   @include size(p);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
   color: $black;
   font-family: $font-body;
   line-height: $base-line-height;
@@ -32,10 +36,22 @@ header {
   div {
     z-index: 101;
   }
+
   img {
     max-height: $vertical-rhythm * 6;
   }
+
   h1 {
     font-family: $font-body;
+  }
+}
+
+footer {
+  height: $vertical-rhythm * 6;
+  background-color: $black;
+
+  div,
+  a {
+    color: $white;
   }
 }

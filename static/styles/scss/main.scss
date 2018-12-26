@@ -5,6 +5,7 @@
 @import "animation";
 @import "layout";
 @import "base";
+@import "modal";
 
 @media (max-width: 48em) {
   body .container {
@@ -42,7 +43,7 @@ nav {
   bottom: 0;
   width: 100%;
   height: $vertical-rhythm * 2;
-  background-color: #FFF;
+  background-color: $white;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .4);
   text-align: center;
 
@@ -85,12 +86,12 @@ nav {
   bottom: 0;
   width: 100vw;
   height: 100%;
-  transform: translate(0px, 0px);
+  transform: translate(0, 0);
   transition: .25s ease-out;
   background-color: $black;
 
   a {
-    color: #FFF;
+    color: $white;
 
     &:hover {
       color: $accent;
@@ -99,16 +100,16 @@ nav {
 }
 
 .nav-full.active {
-  transform: translate(-100vw, 0px);
+  transform: translate(-100vw, 0);
 }
 
 main {
-  transform: translate(0px, 0px);
+  transform: translate(0, 0);
   transition: .25s ease-in;
-  background-color: #FFF;
+  background-color: $white;
 
   &.active {
-    transform: translate(-100vw, 0px);
+    transform: translate(-100vw, 0);
   }
 }
 
@@ -163,13 +164,13 @@ time {
     background-position: 0 95%;
     background-size: 1px 2px;
     text-decoration: none;
-    text-shadow: .03em 0 #FFF, -.03em 0 #FFF, 0 .03em #FFF, 0 -.03em #FFF,
-    .06em 0 #FFF, -.06em 0 #FFF, .09em 0 #FFF, -.09em 0 #FFF,
-    .12em 0 #FFF, -.12em 0 #FFF, .15em 0 #FFF, -.15em 0 #FFF,
-    .03em .075em #FFF, -.03em .075em #FFF, .06em .075em #FFF,
-    -.06em .075em #FFF, .09em .075em #FFF, -.09em .075em #FFF,
-    .12em .075em #FFF, -.12em .075em #FFF, .15em .075em #FFF,
-    -.15em .075em #FFF;
+    text-shadow: .03em 0 $white, -.03em 0 $white, 0 .03em $white, 0 -.03em $white,
+    .06em 0 $white, -.06em 0 $white, .09em 0 $white, -.09em 0 $white,
+    .12em 0 $white, -.12em 0 $white, .15em 0 $white, -.15em 0 $white,
+    .03em .075em $white, -.03em .075em $white, .06em .075em $white,
+    -.06em .075em $white, .09em .075em $white, -.09em .075em $white,
+    .12em .075em $white, -.12em .075em $white, .15em .075em $white,
+    -.15em .075em $white;
 
     &:hover {
       color: $accent;
@@ -211,13 +212,13 @@ time {
     background-position: 0 95%;
     background-size: 2px 3px;
     text-decoration: none;
-    text-shadow: .03em 0 #FFF, -.03em 0 #FFF, 0 .03em #FFF, 0 -.03em #FFF,
-    .06em 0 #FFF, -.06em 0 #FFF, .09em 0 #FFF, -.09em 0 #FFF,
-    .12em 0 #FFF, -.12em 0 #FFF, .15em 0 #FFF, -.15em 0 #FFF,
-    .03em .075em #FFF, -.03em .075em #FFF, .06em .075em #FFF,
-    -.06em .075em #FFF, .09em .075em #FFF, -.09em .075em #FFF,
-    .12em .075em #FFF, -.12em .075em #FFF, .15em .075em #FFF,
-    -.15em .075em #FFF;
+    text-shadow: .03em 0 $white, -.03em 0 $white, 0 .03em $white, 0 -.03em $white,
+    .06em 0 $white, -.06em 0 $white, .09em 0 $white, -.09em 0 $white,
+    .12em 0 $white, -.12em 0 $white, .15em 0 $white, -.15em 0 $white,
+    .03em .075em $white, -.03em .075em $white, .06em .075em $white,
+    -.06em .075em $white, .09em .075em $white, -.09em .075em $white,
+    .12em .075em $white, -.12em .075em $white, .15em .075em $white,
+    -.15em .075em $white;
 
     &:hover {
       color: $accent;
@@ -255,7 +256,7 @@ time {
   cursor: pointer;
 
   a {
-    color: #FFF;
+    color: $white;
 
     &:hover {
       color: $accent;
@@ -263,12 +264,17 @@ time {
   }
 
   h2 {
-    color: #FFF;
+    color: $white;
   }
+}
 
-  h3 {
-    font-family: $font-body;
-  }
+.gallery-modal-link {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .blog {
@@ -315,17 +321,17 @@ input {
   border-style: solid;
   border-radius: 3px;
   border-color: $smoke;
-  background-color: #FFF;
+  background-color: $white;
   color: $black;
 
   &[type="submit"] {
     transition: .2s ease-out;
     background-color: $storm;
-    color: #FFF;
+    color: $white;
 
     &:hover {
       background-color: $accent;
-      color: #FFF;
+      color: $white;
       cursor: pointer;
     }
   }
@@ -335,87 +341,4 @@ textarea {
   @extend input;
   min-height: $vertical-rhythm * 4;
   overflow: auto;
-}
-
-footer {
-  height: $vertical-rhythm * 6;
-  background-color: $black;
-
-  div,
-  a {
-    color: #FFF;
-  }
-}
-
-.gallery-modal-link {
-  display: flex;
-  position: absolute;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.modal {
-  display: flex;
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  overflow-x: hidden;
-  transition: opacity .2s ease-out;
-  opacity: 0;
-  background-color: $black;
-  background-color: rgba(33, 33, 33, .75);
-}
-
-.modal.active {
-  width: 100%;
-  height: 100%;
-  transition: opacity .5s ease-out;
-  opacity: 1;
-}
-
-.modal-box {
-  position: relative;
-  width: 80%;
-  margin: auto;
-  // border-top: 20px solid $black;
-  border-radius: 3px;
-  background-color: $smoke;
-  box-shadow: 0 0 50px 0 rgba(33, 33, 33, 1);
-}
-
-.modal-header-img-container {
-  max-height: 300px;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
-
-  img {
-    max-height: inherit;
-    padding: 40px;
-  }
-}
-
-.modal-content {
-  padding: 30px;
-}
-
-.close {
-  position: absolute;
-  top: -20px;
-  right: -30px;
-  color: $smoke;
-  font-size: 30px;
-  font-weight: bold;
-  line-height: .5;
-
-  &:hover,
-  &:focus {
-    color: $accent;
-    text-decoration: none;
-    cursor: pointer;
-  }
 }

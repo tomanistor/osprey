@@ -31,8 +31,8 @@
     link.onclick = function(e) {
       e.preventDefault()
       modal = $(e.target.getAttribute('href'))
-      openModal()
       modal.classList.add('active')
+      openModal()
     }
   })
 

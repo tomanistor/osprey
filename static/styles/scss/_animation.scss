@@ -38,9 +38,9 @@
 }
 
 .scale-in-center {
-  animation: scale-in-center .3s cubic-bezier(.250, .460, .450, .940) both;
+  animation: scale-in-center .3s cubic-bezier(.25, .46, .45, .94) both;
 }
 
 .scale-out-center {
-  animation: scale-out-center .5s cubic-bezier(.895, .030, .685, .220) both;
+  animation: scale-out-center .5s cubic-bezier(.895, .03, .685, .22) both;
 }
