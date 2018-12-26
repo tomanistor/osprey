@@ -23,6 +23,7 @@
   function closeModal() {
     modalBoxes.forEach(function(box) {
       box.classList.add('scale-out-center')
+      setTimeout(function() { modal.classList.remove('active') }, 500)
     })
   }
 
@@ -41,7 +42,6 @@
     link.onclick = function(e) {
       e.preventDefault()
       closeModal()
-      setTimeout(function() { modal.classList.remove('active') }, 500)
     }
   })
 
@@ -49,7 +49,13 @@
   window.onclick = function(event) {
     if (event.target === modal) {
       closeModal()
-      setTimeout(function() { modal.classList.remove('active') }, 500)
+    }
+  }
+
+  // Close modal on ESC key press
+  document.onkeydown = function(e) {
+    if (e.key === 'Escape') {
+      closeModal()
     }
   }
 })()
