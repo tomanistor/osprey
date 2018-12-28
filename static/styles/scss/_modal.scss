@@ -6,6 +6,7 @@
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   overflow-x: hidden;
   transition: opacity .2s ease-out;
   opacity: 0;
@@ -21,26 +22,34 @@
   position: relative;
   width: 80%;
   max-width: 1000px;
+  max-height: 80vh;
   margin: auto;
-  // border-top: 20px solid $black;
   border-radius: 3px;
   background-color: $smoke;
   box-shadow: 0 0 50px 0 rgba(33, 33, 33, 1);
 }
 
+.modal-container {
+  overflow: hidden;
+  border-bottom-left-radius: inherit;
+  border-bottom-right-radius: inherit;
+}
+
 .modal-header-img-container {
-  max-height: 300px;
+  height: 20vh;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
 
   img {
-    max-height: inherit;
+    max-height: 100%;
     padding: 40px;
   }
 }
 
 .modal-content {
+  max-height: calc(80vh - 20vh);
   padding: 30px;
+  overflow-y: auto;
 }
 
 .close {

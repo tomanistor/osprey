@@ -8,23 +8,25 @@
     <!-- Modal box -->
     <div class="modal-box scale-in-center">
       <span class="close">&times;</span>
+      <div class="modal-container">
 
-      <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-        <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+        <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+        </div>
+
+        <div class="modal-content">
+          <h2>{{ .Params.title }}</h2>
+
+          <article class="entry-content">
+            {{ .Content }}
+          </article>
+
+          {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">View</a></h3>{{ end }}
+          {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">Code</a></h3>{{ end }}
+        </div>
+
       </div>
-
-      <div class="modal-content">
-        <h2>{{ .Params.title }}</h2>
-
-        <article class="entry-content">
-          {{ .Content }}
-        </article>
-
-        {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">View</a></h3>{{ end }}
-        {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">Code</a></h3>{{ end }}
-      </div>
-
     </div>
-
+    
   </div>
 {{ end }}
