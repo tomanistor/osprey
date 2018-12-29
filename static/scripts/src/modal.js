@@ -15,6 +15,7 @@
   // Modal open animation
   function openModal() {
     modalBoxes.forEach(function(box) {
+      box.classList.add('scale-in-center')
       box.classList.remove('scale-out-center')
     })
   }
@@ -22,7 +23,13 @@
   // Modal close animation
   function closeModal() {
     modalBoxes.forEach(function(box) {
+      box.classList.remove('scale-in-center')
       box.classList.add('scale-out-center')
+      // Remove active class from modal after modal-box animation is done
+      // box.addEventListener('animationend', function() {
+      //   console.log('animation ended')
+      //   modal.classList.remove('active')
+      // })
       setTimeout(function() { modal.classList.remove('active') }, 500)
     })
   }
@@ -46,8 +53,8 @@
   })
 
   // Close modal on click outside modal
-  window.onclick = function(event) {
-    if (event.target === modal) {
+  window.onclick = function(e) {
+    if (e.target === modal) {
       closeModal()
     }
   }
