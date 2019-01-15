@@ -2,10 +2,17 @@
 
     <div class="col-xs-3 col-md-2"><a target="_blank" href="https://goo.gl/maps/osstJoEPzBN2">10950 84 Ave NW<br>Edmonton, Alberta T6G 0V4<br>recruitment@epsilonrho.ca</a></div>
     
-    {{ if .Site.Params.facebook }}
-      <div class="col-xs-3 col-md-2 fab fa-facebook"><a target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}"> Facebook</a></div>
-    {{ end }}
-
+  {{ if .Site.Params.facebook }}
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}">Facebook</a></div>
+  {{ end }}
+  
+  {{ if .Site.Params.instagram }}
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://instagram.com/{{ .Site.Params.instagram }}">Instagram</a></div>
+  {{ end }}
+  
+  {{ if .Site.Params.github }}
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
+  {{ end }}
 
     {{ if .Site.Params.instagram }}
       <div class="col-xs-3 col-md-2 fab fa-instagram"> <a target="_blank" href="https://instagram.com/{{ .Site.Params.instagram }}"> Instagram</a></div>
