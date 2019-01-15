@@ -1,30 +1,37 @@
 <footer class="row middle-xs center-xs">
 
-  {{ if .Site.Params.facebook }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}">Facebook</a></div>
-  {{ end }}
-  
-  {{ if .Site.Params.github }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
-  {{ end }}
+    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://goo.gl/maps/osstJoEPzBN2">10950 84 Ave NW<br>Edmonton, Alberta T6G 0V4<br>recruitment@epsilonrho.ca</a></div>
+    
+    {{ if .Site.Params.facebook }}
+      <div class="col-xs-3 col-md-2 fab fa-facebook"><a target="_blank" href="https://facebook.com/{{ .Site.Params.facebook }}"> Facebook</a></div>
+    {{ end }}
 
-  {{ if .Site.Params.linkedin }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
-  {{ end }}
 
-  {{ if .Site.Params.twitter }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
-  {{ end }}
+    {{ if .Site.Params.instagram }}
+      <div class="col-xs-3 col-md-2 fab fa-instagram"> <a target="_blank" href="https://instagram.com/{{ .Site.Params.instagram }}"> Instagram</a></div>
+    {{ end }}
+    
+    {{ if .Site.Params.github }}
+      <div class="col-xs-3 col-md-2 fab fa-github"><a target="_blank" href="https://github.com/{{ .Site.Params.github }}"> GitHub</a></div>
+    {{ end }}
 
-  {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
-    <div class="col-xs-12">
-      {{ if .Site.Params.copyright }}
-        Copyright &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
-      {{ end }}
-      {{ if .Site.Params.credit }}
-        <a href="https://tomanistor.com" target="_blank">Theme developed by Toma Nistor</a>
-      {{ end }}
-    </div>
-  {{ end }}
+    {{ if .Site.Params.linkedin }}
+      <div class="col-xs-3 col-md-2"><a target="_blank" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}"> LinkedIn</a></div>
+    {{ end }}
+
+    {{ if .Site.Params.twitter }}
+      <div class="col-xs-3 col-md-2 fab fa-twitter"><a target="_blank" href="https://twitter.com/{{ .Site.Params.twitter }}"> Twitter</a></div>
+    {{ end }}
+
+    {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
+      <div class="col-xs-12">
+        {{ if .Site.Params.copyright }}
+          Copyright &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
+        {{ end }}
+        {{ if .Site.Params.credit }}
+          <a href="https://tomanistor.com" target="_blank">Theme developed by Toma Nistor</a>
+        {{ end }}
+      </div>
+    {{ end }}
 
 </footer>
