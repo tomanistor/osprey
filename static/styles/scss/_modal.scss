@@ -35,14 +35,21 @@
   border-bottom-right-radius: inherit;
 }
 
-.modal-header-img-container {
+.modal-header {
   height: 20vh;
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
+}
+
+.modal-header-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 40px;
 
   img {
     max-height: 100%;
-    padding: 40px;
   }
 }
 

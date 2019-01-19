@@ -106,7 +106,7 @@ nav {
 }
 
 main {
-  transform: translate(0, 0);
+  margin-top: $vertical-rhythm * 2;
   transition: .25s ease-in;
   background-color: $white;
 
@@ -132,13 +132,18 @@ p {
 h1,
 h2,
 h3 {
-  margin-top: $vertical-rhythm;
+  margin-bottom: $vertical-rhythm;
   font-family: $font-header;
   letter-spacing: 2px;
+  line-height: 1.45;
 
   a {
     text-decoration: none;
   }
+}
+
+.home-logo {
+  margin-bottom: $vertical-rhythm;
 }
 
 .posts-list {
@@ -220,6 +225,7 @@ time {
   }
 
   h2 {
+    margin: $vertical-rhythm;
     color: $white;
   }
 }
@@ -227,8 +233,12 @@ time {
 .blog {
   min-height: 100vh;
 
+  h2 {
+    margin-bottom: 0;
+  }
+
   h3 {
-    margin: 0 0 $vertical-rhythm;
+    margin: 0 0 $vertical-rhythm * 2;
     font-family: $font-body;
   }
 }

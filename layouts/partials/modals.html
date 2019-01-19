@@ -10,8 +10,10 @@
       <span class="close">&times;</span>
       <div class="modal-container">
 
-        <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+        <div class="modal-header">
+          <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          </div>
         </div>
 
         <div class="modal-content">
