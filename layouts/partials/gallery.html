@@ -18,7 +18,7 @@
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
             <div class= "gallery-img-container">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+              <img {{ if .Site.Params.lazyLoading }}data-src="/images/{{ .Params.image }}" lazyload="on"{{ else }}src="/images/{{ .Params.image }}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
               <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
@@ -33,7 +33,7 @@
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
             <div class= "gallery-img-container">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+              <img {{ if .Site.Params.lazyLoading }}data-src="/images/{{ .Params.image }}" class="lazyload" lazyload="on"{{ else }}src="/images/{{ .Params.image }}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
               <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
@@ -56,7 +56,7 @@
             {{- end }}
           {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
             <div class= "gallery-img-container">
-              <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+              <img {{ if .Site.Params.lazyLoading }}data-src="/images/{{ .Params.image }}" class="lazyload" lazyload="on"{{ else }}src="/images/{{ .Params.image }}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
             </div>
             <div class="row middle-xs center-xs overlay">
               <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
@@ -83,7 +83,7 @@
           {{- end }}
         {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
           <div class= "gallery-img-container">
-            <img src="/images/{{ .Params.image }}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <img {{ if .Site.Params.lazyLoading }}data-src="/images/{{ .Params.image }}" class="lazyload" lazyload="on"{{ else }}src="/images/{{ .Params.image }}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
           <div class="row middle-xs center-xs overlay">
             <a href="#modal-{{ .Scratch.Get "$modalID" }}" class="gallery-modal-link"></a>

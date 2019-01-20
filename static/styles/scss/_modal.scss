@@ -1,5 +1,6 @@
 .modal {
   display: flex;
+  visibility: hidden;
   position: fixed;
   z-index: -1000;
   top: 0;
@@ -9,12 +10,13 @@
   overflow: hidden;
   overflow-x: hidden;
   transition: opacity .2s ease-out;
-  opacity: 0;
+  // opacity: 0;
   background-color: rgba(33, 33, 33, .75);
 
   &.active {
+    visibility: visible;
     z-index: 1000;
-    opacity: 1;
+    // opacity: 1;
   }
 }
 
