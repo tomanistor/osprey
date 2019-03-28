@@ -10,7 +10,7 @@
             {{ if eq $galleryTotal 1 }}
                 {{ range first 3 $galleryReverse }}
                     <div class="col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
                         <div class="row middle-xs center-xs overlay">
                             <div class="col-xs-12">
                                 <h2>{{ .Title }}</h2>
@@ -27,7 +27,7 @@
             {{ if gt $galleryTotal 2 }}
                 {{ range first 3 $galleryReverse }}
                     <div class="col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
                         <div class="row middle-xs center-xs overlay">
                             <div class="col-xs-12">
                                 <h2>{{ .Title }}</h2>
@@ -51,7 +51,7 @@
                         {{ else }} col-lg-3
                         {{ end }}
                     {{ end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
                         <div class="row middle-xs center-xs overlay">
                             <div class="col-xs-12">
                                 <h2>{{ .Title }}</h2>
@@ -78,7 +78,7 @@
                         {{ end }}
                     {{ end }}
                 {{ end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                    <img src="{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+                    <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
                     <div class="row middle-xs center-xs overlay">
                         <div class="col-xs-12">
                             <h2>{{ .Title }}</h2>
