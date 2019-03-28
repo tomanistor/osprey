@@ -1,0 +1,46 @@
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+
+  50% {
+    color: $black;
+  }
+}
+
+@keyframes scale-in-center {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-out-center {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0);
+    opacity: 1;
+  }
+}
+
+.cursor {
+  animation: 1s blink step-end infinite;
+}
+
+.scale-in-center {
+  animation: scale-in-center .3s cubic-bezier(.25, .46, .45, .94) both;
+}
+
+.scale-out-center {
+  animation: scale-out-center .5s cubic-bezier(.895, .03, .685, .22) both;
+}

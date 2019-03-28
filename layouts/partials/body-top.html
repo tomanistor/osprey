@@ -9,7 +9,7 @@
   <header class="row middle-xs center-xs">
     <div class="col-xs-12">
       <div class="row middle-xs center-xs">
-        <div class="col-xs-12"><img src="{{ .Site.Params.logoBig}}" alt="{{ .Site.Title }}"></div>
+        <div class="col-xs-12"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoBig }}" lazyload="on"{{ else }}src="{{ .Site.Params.logoBig }}"{{ end }} alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.lazyLoading }}lazyload{{ end }}"></div>
       </div>
       <div class="row middle-xs center-xs">
         <div class="col-xs-12">
@@ -22,7 +22,7 @@
 
 <nav class="row middle-xs center-xs">
   <div class="col-xs-6 col-sm-1 logo">
-    <a href="{{ "#" | relLangURL }}"><img src="{{ .Site.Params.logoSmall }}" alt="{{ .Site.Title }}"></a>
+    <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>
   </div>
     {{ range .Site.Menus.main }}
       <div class="col-xs-3 col-sm-2">
@@ -30,7 +30,10 @@
       </div>
     {{ end }}
   <div class="col-xs-6 col-sm-1 nav-toggle">
-      <a href="" class="nav-icon" onclick="return false"><img src="/images/icon-menu.png" alt="Open Menu"><img src="/images/icon-x.png" alt="Close Menu" style="display: none;"></a>
+      <a href="" class="nav-icon" onclick="return false">
+        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-menu.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-menu.png"{{ end }} alt="Open Menu">
+        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-x.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-x.png"{{ end }} alt="Close Menu" style="display: none;">
+      </a>
   </div>
 </nav>
 

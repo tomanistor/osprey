@@ -1,0 +1,28 @@
+.about {
+  width: 100%;
+  background-color: $smoke;
+
+  p {
+    @include size(h3);
+    margin-top: $vertical-rhythm;
+  }
+
+  a {
+    background-image: linear-gradient($accent, $accent);
+    background-repeat: repeat-x;
+    background-position: 0 95%;
+    background-size: 2px 3px;
+    text-decoration: none;
+    text-shadow: .03em 0 $white, -.03em 0 $white, 0 .03em $white, 0 -.03em $white,
+    .06em 0 $white, -.06em 0 $white, .09em 0 $white, -.09em 0 $white,
+    .12em 0 $white, -.12em 0 $white, .15em 0 $white, -.15em 0 $white,
+    .03em .075em $white, -.03em .075em $white, .06em .075em $white,
+    -.06em .075em $white, .09em .075em $white, -.09em .075em $white,
+    .12em .075em $white, -.12em .075em $white, .15em .075em $white,
+    -.15em .075em $white;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+}

@@ -29,7 +29,7 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
 
   # Copyright and theme author credit in footer
   copyright = true
-  credit = true
+  credit = false
 
   # Cache busting of static resources (additional set up required)
   cacheBustCSS = false
@@ -44,6 +44,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   ajaxFormspree = false
   ajaxFormspreeGold = false
   ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
+
+  # Lazy loading with lazysizes
+  lazyloading = true
 
 [[menu.main]]
   name = "About"

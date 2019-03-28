@@ -1,3 +1,8 @@
+{{ if not (eq (len (where .Data.Pages "Section" "gallery")) 0) }}
+  {{ partial "modals.html" . }}
+  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "modal.js" }}{{ else }}modal.min.js{{ end }}" type="text/javascript"></script>
+{{ end }}
+
 {{ if .Site.Params.highlightJS }}
   {{ if .Site.Params.highlightJSScript }}
     <script src="{{ .Site.Params.highlightJSScript }}"></script>

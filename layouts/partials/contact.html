@@ -10,10 +10,10 @@
 
     <form id="form-contact" action="{{ if .Site.Params.ajaxFormspree }}https://formspree.io/{{ .Site.Params.email }}{{ else if .Site.Params.ajaxBasin }}{{ .Site.Params.ajaxBasin }}{{ end }}" method="POST">
       <div class="row center-xs">
-        <div class="col-xs-12 col-sm-6"><input type="text" name="name" placeholder="{{ i18n "name" }}" required></div>
-        <div class="col-xs-12 col-sm-6"><input type="email" name="email" placeholder="{{ i18n "email" }}" required></div>
-        <div class="col-xs-12"><input type="text" name="_subject" placeholder="{{ i18n "subject" }}" required></div>
-        <div class="col-xs-12"><textarea name="message" placeholder="{{ i18n "message" }}" required></textarea></div>
+        <div class="col-xs-12 col-sm-6"><input type="text" name="name" aria-label="name" placeholder="{{ i18n "name" }}" required></div>
+        <div class="col-xs-12 col-sm-6"><input type="email" id="email" name="email" aria-label="email address" placeholder="{{ i18n "email" }}" required></div>
+        <div class="col-xs-12"><input type="text" name="_subject" aria-label="email subject" placeholder="{{ i18n "subject" }}" required></div>
+        <div class="col-xs-12"><textarea name="message" aria-label="email message" placeholder="{{ i18n "message" }}" required></textarea></div>
         {{ if .Site.Params.ajaxFormspree }}
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" name="_next" value="/">

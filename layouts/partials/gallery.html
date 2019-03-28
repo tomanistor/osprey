@@ -1,96 +1,98 @@
 <section class="gallery" id="work">
-    <div class="row">
+  <div class="row">
 
-        {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
-        {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
+    <!-- First 4 characters of each gallery page's unique ID -->
+    {{ range where .Site.RegularPages "Section" "gallery" }}
+      <!-- Scratch is used to set page-scoped variable outside of this loop-->
+      {{ .Scratch.Set "$modalID" (slicestr .UniqueID 0 4) }}
+    {{ end }}
 
-        <!-- Where gallery is an odd total -->
-        {{ if not (modBool $galleryTotal 2) }}
-            <!-- Where gallery is only one item, display it fully -->
-            {{ if eq $galleryTotal 1 }}
-                {{ range first 3 $galleryReverse }}
-                    <div class="col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-                        <div class="row middle-xs center-xs overlay">
-                            <div class="col-xs-12">
-                                <h2>{{ .Title }}</h2>
-                                <div class="row middle-xs center-xs">
-                                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3></div>{{ end }}
-                                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3></div>{{ end }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {{ end }}
-            {{ end }}
-            <!-- Where gallery is greater than 2 items, first 3 items display together on first row -->
-            {{ if gt $galleryTotal 2 }}
-                {{ range first 3 $galleryReverse }}
-                    <div class="col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-                        <div class="row middle-xs center-xs overlay">
-                            <div class="col-xs-12">
-                                <h2>{{ .Title }}</h2>
-                                <div class="row middle-xs center-xs">
-                                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3></div>{{ end }}
-                                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3></div>{{ end }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {{ end }}
-            {{ end }}
-            <!-- Where gallery is greater than 3 items, all items after the first 3 display evenly in grid colums and rows -->
-            {{ if gt $galleryTotal 3 }}
-                {{ range after 3 $galleryReverse }}
-                    <!-- Where gallery items are divisible by 3, they will appear in columns of 3 -->
-                    {{ $col := (mod $galleryTotal 3) }}
-                    <div class="col-xs-12 col-md-6
-                    {{ if gt $galleryTotal 5 }}
-                        {{ if eq $col 0 }} col-lg-4
-                        {{ else }} col-lg-3
-                        {{ end }}
-                    {{ end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                        <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-                        <div class="row middle-xs center-xs overlay">
-                            <div class="col-xs-12">
-                                <h2>{{ .Title }}</h2>
-                                <div class="row middle-xs center-xs">
-                                    {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3></div>{{ end }}
-                                    {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3></div>{{ end }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                {{ end }}
-            {{ end }}
+    {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
+    {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
+
+    <!-- If gallery is an odd total -->
+    {{ if not (modBool $galleryTotal 2) }}
+
+      <!-- If gallery is only one item, display it fully -->
+      {{ if eq $galleryTotal 1 }}
+        {{ range first 3 $galleryReverse }}
+          <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <div class= "gallery-img-container">
+              <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            </div>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
         {{ end }}
+      {{ end }}
 
-        <!-- Where gallery is an even total, all items display evenly in grid columns and rows -->
-        {{ if modBool $galleryTotal 2 }}
-            {{ range $galleryReverse }}
-                <!-- Where gallery items are great than 7 and are divisible by 4, they will appear in colums of 4, else in colums of 2 or 3 -->
-                <div class="col-xs-12
-                {{ if gt $galleryTotal 1 }} col-md-6
-                    {{ if gt $galleryTotal 7 }}
-                        {{ if modBool $galleryTotal 4 }} col-lg-3
-                        {{ else }} col-lg-4
-                        {{ end }}
-                    {{ end }}
-                {{ end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-                    <img src="{{ "images/" | relURL }}{{ .Params.image}}" {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-                    <div class="row middle-xs center-xs overlay">
-                        <div class="col-xs-12">
-                            <h2>{{ .Title }}</h2>
-                            <div class="row middle-xs center-xs">
-                                {{ if .Params.link1 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3></div>{{ end }}
-                                {{ if .Params.link2 }}<div class="col-xs-3 col-md-4"><h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3></div>{{ end }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            {{ end }}
+      <!-- If gallery is greater than 2 items, first 3 items display together on first row -->
+      {{ if gt $galleryTotal 2 }}
+        {{ range first 3 $galleryReverse }}
+          <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <div class= "gallery-img-container">
+              <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            </div>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
         {{ end }}
+      {{ end }}
 
-    </div>
+      <!-- If gallery is greater than 3 items, all items after the first 3 display evenly in grid columns and rows -->
+      {{ if gt $galleryTotal 3 }}
+        {{ range after 3 $galleryReverse }}
+
+          <!-- If gallery items are divisible by 3, they will appear in columns of 3 -->
+          {{ $col := (mod $galleryTotal 3) }}
+          <div class="gallery-item col-xs-12 col-md-6
+          {{- if gt $galleryTotal 5 }}
+            {{- if eq $col 0 }} col-lg-4
+            {{- else }} col-lg-3
+            {{- end }}
+          {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            <div class= "gallery-img-container">
+              <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            </div>
+            <div class="row middle-xs center-xs overlay">
+              <a href="#modal-{{ .Scratch.Get "$modalID" }}" data-modal="modal-{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              <h2>{{ .Title }}</h2>
+            </div>
+          </div>
+
+        {{ end }}
+      {{ end }}
+
+    {{ end }}
+
+    <!-- If gallery is an even total, all items display evenly in grid columns and rows -->
+    {{ if modBool $galleryTotal 2 }}
+      {{ range $galleryReverse }}
+
+        <!-- If gallery items are great than 7 and are divisible by 4, they will appear in columns of 4, else in columns of 2 or 3 -->
+        <div class="gallery-item col-xs-12
+        {{- if gt $galleryTotal 1 }} col-md-6
+          {{- if gt $galleryTotal 7 }}
+            {{- if modBool $galleryTotal 4 }} col-lg-3
+            {{- else }} col-lg-4
+            {{- end }}
+          {{- end }}
+        {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+          <div class= "gallery-img-container">
+            <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+          </div>
+          <div class="row middle-xs center-xs overlay">
+            <a href="#modal-{{ .Scratch.Get "$modalID" }}" class="gallery-modal-link"></a>
+            <h2>{{ .Title }}</h2>
+          </div>
+        </div>
+
+      {{ end }}
+    {{ end }}
+
+  </div>
 </section>

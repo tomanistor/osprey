@@ -9,6 +9,10 @@
     <!-- End Google Tag Manager -->
   {{ end }}
 
+  {{ if .Site.GoogleAnalytics }}
+    {{ template "_internal/google_analytics_async.html" . }}
+  {{ end }}
+
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
     {{- if .IsHome -}}
@@ -90,7 +94,7 @@
     {{ end }}
   {{ end }}
 
-  {{ if .Site.GoogleAnalytics }}
-    {{ template "_internal/google_analytics.html" . }}
+  {{ if .Site.Params.lazyLoading }}
+    <script src="/scripts/vendor/lazysizes.min.js" async></script>
   {{ end }}
 </head>

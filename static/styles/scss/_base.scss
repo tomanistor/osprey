@@ -32,32 +32,32 @@ pre {
   margin-top: 0;
   margin-bottom: $vertical-rhythm;
   padding: 16px;
+  overflow: auto;
   background-color: $smoke;
   font: 12px "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
   font-family: $font-code;
   font-size: 85%;
   line-height: 1.45;
-  overflow: auto;
   word-wrap: normal;
 
-  > code {
+  & > code {
     margin: 0;
     padding: 0;
     border: 0;
     background: transparent;
     font-size: 100%;
-    white-space: pre;
     word-break: normal;
+    white-space: pre;
   }
 
   code {
     display: inline;
     margin: 0;
     padding: 0;
+    overflow: visible;
     border: 0;
     background-color: transparent;
     line-height: inherit;
-    overflow: visible;
     word-wrap: normal;
 
     &::before,
@@ -98,10 +98,10 @@ q {
 }
 
 %blockquote {
+  content: "\201C";
   color: $accent;
   font-family: $font-header;
   font-size: 35px;
-  content: '\201C';
 }
 
 blockquote {
@@ -120,16 +120,16 @@ blockquote {
 
   &::after {
     @extend %blockquote;
-    content: '\201D';
+    content: "\201D";
   }
 }
 
 
 // Images
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
-  margin: 0 auto;
+  vertical-align: middle;
 }
 
 
@@ -153,5 +153,10 @@ ul li {
 
 
 // Show or hide elements
-.show { transition: opacity 600ms; }
-.hide { opacity: 0; }
+.show {
+  transition: opacity 600ms;
+}
+
+.hide {
+  opacity: 0;
+}

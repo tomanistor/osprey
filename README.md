@@ -95,6 +95,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   ajaxFormspreeGold = false
   ajaxBasin = "https://usebasin.com/f/0eae7044d4c2"
 
+  # Lazy loading with lazysizes
+  lazyloading = true
+
 [[menu.main]]
   name = "About"
   url  = "/#about"
