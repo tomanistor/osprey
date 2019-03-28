@@ -4,23 +4,23 @@
 
     <div class="row">
       <div class="col-xs-12">
-        <h1>Let's Chat</h1>
+        <h1>{{ i18n "letsChat" }}</h1>
       </div>
     </div>
 
     <form id="form-contact" action="{{ if .Site.Params.ajaxFormspree }}https://formspree.io/{{ .Site.Params.email }}{{ else if .Site.Params.ajaxBasin }}{{ .Site.Params.ajaxBasin }}{{ end }}" method="POST">
       <div class="row center-xs">
-        <div class="col-xs-12 col-sm-6"><input type="text" name="name" placeholder="Name" required></div>
-        <div class="col-xs-12 col-sm-6"><input type="email" id="email" name="email" placeholder="Email" required></div>
-        <div class="col-xs-12"><input type="text" name="_subject" placeholder="Subject" required></div>
-        <div class="col-xs-12"><textarea name="message" placeholder="Message" required></textarea></div>
+        <div class="col-xs-12 col-sm-6"><input type="text" name="name" placeholder="{{ i18n "name" }}" required></div>
+        <div class="col-xs-12 col-sm-6"><input type="email" name="email" placeholder="{{ i18n "email" }}" required></div>
+        <div class="col-xs-12"><input type="text" name="_subject" placeholder="{{ i18n "subject" }}" required></div>
+        <div class="col-xs-12"><textarea name="message" placeholder="{{ i18n "message" }}" required></textarea></div>
         {{ if .Site.Params.ajaxFormspree }}
         <input type="text" name="_gotcha" style="display:none">
         <input type="hidden" name="_next" value="/">
         {{ end }}
         <div class="col-xs-12 contact-submit">
-          <input id="form-submit" type="submit" value="Send">
-          <span id="form-thankyou" style="visibility:hidden">Thanks for your email!</span>
+          <input id="form-submit" type="submit" value="{{ i18n "send" }}">
+          <span id="form-thankyou" style="visibility:hidden">{{ i18n "thanksForYourEmail" }}</span>
         </div>
       </div>
     </form>

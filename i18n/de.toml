@@ -1,0 +1,33 @@
+[view]
+other = "Anzeigen"
+[code]
+other = "Code"
+[viewAll]
+other = "Alles anzeigen"
+[letsChat]
+other = "Lass uns Chatten"
+[name]
+other = "Name"
+[email]
+other = "Email"
+[subject]
+other = "Betreff"
+[message]
+other = "Nachricht"
+[send]
+other = "Sende"
+[thanksForYourEmail]
+other = "Danke für deine Email!"
+[minuteRead]
+one = "Eine Minute zu lesen"
+other = "{{.Count}} Minuten zu lesen"
+[latestPosts]
+other = "Letzte Posts"
+[enableJavaScript]
+other = "Bitte aktiviere JavaScript um die Kommentare anzuzeigen von"
+[404Message]
+other = "WAS HAST DU GETAN?!"
+[themeDevelopedBy]
+other = "Theme entwickelt von"
+[copyright]
+other = "Copyright"

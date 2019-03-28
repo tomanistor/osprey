@@ -1,0 +1,41 @@
+[view]
+other = "View"
+[code]
+other = "Code"
+[viewAll]
+other = "View All"
+[letsChat]
+other = "Let's Chat"
+[name]
+other = "Name"
+[email]
+other = "Email"
+[subject]
+other = "Subject"
+[message]
+other = "Message"
+[send]
+other = "Send"
+[thanksForYourEmail]
+other = "Thanks for your email!"
+[minuteRead]
+one = "One minute read"
+other = "{{.Count}} minutes read"
+[latestPosts]
+other = "Latest Posts"
+[enableJavaScript]
+other = "Please enable JavaScript to view comments powered by"
+[404Message]
+other = "WHAT DID YOU DO?!"
+[themeDevelopedBy]
+other = "Theme developed by"
+[copyright]
+other = "Copyright"
+[facebook]
+other = "Facebook"
+[github]
+other = "GitHub"
+[linkedin]
+other = "LinkedIn"
+[twitter]
+other = "Twitter"
