@@ -8,5 +8,5 @@ features = ["blog", "portfolio", "google analytics"]
 min_version = 0.24.1
 
 [author]
-    name = "Toma Nistor"
-    homepage = "https://tomanistor.com"
+  name = "Toma Nistor"
+  homepage = "https://tomanistor.com"

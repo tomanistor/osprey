@@ -5,12 +5,12 @@
     <div class="container middle-xs">
       <div class="row center-xs">
         <div class="col-xs-12">
-          <h1>{{ with $.Site.GetPage "page" "about.md" }}{{ .Title }}{{ end }}</h1>
+          <h1>{{ with $.Site.GetPage "page" "about" }}{{ .Title }}{{ end }}</h1>
         </div>
       </div>
       <div class="row">
         <div class="col-xs-12 middle-xs">
-          {{ with $.Site.GetPage "page" "about.md" }}
+          {{ with $.Site.GetPage "page" "about" }}
             {{ .Content }}
           {{ end }}
         </div>

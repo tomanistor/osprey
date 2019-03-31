@@ -1,28 +1,28 @@
 <footer class="row middle-xs center-xs">
 
   {{ if .Site.Params.facebook }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://facebook.com/{{ .Site.Params.facebook }}">Facebook</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://facebook.com/{{ .Site.Params.facebook }}">{{ i18n "facebook" }}</a></div>
   {{ end }}
 
   {{ if .Site.Params.github }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://github.com/{{ .Site.Params.github }}">GitHub</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://github.com/{{ .Site.Params.github }}">{{ i18n "github" }}</a></div>
   {{ end }}
 
   {{ if .Site.Params.linkedin }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">LinkedIn</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">{{ i18n "linkedin" }}</a></div>
   {{ end }}
 
   {{ if .Site.Params.twitter }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://twitter.com/{{ .Site.Params.twitter }}">Twitter</a></div>
+    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://twitter.com/{{ .Site.Params.twitter }}">{{ i18n "twitter" }}</a></div>
   {{ end }}
 
   {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
     <div class="col-xs-12">
       {{ if .Site.Params.copyright }}
-        Copyright &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
+      {{ i18n "copyright" }} &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
       {{ end }}
       {{ if .Site.Params.credit }}
-        <a href="https://tomanistor.com" target="_blank" rel="nofollow">Theme developed by Toma Nistor</a>
+        <a href="https://tomanistor.com" target="_blank" rel="nofollow">{{ i18n "themeDevelopedBy" }} Toma Nistor</a>
       {{ end }}
     </div>
   {{ end }}

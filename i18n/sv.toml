@@ -1,0 +1,32 @@
+[view]
+other = "Visa"
+[code]
+other = "Kod"
+[viewAll]
+other = "Visa alla"
+[letsChat]
+other = "Låt oss prata"
+[name]
+other = "Namn"
+[email]
+other = "E-post"
+[subject]
+other = "Rubrik"
+[message]
+other = "Meddelande"
+[send]
+other = "Skicka"
+[thanksForYourEmail]
+other = "Tack för ditt mail!"
+[minuteRead]
+other = "minuters läsning"
+[latestPosts]
+other = "Senaste inläggen"
+[enableJavaScript]
+other = "Vänligen aktivera Javascript för att visa kommentarer med hjälp av"
+[404Message]
+other = "Vad hände?"
+[themeDevelopedBy]
+other = "Temat utvecklat av"
+[copyright]
+other = "upphovsrätt"

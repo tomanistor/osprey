@@ -12,7 +12,7 @@
 
         <div class="modal-header">
           <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <img {{ if .Site.Params.lazyLoading }}data-src="/images/{{ .Params.image }}" class="lazyload"{{ else }}src="/images/{{ .Params.image }}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
         </div>
 
@@ -23,8 +23,8 @@
             {{ .Content }}
           </article>
 
-          {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">View</a></h3>{{ end }}
-          {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">Code</a></h3>{{ end }}
+          {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3>{{ end }}
+          {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3>{{ end }}
         </div>
 
       </div>
