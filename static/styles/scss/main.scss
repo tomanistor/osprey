@@ -30,6 +30,14 @@
   }
 }
 
+@media only screen and(min-width: 48em) {
+  nav {
+    .col-sm-2 {
+      max-width: 100% !important;
+    }
+  }
+}
+
 @keyframes "blink" {
   from, to { color: transparent; }
   50% { color: $black; }
