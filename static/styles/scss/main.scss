@@ -70,6 +70,9 @@ nav {
     display: none;
     max-width: none;
   }
+  div.logo.show {
+    display: block;
+  }
   .nav-toggle a {
     display: none;
   }
