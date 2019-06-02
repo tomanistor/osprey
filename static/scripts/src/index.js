@@ -36,12 +36,12 @@
       el.classList.toggle('active')
     })
     if (menuActive) {
-      this.querySelector('img:nth-of-type(1)').style.display = 'block'
+      this.querySelector('img:nth-of-type(1)').style.display = 'inline-block'
       this.querySelector('img:nth-of-type(2)').style.display = 'none'
       menuActive = false
     } else {
       this.querySelector('img:nth-of-type(1)').style.display = 'none'
-      this.querySelector('img:nth-of-type(2)').style.display = 'block'
+      this.querySelector('img:nth-of-type(2)').style.display = 'inline-block'
       menuActive = true
     }
   })

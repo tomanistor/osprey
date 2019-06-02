@@ -86,16 +86,16 @@
     {{ partial "css.html" . }}
   {{ end }}
 
+  {{ if .Site.Params.lazyLoading }}
+    <style>.lazyload{opacity:.0001;}.logo .lazyload{min-width:10em;}</style>
+    <script src="/scripts/vendor/lazysizes.min.js" async></script>
+  {{ end }}
+
   {{ if .Site.Params.highlightJS }}
     {{ if .Site.Params.highlightJSStyle }}
       <link rel="stylesheet" href="{{ .Site.Params.highlightJSStyle }}">
     {{ else }}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
     {{ end }}
-  {{ end }}
-
-  {{ if .Site.Params.lazyLoading }}
-    <style>.lazyload{opacity:0.0001;}</style>
-    <script src="/scripts/vendor/lazysizes.min.js" async></script>
   {{ end }}
 </head>

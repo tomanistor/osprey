@@ -32,7 +32,7 @@ $base-line-height: 1.6;
 $base-font-size: 1.25rem; // 20px
 $vertical-rhythm: $base-line-height * $base-font-size; // 2.125em or 34px
 
-$breakpoint-medium: 48em; // 768px
+$breakpoint-medium: 49.99em; // 768px
 $breakpoint-small: 25em; // 400px
 
 @mixin size($level) {

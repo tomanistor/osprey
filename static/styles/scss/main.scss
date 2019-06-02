@@ -9,7 +9,7 @@
 @import "about";
 @import "gallery";
 
-@media (max-width: 48em) {
+@media (max-width: 47.99em) {
   body .container {
     padding: $vertical-rhythm * 4 $vertical-rhythm;
   }
@@ -64,10 +64,9 @@ nav {
     vertical-align: middle;
   }
 
-  div.logo,
-  div.nav-toggle {
+  .logo,
+  .nav-toggle {
     visibility: hidden;
-    max-width: none;
   }
 
   .nav-toggle a {
