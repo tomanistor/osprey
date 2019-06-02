@@ -95,6 +95,7 @@
   {{ end }}
 
   {{ if .Site.Params.lazyLoading }}
+    <style>.lazyload{opacity:0.0001;}</style>
     <script src="/scripts/vendor/lazysizes.min.js" async></script>
   {{ end }}
 </head>
