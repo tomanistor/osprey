@@ -80,7 +80,7 @@
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
   {{ end }}
 
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles/{{ if .Site.Params.cacheBustCSS }}{{ index .Site.Data.cachedAssets "main.css" }}{{ else }}main.css{{ end }}" type="text/css">
+  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles/{{ if .Site.Params.cacheBustCSS }}{{ index .Site.Data.cachedAssets "main.min.css" }}{{ else }}main.min.css{{ end }}" type="text/css">
 
   {{ if .Site.Params.customCSS }}
     {{ partial "css.html" . }}
