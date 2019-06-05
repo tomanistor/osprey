@@ -16,6 +16,7 @@
       $('nav').classList.add('nav-fixed')
       $$('nav > .logo, nav > .nav-toggle').forEach(function(el) {
         el.style.visibility = 'visible'
+        el.style.display="block"
         el.classList.add('show')
         el.classList.remove('hide')
       })
@@ -24,6 +25,7 @@
       $('nav').classList.remove('nav-fixed')
       $$('nav > .logo, nav > .nav-toggle').forEach(function(el) {
         el.style.visibility = 'hidden'
+        el.style.display="none"
         el.classList.add('hide')
         el.classList.remove('show')
       })

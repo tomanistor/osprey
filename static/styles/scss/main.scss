@@ -67,8 +67,12 @@ nav {
   .logo,
   .nav-toggle {
     visibility: hidden;
+    display: none;
+    max-width: none;
   }
-
+  .logo.show {
+    display: block;
+  }
   .nav-toggle a {
     display: none;
   }
