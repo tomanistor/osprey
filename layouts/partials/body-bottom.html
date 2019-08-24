@@ -1,6 +1,6 @@
-{{ if not (eq (len (where .Data.Pages "Section" "gallery")) 0) }}
+{{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
   {{ partial "modals.html" . }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "modal.js" }}{{ else }}modal.min.js{{ end }}" type="text/javascript"></script>
+  <script src="{{ (resources.Get "js/src/modal.js" | fingerprint | minify).Permalink }}" type="text/javascript"></script>
 {{ end }}
 
 {{ if .Site.Params.highlightJS }}
@@ -13,10 +13,10 @@
 {{ end }}
 
 {{ if .IsHome }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
+  <script src="{{ (resources.Get "js/src/index.js" | fingerprint | minify).Permalink }}" type="text/javascript"></script>
   {{ if or (and (.Site.Params.ajaxFormspree) (.Site.Params.ajaxFormspreeGold)) (.Site.Params.ajaxBasin) }}
-    <script>{{ partial "scripts/contact.min.js" . | safeJS }}</script>
+    <script>{{ (resources.Get "js/src/contact.js" | fingerprint | minify).Content | safeJS }}</script>
   {{ end }}
 {{ else }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
+  <script src="{{ (resources.Get "js/src/main.js" | fingerprint | minify).Permalink }}" type="text/javascript"></script>
 {{ end }}

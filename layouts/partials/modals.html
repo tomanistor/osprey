@@ -1,7 +1,7 @@
 {{ range where .Site.RegularPages "Section" "gallery" }}
 
   <!-- First 4 characters of each gallery page's unique ID -->
-  {{ $modalID := (slicestr .UniqueID 0 4) }}
+  {{ $modalID := (slicestr .File.UniqueID 0 4) }}
 
   <div id="modal-{{ $modalID }}" class="modal">
 

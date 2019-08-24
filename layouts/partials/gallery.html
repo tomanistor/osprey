@@ -4,7 +4,7 @@
     <!-- First 4 characters of each gallery page's unique ID -->
     {{ range where .Site.RegularPages "Section" "gallery" }}
       <!-- Scratch is used to set page-scoped variable outside of this loop-->
-      {{ .Scratch.Set "$modalID" (slicestr .UniqueID 0 4) }}
+      {{ .Scratch.Set "$modalID" (slicestr .File.UniqueID 0 4) }}
     {{ end }}
 
     {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
