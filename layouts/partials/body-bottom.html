@@ -15,7 +15,7 @@
 {{ if .IsHome }}
   <script src="{{ (resources.Get "js/src/index.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
   {{ if or (and (.Site.Params.ajaxFormspree) (.Site.Params.ajaxFormspreeGold)) (.Site.Params.ajaxBasin) }}
-    <script>{{ (resources.Get "js/src/contact.js" | minify | fingerprint).Content | safeJS }}</script>
+    <script>{{ (resources.Get "js/src/contact.js" | resources.ExecuteAsTemplate "js/src/contact.js" . | minify | fingerprint).Content | safeJS }}</script>
   {{ end }}
 {{ else }}
   <script src="{{ (resources.Get "js/src/main.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
