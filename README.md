@@ -9,14 +9,13 @@ Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https:/
 
 ## Why?
 Well, first I personally did not need the blog features of the theme, so I removed them.
-Though the original theme already is performance-tuned, I decided to improve it further.
-As a result, stripping down the theme to the minimum of needed resources enabled me to get a PageSpeed score [of 100 *on desktop* and 99~100 *on mobile*](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io). After optimizing, I added some other functionality in a modular way [as outlined below](#features).
+Though the original theme already is performance-tuned, I decided to improve it further which enabled me to get a PageSpeed score [of 100 *on desktop* and 99~100 *on mobile*](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io). After optimizing, I added some other functionality in a modular way [as outlined below](#the-taste-features).
 
 Finally, I decided to publish it so that others with a similar use-case might profit from it, too.
 
-## The "taste" (features)
+## The "Taste" (Features)
 
-### :negative_squared_cross_mark: Light: **Removed** features
+### :low_brightness: Light: **Removed** features
 
 The following features of the original theme have been **removed** in order to make it more lightweight:
 
@@ -47,7 +46,7 @@ The following features of the original theme have been **removed** in order to m
   * Add "disabled JS message" since the page does not work without it
 * Refactored theme to make it a bit easier to maintain
 
-## Screenshot
+## :computer: Screenshot
 
 Yes, the screenshot looks pretty familiar to the original, doesn't it?
 
