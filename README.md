@@ -1,11 +1,13 @@
 ![Osprey Delight Logo](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png)
 
+> **:construction: This theme is still in a very early stage and *not all features* have been fully tested!**
+
 # Osprey **De**light
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
-> It tastes a bit different than the original (hence the *light* in the name) but also adds some new functionality -- hopefully to your ***delight***.
+> It tastes a bit different than the original (hence the *light* in the name) but also adds some new functionality - hopefully to your ***delight***.
 
-> :warning: :construction: The theme is still in a very early stage and **not all features** have been fully tested!
+:warning: Please note: It does **not** have the built-in minimalistic blog of the original, functioning as a portfolio only!
 
 ## Why?
 Well, first I personally did not need the blog features of the theme, so I removed them.
