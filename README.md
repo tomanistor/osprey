@@ -1,4 +1,4 @@
-![Osprey Delight Logo](https://github.com/kdevo/osprey-delight/images/osprey-delight-logo.png)
+![Osprey Delight Logo](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png)
 
 # Osprey **De**light
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
@@ -51,7 +51,7 @@ The following features of the original theme have been **removed** in order to m
 
 Yes, the screenshot looks pretty familiar to the original, doesn't it?
 
-![Screenshot](https://github.com/kdevo/osprey-delight/images/tn.png)
+![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
 
 To taste the differences, it's best to simply try Osprey Delight out!
 
@@ -104,7 +104,11 @@ Check out [the exampleSite's data directory](/exampleSite/data/) for example con
 
 Basin is a free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
-![Basin AJAX setup](https://github.com/kdevo/osprey-delight/images/basin-ajax-setup.png)
+![Basin AJAX setup](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-ajax-setup.png)
+
+#### Spambot protection
+
+TODO
 
 ### Custom CSS
 
