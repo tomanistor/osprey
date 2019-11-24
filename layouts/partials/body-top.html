@@ -1,6 +1,6 @@
-{{ if .Site.Params.googleTagManager }}
+{{ if .Site.Params.Feat.googleTagManager }}
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.googleTagManager }}"
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ .Site.Params.Feat.googleTagManager }}"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
 {{ end }}
@@ -9,11 +9,15 @@
   <header class="row middle-xs center-xs">
     <div class="col-xs-12">
       <div class="row middle-xs center-xs">
-        <div class="col-xs-12"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoBig }}" lazyload="on"{{ else }}src="{{ .Site.Params.logoBig }}"{{ end }} alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.lazyLoading }}lazyload{{ end }}"></div>
+        <div class="col-xs-12"><img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ .Site.Params.logoBig }}" onclick="onLogoClick()" lazyload="on"{{ else }}src="{{ .Site.Params.logoBig }}"{{ end }} alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}"></div>
       </div>
       <div class="row middle-xs center-xs">
         <div class="col-xs-12">
-          <h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1>
+          <h1>{{ .Site.Params.tagline | markdownify }}<span class="cursor">|</span></h1>
+          <noscript>
+              <span class="icon icon-attention-circled icon-2x" style="color:red"></span>
+              <h1>{{ i18n "noJsMsg" }}</h1>
+          </noscript>
         </div>
       </div>
     </div>
@@ -22,17 +26,16 @@
 
 <nav class="row middle-xs center-xs">
   <div class="col-xs-6 col-sm-1 logo">
-    <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>
+    <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>
   </div>
     {{ range .Site.Menus.main }}
-      <div class="col-xs-3 col-sm-2">
-        <h3><a href="{{ .URL }}">{{ .Name }}</a></h3>
+      <div class="col-xs-3 col-sm-2 nav-item">
+        <h3><a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a></h3>
       </div>
     {{ end }}
   <div class="col-xs-6 col-sm-1 nav-toggle">
       <a href="" class="nav-icon" onclick="return false">
-        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-menu.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-menu.png"{{ end }} alt="Open Menu">
-        <img {{ if .Site.Params.lazyLoading }}data-src="/images/icon-x.png" class="lazyload" lazyload="on"{{ else }}src="/images/icon-x.png"{{ end }} alt="Close Menu" style="display: none;">
+        <i id="open" class="icon icon-2x icon-menu"></i>
       </a>
   </div>
 </nav>
@@ -41,7 +44,7 @@
   <div class="col-xs-12">
     <div class="row middle-xs center-xs">
       {{ range .Site.Menus.main }}
-        <div class="col-xs-12"><h1><a href="{{ .URL }}">{{ .Name }}</a></h1></div>
+        <div class="col-xs-12"><h1><a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a></h1></div>
       {{ end }}
     </div>
   </div>

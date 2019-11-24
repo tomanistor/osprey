@@ -1,15 +1,13 @@
 +++
-title = "About"
+title = "It's the Osprey Delight demo site."
 date = "2017-06-27T17:39:21-07:00"
 draft = false
 +++
 
-## Welcome to the Osprey Theme
+## And [here's my repo!](https://github.com/kdevo/osprey-delight)
 
-To create an about section, generate an about.md file in your content folder by doing:
+Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/).
 
-```console
-$ hugo new about.md
-```
+It tastes a bit different than the original (hence the "light" in the name) but also adds some new functionality -- hopefully to your **delight**.
 
-Then add your own content to the markdown file. Everything in the file will be generated to show here on the home page.
+Have fun using it! {{< icon "rocket icon-pulse-fast" >}}

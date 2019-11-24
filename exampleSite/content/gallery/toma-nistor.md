@@ -6,5 +6,6 @@ alt = "Toma Nistor"
 color = "#212121"
 link1 = "https://tomanistor.com"
 link2 = "https://github.com/tomanistor/tomanistor.com"
-
 +++
+
+Author of the original Osprey theme.

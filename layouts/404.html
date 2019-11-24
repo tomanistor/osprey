@@ -4,11 +4,29 @@
   <body>
     {{ partial "body-top" . }}
     <main>
-
       <div class="row full center-xs middle-xs">
         <div class="col-xs-12">
-          <h1>404!</h1>
-          <p>{{ i18n "404Message" }}</p>
+            <h1>404: Not Found</h1>
+            <p>Sorry, the requested page does not exist.</p>
+            <div style="transform:rotate(-180deg);text-align:center"><p id="noChoiceFound">{{ "The :cake: is a lie!" | emojify }}</p></div>
+            <div id="foundChoices" hidden>We can offer you the following similar page(s):</div>
+            <ul id="choices" hidden>
+                {{- range .Data.Pages -}}{{ if .Title -}}
+                    <li class="choice">{{ with .Section }}[{{ . | singularize | humanize }}]{{ end }}
+                    <a href="{{ .Permalink }}">{{ ":link:" | emojify }} {{ .Title }}</a>{{/*{{ if isset .Params "tags" }}&nbsp;{{- partial "tags.html" . -}}{{- end }}*/}}</li>
+                {{- end }}{{- end }}
+                    </ul>
+            <script type="application/json" id="jsonContent">
+            [
+                {{ range $index, $page := .Data.Pages -}}{{ if .Title -}}
+                    {{ if isset .Params "tags" -}}
+                        {{ printf `%s %s %s %s %s` .Section .Title (.Description | emojify) .Permalink (delimit .Params.tags ";" )}}
+                    {{ else }}
+                        {{ printf `%s %s %s %s` .Section .Title .Description .Permalink }}
+                    {{- end }}{{ if lt ($index) (sub (len $.Data.Pages) 1) -}},{{- end }}
+                {{- end }}{{ end }}
+            ]
+            </script>
         </div>
       </div>
 
@@ -16,4 +34,25 @@
     {{ partial "footer.html" . }}
     {{ partial "body-bottom" . }}
   </body>
+  <script>
+      const loc = window.location.pathname;
+      const seg = loc.substring(loc.lastIndexOf('/') + 1).toUpperCase();
+      if (seg.length > 1) {
+          const els = document.getElementsByClassName("choice");
+          const txt = JSON.parse(document.getElementById('jsonContent').innerHTML);
+          var cnt = 0;
+          for (var i = 0; i < els.length; i++) {
+              if (txt[i].toUpperCase().includes(seg)) {
+                  cnt++;
+              } else {
+                  els[i].style.display = "none";
+              }
+          }
+          if (cnt > 0) {
+              document.getElementById('noChoiceFound').setAttribute("hidden", true);
+              document.getElementById('foundChoices').removeAttribute("hidden");
+              document.getElementById('choices').removeAttribute("hidden");
+          }
+      }
+  </script>
 </html>

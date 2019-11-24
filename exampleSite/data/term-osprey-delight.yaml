@@ -1,0 +1,18 @@
+lines:
+- type: input
+  data: mkdir themes
+  wait: 400
+- type: input
+  data: cd themes
+  wait: 400
+- type: input
+  data: git clone https://github.com/kdevo/osprey-delight.git
+  wait: 600
+- type: progress
+  data: 100
+  wait: 1200
+- data: ☕ Done! Have fun using Osprey Delight!
+  wait: 1000
+- type: input
+  data: exit
+  wait: 500

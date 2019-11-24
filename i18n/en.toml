@@ -5,19 +5,23 @@ other = "Code"
 [viewAll]
 other = "View All"
 [letsChat]
-other = "Let's Chat"
+other = "Contact"
 [name]
-other = "Name"
+other = "Your name"
 [email]
-other = "Email"
+other = "E-Mail address"
 [subject]
 other = "Subject"
 [message]
-other = "Message"
+other = "Your message"
 [send]
 other = "Send"
 [thanksForYourEmail]
-other = "Thanks for your email!"
+other = "Thanks for your message!"
+[errorWhileSendingEmail]
+other = "Oops, we couldn't send your message. Please reload."
+[sendingEmail]
+other = "Deploying your message..."
 [minuteRead]
 one = "One minute read"
 other = "{{.Count}} minutes read"
@@ -39,3 +43,11 @@ other = "GitHub"
 other = "LinkedIn"
 [twitter]
 other = "Twitter"
+[instagram]
+other = "Instagram"
+[stackoverflow]
+other = "StackOverflow"
+[noJsMsg]
+other = "Oh, but first - please enable JavaScript in your browser. Otherwise, your expierence will be very limited!"
+[nojsForm]
+other = "Please enable JavaScript to use the contact form."

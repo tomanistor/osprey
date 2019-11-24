@@ -5,7 +5,7 @@ other = "Code"
 [viewAll]
 other = "Alles anzeigen"
 [letsChat]
-other = "Lass uns Chatten"
+other = "Kontakt"
 [name]
 other = "Name"
 [email]
@@ -17,7 +17,7 @@ other = "Nachricht"
 [send]
 other = "Sende"
 [thanksForYourEmail]
-other = "Danke für deine Email!"
+other = "Danke für deine Nachricht!"
 [minuteRead]
 one = "Eine Minute zu lesen"
 other = "{{.Count}} Minuten zu lesen"
@@ -31,3 +31,12 @@ other = "WAS HAST DU GETAN?!"
 other = "Theme entwickelt von"
 [copyright]
 other = "Copyright"
+
+[generic]
+other = "Generic request"
+[coop]
+other = "Cooperation"
+[business]
+other = "Business-related"
+[project]
+other = "Project"

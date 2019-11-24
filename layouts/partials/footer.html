@@ -1,30 +1,23 @@
 <footer class="row middle-xs center-xs">
-
-  {{ if .Site.Params.facebook }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://facebook.com/{{ .Site.Params.facebook }}">{{ i18n "facebook" }}</a></div>
-  {{ end }}
-
-  {{ if .Site.Params.github }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://github.com/{{ .Site.Params.github }}">{{ i18n "github" }}</a></div>
-  {{ end }}
-
-  {{ if .Site.Params.linkedin }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://linkedin.com/in/{{ .Site.Params.linkedin }}">{{ i18n "linkedin" }}</a></div>
-  {{ end }}
-
-  {{ if .Site.Params.twitter }}
-    <div class="col-xs-3 col-md-2"><a target="_blank" rel="noopener" href="https://twitter.com/{{ .Site.Params.twitter }}">{{ i18n "twitter" }}</a></div>
-  {{ end }}
-
-  {{ if or (.Site.Params.copyright) (.Site.Params.credit) }}
-    <div class="col-xs-12">
-      {{ if .Site.Params.copyright }}
-      {{ i18n "copyright" }} &copy; {{ now.Format "2006" }} {{ .Site.Title }}.
-      {{ end }}
-      {{ if .Site.Params.credit }}
-        <a href="https://tomanistor.com" target="_blank" rel="nofollow">{{ i18n "themeDevelopedBy" }} Toma Nistor</a>
-      {{ end }}
+  {{ range $name, $url := .Site.Params.Social -}}
+    <div class="col-xs-3 col-md-2">
+      <a target="_blank" rel="noopener" href="{{ $url }}"><i class="icon icon-{{ $name }}"></i></a>
+      <div class="mobile-hidden"><small>&nbsp;{{ i18n $name }}</small></div>
     </div>
-  {{ end }}
+  {{- end }}
 
+  {{ if (.Site.Params.copyright) -}}
+    <div class="col-xs-12">
+      <small>
+      {{ if .Site.Params.copyright }}
+      {{ i18n "copyright" }} &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+      {{ end }}
+      {{ if or (.Site.Params.credit) (eq (isset .Site.Params "credit") false) -}}
+      <div class="col-xs-12">
+          <small>Theme: <a href="https://github.com/kdevo/osprey-delight" target="_blank">osprey-delight</a> (forked from <a href="https://github.com/tomanistor/osprey" target="_blank">osprey</a> by <a href="https://tomanistor.com" target="_blank" rel="nofollow">Toma Nistor</a>).</small>
+      </div>
+      {{- end }}
+      </small>
+    </div>
+  {{- end }}
 </footer>

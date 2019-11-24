@@ -1,12 +1,17 @@
-name = "Osprey"
+name = "Osprey Delight"
 license = "Apache License 2.0"
-licenselink = "https://github.com/tomanistor/osprey/blob/master/LICENSE.md"
-description = "Clean, responsive one-page portfolio accompanied by a minimalist blog."
-homepage = "https://github.com/tomanistor/osprey"
-tags = ["blog", "portfolio", "gallery", "minimalist", "responsive", "flexbox"]
-features = ["blog", "portfolio", "google analytics"]
-min_version = 0.24.1
+licenselink = "https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md"
+description = "Osprey Delight is a sugar-free version of the Osprey theme by Toma Nistor."
+homepage = "https://github.com/kdevo/osprey-delight"
+tags = ["portfolio", "gallery", "minimalist", "responsive", "flexbox", "fast"]
+features = ["portfolio", "contact-form", "google analytics"]
+min_version = "0.59.1"
 
-[author]
-  name = "Toma Nistor"
-  homepage = "https://tomanistor.com"
+authors = [
+  {name = "kdevo", homepage = "https://kdevo.github.io/"}
+]
+
+[original]
+    author = "Toma Nistor"
+    homepage = "https://tomanistor.com"
+    repo = "https://github.com/tomanistor/osprey/"

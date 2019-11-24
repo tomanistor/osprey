@@ -1,0 +1,1 @@
+<abbr title="{{ .Get 0 }}">{{ with .Inner -}}{{ . | markdownify }}{{ else }}{{ range (split (.Get 0) " ") }}{{ index (split . "") 0 }}{{ end }}{{- end }}</abbr>

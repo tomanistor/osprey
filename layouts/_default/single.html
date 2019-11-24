@@ -1,3 +1,6 @@
+{{ if .Site.Params.enforceSinglePage -}}
+<meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}">
+{{- else -}}
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   {{ partial "head.html" . }}
@@ -35,3 +38,4 @@
     {{ partial "body-bottom" . }}
   </body>
 </html>
+{{- end }}

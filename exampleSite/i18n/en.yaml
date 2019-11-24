@@ -1,0 +1,8 @@
+generic:
+  other: Generic request
+coop:
+  other: Cooperation
+business:
+  other: Business-related (e.g. application)
+project:
+  other: Project

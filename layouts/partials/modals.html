@@ -1,34 +1,64 @@
 {{ range where .Site.RegularPages "Section" "gallery" }}
 
   <!-- First 4 characters of each gallery page's unique ID -->
-  {{ $modalID := (slicestr .UniqueID 0 4) }}
+  <!-- {{ $modalID := (slicestr .File.UniqueID 0 4) }} -->
+  {{ $modalID := .File.BaseFileName }}
 
-  <div id="modal-{{ $modalID }}" class="modal">
+
+  <div id="{{ $modalID }}" class="modal">
 
     <!-- Modal box -->
     <div class="modal-box">
-      <span class="close">&times;</span>
+      <span class="close icon icon-cancel-circled"></span>
       <div class="modal-container">
-
         <div class="modal-header">
           <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <img {{ if .Site.Params.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
+            <img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
           </div>
         </div>
 
-        <div class="modal-content">
+        <div class="modal-content"{{ if eq .Params.type "term" -}} hidden id="content-{{ $modalID }}" {{- end}}>
           <h2>{{ .Params.title }}</h2>
-
           <article class="entry-content">
             {{ .Content }}
           </article>
-
-          {{ if .Params.link1 }}<h3><a href="{{ .Params.link1 }}">{{ i18n "view" }}</a></h3>{{ end }}
-          {{ if .Params.link2 }}<h3><a href="{{ .Params.link2 }}">{{ i18n "code" }}</a></h3>{{ end }}
+          <div class="row center-xs">
+              {{ if .Params.link1 -}}
+              <div class="col-xs-6">
+                  <div class="box">
+                    <a href="{{ .Params.link1 }}">
+                      <button type="submit"><span class="icon icon-right-circled"></span> {{ i18n "view" }}</button>
+                    </a>
+                  </div>
+              </div>
+              {{- end }}
+              {{ if .Params.link2 -}}
+              <div class="col-xs-6">
+              
+                  <div class="box">
+                    <a href="{{ .Params.link2 }}" target="_blank">
+                      <button type="submit"><span class="icon icon-terminal"></span>{{ i18n "code" }}</button>
+                    </a>
+                  </div>
+              </div>
+              {{- end }}
+          </div>
         </div>
 
+        {{ if eq .Params.type "term" -}}
+          <div class="term-content">
+          <div id="term-{{ $modalID }}" data-termynal>
+          {{ range (index .Site.Data (printf "term-%s" $modalID) "lines") }}
+          {{ if eq .type "progress" }}
+            <span data-ty="{{ .type }}" data-ty-delay="{{ .wait }}" data-ty-progressPercent="{{ .data }}"></span>
+          {{ else }}
+            <span data-ty="{{ .type }}" data-ty-delay="{{ .wait }}">{{ .data }}</span>
+          {{ end }}
+        {{ end }}
+          </div>
+        </div>
+        {{- end }}
       </div>
     </div>
-
   </div>
 {{ end }}

@@ -1,0 +1,71 @@
+.icon {
+    font: normal normal normal 14px/1 icons;
+    display: inline-block;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-active {
+    color: $accent
+}
+
+span.icon {
+    margin-right: .3em
+}
+
+.icon-2x {font-size: 2em}
+
+/* .icon-3x {font-size: 3em} */
+
+/* Misc */
+.icon-heart:before { content: '\e800'; } /* '' */
+.icon-attention-circled:before { content: '\e801'; } /* '' */
+.icon-link:before { content: '\e802'; } /* '' */
+.icon-ok-circled:before { content: '\e803'; } /* '' */
+.icon-info-circled:before { content: '\e804'; } /* '' */
+.icon-cancel-circled:before { content: '\e805'; } /* '' */
+.icon-download:before { content: '\e806'; } /* '' */
+.icon-tags:before { content: '\e807'; } /* '' */
+.icon-link-ext:before { content: '\f08e'; } /* '' */
+.icon-left-circled:before { content: '\f0a8'; } /* '' */
+.icon-right-circled:before { content: '\f0a9'; } /* '' */
+.icon-menu:before { content: '\f0c9'; } /* '' */
+.icon-money:before { content: '\f0d6'; } /* '' */
+.icon-mail-alt:before { content: '\f0e0'; } /* '' */
+.icon-terminal:before { content: '\f120'; } /* '' */
+.icon-rocket:before { content: '\f135'; } /* '' */
+.icon-space-shuttle:before { content: '\f197'; } /* '' */
+.icon-address-card:before { content: '\f2bb'; } /* '' */
+.icon-share:before { content: '\f1e0'; } /* '' */
+
+/* External services */
+.icon-github:before { content: '\f09b'; } /* was .icon-github-circled before! '' */
+// .icon-github-squared:before { content: '\f300'; } /* '' */
+.icon-twitter-squared:before { content: '\f304'; } /* '' */
+.icon-facebook-squared:before { content: '\f308'; } /* '' */
+.icon-linkedin-squared:before { content: '\f30c'; } /* '' */
+.icon-reddit-squared:before { content: '\f1a2'; } /* '' */
+.icon-rss-squared:before { content: '\f143'; } /* '' */
+.icon-youtube-squared:before { content: '\f166'; } /* '' */
+.icon-stackoverflow:before { content: '\f16c'; } /* '' */
+.icon-instagram:before { content: '\f16d'; } /* '' */
+.icon-paypal:before { content: '\f1ed'; } /* '' */
+
+.icon-pulse-slow {
+    animation: color 8s infinite;
+    animation-direction: alternate;
+    // position: relative;
+}
+
+.icon-pulse-fast {
+    animation: color 2s infinite;
+    animation-direction: alternate;
+    // position: relative;
+}
+
+@keyframes color {
+    from {color: $accent;}
+    to {color: $black;}
+  }

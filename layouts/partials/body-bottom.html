@@ -1,22 +1,14 @@
-{{ if not (eq (len (where .Data.Pages "Section" "gallery")) 0) }}
+{{ $scripts := slice }}
+{{ $scripts = $scripts | append (resources.Get "js/src/misc.js") }}
+{{ if .Site.Params.Feat.useTermynal -}}
+{{ $scripts = $scripts | append (resources.Get "js/src/termynal.js") }}
+{{- end }}
+{{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) -}}
   {{ partial "modals.html" . }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "modal.js" }}{{ else }}modal.min.js{{ end }}" type="text/javascript"></script>
-{{ end }}
-
-{{ if .Site.Params.highlightJS }}
-  {{ if .Site.Params.highlightJSScript }}
-    <script src="{{ .Site.Params.highlightJSScript }}"></script>
-  {{ else }}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  {{ end }}
-  <script>hljs.initHighlightingOnLoad();</script>
-{{ end }}
-
-{{ if .IsHome }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "index.js" }}{{ else }}index.min.js{{ end }}" type="text/javascript"></script>
-  {{ if or (and (.Site.Params.ajaxFormspree) (.Site.Params.ajaxFormspreeGold)) (.Site.Params.ajaxBasin) }}
-    <script>{{ partial "scripts/contact.min.js" . | safeJS }}</script>
-  {{ end }}
-{{ else }}
-  <script src="/scripts/{{ if .Site.Params.cacheBustJS }}{{ index .Site.Data.cachedAssets "main.js" }}{{ else }}main.min.js{{ end }}" type="text/javascript"></script>
-{{ end }}
+  {{ $scripts = $scripts | append (resources.Get "js/src/modal.js" | resources.ExecuteAsTemplate "js/src/modal.js" .) }}
+{{- end }}
+{{ $scripts = $scripts | append (resources.Get "js/src/nav.js"  | resources.ExecuteAsTemplate "js/src/nav.js" .) }}
+{{ if (.Site.Params.Feat.ajaxBasin) -}}
+{{ $scripts = $scripts | append (resources.Get "js/src/contact.js" | resources.ExecuteAsTemplate "js/src/contact.js" .) }}
+{{- end }}
+<script src="{{ ($scripts | resources.Concat "js/bundle.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>

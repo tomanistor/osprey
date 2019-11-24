@@ -1,11 +1,11 @@
 <head>
-  {{ if .Site.Params.googleTagManager }}
+  {{ if .Site.Params.Feat.googleTagManager }}
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','{{ .Site.Params.googleTagManager }}');</script>
+    })(window,document,'script','dataLayer','{{ .Site.Params.Feat.googleTagManager }}');</script>
     <!-- End Google Tag Manager -->
   {{ end }}
 
@@ -15,13 +15,13 @@
 
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{- if .IsHome -}}
+    {{ if .IsHome -}}
       {{ .Site.Title }}
     {{- else if .Params.heading -}}
       {{ .Params.heading }}
     {{- else -}}
       {{ .Title }} | {{ .Site.Title }}
-    {{- end -}}
+    {{- end }}
   </title>
 
   <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end}}">
@@ -32,70 +32,69 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta name="generator" content="{{ .Hugo.Generator }}">
   <base href="{{ .Site.BaseURL }}">
 
-  {{ if .Description }}
+  {{ if .Description -}}
     <meta name="description" content="{{ .Description }}">
-  {{ else if .Site.Params.description }}
+  {{- else if .Site.Params.description -}}
     <meta name="description" content="{{ .Site.Params.description }}">
-  {{ else if .Summary }}
+  {{- else if .Summary -}}
     <meta name="description" content="{{ .Summary }}">
-  {{ end }}
+  {{- end }}
 
-  {{ if .Site.Params.author }}
+  {{ if .Site.Params.author -}}
     <meta name="author" content="{{ .Site.Params.author }}">
-  {{ end }}
+  {{- end }}
 
-  {{ if .Site.Params.twitter }}
+  {{ if .Site.Params.twitter -}}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@{{ .Site.Params.twitter }}">
     <meta name="twitter:creator" content="@{{ .Site.Params.twitter }}">
-  {{ end }}
+  {{- end }}
 
   <meta property="og:title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta property="og:type" content="website">
   <meta property="og:url" content="{{ .Site.BaseURL }}">
 
-  {{ if .Site.Params.opengraphImage}}
+  {{ if .Site.Params.opengraphImage -}}
     <meta property="og:image" content="{{ .Site.BaseURL }}{{ .Site.Params.opengraphImage}}">
-  {{ end }}
+  {{- end }}
 
-  {{ if .Description }}
+  {{ if .Description -}}
     <meta name="og:description" content="{{ .Description }}">
-  {{ else if .Site.Params.description }}
+  {{- else if .Site.Params.description -}}
     <meta property="og:description" content="{{ .Site.Params.description}}">
-  {{ else if .Summary }}
+  {{- else if .Summary -}}
     <meta name="og:description" content="{{ .Summary }}">
-  {{ end }}
+  {{- end }}
 
-  {{ if .Site.Params.favicon }}
+  {{ if .Site.Params.favicon -}}
     <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon }}">
     <meta name="theme-color" content="#FFF">
-  {{ end }}
+  {{- end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
+  
+  {{ with .OutputFormats.Get "RSS" -}}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
+  {{- end }}
 
-  {{ if .RSSLink }}
-    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
-  {{ end }}
+  <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}" type="text/css">
 
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles/{{ if .Site.Params.cacheBustCSS }}{{ index .Site.Data.cachedAssets "main.css" }}{{ else }}main.css{{ end }}" type="text/css">
+  {{ if .Site.Params.Feat.customCSS -}}
+    {{ (resources.Get "custom.css") }}
+  {{- end }}
 
-  {{ if .Site.Params.customCSS }}
-    {{ partial "css.html" . }}
-  {{ end }}
-
-  {{ if .Site.Params.lazyLoading }}
+  {{ if .Site.Params.Feat.lazyLoading -}}
     <style>.lazyload{opacity:.0001;}.logo .lazyload{min-width:10em;}</style>
-    <script src="/scripts/vendor/lazysizes.min.js" async></script>
-  {{ end }}
+    <script src="{{ (resources.Get "js/vendor/lazysizes.min.js").Permalink }}" async></script>
+  {{- end }}
 
-  {{ if .Site.Params.highlightJS }}
-    {{ if .Site.Params.highlightJSStyle }}
-      <link rel="stylesheet" href="{{ .Site.Params.highlightJSStyle }}">
-    {{ else }}
+  {{ if .Site.Params.Feat.highlightJS -}}
+    {{ if .Site.Params.Feat.Feat.highlightJSStyle -}}
+      <link rel="stylesheet" href="{{ .Site.Params.Feat.Feat.highlightJSStyle }}">
+    {{- else -}}
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    {{ end }}
-  {{ end }}
+    {{- end }}
+  {{- end }}
 </head>
