@@ -55,7 +55,7 @@ enableEmoji = true
   lazyloading = true
   # [str] Use Basin contact form (comment out to disable).
   ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
-  # [bool] Code highlighting with highlight.js - probably will be removed.
+  # [bool] Code highlighting with highlight.js (WILL PROBABLY BE REMOVED as not needed anymore)
   highlightJS = false
   # [str] For custom highlight.js styles, add your /path/to/styles/default.css
   highlightJSStyle = "" 
@@ -63,7 +63,7 @@ enableEmoji = true
   # [bool] Use custom.css.
   customCSS = false
   # [bool] Use structured data for SEO (not yet implemented).
-  useStructuredData = true
+  # useStructuredData = true
 
 ## Configure contact form:
 [Params.Contact]
