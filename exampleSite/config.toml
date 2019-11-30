@@ -88,5 +88,5 @@ enableEmoji = true
   # Use icon here to neatly back reference an external site/blog/whatever:
   pre = "<i class='icon icon-link-ext'></i>&nbsp;"
   name = ""
-  url  = "https://pyotek.co"
+  url  = "https://pyotek.dev"
   weight = 4
