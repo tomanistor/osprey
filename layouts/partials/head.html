@@ -15,13 +15,13 @@
 
   <title>
     {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-    {{- if .IsHome -}}
+    {{ if .IsHome -}}
       {{ .Site.Title }}
     {{- else if .Params.heading -}}
       {{ .Params.heading }}
     {{- else -}}
       {{ .Title }} | {{ .Site.Title }}
-    {{- end -}}
+    {{- end }}
   </title>
 
   <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else if .Params.heading }}{{ .Params.heading }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end}}">
@@ -32,7 +32,6 @@
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="referrer" content="no-referrer-when-downgrade">
-  <meta name="generator" content="{{ .Hugo.Generator }}">
   <base href="{{ .Site.BaseURL }}">
 
   {{ if .Description }}
@@ -75,12 +74,12 @@
   {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
-
-  {{ if .RSSLink }}
-    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}">
+  
+  {{ with .OutputFormats.Get "RSS" }}
+    <link href="{{ .Permalink }}" rel="alternate" type="application/rss+xml" title="{{ $.Site.Title }}">
   {{ end }}
 
-  <link rel="stylesheet" href="{{ .Site.BaseURL }}/styles/{{ if .Site.Params.cacheBustCSS }}{{ index .Site.Data.cachedAssets "main.css" }}{{ else }}main.css{{ end }}" type="text/css">
+  <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}" type="text/css">
 
   {{ if .Site.Params.customCSS }}
     {{ partial "css.html" . }}
@@ -88,7 +87,7 @@
 
   {{ if .Site.Params.lazyLoading }}
     <style>.lazyload{opacity:.0001;}.logo .lazyload{min-width:10em;}</style>
-    <script src="/scripts/vendor/lazysizes.min.js" async></script>
+    <script src="{{ (resources.Get "js/vendor/lazysizes.min.js").Permalink }}" async></script>
   {{ end }}
 
   {{ if .Site.Params.highlightJS }}

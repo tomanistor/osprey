@@ -9,12 +9,12 @@
       {{ partial "about.html" . }}
 
       <!-- Gallery -->
-      {{ if not (eq (len (where .Data.Pages "Section" "gallery")) 0) }}
+      {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
         {{ partial "gallery.html" . }}
       {{ end }}
 
       <!-- Blog -->
-      {{ if not (eq (len (where .Data.Pages "Section" "blog")) 0) }}
+      {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
         {{ partial "blog.html" . }}
       {{ end }}
 
