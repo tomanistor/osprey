@@ -182,7 +182,7 @@ To implement custom CSS sitewide, change the config.toml parameter `customCSS` f
 This will render inline CSS in the head of your site and without adding an extra HTTP request.
 
 ### Cache Busting
-To implement cache busting of CSS and JS static assets with something like Gulp.js and [gulp-hash](https://www.npmjs.com/package/gulp-hash), change the config.toml parameters `cacheBustCSS` and `cacheBustJS` from `false` to `true` and follow [this setup guide](http://danbahrami.io/articles/building-a-production-website-with-hugo-and-gulp-js/#building-a-gulp-pipeline:c9938300a3bdba2018b469c2485ca2b6).
+As of `v2.1.0`, this theme uses native [Hugo Pipes](https://gohugo.io/hugo-pipes/introduction/) for cache busting of assets. Generated assets will be served from the `resources` folder and will no longer require any additional setup with Gulp.
 
 ## Contributions
 If you'd like to help with the development of this theme, I encourage you to submit a pull request or create an issue if you find a bug. All help is appreciated.
