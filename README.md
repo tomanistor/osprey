@@ -15,7 +15,7 @@ Finally, I decided to publish it so that others with a similar use-case might pr
 
 ## The "Taste" (Features)
 
-:warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
+> :warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
 
 ### :low_brightness: Light: **Removed** features
 
