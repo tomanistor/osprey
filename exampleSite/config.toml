@@ -28,7 +28,7 @@ enableEmoji = true
   enforceSinglePage = true
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
-  # [bool] Your credit is much appreciated. It will be displayed small in your footer.
+  # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
   #   Anyways, of course you're free to uncomment the following line to disable the credit.
   # credit = false
 
@@ -65,7 +65,7 @@ enableEmoji = true
   #   For more specific usage, you can override the JSON-LD by supplying your own 'person.json' under 'assets/'
   structuredData = true
   # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
-  #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/USERNAME.
+  #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
   # structuredDataFromGithub = "USERNAME"
 
 ## Configure contact form:

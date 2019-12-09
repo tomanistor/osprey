@@ -1,14 +1,11 @@
 ![Osprey Delight Logo](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png)
 
-> **:construction: This theme is still in a very early stage and *not all features* have been fully tested!**
+---
 
-# Osprey **De**light
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! :zap:
 
 > It tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***.
-
-:warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
 
 ## Why?
 Well, first I personally did not need the blog features of the theme, so I removed them.
@@ -17,6 +14,8 @@ Though the original theme is already performance-tuned, I decided to improve it 
 Finally, I decided to publish it so that others with a similar use-case might profit from it, too.
 
 ## The "Taste" (Features)
+
+:warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
 
 ### :low_brightness: Light: **Removed** features
 
@@ -86,8 +85,8 @@ $ mkdir themes/ # if dir does not exist yet
 $ git clone https://github.com/kdevo/osprey-delight.git themes/ --depth 1
 ```
 
-> :bulb: The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
-> This way, you have a good starting point that you can use for further modifications.
+:bulb: The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
+This way, you have a good starting point that you can use for further modifications.
 
 ## :wrench: Configuration and Usage
 
@@ -108,15 +107,15 @@ $ hugo new about.md
 
 #### Gallery item
 
-To create a new gallery item/image, run:
+To create a new gallery item, run:
 
 ```console
 $ hugo new gallery/item-name.md
 ```
 
-This is especially helpful for the first time and it will help you drastically since you will get a fully documented file.
+This is very helpful for the first time since you will get a fully documented file.
 
-:warning: Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
+> :warning: Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
 
 ### Data directory (optional)
 
@@ -134,10 +133,11 @@ Basin is a free AJAX contact form service. To use Basin, [sign up for a free acc
 #### Spambot protection
 
 Under Setup/"Set a Custom Honeypot Field", enter `_anti_spam_honeypot`.
-Basin will [ignore all messages that contain this specific field](https://usebasin.com/docs/features/spam-filtering). This will work since there is a hidden field and many spambots ignore the visibility state.
+Basin will [ignore all messages that contain this specific field](https://usebasin.com/docs/features/spam-filtering). This will work since there is a hidden field that users normally do not use, but spambots will blindly input their data.
 
 ![Basin Anti Spambot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-custom-honeypot.png)
 
+Feel free to open an issue if the protection did not work for you.
 
 ### Custom (S)CSS
 
@@ -149,8 +149,8 @@ Contributions are welcome! Fork this repo and create a merge request if you impl
 
 The necessary requirements for merge requests are:
 1. Theme should be kept leightweight
-2. Keep it modular: New features should be made optional if possible and especially if they influence performance
-3. Document your changes; especially config changes in **config.toml**
+2. Keep it modular: New features should be made optional if possible or if they influence performance in any way
+3. Document your changes; most importantly your config changes in **config.toml** (if there are any)
 
 ## License
 
