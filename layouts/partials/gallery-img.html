@@ -1,0 +1,16 @@
+{{ $scratch := newScratch }}
+{{ with .Params.absImage -}}
+    {{ $scratch.Set "img" (. | absURL) }}
+{{- else -}}
+    {{ with .Params.image -}}
+        {{ $scratch.Set "img" (printf "%s/%s" ("images" | relURL) .) }}
+    {{- else -}}
+        {{ with .Params.github.repo -}}
+        {{ $scratch.Set "img" ((printf "https://raw.githubusercontent.com/%s/master/.github/logo.png" .) | absURL) }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+<img {{ if .Site.Params.Feat.lazyLoading }}
+data-src="{{ $scratch.Get "img" }}" class="lazyload"
+{{ else }}src="{{ $scratch.Get "img" }}"{{ end }}
+{{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>

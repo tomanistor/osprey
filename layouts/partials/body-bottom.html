@@ -1,7 +1,7 @@
 {{ $scripts := slice }}
 {{ $scripts = $scripts | append (resources.Get "js/src/misc.js") }}
 {{ if .Site.Params.Feat.useTermynal -}}
-{{ $scripts = $scripts | append (resources.Get "js/src/termynal.js") }}
+{{ $scripts = $scripts | append (resources.Get "js/src/termynal.js" | resources.ExecuteAsTemplate "js/src/termynal.js" .) }}
 {{- end }}
 {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) -}}
   {{ partial "modals.html" . }}

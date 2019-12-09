@@ -19,11 +19,9 @@
       {{ if eq $galleryTotal 1 }}
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">
-              <img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-            </div>
+            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#{{ .Scratch.Get "$modalID" }}" data-modal="{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              {{ partial "gallery-link.html" . }}
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -34,11 +32,9 @@
       {{ if gt $galleryTotal 2 }}
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">
-              <img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-            </div>
+            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#{{ .Scratch.Get "$modalID" }}" data-modal="{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              {{ partial "gallery-link.html" . }}
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -57,11 +53,9 @@
             {{- else }} col-lg-3
             {{- end }}
           {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">
-              <img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-            </div>
+          <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
             <div class="row middle-xs center-xs overlay">
-              <a href="#{{ .Scratch.Get "$modalID" }}" data-modal="{{ .Scratch.Get "$modal" }}" class="gallery-modal-link"></a>
+              {{ partial "gallery-link.html" . }}
               <h2>{{ .Title }}</h2>
             </div>
           </div>
@@ -84,11 +78,9 @@
             {{- end }}
           {{- end }}
         {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "gallery-img-container">
-            <img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ "images/" | relURL }}{{ .Params.image}}" class="lazyload" lazyload="on"{{ else }}src="{{ "images/" | relURL }}{{ .Params.image}}"{{ end }} {{ if .Params.alt }}alt="{{ .Params.alt }}"{{ end }}>
-          </div>
+        <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
           <div class="row middle-xs center-xs overlay">
-            <a href="#{{ .Scratch.Get "$modalID" }}" class="gallery-modal-link" data-modal="{{ .Scratch.Get "$modal" }}"></a>
+            {{ partial "gallery-link.html" . }}
             <h2>{{ .Title }}</h2>
           </div>
         </div>

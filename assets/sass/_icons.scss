@@ -5,6 +5,7 @@
     text-rendering: auto;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    // color: inherit
 }
 
 .icon-active {
@@ -26,6 +27,7 @@ span.icon {
 .icon-ok-circled:before { content: '\e803'; } /* '' */
 .icon-info-circled:before { content: '\e804'; } /* '' */
 .icon-cancel-circled:before { content: '\e805'; } /* '' */
+
 .icon-download:before { content: '\e806'; } /* '' */
 .icon-tags:before { content: '\e807'; } /* '' */
 .icon-link-ext:before { content: '\f08e'; } /* '' */
@@ -42,13 +44,13 @@ span.icon {
 
 /* External services */
 .icon-github:before { content: '\f09b'; } /* was .icon-github-circled before! '' */
-// .icon-github-squared:before { content: '\f300'; } /* '' */
-.icon-twitter-squared:before { content: '\f304'; } /* '' */
-.icon-facebook-squared:before { content: '\f308'; } /* '' */
-.icon-linkedin-squared:before { content: '\f30c'; } /* '' */
-.icon-reddit-squared:before { content: '\f1a2'; } /* '' */
-.icon-rss-squared:before { content: '\f143'; } /* '' */
-.icon-youtube-squared:before { content: '\f166'; } /* '' */
+.icon-github-cat:before { content: '\f113'; } /* '' */
+.icon-twitter:before { content: '\f304'; } /* '' */
+.icon-facebook:before { content: '\f308'; } /* '' */
+.icon-linkedin:before { content: '\f30c'; } /* '' */
+.icon-reddit:before { content: '\f1a2'; } /* '' */
+.icon-rss:before { content: '\f143'; } /* '' */
+.icon-youtube:before { content: '\f166'; } /* '' */
 .icon-stackoverflow:before { content: '\f16c'; } /* '' */
 .icon-instagram:before { content: '\f16d'; } /* '' */
 .icon-paypal:before { content: '\f1ed'; } /* '' */

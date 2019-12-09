@@ -30,9 +30,6 @@
       color: $accent
     }
   }
-  // a {
-  //   text-decoration: underline
-  // }
 }
 
 .modal-box {
@@ -100,5 +97,16 @@
     color: $accent;
     text-decoration: none;
     cursor: pointer;
+  }
+}
+
+.repo-info {
+  color: $grey;
+  a {
+    color: $grey
+  }
+  font-size: 0.65em;
+  .icon {
+    color: $grey;
   }
 }

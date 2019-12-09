@@ -1,9 +1,9 @@
-title = "Osprey Delight example site"
-baseURL = "https://kdevo.github.io"
+title = "Osprey Delight Demo"
+baseURL = "https://example.com"
 languageCode = "en-US"
 theme = "osprey-delight"
 tags = ["personal", "homepage", "portfolio"]
-canonifyURLS = true
+# canonifyURLS = true
 # googleAnalytics = ""
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 enableEmoji = true
@@ -12,10 +12,10 @@ enableEmoji = true
 [Params]
   author = "kdevo"
   email = ""
-  description = "osprey-delight example site."
+  description = "osprey-delight example site"
   tagline = "Hi there! Check out this theme."
   logoBig = "/images/osprey-delight-logo.png"
-  # [str] This is the logo that will be shown in the right corner of the nav bar.
+  # [str] This is the logo that will be shown in the left corner of the nav bar.
   #   Usually, you would like to use something bigger than a favicon - but not too big either.
   #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting! 
   logoSmall = "favicon.png"
@@ -35,35 +35,38 @@ enableEmoji = true
 ## Social media links in footer:
 [Params.Social]
   # [str] Link to your Twitter.
-  # twitter = ""
-  # [str] Link to your Instagram
-  instagram = "https://instagram.com/kdevox"
-  # linkedin = ""
+  twitter = ""
+  # [str] Link to your LinkedIn.
+  linkedin = ""
   # [str] Link to your GitHub.
-  github = "https://github.com/kdevo"
+  github = "https://github.com/kdevo/osprey-delight"
   # [str] Link to your Facebook.
   # facebook = ""
-  # [str] Link to your StackOverflow
-  stackoverflow = "https://stackoverflow.com/users/12111706/kdevo"
+  # [str] Link to your Instagram.
+  # instagram = ""
+  # [str] Link to your StackOverflow.
+  stackoverflow = ""
+
 
 ## Theme features:
 [Params.Feat]
   # [bool] Termynal (https://github.com/ines/termynal) is a small JS library for showing a terminal "animation" from within your gallery item.
   #   The library has been stripped-down to a minimum to only have the necessary functionality.
   useTermynal = true
-  # [bool] Lazy loading with lazysizes.
+  # [bool] Lazy loading of images with lazysizes (SEO-friendly).
   lazyloading = true
-  # [str] Use Basin contact form (comment out to disable).
+  # [str] Use Basin contact form.
   ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
-  # [bool] Code highlighting with highlight.js (WILL PROBABLY BE REMOVED as not needed anymore)
-  highlightJS = false
-  # [str] For custom highlight.js styles, add your /path/to/styles/default.css
-  highlightJSStyle = "" 
   googleTagManager = ""
-  # [bool] Use custom.css.
+  # [bool] Enable usage of your own 'assets/scss/_custom.css'.
   customCSS = false
-  # [bool] Use structured data for SEO (not yet implemented).
-  # useStructuredData = true
+  # [bool] Use structured data for your own https://schema.org/Person (SEO-friendly).
+  #   The theme attempts to "guess" your information by using the information you give it in the configuration.
+  #   For more specific usage, you can override the JSON-LD by supplying your own 'person.json' under 'assets/'
+  structuredData = true
+  # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
+  #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/USERNAME.
+  # structuredDataFromGithub = "USERNAME"
 
 ## Configure contact form:
 [Params.Contact]

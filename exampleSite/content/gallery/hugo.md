@@ -4,8 +4,8 @@ title = "Hugo"
 image = "hugo.png"
 alt = "Hugo - a fast and modern static website engine"
 color = "#0a1922"
-link1 = "http://gohugo.io/"
-link2 = "https://github.com/spf13/hugo"
+linkView = "http://gohugo.io/"
+linkCode = "https://github.com/spf13/hugo"
 +++
 
 Hugo is one of the most popular open-source static site generators. 

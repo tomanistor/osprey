@@ -41,7 +41,7 @@ $color-text-subtle: $storm;
 }
 
 [data-termynal]:after {
-    content: 'kd-shell';
+    content: $term_title;
     position: absolute;
     color: $color-text-subtle;
     top: 5px;

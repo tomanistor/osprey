@@ -1,0 +1,50 @@
+{
+    "@context": "http://www.schema.org",
+    "@type": "Person",
+    "@id": "{{ .Site.BaseURL }}",
+    "name": "{{ .Site.Params.author }}",
+    "url": "{{ .Site.BaseURL }}",
+    "description": "{{ .Site.Params.Description }}",
+
+    {{ with .Site.Params.Feat.structuredDataFromGithub }}
+    {{ with (getJSON "https://api.github.com/users/" .) }}
+        "image": "{{ .avatar_url }}",
+        {{ if ne .login .Site.Params.author }}
+        "alternateName": "{{ .login }}",
+        {{ end }}
+        {{ with .email }}
+        "email": "{{ . }}",
+        {{ end }}
+        {{ with .location }}
+        "address": "{{ . }}",
+        {{ end }}
+        "affiliation": [
+            {{ $count := 0 }}
+            {{ $orgs := (getJSON .organizations_url) }}
+            {{ range $key, $val := $orgs }}
+            {{ $count = add $count 1 }}
+            
+            {{ with (getJSON .url) }}
+            {
+                "@type": "Organization",
+                "name": "{{ .name }}",
+                "sameAs": [
+                    "{{ .blog }}",
+                    "{{ .html_url }}"
+                ]
+            }{{ if lt $count (len $orgs) }},{{ end}}
+        {{- end }}
+            
+        ],
+        {{- end }}
+    {{ end }}
+    {{ end }}
+
+    "sameAs": [
+        {{ $count := 0 }}
+        {{ range $key, $val := .Site.Params.Social -}}
+        {{ $count = add $count 1 }}
+        "{{ $val }}"{{ if lt $count (len $.Site.Params.Social) }},{{ end}}
+        {{- end }}
+    ]
+}

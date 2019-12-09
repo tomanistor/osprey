@@ -14,9 +14,9 @@
       {{ end }}
 
       <!-- Blog -->
-      {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
+      <!-- {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
         {{ partial "blog.html" . }}
-      {{ end }}
+      {{ end }} -->
 
       <!-- Contact -->
       {{ partial "contact.html" . }}

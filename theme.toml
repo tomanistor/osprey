@@ -1,7 +1,7 @@
 name = "Osprey Delight"
 license = "Apache License 2.0"
 licenselink = "https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md"
-description = "Osprey Delight is a sugar-free version of the Osprey theme by Toma Nistor."
+description = "Osprey Delight is a sugar-free version of the Osprey theme by Toma Nistor functioning as a blazingly fast single page portfolio perfectly suited to show off your awesome work!"
 homepage = "https://github.com/kdevo/osprey-delight"
 tags = ["portfolio", "gallery", "minimalist", "responsive", "flexbox", "fast"]
 features = ["portfolio", "contact-form", "google analytics"]

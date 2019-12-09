@@ -69,8 +69,13 @@
   {{- end }}
 
   {{ if .Site.Params.favicon -}}
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ .Site.Params.favicon }}">
-    <meta name="theme-color" content="#FFF">
+    <link rel="icon" type="image/png" href="{{ .Site.Params.favicon }}">
+  {{- end }}
+
+  {{ with .Site.Params.themeColor -}}
+  <meta name="theme-color" content="{{ . }}">
+  {{- else -}}
+  <meta name="theme-color" content="{{ with .Site.Params.accentColor }}{{ .}}{{ else }}#0097a7{{ end }}">
   {{- end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
@@ -81,20 +86,14 @@
 
   <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}" type="text/css">
 
-  {{ if .Site.Params.Feat.customCSS -}}
-    {{ (resources.Get "custom.css") }}
+  {{ if .Site.Params.Feat.structuredData -}}
+  <script type="application/ld+json">
+  {{ (resources.Get "person.json" | resources.ExecuteAsTemplate "person.json" . | resources.Minify).Content | safeJS }}
+  </script>
   {{- end }}
 
   {{ if .Site.Params.Feat.lazyLoading -}}
     <style>.lazyload{opacity:.0001;}.logo .lazyload{min-width:10em;}</style>
     <script src="{{ (resources.Get "js/vendor/lazysizes.min.js").Permalink }}" async></script>
-  {{- end }}
-
-  {{ if .Site.Params.Feat.highlightJS -}}
-    {{ if .Site.Params.Feat.Feat.highlightJSStyle -}}
-      <link rel="stylesheet" href="{{ .Site.Params.Feat.Feat.highlightJSStyle }}">
-    {{- else -}}
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-    {{- end }}
   {{- end }}
 </head>

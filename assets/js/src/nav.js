@@ -1,17 +1,18 @@
 (function () {
   menuActive = false
+  var nav = $('nav')
 
   // Nav starts at bottom then is fixed to top
   // Logo and hamburger menus fade in and out
   window.onscroll = function () {
     var scrollPosition = window.pageYOffset || document.documentElement.scrollTop,
       windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-      navHeight = $('nav').clientHeight
+      navHeight = nav.clientHeight
 
     if (scrollPosition > windowHeight - navHeight) {
       // Nav is fixed to top
-      $('nav').classList.add('nav-fixed')
-      $('nav').classList.add('nav-shadow')
+      nav.classList.add('nav-fixed')
+      nav.classList.add('nav-shadow')
 
       $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
         el.style.visibility = 'visible'
@@ -20,8 +21,8 @@
       })
     } else {
       // Nav is not fixed
-      $('nav').classList.remove('nav-fixed')
-      $('nav').classList.remove('nav-shadow')
+      nav.classList.remove('nav-fixed')
+      nav.classList.remove('nav-shadow')
 
 
 
@@ -65,6 +66,7 @@
 
   // Fix logoBig drawing over nav when click on logoSmall while nav open
   $('.logo').addEventListener('click', function () {
+    toggle()
     if ($('.nav-full').classList.contains('active')) {
       $$('.nav-full, main').forEach(function (el) {
         el.classList.toggle('active')

@@ -4,8 +4,8 @@ title = "Toma Nistor"
 image = "toma-nistor.png"
 alt = "Toma Nistor"
 color = "#212121"
-link1 = "https://tomanistor.com"
-link2 = "https://github.com/tomanistor/tomanistor.com"
+linkView = "https://tomanistor.com"
+linkCode = "https://github.com/tomanistor/tomanistor.com"
 +++
 
 Author of the original Osprey theme.

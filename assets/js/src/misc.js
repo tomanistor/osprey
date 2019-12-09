@@ -22,9 +22,6 @@ document.addEventListener('DOMContentLoaded', function(){
   const THRESHOLD = 340
   var oldIdx = -1
 
-  console.log(ITEMS);
-  console.log(SECTIONS);
-
   window.addEventListener("scroll", () => {
     const idx = SECTIONS.length - SECTIONS.findIndex(
       (sec) => window.scrollY > sec.offsetTop - THRESHOLD

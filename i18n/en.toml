@@ -2,6 +2,10 @@
 other = "View"
 [code]
 other = "Code"
+[repo]
+other = "Repository"
+[download]
+other = "Download"
 [viewAll]
 other = "View All"
 [letsChat]
