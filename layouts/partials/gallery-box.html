@@ -1,0 +1,10 @@
+<div class="gallery-img-container">{{ partial "gallery-img" . }}</div>
+    <div class="row middle-xs center-xs overlay">
+        {{ partial "gallery-link.html" . }}
+        <h2>{{ .Title }}
+            {{ with .Params.subtitle }}
+            <br>
+            <small>{{ . }}</small>
+            {{- end }}
+        </h2>
+    </div>

@@ -19,11 +19,7 @@
       {{ if eq $galleryTotal 1 }}
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
+            {{ partial "gallery-box.html" . }}
           </div>
         {{ end }}
       {{ end }}
@@ -32,11 +28,7 @@
       {{ if gt $galleryTotal 2 }}
         {{ range first 3 $galleryReverse }}
           <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
+            {{ partial "gallery-box.html" . }}
           </div>
         {{ end }}
       {{ end }}
@@ -53,11 +45,7 @@
             {{- else }} col-lg-3
             {{- end }}
           {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
+            {{ partial "gallery-box.html" . }}
           </div>
 
         {{ end }}
@@ -78,11 +66,7 @@
             {{- end }}
           {{- end }}
         {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-        <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-          <div class="row middle-xs center-xs overlay">
-            {{ partial "gallery-link.html" . }}
-            <h2>{{ .Title }}</h2>
-          </div>
+          {{ partial "gallery-box.html" . }}
         </div>
 
       {{ end }}
