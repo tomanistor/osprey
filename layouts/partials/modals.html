@@ -90,7 +90,7 @@
             <a href="{{ .html_url }}/pulse"><span class="icon icon-github-cat"></span></a>
             <a href="{{ .languages_url }}">{{ .language }}{{ with ($scratch.Get "repo-lang-main") }}{{ if lt . 100.0 }} ({{ . }}%) {{ end }}{{ end }}</a>
             {{ with .license }}{{ with (getJSON .url) }} &bull; <a href="{{ .html_url }}">{{ .spdx_id }}</a> {{ end }} {{ end }}
-            {{ if gt .stargazers_count 0 }} &bull; <a href="{{ .html_url }}/network/members"> {{ .stargazers_count }} stars </a>{{ end }}
+            {{ if gt .stargazers_count 0 }} &bull; <a href="{{ .html_url }}/stargazers"> {{ .stargazers_count }} stars </a>{{ end }}
             {{ if gt .forks_count 0 }} &bull; <a href="{{ .html_url }}/network/members"> {{ .forks_count }} forks </a>{{ end }}
             &bull; <a href="{{ .html_url }}/issues">{{ .open_issues_count }} open issues</a>
           </div></div>{{ end }}{{ end }}
