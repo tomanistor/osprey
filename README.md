@@ -5,78 +5,13 @@
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! :zap:
 
-> It tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***.
-
-## Why?
-Well, first I personally did not need the blog features of the theme, so I removed them.
-Though the original theme is already performance-tuned, I decided to improve it further which enabled me to get a PageSpeed score [of 100 *on desktop* and 99~100 *on mobile*](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io). After optimizing, I added some other functionality in a modular way [as outlined below](#the-taste-features).
-
-Finally, I decided to publish it so that others with a similar use-case might profit from it, too.
-
-## The "Taste" (Features)
-
-> :warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
-
-### :low_brightness: Light: **Removed** features
-
-The following features of the original theme have been **removed** in order to make it more lightweight:
-
-- **All** Blog features; use the [original Osprey](https://github.com/tomanistor/osprey) for this feature
-- [Disqus](https://disqus.com) comments (not needed anymore)
-- highlight.js (not needed anymore)
-- [Formspree](https://formspree.io) AJAX contact form (with Formspree Gold)
-- Hamburger and close images (in favor of Fontawesome icons, see below)
-
-### :sparkles: Delight: **Added** or **changed** features
-
-The following theme aspects have been changed delightfully:
-
-#### Gallery
-* Introducing gallery item types!
-    * `github`: Fetch GitHub repo data with just a few lines config
-    * `normal`: The usual type that you're already familiar with if coming from [Osprey](https://github.com/tomanistor/osprey)
-* Want to reference an item elsewhere? Anchor links to gallery items will open the respective modal automatically
-* Use custom hugofied version of [Termynal](https://github.com/ines/termynal/) for terminal animations within gallery modals
-
-#### General
-* Added a *small* set of (mostly social media) Fontawesome icons [using Fontello](http://fontello.com/)
-* Vanilla JS scrollspy to highlight the active header links/sections
-* Add "disabled JS message" since the page does not properly work without it
-* Blazing fast loading speeds
-  * Removed menu *open* and *close* images (and instead use icons)
-  * Changed font to *Roboto Slab* (headers) and *Roboto* (body) resulting in a smaller font size and wider availability
-  * Minified and bundled JavaScript to reduce network requests
-  * Updated lazysizes to [v5.1.2](https://github.com/aFarkas/lazysizes/releases/tag/5.1.2) (current latest stable), about 15% smaller
-* GPDR: No external requests to 3rd parties per default (Roboto fonts included)
-* SEO: Added [structured data](https://developers.google.com/search/docs/guides/intro-structured-data) support
-
-#### Contact form
-* [Basin](https://usebasin.com/) AJAX contact form (free)
-  * Added spambot protection [using the Basin honeypot feature](https://usebasin.com/docs/features/spam-filtering)
-* Added optional *request type* select element
-* Added status messaged when sending
-
-#### Styling
-* Navbar shadow is only shown when navbar docks to prevent issues on mobile devices
-* Rounded-up edges for modals (and use alternative close icon/position)
-* Smooth scrolling via CSS-only
-* Use buttons instead of links in modals
-
-#### Development/Setup
-* [SASS](http://sass-lang.com/) styling Compiled natively to CSS, then minified and fingerprinted using Hugo Pipes
-* No Cachebusting hash setup needed anymore
-* Refactored theme
-    * Use more partials
-    * Change existing configuration variables, introduce new ones
-    * Make it easier to maintain
+> It tastes a bit different than the original (hence the *light* as part of the name) but also adds great new functionality - hopefully to your ***delight***. Read more about the motivation and differences of the fork [here](./MOTIVATION.md)
 
 ## :computer: Screenshot
 
-Yes, the screenshot looks pretty familiar, doesn't it?
-
 ![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
 
-To taste the differences, it's best to simply try Osprey Delight out!
+> Yes, the screenshot looks pretty familiar, doesn't it? To taste the differences, it's best to simply try Osprey Delight out!
 
 ## :zap: Quickstart
 
@@ -122,7 +57,7 @@ This is very helpful for the first time since you will get a fully documented fi
 Optionally, Osprey Delight makes use of the [Hugo's data folder](https://gohugo.io/templates/data-templates/#the-data-folder).
 Currently, the following files can be used to configure the theme in more detail:
 
-- **terminal.json**: Configure several parameters for Termynal (see **config.toml** above for an explanation)
+- **terminal.json**: Configure several parameters for optional Termynal (see **config.toml** for an explanation)
 
 ### Contact Form: Basin
 
