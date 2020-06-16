@@ -35,7 +35,11 @@ other = "Copyright"
 other = "Facebook"
 [github]
 other = "GitHub"
+[gitlab]
+other = "GitLab"
 [linkedin]
 other = "LinkedIn"
+[xing]
+other = "Xing"
 [twitter]
 other = "Twitter"
