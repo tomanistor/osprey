@@ -74,7 +74,9 @@ disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use 
   # Social media links in footer
   twitter = "TomaNistor"
   linkedin = "tomanistor"
+  xing = ""
   github = "tomanistor"
+  gitlab = ""
   facebook = ""
 
   # Copyright and theme author credit in footer
