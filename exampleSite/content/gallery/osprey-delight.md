@@ -1,7 +1,7 @@
 ---
 date: "2017-05-18T21:57:17-07:00"
 title: "Osprey Delight"
-image: "osprey-delight.png"
+image: "images/osprey-delight.png"
 color: "#b2ebf2"
 type: "github"
 github:

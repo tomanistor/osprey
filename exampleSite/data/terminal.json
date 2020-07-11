@@ -1,7 +1,7 @@
 {
     "startDelay": 600,
-    "lineDelay": 1000,
-    "typeDelay": 90,
+    "lineDelay": 900,
+    "typeDelay": 40,
     "progressChar": "█",
     "showPercent": true,
     "progressLength": 32,

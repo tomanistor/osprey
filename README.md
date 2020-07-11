@@ -1,32 +1,66 @@
-![Osprey Delight Logo](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png)
+<a href="https://git.io/osprey-delight" target="_blank">
+    <img alt="Osprey Delight Logo" src="https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png" width="300">
+</a>
 
+<a href="https://app.netlify.com/sites/kdevo/deploys" target="_blank">
+    <img align="right" alt="Nelify Continous Deployment Status" src="https://api.netlify.com/api/v1/badges/aff9a674-45e1-4437-89f7-2aabb281780f/deploy-status">
+</a>
+
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square)
+![GitHub All Releases Downloads](https://img.shields.io/github/downloads/kdevo/osprey-delight/total?style=flat-square)
+![Website status](https://img.shields.io/website?label=kdevo&style=flat-square&url=https%3A%2F%2Fkdevo.github.io&logo=github)
 ---
 
-Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
-It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! :zap:
+Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
-> It tastes a bit different than the original (hence the *light* as part of the name) but also adds great new functionality - hopefully to your ***delight***. Read more about the motivation and differences of the fork [here](./MOTIVATION.md)
+It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! 🍰 
 
-## :computer: Screenshot
+> 💡 The theme tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***. Read more about the motivation and differences of the fork [here](./MOTIVATION.md), but also check out the feature summary below!
+
+## Features
+
+- Gallery items with different types 
+    - `normal`: Just as you are used to with the original Osprey theme
+    - `github`: Magic GitHub API usage
+- Gallery images can optionally be normalized with Hugo's [amazing image processing](https://gohugo.io/content-management/image-processing/)
+- Blazingly fast loading speeds
+    - Minified JS/CSS/icon bundles using Hugo Pipes
+    - Lazy-loading of images using lazysizes
+- Contact form using Basin with Honeypot protection
+- Fancy UX
+    - Smooth scrolling plus scroll-spy
+    - Nice CSS animations
+    - Awesome icons in the footer
+- Modular theme, enable features as you want
+- Intelli-404: Automatically searches for suitable matches - never loose the link to your content
+- SEO-optimized
+  - High PageSpeed Insights score
+  - Automagically generated structured data ensures that everyone finds you
+
+In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved.
+
+## Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
 
 > Yes, the screenshot looks pretty familiar, doesn't it? To taste the differences, it's best to simply try Osprey Delight out!
 
-## :zap: Quickstart
+## Quickstart
+
+From your Hugo site directory, invoke:
 
 ```console
 $ mkdir themes/ # if dir does not exist yet
 $ git clone https://github.com/kdevo/osprey-delight.git themes/ --depth 1
 ```
 
-:bulb: The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
+The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
 This way, you have a good starting point that you can use for further modifications.
 
-## :wrench: Configuration and Usage
+## Configuration and Usage
 
-Documentation is not complete yet, but hopefully it's enough if you want to *migrate* from **Osprey** to **Osprey Delight**.
-Since many configuration attributes have been changed/refactored, this is a necessary step.
+Documentation is not complete yet and more "learning by doing".
+If you're coming from the original Osprey theme, migration is a necessary step, since many attributes have been refactored.
 
 It's best if you simply check out the commented **[exampleSite/config.toml](/exampleSite/config.toml)**!
 
@@ -50,7 +84,7 @@ $ hugo new gallery/item-name.md
 
 This is very helpful for the first time since you will get a fully documented file.
 
-> :warning: Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
+> ⚠️ Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
 
 ### Data directory (optional)
 
@@ -59,7 +93,7 @@ Currently, the following files can be used to configure the theme in more detail
 
 - **terminal.json**: Configure several parameters for optional Termynal (see **config.toml** for an explanation)
 
-### Contact Form: Basin
+### Contact form: Basin
 
 Basin is a free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
@@ -89,4 +123,4 @@ The necessary requirements for merge requests are:
 
 ## License
 
-This theme is released under the Apache 2.0 license. For more information read the [license](https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md).
+This theme is released under the Apache 2.0 license, just like its predecessor. For more information read the [license](https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md).

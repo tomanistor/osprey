@@ -24,7 +24,7 @@ enableEmoji = true
   googleTagManager = ""
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
-  #   This file will only contain a redirect directive if this switch is enabled (recommended, since this is a one-page theme).
+  #   This file will only contain a redirect directive if this switch is enabled.
   enforceSinglePage = true
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
@@ -67,6 +67,8 @@ enableEmoji = true
   # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
   #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
   # structuredDataFromGithub = "USERNAME"
+  # [bool] Enable the optional blog module
+  useBlog = true
 
 ## Configure contact form:
 [Params.Contact]

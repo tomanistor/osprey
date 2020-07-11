@@ -1,10 +1,12 @@
 ---
 # [str] Display title of the project.
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
-# [date] Specify project publication date - changes order; the latest item will be displayed first.
+# [date] Specify project publication date.
+# Changes order: The oldest item will be displayed first in the gallery.
 date: "{{ .Date }}"
-# [str] Gallery image file name. Image needs to be under 'images/'.
-# If ommited with type 'github', will attempt to fetch from '{repo_url}/.github/logo.png'.
+# [str] Gallery image file name. 
+# If the specified image is found in the 'assets' directory  the image will be normalized to a specified height. 
+# If ommited AND type is 'github' (see below), will attempt to fetch from '{repo_url}/.github/logo.png'. 
 image: ""
 # [str] Alternatively, you can specify an absolute image URL (comment out the following line).
 # absImage: ""
@@ -14,7 +16,7 @@ alt: ""
 # [css] Set gallery item's background color.
 color: "#fff"
 # [str] Possible types:
-# - normal: Just as originally in Osprey
+# - normal: Just as in the original Osprey theme
 # - github: Fetch repo data using GitHub API
 type: "normal"
 # [str] Link to view the project.
