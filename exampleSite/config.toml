@@ -25,7 +25,8 @@ pygmentsUseClasses = true
   googleTagManager = ""
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
-  #   This file will only contain a redirect directive if this switch is enabled.
+  #   This file will contain only a redirect directive if this switch is enabled.
+  #   Make sure that you do not enable this switch if you also set useBlog to true. 
   enforceSinglePage = false
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
