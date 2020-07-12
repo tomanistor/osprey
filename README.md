@@ -2,12 +2,13 @@
     <img alt="Osprey Delight Logo" src="https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png" width="250">
 </a>
 
-<a href="https://app.netlify.com/sites/kdevo/deploys" target="_blank">
+<a href="https://kdevo.netlify.app/" target="_blank">
     <img align="right" alt="Nelify Continous Deployment Status" src="https://api.netlify.com/api/v1/badges/aff9a674-45e1-4437-89f7-2aabb281780f/deploy-status">
 </a>
 
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&up_color=%230097a7)
-![Website status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)
+![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7)
+![Hugo Minimum Version](https://img.shields.io/badge/hugo%3E=-v0.65.0-%230097a7?logo=hugo&style=flat-square)
+![Website Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)
 
 ---
 
