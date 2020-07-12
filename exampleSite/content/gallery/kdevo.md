@@ -1,5 +1,6 @@
 +++
-date = "2017-05-20T22:25:16-07:00"
+weight = 20
+date = "2019-05-17T22:25:16-07:00"
 title = "kdevo"
 # Note that this image will be loaded from the static directory because it is not available under 'assets/':
 image = "images/kd.png"

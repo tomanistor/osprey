@@ -1,5 +1,6 @@
 ---
-date: "2017-05-18T21:57:17-07:00"
+weight: 20
+date: "2019-09-18T21:57:17-07:00"
 title: "Osprey Delight"
 image: "images/osprey-delight.png"
 color: "#b2ebf2"

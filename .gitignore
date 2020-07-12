@@ -6,6 +6,5 @@
 workspace
 
 # /resources/*
-# static/*/*-*.min.*
 
 .env

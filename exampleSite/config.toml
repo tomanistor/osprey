@@ -25,7 +25,7 @@ enableEmoji = true
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
   #   This file will only contain a redirect directive if this switch is enabled.
-  enforceSinglePage = true
+  enforceSinglePage = false
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
   # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
@@ -86,12 +86,16 @@ enableEmoji = true
   url  = "/#work"
   weight = 2
 [[menu.main]]
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
+[[menu.main]]
   name = "Contact"
   url  = "/#contact"
-  weight = 3
+  weight = 4
 [[menu.main]]
   # Use icon here to neatly back reference an external site/blog/whatever:
   pre = "<i class='icon icon-link-ext'></i>&nbsp;"
   name = ""
   url  = "https://pyotek.dev"
-  weight = 4
+  weight = 5

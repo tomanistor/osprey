@@ -5,15 +5,14 @@ Though the original theme is already performance-tuned, I decided to improve it 
 
 Finally, I decided to publish it so that others with a similar use-case might profit from it, too.
 
-## The "Taste" (Features)
+> In the latest version, the blog features of the theme have been re-implemented in a modular way!
 
-> :warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
+## The "Taste" (Features)
 
 ### :low_brightness: Light: **Removed** features
 
 The following features of the original theme have been **removed** in order to make it more lightweight:
 
-- **All** Blog features; use the [original Osprey](https://github.com/tomanistor/osprey) for this feature
 - [Disqus](https://disqus.com) comments (not needed anymore)
 - highlight.js (not needed anymore)
 - [Formspree](https://formspree.io) AJAX contact form (with Formspree Gold)
