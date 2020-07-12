@@ -9,7 +9,7 @@ function handleNavBar(isMainPage) {
       nav.classList.add('nav-shadow')
 
       $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
-        setVisibility(el, true)
+        setVisibility(el, true, false)
       })
     } else {
       // Not fixed, at bottom
@@ -17,7 +17,7 @@ function handleNavBar(isMainPage) {
       nav.classList.remove('nav-shadow')
 
       $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
-        setVisibility(el, false)
+        setVisibility(el, false, false)
       })
     }
   }

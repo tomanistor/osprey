@@ -40,6 +40,7 @@ $accent_color: #0097a7;
 @import "gallery";
 @import "custom";
 
+
 {{ if .Site.Params.Feat.useBlog -}}
 @import "blog";
 {{- end }}
@@ -55,7 +56,8 @@ $term_title: "{{ .Site.Data.terminal.title }}";
   padding: 0;
   border: 0;
   font: inherit;
-  color: $black;
+  color: inherit;
+  // color: black;
   vertical-align: baseline;
 
   &::before,
@@ -71,9 +73,14 @@ html {
 }
 
 footer {
+  padding-bottom: 1em;
   .icon {
-    padding: 0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     font-size: 2em;
+  }
+  a > .icon {
+    color: $white;
   }
 }
 
@@ -232,6 +239,7 @@ h3 {
 }
 
 a > .icon {
+  color: $black;
   transition: color .2s ease-out;
   
   &:not(.icon-menu):hover, &:not(.icon-menu):focus {
@@ -248,6 +256,7 @@ a > .icon {
 .contact {
   width: 100%;
   padding-bottom: $vertical-rhythm * 2;
+  // TODO(kdevo): Maybe consider to change this to white if blog is not enabled:
   background-color: $smoke;
 
   form {

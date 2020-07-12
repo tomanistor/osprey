@@ -88,6 +88,7 @@
   font-size: 30px;
   font-weight: bold;
   line-height: .5;
+  transition: color .2s ease-out;
 
   &:hover,
   &:focus {

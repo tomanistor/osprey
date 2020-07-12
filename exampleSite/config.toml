@@ -7,6 +7,7 @@ tags = ["personal", "homepage", "portfolio"]
 # googleAnalytics = ""
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 enableEmoji = true
+pygmentsUseClasses = true
 
 ## Generic theme parameters:
 [Params]
@@ -41,7 +42,7 @@ enableEmoji = true
   # [str] Link to your GitHub.
   github = "https://github.com/kdevo/osprey-delight"
   # [str] Link to your Facebook.
-  # facebook = ""
+  facebook = ""
   # [str] Link to your Instagram.
   # instagram = ""
   # [str] Link to your StackOverflow.

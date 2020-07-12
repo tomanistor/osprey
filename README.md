@@ -96,6 +96,21 @@ This is very helpful for the first time since you will get a fully documented fi
 
 > ⚠️ Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
 
+
+### Custom (S)CSS
+
+Place a file named `_custom.scss` in your local `assets/sass/` folder (create the directories). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
+
+#### Syntax Highlighting
+
+Limiting external dependencies is important when it comes to privacy as well as performance, therefore only Hugo's internal [Chroma Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) is supported. Here's how to use it:
+
+1. Generate a Chromastyle of your choice as `_custom.scss` in project root: `hugo gen chromastyles --style=solarized-dark > _custom.scss`
+2. Move the file to `assets/sass/` folder
+3. Add `pygmentsUseClasses = true` to your config.toml
+
+> Refer to [the official Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/) for more info. 
+
 ### Data directory (optional)
 
 Optionally, Osprey Delight makes use of the [Hugo's data folder](https://gohugo.io/templates/data-templates/#the-data-folder).
@@ -118,9 +133,6 @@ Basin will [ignore all messages that contain this specific field](https://usebas
 
 Feel free to open an issue if the protection did not work for you.
 
-### Custom (S)CSS
-
-Place a file named `_custom.scss` in your local **assets/sass/** folder (create the directories). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
 
 ## Contributing 
 
