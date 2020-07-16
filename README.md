@@ -51,7 +51,7 @@ There are multiple ways to show your support if you like this project:
 
 Osprey Delight works with gallery items which are organized in a Flexbox grid:
 
-![Screenshot of gallery items](images/screenshot-work.png)
+![Screenshot of gallery items](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/screenshot-work.png)
 
 
 The items can be opened and a modal will show up:
