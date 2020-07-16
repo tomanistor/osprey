@@ -11,6 +11,8 @@
 [![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.65-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
 [![Project Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)](#keep-it-up)
 
+# Osprey Delight
+
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
 It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! 
