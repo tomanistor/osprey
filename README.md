@@ -6,13 +6,10 @@
     <img align="right" alt="Nelify Continous Deployment Status" src="https://api.netlify.com/api/v1/badges/aff9a674-45e1-4437-89f7-2aabb281780f/deploy-status">
 </a>
 
-![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7)
-![Hugo Minimum Version](https://img.shields.io/badge/hugo%3E=-v0.65.0-%230097a7?logo=hugo&style=flat-square)
-![Website Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)
-
 ---
-
-<!-- ![GitHub All Releases Downloads](https://img.shields.io/github/downloads/kdevo/osprey-delight/total?style=flat-square&up_color=%230097a7) -->
+[![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/kdevo/osprey-delight/releases/latest)
+[![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.65-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
+[![Project Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)](#keep-it-up)
 
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
@@ -25,6 +22,8 @@ It's a blazingly fast minimalistic single page portfolio perfectly suited to sho
 - Gallery items with different types 
     - `normal`: Just as you are used to with the original Osprey theme
     - `github`: Magic GitHub API integration
+![GitHub Status](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/github-status.png)
+
 - Gallery images can optionally be normalized with Hugo's [amazing image processing](https://gohugo.io/content-management/image-processing/)
 - Blazingly fast loading speeds
     - Minified JS/CSS/icon bundles using Hugo Pipes
@@ -38,12 +37,12 @@ It's a blazingly fast minimalistic single page portfolio perfectly suited to sho
 - Intelli-404: Automatically searches for suitable matches - never loose the link to your content
 - SEO-optimized
   - High PageSpeed Insights score
-  - Automagically generated structured data ensures that everyone finds you
+  - Automatically generated structured data ensures that everyone finds you
 
 In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved.
 
 
-## Support this project
+## Keep it up 
 
 There are multiple ways to show your support if you like this project:
 - Start [contributing](#Contributing) if you are familiar with Hugo themes/templating
@@ -54,26 +53,40 @@ There are multiple ways to show your support if you like this project:
 
 ![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
 
-> Yes, the screenshot looks pretty familiar, doesn't it? To taste the differences, it's best to simply try Osprey Delight out!
+> Yes, the screenshot looks pretty familiar if you have used Osprey before, doesn't it? 
+> To taste the differences, it's best to simply try Osprey Delight out!
 
 ## Quickstart
 
-From your Hugo site directory, invoke:
 
-```console
-$ mkdir themes/ # if dir does not exist yet
-$ git clone https://github.com/kdevo/osprey-delight.git themes/ --depth 1
+The recommended way to setup this theme is to use a git submodule so that further upgrades can be received without any hassle.
+Invoke the following from your Hugo site directory:
+
+```shell
+git submodule add https://github.com/kdevo/osprey-delight.git themes/osprey-delight
 ```
 
 The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
 This way, you have a good starting point that you can use for further modifications.
 
+> [Visit the Hugo docs](https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme) for more info and general setup of a Hugo site.
+
+### Upgrade
+
+Receive the latest features of the theme by pulling the latest changes from `master`:
+
+```
+cd themes/osprey-delight
+git pull
+```
+
+> It is good practice to [check the release notes](https://github.com/kdevo/osprey-delight/releases) before upgrading (especially before using new major versions).
+
+
 ## Configuration and Usage
 
-Documentation is not complete yet and more "learning by doing".
-If you're coming from the original Osprey theme, migration is a necessary step, since many attributes have been refactored.
-
 It's best if you simply check out the commented **[exampleSite/config.toml](/exampleSite/config.toml)**!
+This theme follows a learning-by-doing approach.
 
 ### Content files
 
