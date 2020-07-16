@@ -15,7 +15,7 @@
 
 Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
-It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! 
+It's a [blazingly fast](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io%2F) minimalistic single page portfolio perfectly suited to show off your awesome work! 
 
 > 💡 The theme tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***. Read more about the motivation and differences of the fork [here](./MOTIVATION.md), but also check out the feature summary below!
 
