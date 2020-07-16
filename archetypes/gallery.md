@@ -1,34 +1,42 @@
 ---
-# [str] Display title of the project.
+# [str] Title of the project. This is also visible when hovering over a gallery item.
 title: "{{ replace .TranslationBaseName "-" " " | title }}"
-# [date] Specify project publication date - changes order; the latest item will be displayed first.
+# [str] Optional subtitle of the project. 
+#   Functions as an additional explanation when hovering over a gallery item (comment out the following line).
+# subtitle: ""
+# [date] Project publication date.
+#   Changes order: The newest item will be displayed first in the gallery. 
+#   Just like Hugo's natural ordering, this is anti-chronological.
+#   You can use 'weight' to order (primarily) for more control (sometimes it makes sense to put old items before new ones).
+#   The specifics are documented here: https://gohugo.io/templates/lists/#order-content
 date: "{{ .Date }}"
-# [str] Gallery image file name. Image needs to be under 'images/'.
-# If ommited with type 'github', will attempt to fetch from '{repo_url}/.github/logo.png'.
+# [str] Gallery image file. 
+#   If the specified image is found in the 'assets' directory  the image will be normalized to a specified height. 
+#   If ommited AND type is 'github' (see below), will attempt to fetch from '{repo_url}/.github/logo.png'. 
 image: ""
 # [str] Alternatively, you can specify an absolute image URL (comment out the following line).
-# absImage: ""
-# [str] Provide alternative description.
-# If ommited with type 'github', will use 'description' field from GitHub API.
+# imageUrl: ""
+# [str] Alternative (image) description.
+#   If ommited with type 'github', will use 'description' field from GitHub API.
 alt: ""
-# [css] Set gallery item's background color.
+# [css] Background color of the gallery item.
 color: "#fff"
-# [str] Possible types:
-# - normal: Just as originally in Osprey
-# - github: Fetch repo data using GitHub API
+# [enum] Possible types:
+#   - normal: Just as in the original Osprey theme
+#   - github: Fetch repo data using GitHub API
 type: "normal"
 # [str] Link to view the project.
 linkView: ""
 # [str] Link to show the project's code.
-# If ommited with type 'github', will use 'html_url' field from GitHub API.
+#   If ommited with type 'github', will use 'html_url' field from GitHub API.
 linkCode: ""
-# Configure 'github'-type specific options here:
+# [map] Configure 'github'-type specific options here:
 github: 
     # [str] Repo is a combination of "{user_or_org}/{repository_name}", e.g. "kdevo/osprey-delight.
     repo: "YOUR-GITHUB-NAME/{{ .TranslationBaseName }}"
     # [bool] Show repository information such project language below the buttons.
     showInfo: true
-# Configure optional terminal to be displayed when opening up the gallery item:
+# [map] Configure optional terminal to be displayed when opening up the gallery item:
 terminal:
     # lines:
     # - type: input

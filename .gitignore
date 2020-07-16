@@ -1,10 +1,10 @@
 
 /public/
 /exampleSite/public/
+/exampleSite/resources/_gen/
 
 workspace
 
 # /resources/*
-# static/*/*-*.min.*
 
 .env

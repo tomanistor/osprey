@@ -1,9 +1,12 @@
 (function () {
   var realmsg = $('textarea[name=message2]')
   var honeypotmsg = $('textarea[name=message]')
+
+  if (realmsg === null) {
+    return;
+  }
   setVisibility(realmsg, true)
   setVisibility(honeypotmsg, false)
-
 
   // For spam protection, we use "message" as a honeypot field:
   honeypotmsg.removeAttribute("required")
@@ -15,7 +18,7 @@
     var name = $('input[name=name]').value,
       email = $('input[name=email]').value,
       subject = $('input[name=_subject]').value,
-      matter = $('select[name=matter]').value
+      matter = $('select[name=matter]').value,
       message = realmsg.value,
       honeypot = honeypotmsg.value
 

@@ -1,4 +1,5 @@
 +++
+weight = 1
 date = "2017-05-12T22:25:02-07:00"
 title = "Hugo"
 image = "hugo.png"

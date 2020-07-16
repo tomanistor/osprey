@@ -1,5 +1,6 @@
 +++
-date = "2017-05-15T22:25:16-07:00"
+weight = 10
+date = "2017-05-15T20:00:16-07:00"
 title = "Toma Nistor"
 image = "toma-nistor.png"
 alt = "Toma Nistor"

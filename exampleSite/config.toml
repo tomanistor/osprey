@@ -7,6 +7,7 @@ tags = ["personal", "homepage", "portfolio"]
 # googleAnalytics = ""
 disableKinds = ["taxonomy", "taxonomyTerm"] # This theme does not currently use "tag" and "category" taxonomies
 enableEmoji = true
+pygmentsUseClasses = true
 
 ## Generic theme parameters:
 [Params]
@@ -24,8 +25,9 @@ enableEmoji = true
   googleTagManager = ""
   # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
-  #   This file will only contain a redirect directive if this switch is enabled (recommended, since this is a one-page theme).
-  enforceSinglePage = true
+  #   This file will contain only a redirect directive if this switch is enabled.
+  #   Make sure that you do not enable this switch if you also set useBlog to true. 
+  enforceSinglePage = false
   # [bool] Will generate copyright notice in footer for your site.
   copyright = true
   # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
@@ -41,7 +43,7 @@ enableEmoji = true
   # [str] Link to your GitHub.
   github = "https://github.com/kdevo/osprey-delight"
   # [str] Link to your Facebook.
-  # facebook = ""
+  facebook = ""
   # [str] Link to your Instagram.
   # instagram = ""
   # [str] Link to your StackOverflow.
@@ -67,6 +69,8 @@ enableEmoji = true
   # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
   #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
   # structuredDataFromGithub = "USERNAME"
+  # [bool] Enable the optional blog module
+  useBlog = true
 
 ## Configure contact form:
 [Params.Contact]
@@ -84,12 +88,16 @@ enableEmoji = true
   url  = "/#work"
   weight = 2
 [[menu.main]]
+  name = "Blog"
+  url  = "/#blog"
+  weight = 3
+[[menu.main]]
   name = "Contact"
   url  = "/#contact"
-  weight = 3
+  weight = 4
 [[menu.main]]
   # Use icon here to neatly back reference an external site/blog/whatever:
   pre = "<i class='icon icon-link-ext'></i>&nbsp;"
   name = ""
   url  = "https://pyotek.dev"
-  weight = 4
+  weight = 5

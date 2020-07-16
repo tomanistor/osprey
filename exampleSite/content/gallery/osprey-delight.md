@@ -1,8 +1,9 @@
 ---
-date: "2017-05-18T21:57:17-07:00"
+weight: 20
+date: "2019-09-18T21:57:17-07:00"
 title: "Osprey Delight"
-image: "osprey-delight.png"
-color: "#b2ebf2"
+image: "images/osprey-delight.png"
+color: "#C0C0C0	"
 type: "github"
 github:
     repo: "kdevo/osprey"
@@ -30,4 +31,4 @@ terminal:
 
 {{! github-description !}}
 
-> It tastes a bit different than the original (hence the *light* in the name) but also adds some new functionality to your ***delight***.
+Check it out.

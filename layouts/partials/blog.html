@@ -3,7 +3,7 @@
     <div class="row center-xs">
       <div class="col-xs-12"><h1>{{ i18n "latestPosts" }}</h1></div>
     </div>
-    <div class="row">
+    <div class="row center-xs">
       <div class="col-xs-12 posts-list">
         {{ range first 5 (where .Site.RegularPages "Section" "blog") }}
           <article>

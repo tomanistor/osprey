@@ -11,12 +11,19 @@
       <!-- Gallery -->
       {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) }}
         {{ partial "gallery.html" . }}
+        {{ partial "modals.html" . }}
       {{ end }}
 
       <!-- Blog -->
-      <!-- {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
-        {{ partial "blog.html" . }}
-      {{ end }} -->
+      {{ if .Site.Params.Feat.useBlog -}}
+        {{ if not (eq (len (where .Site.RegularPages "Section" "blog")) 0) }}
+          {{ partial "blog.html" . }}
+          {{ if .Site.Params.enforceSinglePage -}}
+          {{ warnf "enforceSinglePage and useBlog are both set to true. This is very likely not what you want (blog posts will always redirect to main page)"}}
+
+          {{- end }}
+        {{ end }}
+      {{ end }}
 
       <!-- Contact -->
       {{ partial "contact.html" . }}

@@ -1,99 +1,92 @@
-![Osprey Delight Logo](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png)
+<a href="https://git.io/osprey-delight" target="_blank">
+    <img alt="Osprey Delight Logo" src="https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/osprey-delight-logo.png" width="250">
+</a>
+
+<a href="https://kdevo.netlify.app/" target="_blank">
+    <img align="right" alt="Nelify Continous Deployment Status" src="https://api.netlify.com/api/v1/badges/aff9a674-45e1-4437-89f7-2aabb281780f/deploy-status">
+</a>
 
 ---
+[![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/kdevo/osprey-delight/releases/latest)
+[![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.65-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
+[![Project Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)](#keep-it-up)
 
-Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) which has been created by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
-It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! :zap:
+Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/), a fast static site generator.
 
-> It tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***.
+It's a blazingly fast minimalistic single page portfolio perfectly suited to show off your awesome work! 
 
-## Why?
-Well, first I personally did not need the blog features of the theme, so I removed them.
-Though the original theme is already performance-tuned, I decided to improve it further which enabled me to get a PageSpeed score [of 100 *on desktop* and 99~100 *on mobile*](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io). After optimizing, I added some other functionality in a modular way [as outlined below](#the-taste-features).
+> 💡 The theme tastes a bit different than the original (hence the *light* in the name) but also adds great new functionality - hopefully to your ***delight***. Read more about the motivation and differences of the fork [here](./MOTIVATION.md), but also check out the feature summary below!
 
-Finally, I decided to publish it so that others with a similar use-case might profit from it, too.
+## Features
 
-## The "Taste" (Features)
+- Gallery items with different types 
+    - `normal`: Just as you are used to with the original Osprey theme
+    - `github`: Magic GitHub API integration
+![GitHub Status](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/github-status.png)
 
-> :warning: Please note: In contrary to [Osprey](https://github.com/tomanistor/osprey) it does **not** have the built-in minimalistic blog! This is not the aim of the project.
+- Gallery images can optionally be normalized with Hugo's [amazing image processing](https://gohugo.io/content-management/image-processing/)
+- Blazingly fast loading speeds
+    - Minified JS/CSS/icon bundles using Hugo Pipes
+    - Lazy-loading of images using lazysizes
+- Contact form using Basin with Honeypot protection
+- Fancy UX
+    - Smooth scrolling plus scroll-spy
+    - Nice CSS animations
+    - Awesome icons in the footer
+- Modular theme, enable features as you want
+- Intelli-404: Automatically searches for suitable matches - never loose the link to your content
+- SEO-optimized
+  - High PageSpeed Insights score
+  - Automatically generated structured data ensures that everyone finds you
 
-### :low_brightness: Light: **Removed** features
+In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved.
 
-The following features of the original theme have been **removed** in order to make it more lightweight:
 
-- **All** Blog features; use the [original Osprey](https://github.com/tomanistor/osprey) for this feature
-- [Disqus](https://disqus.com) comments (not needed anymore)
-- highlight.js (not needed anymore)
-- [Formspree](https://formspree.io) AJAX contact form (with Formspree Gold)
-- Hamburger and close images (in favor of Fontawesome icons, see below)
+## Keep it up 
 
-### :sparkles: Delight: **Added** or **changed** features
+There are multiple ways to show your support if you like this project:
+- Start [contributing](#Contributing) if you are familiar with Hugo themes/templating
+- [Donate anything to my non-profit organization](https://pyotek.dev/donate) via various options
+- Push the ![GitHub stars](https://img.shields.io/github/stars/kdevo/osprey-delight?style=social) button - a small gesture with huge effect
 
-The following theme aspects have been changed delightfully:
-
-#### Gallery
-* Introducing gallery item types!
-    * `github`: Fetch GitHub repo data with just a few lines config
-    * `normal`: The usual type that you're already familiar with if coming from [Osprey](https://github.com/tomanistor/osprey)
-* Want to reference an item elsewhere? Anchor links to gallery items will open the respective modal automatically
-* Use custom hugofied version of [Termynal](https://github.com/ines/termynal/) for terminal animations within gallery modals
-
-#### General
-* Added a *small* set of (mostly social media) Fontawesome icons [using Fontello](http://fontello.com/)
-* Vanilla JS scrollspy to highlight the active header links/sections
-* Add "disabled JS message" since the page does not properly work without it
-* Blazing fast loading speeds
-  * Removed menu *open* and *close* images (and instead use icons)
-  * Changed font to *Roboto Slab* (headers) and *Roboto* (body) resulting in a smaller font size and wider availability
-  * Minified and bundled JavaScript to reduce network requests
-  * Updated lazysizes to [v5.1.2](https://github.com/aFarkas/lazysizes/releases/tag/5.1.2) (current latest stable), about 15% smaller
-* GPDR: No external requests to 3rd parties per default (Roboto fonts included)
-* SEO: Added [structured data](https://developers.google.com/search/docs/guides/intro-structured-data) support
-
-#### Contact form
-* [Basin](https://usebasin.com/) AJAX contact form (free)
-  * Added spambot protection [using the Basin honeypot feature](https://usebasin.com/docs/features/spam-filtering)
-* Added optional *request type* select element
-* Added status messaged when sending
-
-#### Styling
-* Navbar shadow is only shown when navbar docks to prevent issues on mobile devices
-* Rounded-up edges for modals (and use alternative close icon/position)
-* Smooth scrolling via CSS-only
-* Use buttons instead of links in modals
-
-#### Development/Setup
-* [SASS](http://sass-lang.com/) styling Compiled natively to CSS, then minified and fingerprinted using Hugo Pipes
-* No Cachebusting hash setup needed anymore
-* Refactored theme
-    * Use more partials
-    * Change existing configuration variables, introduce new ones
-    * Make it easier to maintain
-
-## :computer: Screenshot
-
-Yes, the screenshot looks pretty familiar, doesn't it?
+## Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
 
-To taste the differences, it's best to simply try Osprey Delight out!
+> Yes, the screenshot looks pretty familiar if you have used Osprey before, doesn't it? 
+> To taste the differences, it's best to simply try Osprey Delight out!
 
-## :zap: Quickstart
+## Quickstart
 
-```console
-$ mkdir themes/ # if dir does not exist yet
-$ git clone https://github.com/kdevo/osprey-delight.git themes/ --depth 1
+
+The recommended way to setup this theme is to use a git submodule so that further upgrades can be received without any hassle.
+Invoke the following from your Hugo site directory:
+
+```shell
+git submodule add https://github.com/kdevo/osprey-delight.git themes/osprey-delight
 ```
 
-:bulb: The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
+The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
 This way, you have a good starting point that you can use for further modifications.
 
-## :wrench: Configuration and Usage
+> [Visit the Hugo docs](https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme) for more info and general setup of a Hugo site.
 
-Documentation is not complete yet, but hopefully it's enough if you want to *migrate* from **Osprey** to **Osprey Delight**.
-Since many configuration attributes have been changed/refactored, this is a necessary step.
+### Upgrade
+
+Receive the latest features of the theme by pulling the latest changes from `master`:
+
+```
+cd themes/osprey-delight
+git pull
+```
+
+> It is good practice to [check the release notes](https://github.com/kdevo/osprey-delight/releases) before upgrading (especially before using new major versions).
+
+
+## Configuration and Usage
 
 It's best if you simply check out the commented **[exampleSite/config.toml](/exampleSite/config.toml)**!
+This theme follows a learning-by-doing approach.
 
 ### Content files
 
@@ -115,16 +108,31 @@ $ hugo new gallery/item-name.md
 
 This is very helpful for the first time since you will get a fully documented file.
 
-> :warning: Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
+> ⚠️ Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
+
+
+### Custom (S)CSS
+
+Place a file named `_custom.scss` in your local `assets/sass/` folder (create the directories). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
+
+#### Syntax Highlighting
+
+Limiting external dependencies is important when it comes to privacy as well as performance, therefore only Hugo's internal [Chroma Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) is supported. Here's how to use it:
+
+1. Generate a Chromastyle of your choice as `_custom.scss` in project root: `hugo gen chromastyles --style=solarized-dark > _custom.scss`
+2. Move the file to `assets/sass/` folder
+3. Add `pygmentsUseClasses = true` to your config.toml
+
+> Refer to [the official Hugo documentation](https://gohugo.io/content-management/syntax-highlighting/) for more info. 
 
 ### Data directory (optional)
 
 Optionally, Osprey Delight makes use of the [Hugo's data folder](https://gohugo.io/templates/data-templates/#the-data-folder).
 Currently, the following files can be used to configure the theme in more detail:
 
-- **terminal.json**: Configure several parameters for Termynal (see **config.toml** above for an explanation)
+- **terminal.json**: Configure several parameters for optional Termynal (see **config.toml** for an explanation)
 
-### Contact Form: Basin
+### Contact form: Basin
 
 Basin is a free AJAX contact form service. To use Basin, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.toml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
@@ -139,11 +147,8 @@ Basin will [ignore all messages that contain this specific field](https://usebas
 
 Feel free to open an issue if the protection did not work for you.
 
-### Custom (S)CSS
 
-Place a file named `_custom.scss` in your local **assets/sass/** folder (create the directories). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
-
-## Help wanted
+## Contributing 
 
 Contributions are welcome! Fork this repo and create a merge request if you implemented a feature or a bug fix that everyone can profit from. 
 
@@ -154,4 +159,4 @@ The necessary requirements for merge requests are:
 
 ## License
 
-This theme is released under the Apache 2.0 license. For more information read the [license](https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md).
+This theme is released under the Apache 2.0 license, just like its predecessor. For more information read the [license](https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md).

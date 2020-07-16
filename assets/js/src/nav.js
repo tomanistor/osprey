@@ -1,47 +1,67 @@
-(function () {
+function handleNavBar(isMainPage) {
   menuActive = false
   var nav = $('nav')
 
-  // Nav starts at bottom then is fixed to top
-  // Logo and hamburger menus fade in and out
-  window.onscroll = function () {
-    var scrollPosition = window.pageYOffset || document.documentElement.scrollTop,
-      windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
-      navHeight = nav.clientHeight
-
-    if (scrollPosition > windowHeight - navHeight) {
-      // Nav is fixed to top
+  function setFixedNav(isFixed) {
+    if (isFixed) {
+      // Fixed to top
       nav.classList.add('nav-fixed')
       nav.classList.add('nav-shadow')
 
       $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
-        el.style.visibility = 'visible'
-        el.classList.add('show')
-        el.classList.remove('hide')
+        setVisibility(el, true, false)
       })
     } else {
-      // Nav is not fixed
+      // Not fixed, at bottom
       nav.classList.remove('nav-fixed')
       nav.classList.remove('nav-shadow')
 
-
-
       $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
-        el.style.visibility = 'hidden'
-        el.classList.add('hide')
-        el.classList.remove('show')
+        setVisibility(el, false, false)
       })
     }
+  }
+
+  if (isMainPage) {
+    // Nav starts at bottom then is fixed to top
+    // Logo and hamburger menus fade in and out
+    // Scrollspy partly adapted from https://medium.com/p/-3131c114abdc
+    document.addEventListener('DOMContentLoaded', function () {
+      const ITEMS = [...$$(".nav-item")]
+      const SECTIONS = [...$$("main > section")].reverse()
+      const THRESHOLD = 340
+      var oldIdx = -1
+
+      window.addEventListener("scroll", () => {
+        var scrollPosition = window.scrollY || window.pageYOffset || document.documentElement.scrollTop,
+          windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight,
+          navHeight = nav.clientHeight
+
+        if (scrollPosition > windowHeight - navHeight) {
+          setFixedNav(true)
+        } else {
+          setFixedNav(false)
+        }
+        const idx = SECTIONS.length - 1 - SECTIONS.findIndex(
+          (sec) => scrollPosition > sec.offsetTop - THRESHOLD
+        )
+        if (idx != oldIdx) {
+          ITEMS.forEach((itm) => itm.classList.remove("nav-item-active"))
+          ITEMS[idx].classList.add("nav-item-active")
+          oldIdx = idx
+        }
+      });
+    }, false);
+  } else {
+    setFixedNav(true)
   }
 
   function toggle() {
     if (menuActive) {
       $('#open').classList.remove('icon-active')
-
       menuActive = false
     } else {
       $('#open').classList.add('icon-active')
-
       menuActive = true
     }
   }
@@ -84,6 +104,7 @@
   })
 
   // Mobile browsers viewport height bug fix
+  // TODO(kdevo): Verify relevance
   function fullMobileViewport() {
     var element = this,
       viewportHeight = window.innerHeight,
@@ -106,4 +127,4 @@
   $$('header').forEach(function () {
     fullMobileViewport
   })
-})()
+}

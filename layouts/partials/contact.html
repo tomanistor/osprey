@@ -2,7 +2,7 @@
 <section class="contact" id="contact">
   <div class="container">
 
-    <div class="row">
+    <div class="row center-xs">
       <div class="col-xs-12">
         <h1><span class="icon icon-mail-alt"></span>{{ i18n "letsChat" }}</h1>
         <noscript>{{ i18n "nojsForm" }}</noscript>
@@ -24,7 +24,7 @@
         {{- end }}
         <div class="col-xs-12{{ if isset .Site.Params.Contact "select" }} col-sm-6{{ end }}"><input type="text" name="_subject" aria-label="email subject" placeholder="{{ i18n "subject" }}" required></div>
         <div class="col-xs-12">
-            <textarea name="message" aria-label="DO NOT USE, ENABLE JS!" required></textarea>
+            <textarea name="message" aria-label="Please enable JS" required></textarea>
           </div>
         <div class="col-xs-12">
           <textarea name="message2" aria-label="email message" placeholder="{{ i18n "message" }}" required hidden></textarea>

@@ -1,0 +1,134 @@
+
+// Code
+pre code {
+    // font-size: 100%;
+    color: inherit;
+    font-family: $font-code;
+    // background-color: transparent;
+}
+
+pre {
+  margin-top: 8px;
+  // font: 12px $font-code;
+  padding: 16px;
+  border-radius: 4px;
+  margin-bottom: $vertical-rhythm;
+  overflow: auto;
+  word-wrap: normal;
+  // color: white;
+  // line-height: 1.45; or inherit
+  //   background-color: $smoke;
+}
+
+.mono,
+tt {
+  font-family: $font-code;
+}
+
+
+// Quotes
+q {
+  @extend em;
+
+  &::before {
+    content: "\201C";
+  }
+
+  &::after {
+    content: "\201D";
+  }
+}
+
+%blockquote {
+  content: "\201C";
+  color: $accent;
+  font-family: $font-header;
+  font-size: 35px;
+}
+
+blockquote {
+  padding: 25px;
+  font-family: $font-header;
+  text-align: center;
+
+  p {
+    display: inline-block;
+    font-style: italic;
+  }
+
+  &::before {
+    @extend %blockquote;
+  }
+
+  &::after {
+    @extend %blockquote;
+    content: "\201D";
+  }
+}
+
+
+.posts-list {
+  margin: 0 0 $vertical-rhythm;
+}
+
+.sub-header,
+time {
+  @include size(p);
+  margin-bottom: $vertical-rhythm;
+  color: $storm;
+}
+
+.content {
+  width: 100%;
+  text-align: left;
+
+  time {
+    margin-left: 3px;
+  }
+
+  // a {
+  //   background-image: linear-gradient($accent, $accent);
+  //   background-repeat: repeat-x;
+  //   background-position: 0 95%;
+  //   background-size: 1px 2px;
+  //   text-decoration: none;
+  //   text-shadow: .03em 0 $white, -.03em 0 $white, 0 .03em $white, 0 -.03em $white,
+  //   .06em 0 $white, -.06em 0 $white, .09em 0 $white, -.09em 0 $white,
+  //   .12em 0 $white, -.12em 0 $white, .15em 0 $white, -.15em 0 $white,
+  //   .03em .075em $white, -.03em .075em $white, .06em .075em $white,
+  //   -.06em .075em $white, .09em .075em $white, -.09em .075em $white,
+  //   .12em .075em $white, -.12em .075em $white, .15em .075em $white,
+  //   -.15em .075em $white;
+
+  //   &:hover {
+  //     color: $accent;
+  //   }
+  // }
+}
+
+// .highlight {
+//   margin: 10px 0;
+// }
+
+.pagination {
+  margin: 50px 0 0;
+
+  &:nth-child(2) {
+    float: right;
+  }
+}
+
+.blog {
+  display: flex;
+  min-height: 100vh;
+  background-color: $white;
+
+  h2 {
+    margin-bottom: 0;
+  }
+
+  h3 {
+    margin: 0 0 $vertical-rhythm * 2;
+    font-family: $font-body;
+  }
+}

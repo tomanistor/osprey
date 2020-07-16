@@ -1,75 +1,20 @@
 <section class="gallery" id="work">
   <div class="row">
 
-    <!-- First 4 characters of each gallery page's unique ID -->
-    {{ range where .Site.RegularPages "Section" "gallery" }}
+
+    {{ $gallery := (where .Site.RegularPages "Section" "gallery") }}
+    {{ $galleryTotal := len $gallery }}
+    {{ range $gallery }}
       <!-- Scratch is used to set page-scoped variable outside of this loop-->
-      <!-- {{ .Scratch.Set "$modalID" (slicestr .File.UniqueID 0 4) }} -->
       {{ .Scratch.Set "$modalID" .File.BaseFileName }} 
-
     {{ end }}
 
-    {{ $galleryTotal := len (where .Site.RegularPages "Section" "gallery") }}
-    {{ $galleryReverse := (where .Site.RegularPages.Reverse "Section" "gallery") }}
 
-    <!-- If gallery is an odd total -->
-    {{ if not (modBool $galleryTotal 2) }}
-
-      <!-- If gallery is only one item, display it fully -->
-      {{ if eq $galleryTotal 1 }}
-        {{ range first 3 $galleryReverse }}
-          <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
-          </div>
-        {{ end }}
-      {{ end }}
-
-      <!-- If gallery is greater than 2 items, first 3 items display together on first row -->
-      {{ if gt $galleryTotal 2 }}
-        {{ range first 3 $galleryReverse }}
-          <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
-          </div>
-        {{ end }}
-      {{ end }}
-
-      <!-- If gallery is greater than 3 items, all items after the first 3 display evenly in grid columns and rows -->
-      {{ if gt $galleryTotal 3 }}
-        {{ range after 3 $galleryReverse }}
-
-          <!-- If gallery items are divisible by 3, they will appear in columns of 3 -->
-          {{ $col := (mod $galleryTotal 3) }}
-          <div class="gallery-item col-xs-12 col-md-6
-          {{- if gt $galleryTotal 5 }}
-            {{- if eq $col 0 }} col-lg-4
-            {{- else }} col-lg-3
-            {{- end }}
-          {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-          <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-            <div class="row middle-xs center-xs overlay">
-              {{ partial "gallery-link.html" . }}
-              <h2>{{ .Title }}</h2>
-            </div>
-          </div>
-
-        {{ end }}
-      {{ end }}
-
-    {{ end }}
-
-    <!-- If gallery is an even total, all items display evenly in grid columns and rows -->
     {{ if modBool $galleryTotal 2 }}
-      {{ range $galleryReverse }}
-
-        <!-- If gallery items are great than 7 and are divisible by 4, they will appear in columns of 4, else in columns of 2 or 3 -->
+      <!-- If gallery is an even total, all items display evenly in grid columns and rows: -->
+      {{ range $gallery }}
+        <!-- If gallery items are greater than 7 and are divisible by 4, 
+             they will appear in columns of 4, else in columns of 2 or 3 -->
         <div class="gallery-item col-xs-12
         {{- if gt $galleryTotal 1 }} col-md-6
           {{- if gt $galleryTotal 7 }}
@@ -78,15 +23,45 @@
             {{- end }}
           {{- end }}
         {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-        <div class= "gallery-img-container">{{ partial "gallery-img" . }}</div>
-          <div class="row middle-xs center-xs overlay">
-            {{ partial "gallery-link.html" . }}
-            <h2>{{ .Title }}</h2>
-          </div>
+          {{ partial "gallery-box.html" . }}
         </div>
-
       {{ end }}
-    {{ end }}
+    {{ else }}
+      <!-- If gallery is an odd total -->
 
+      <!-- If gallery is only one item, display it fully -->
+      {{ if eq $galleryTotal 1 -}}
+        {{ range first 3 $gallery }}
+          <div class="gallery-item col-xs-12" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            {{ partial "gallery-box.html" . }}
+          </div>
+        {{ end }}
+      {{- end }}
+
+      <!-- If gallery is greater than 2 items, first 3 items display together on first row -->
+      {{ if gt $galleryTotal 2 -}}
+        {{ range first 3 $gallery }}
+          <div class="gallery-item col-xs-12 col-md-4" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            {{ partial "gallery-box.html" . }}
+          </div>
+        {{ end }}
+      {{- end }}
+
+      <!-- If gallery is greater than 3 items, all items after the first 3 display evenly in grid columns and rows -->
+      {{ if gt $galleryTotal 3 -}}
+        {{ range after 3 $gallery }}
+          <!-- If gallery items are divisible by 3, they will appear in columns of 3 -->
+          {{ $col := (mod $galleryTotal 3) }}
+          <div class="gallery-item col-xs-12 col-md-6
+          {{- if gt $galleryTotal 5 }}
+            {{- if eq $col 0 }} col-lg-4
+            {{- else }} col-lg-3
+            {{- end }}
+          {{- end }}" onclick {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
+            {{ partial "gallery-box.html" . }}
+          </div>
+        {{ end }}
+      {{- end }}
+    {{ end }}
   </div>
 </section>
