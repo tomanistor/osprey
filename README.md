@@ -22,8 +22,6 @@ It's a blazingly fast minimalistic single page portfolio perfectly suited to sho
 - Gallery items with different types 
     - `normal`: Just as you are used to with the original Osprey theme
     - `github`: Magic GitHub API integration
-![GitHub Status](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/github-status.png)
-
 - Gallery images can optionally be normalized with Hugo's [amazing image processing](https://gohugo.io/content-management/image-processing/)
 - Blazingly fast loading speeds
     - Minified JS/CSS/icon bundles using Hugo Pipes
@@ -49,11 +47,19 @@ There are multiple ways to show your support if you like this project:
 - [Donate anything to my non-profit organization](https://pyotek.dev/donate) via various options
 - Push the ![GitHub stars](https://img.shields.io/github/stars/kdevo/osprey-delight?style=social) button - a small gesture with huge effect
 
-## Screenshot
+## Screenshots
 
-![Screenshot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/tn.png)
+Osprey Delight works with gallery items which are organized in a Flexbox grid:
 
-> Yes, the screenshot looks pretty familiar if you have used Osprey before, doesn't it? 
+![Screenshot of gallery items](images/screenshot-work.png)
+
+
+The items can be opened and a modal will show up:
+
+![Screenshot of opened gallery item](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/screenshot-modal.png)
+
+
+> If you've used the original Osprey theme before, this looks pretty familiar, right? 
 > To taste the differences, it's best to simply try Osprey Delight out!
 
 ## Quickstart
@@ -66,8 +72,7 @@ Invoke the following from your Hugo site directory:
 git submodule add https://github.com/kdevo/osprey-delight.git themes/osprey-delight
 ```
 
-The easiest way is to simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root.
-This way, you have a good starting point that you can use for further modifications.
+Now, simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root, it's a great starting point.
 
 > [Visit the Hugo docs](https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme) for more info and general setup of a Hugo site.
 
@@ -119,7 +124,7 @@ Place a file named `_custom.scss` in your local `assets/sass/` folder (create th
 
 Limiting external dependencies is important when it comes to privacy as well as performance, therefore only Hugo's internal [Chroma Syntax Highlighting](https://gohugo.io/content-management/syntax-highlighting/) is supported. Here's how to use it:
 
-1. Generate a Chromastyle of your choice as `_custom.scss` in project root: `hugo gen chromastyles --style=solarized-dark > _custom.scss`
+1. Generate a Chromastyle of your choice (in this case `solarized-dark`) as `_custom.scss` in project root: `hugo gen chromastyles --style=solarized-dark > _custom.scss`
 2. Move the file to `assets/sass/` folder
 3. Add `pygmentsUseClasses = true` to your config.toml
 
