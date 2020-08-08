@@ -14,8 +14,13 @@ pygmentsUseClasses = true
   author = "kdevo"
   email = ""
   description = "osprey-delight example site"
-  tagline = "Hi there! Check out this theme."
+  # [str] The logo appears at the top of the page (functioning as your page's mascot)
   logoBig = "/images/osprey-delight-logo.png"
+  # [str] The tagline (followed by a cursor) is shown at the top, below the logo
+  tagline = "Hi there! Check out this theme."
+  # [md] For advanced users: Alternatively, you can specify the tagline in Markdown, for more customizability.
+  #   Note that {cursor} is a placeholder and will be replaced by the actual cursor HTML when rendering.
+  #mdTagline = "# Hi there!\n## Check out this theme{cursor}"
   # [str] This is the logo that will be shown in the left corner of the nav bar.
   #   Usually, you would like to use something bigger than a favicon - but not too big either.
   #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting! 
@@ -32,7 +37,7 @@ pygmentsUseClasses = true
   copyright = true
   # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
   #   Anyways, of course you're free to uncomment the following line to disable the credit.
-  # credit = false
+  #credit = false
 
 ## Social media links in footer:
 [Params.Social]
