@@ -18,13 +18,13 @@
         {{ with .location }}
         "address": "{{ . }}",
         {{ end }}
+        {{ $count := 0 }}
+        {{ $orgs := (getJSON .organizations_url) }}
+        {{ with $orgs }}
         "affiliation": [
-            {{ $count := 0 }}
-            {{ $orgs := (getJSON .organizations_url) }}
-            {{ range $key, $val := $orgs }}
+        {{ range . -}}
             {{ $count = add $count 1 }}
-            
-            {{ with (getJSON .url) }}
+            {{ with (getJSON .url) -}}
             {
                 "@type": "Organization",
                 "name": "{{ .name }}",
@@ -32,19 +32,19 @@
                     "{{ .blog }}",
                     "{{ .html_url }}"
                 ]
-            }{{ if lt $count (len $orgs) }},{{ end}}
+            }{{ if lt $count (len $orgs) }},{{ end }}
+            {{- end }}
         {{- end }}
-            
         ],
-        {{- end }}
+        {{ end }}
     {{ end }}
     {{ end }}
 
     "sameAs": [
         {{ $count := 0 }}
         {{ range $key, $val := .Site.Params.Social -}}
-        {{ $count = add $count 1 }}
-        "{{ $val }}"{{ if lt $count (len $.Site.Params.Social) }},{{ end}}
+            {{ $count = add $count 1 }}
+            "{{ $val }}"{{ if lt $count (len $.Site.Params.Social) }},{{ end}}
         {{- end }}
     ]
 }
