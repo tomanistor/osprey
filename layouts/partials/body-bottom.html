@@ -17,6 +17,7 @@
 {{- else -}}
   <!-- If not using the blog at all, serving the JS inline will reduce the request count and is probably the best option -->
   <script>
+  {{/* (resources.Get "js/src/nav.js" | js.Build "nav.js").Content | safeJS */}}
   {{ ($scripts | resources.Concat "js/bundle.js" | minify).Content | safeJS }}
   handleNavBar({{ .IsHome }})
   </script>
