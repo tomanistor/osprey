@@ -36,8 +36,8 @@ It's a blazingly fast minimalistic single page portfolio perfectly suited to sho
 - Modular theme, enable features as you want
 - Intelli-404: Automatically searches for suitable matches - never loose the link to your content
 - SEO-optimized
-  - High PageSpeed Insights score
-  - Automatically generated structured data ensures that everyone finds you
+  - High PageSpeed Insights score (98~100)
+  - Automatically generated structured data based on public information ensures that everyone finds you
 
 In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved.
 
@@ -47,7 +47,7 @@ In general, many [open issues](https://github.com/tomanistor/osprey/issues) of t
 There are multiple ways to show your support if you like this project:
 - Start [contributing](#Contributing) if you are familiar with Hugo themes/templating
 - [Donate anything to my non-profit organization](https://pyotek.dev/donate) via various options
-- Push the ![GitHub stars](https://img.shields.io/github/stars/kdevo/osprey-delight?style=social) button - a small gesture with huge effect
+- Push the [![GitHub stars](https://img.shields.io/github/stars/kdevo/osprey-delight?style=social)](https://github.com/kdevo/osprey-delight/stargazers) button - a small gesture with huge effect
 
 ## Screenshots
 
@@ -120,7 +120,13 @@ This is very helpful for the first time since you will get a fully documented fi
 
 ### Custom (S)CSS
 
-Place a file named `_custom.scss` in your local `assets/sass/` folder (create the directories). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
+Place a file named `_custom.scss` in your `assets/sass/` folder (create the directories if needed). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
+
+### Custom HTML
+
+In case you want to load custom HTML for additional scripts etc. inside the page's `head`: Place a file named `head-extended.html` in your `layouts/partials/` folder (create the directories if needed). This file can e.g. contain additional `<script>` or `<link>` tags.
+
+> :warning: Be careful with adding jQuery or other JS libraries, since the `$` is used by the theme itself and therefore redefined. This might be resolved in a later release by only defining `$` internally. In the meantime, check out [jQuery.noConflict](https://api.jquery.com/jQuery.noConflict/) for a workaround.
 
 #### Syntax Highlighting
 

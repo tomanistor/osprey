@@ -96,4 +96,6 @@
     <style>.lazyload{opacity:.0001;}.logo .lazyload{min-width:10em;}</style>
     <script src="{{ (resources.Get "js/vendor/lazysizes.min.js").Permalink }}" async></script>
   {{- end }}
+
+  {{ partial "head-extended.html" . }}
 </head>
