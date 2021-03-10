@@ -1,11 +1,10 @@
 ## Font Awesome
 
-   Copyright (C) 2016 by Dave Gandy
+Copyright (C) 2016-2021 by Dave Gandy
 
-- Author: Dave Gandy
-- License: [SIL OFL 1.1](http://scripts.sil.org/OFL)
-- Homepage:  https://fontawesome.com/v4.7.0/
-
+- Author:    Dave Gandy
+- License:   SIL (https://fontawesome.com/license/free) 
+- Homepage:  https://fontawesome.com/
 
 ### Note on Brand Icons
 
