@@ -1,10 +1,14 @@
+{{ $split := split .Params.github.repo "/" }}
+{{ .Scratch.Set "ghUser" (index $split 0) }}
+{{ .Scratch.Set "ghRepo" (index $split 1) }}
 <div class="gallery-img-container">{{ partial "gallery-img" . }}</div>
-    <div class="row middle-xs center-xs overlay">
-        {{ partial "gallery-link.html" . }}
-        <h2>{{ .Title }}
-            {{ with .Params.subtitle }}
-            <br>
-            <small>{{ . }}</small>
-            {{- end }}
-        </h2>
-    </div>
+<div class="row center-xs middle-xs overlay">
+            {{ partial "gallery-link.html" . }}
+
+            <h2>{{ .Title }}
+                {{ with .Params.subtitle }}
+                <br>
+                <small>{{ . }}</small>
+                {{- end }}
+            </h2>
+</div>

@@ -1,7 +1,5 @@
 {{ range where .Site.RegularPages "Section" "gallery" }}
 
-  <!-- First 4 characters of each gallery page's unique ID -->
-  <!-- {{ $modalID := (slicestr .File.UniqueID 0 4) }} -->
   {{ $modalID := .File.BaseFileName }}
 
   {{ $scratch := newScratch }}
@@ -87,7 +85,7 @@
             {{ $scratch.Set "repo-lang-main" (math.Round (mul 100 (div (index . ($scratch.Get "repo").language) $sum))) }}
             {{- end }}
             {{ with $scratch.Get "repo" }}<div class="row center-xs"><div class="repo-info">
-            <a href="{{ .html_url }}/pulse"><span class="icon icon-github-cat"></span></a>
+            <a href="{{ .html_url }}/pulse"><span class="icon icon-github-octocat"></span></a>
             <a href="{{ .languages_url }}">{{ .language }}{{ with ($scratch.Get "repo-lang-main") }}{{ if lt . 100.0 }} ({{ . }}%) {{ end }}{{ end }}</a>
             {{ with .license }}{{ with (getJSON .url) }} &bull; <a href="{{ .html_url }}">{{ .spdx_id }}</a> {{ end }} {{ end }}
             {{ if gt .stargazers_count 0 }} &bull; <a href="{{ .html_url }}/stargazers"> {{ .stargazers_count }} stars </a>{{ end }}

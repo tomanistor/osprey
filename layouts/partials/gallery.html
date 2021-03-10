@@ -4,11 +4,6 @@
 
     {{ $gallery := (where .Site.RegularPages "Section" "gallery") }}
     {{ $galleryTotal := len $gallery }}
-    {{ range $gallery }}
-      <!-- Scratch is used to set page-scoped variable outside of this loop-->
-      {{ .Scratch.Set "$modalID" .File.BaseFileName }} 
-    {{ end }}
-
 
     {{ if modBool $galleryTotal 2 }}
       <!-- If gallery is an even total, all items display evenly in grid columns and rows: -->
