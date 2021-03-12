@@ -1,7 +1,7 @@
 
 /public/
 /exampleSite/public/
-/exampleSite/resources/_gen/
+/exampleSite/resources/_gen/*
 
 workspace
 
