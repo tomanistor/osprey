@@ -1,0 +1,10 @@
+{{ $split := split (.Get 0) ":" }}
+{{ $type := index $split 1 }}
+{{ $id := index $split 2 }}
+{{ $height := default "300px" (.Get "height") }}
+{{ $loading := default "lazy" (.Get "loading") }}
+<iframe src="https://open.spotify.com/embed/{{ $type }}/{{ $id }}"
+    style="width: 100%; height: {{ $height }}"
+    loading="{{ $loading }}" 
+    frameborder="0" allowtransparency="true" allow="encrypted-media">
+</iframe>

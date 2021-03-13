@@ -1,0 +1,12 @@
+{{ $res := resources.Get (.Get 0) }}
+{{ $img := $res.Resize (.Get 1) }}
+{{ $alt := default "Image by Protonaut Music" (.Get 2) }}
+
+<img 
+{{ if .Site.Params.Feat.lazyLoading }} 
+data-src="{{ $img.Permalink }}" lazyload="on"
+{{ else }}
+src="{{ .Site.Params.logoBig }}"
+{{ end }}
+alt="{{ $alt }}" class="{{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}">
+</div>
