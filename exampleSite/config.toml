@@ -14,76 +14,76 @@ pygmentsUseClasses = true
   author = "kdevo"
   email = ""
   description = "osprey-delight example site"
-  # [str] The logo appears at the top of the page (functioning as your page's mascot)
+  # [str] logoBig appears at the top of the page (functioning as your page's mascot)
   logoBig = "/images/osprey-delight-logo.png"
-  # [str] The tagline (followed by a cursor) is shown at the top, below the logo
+  # [str] tagline (followed by a cursor) is shown at the top, below the logo
   tagline = "Hi there! Check out this theme."
-  # [md] For advanced users: Alternatively, you can specify the tagline in Markdown, for more customizability.
+  # [md] mdTagline is for advanced users: You can specify the above tagline in Markdown for more customizability.
   #   Note that {cursor} is a placeholder and will be replaced by the actual cursor HTML when rendering.
   #mdTagline = "# Hi there!\n## Check out this theme{cursor}"
-  # [str] This is the logo that will be shown in the left corner of the nav bar.
+  # [str] logoSmall is the logo that will be shown in the left corner of the nav bar.
   #   Usually, you would like to use something bigger than a favicon - but not too big either.
   #   Make sure that the image does not overlay the nav links. Don't be afraid of experimenting! 
   logoSmall = "favicon.png"
   favicon = "favicon.png"
   opengraphImage = "/images/osprey-delight.png"
   googleTagManager = ""
-  # [bool] The following will enforce redirection to the baseURL for all sub-directories/-pages.
+  # [bool] enforceSinglePage will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html'.
   #   This file will contain only a redirect directive if this switch is enabled.
   #   Make sure that you do not enable this switch if you also set useBlog to true. 
   enforceSinglePage = false
-  # [bool] Will generate copyright notice in footer for your site.
+  # [bool] copyright flag generates a copyright notice in footer for your site.
   copyright = true
-  # [bool] Your credit is much appreciated. It will be displayed in a small way in your footer.
-  #   Anyways, of course you're free to uncomment the following line to disable the credit.
+  # [bool] credit is much appreciated. It will be displayed in a small way in your footer.
   #credit = false
+  # [str] CSS color for accent on the website (applied to links, hovering on links/buttons)
+  #accentColor = "#e37009" 
 
 ## Social media links in footer:
 [Params.Social]
-  # [str] Link to your Twitter.
   twitter = ""
-  # [str] Link to your LinkedIn.
   linkedin = ""
-  # [str] Link to your GitHub.
   github = "https://github.com/kdevo/osprey-delight"
-  # [str] Link to your Facebook.
-  facebook = ""
-  # [str] Link to your Instagram.
-  # instagram = ""
-  # [str] Link to your StackOverflow.
   stackoverflow = ""
+  spotify="https://open.spotify.com/artist/5NhBOdJh6T1tgtM5Au1Opl"
+  ravelry=""
+  #facebook = ""
+  #instagram = ""
+  #tiktok = ""
+  #itunes = ""
+  #vkontakte = ""
+  #medium = ""
+  # ... basically everything in "_icons.scss" can be referenced!
 
 
 ## Theme features:
 [Params.Feat]
-  # [bool] Termynal (https://github.com/ines/termynal) is a small JS library for showing a terminal "animation" from within your gallery item.
-  #   The library has been stripped-down to a minimum to only have the necessary functionality.
+  # [bool] useTermynal enables Termynal (https://github.com/ines/termynal) a small JS library for showing a terminal "animation" from within your gallery item.
+  #   The good thing is that the library has been stripped-down to a minimum to only have the necessary functionality.
   useTermynal = true
-  # [bool] Lazy loading of images with lazysizes (SEO-friendly).
+  # [bool] lazyLoading of images with lazysizes basically speeds up your loading time (SEO-friendly).
   lazyloading = true
-  # [str] Use Basin contact form.
+  # [str] ajaxBasin uses Basin for a functional contact form.
   ajaxBasin = "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
   googleTagManager = ""
-  # [bool] Enable usage of your own 'assets/scss/_custom.css'.
-  customCSS = false
-  # [bool] Use structured data for your own https://schema.org/Person (SEO-friendly).
+  # [bool] structuredData for your own https://schema.org/Person (SEO-friendly).
   #   The theme attempts to "guess" your information by using the information you give it in the configuration.
   #   For more specific usage, you can override the JSON-LD by supplying your own 'person.json' under 'assets/'
   structuredData = true
-  # [str] Tell your GitHub username so that the GitHub API is used to fetch more information for structured data.
+  # [str] structuredDataFromGithub needs your USERNAME so that the GitHub API is used to fetch more information for structured data.
   #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
   # structuredDataFromGithub = "USERNAME"
-  # [bool] Enable the optional blog module
+  # [bool] useBlog enables the optional blog module (only set to true if you really want to use the blog - disabling it will save some KBs)
   useBlog = true
 
 ## Configure contact form:
 [Params.Contact]
-  # [str[]] i18n keys used to display in an additional select box.
-  #   Comment out if you want to disable it.
+  # [str[]] select i18n keys used to display in the additional matter drop-down in the contact form. Comment out if you want to disable it.
   select = ["generic", "coop", "business", "project"]
 
 
+# Feel free to modify the name field in the following menu, but do not change the url anchor, they are hardcoded within the templates!
 [[menu.main]]
   name = "About"
   url  = "/#about"
