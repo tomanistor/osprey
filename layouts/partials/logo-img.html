@@ -1,0 +1,14 @@
+{{ $scratch := newScratch }}
+{{ with (resources.Get .Site.Params.logoBig) -}}
+    {{/* TODO(kdevo): Make normalizing configurable */}}
+    {{ $image := .Resize "900x" }}
+    {{ $scratch.Set "img" $image.Permalink }}
+    {{/* $preview := .Fit "50x50 q25" */}}
+    {{/* $scratch.Set "imgPreview" $preview.Permalink */}}
+{{- else -}}
+    {{ $scratch.Set "img" .Site.Params.logoBig }}
+{{- end }}
+<img {{ if .Site.Params.Feat.lazyLoading }}
+data-src="{{ $scratch.Get "img" }}" onclick="onLogoClick()" lazyload="on"
+{{ else }}src="{{ $scratch.Get "img" }}"{{ end }} 
+alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}">

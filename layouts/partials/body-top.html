@@ -9,7 +9,9 @@
   <header class="row middle-xs center-xs">
     <div class="col-xs-12">
       <div class="row middle-xs center-xs">
-        <div class="col-xs-12"><img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ .Site.Params.logoBig }}" onclick="onLogoClick()" lazyload="on"{{ else }}src="{{ .Site.Params.logoBig }}"{{ end }} alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}"></div>
+        <div class="col-xs-12">
+          {{ partial "logo-img.html" . }}
+        </div>
       </div>
       <div class="row middle-xs center-xs">
         <div class="col-xs-12">

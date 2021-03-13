@@ -2,7 +2,7 @@
 {{ with .Params.image -}}
     {{ with (resources.Get .) -}}
         {{/* TODO(kdevo): Make normalizing configurable */}}
-        {{ $image := .Resize "x300" }}
+        {{ $image := .Resize "x400" }}
         {{ $scratch.Set "img" $image.Permalink }}
         {{/* $preview := .Fit "50x50 q25" */}}
         {{/* $scratch.Set "imgPreview" $preview.Permalink */}}
