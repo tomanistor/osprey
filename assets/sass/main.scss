@@ -15,7 +15,6 @@ $accent_color: #0097a7;
 @import "modal";
 @import "about";
 @import "gallery";
-@import "custom";
 
 
 {{ if .Site.Params.Feat.useBlog -}}
@@ -34,7 +33,6 @@ $term_title: "{{ .Site.Data.terminal.title }}";
   border: 0;
   font: inherit;
   color: inherit;
-  // color: black;
   vertical-align: baseline;
 
   &::before,
@@ -295,3 +293,10 @@ textarea {
   min-height: $vertical-rhythm * 4;
   overflow: auto;
 }
+
+small {
+  font-size: 0.8em;
+  color: $grey;
+}
+
+@import "custom";
