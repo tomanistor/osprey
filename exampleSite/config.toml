@@ -39,6 +39,10 @@ pygmentsUseClasses = true
   #credit = false
   # [str] CSS color for accent on the website (applied to links, hovering on links/buttons)
   #accentColor = "#e37009" 
+  # [str] If the "image" specified within a gallery item file resides in the 'assets/' directory, 
+  #    it will be resized to the given size accordingly, see https://gohugo.io/content-management/image-processing/#resize
+  resizeGalleryImage = "x450"
+
 
 ## Social media links in footer:
 [Params.Social]
