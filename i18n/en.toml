@@ -23,7 +23,7 @@ other = "Send"
 [thanksForYourEmail]
 other = "Thanks for your message!"
 [errorWhileSendingEmail]
-other = "Oops, we couldn't send your message. Please reload."
+other = "Sorry, we couldn't send your message! Please reload."
 [sendingEmail]
 other = "Deploying your message..."
 [minuteRead]
