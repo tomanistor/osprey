@@ -120,7 +120,11 @@ This is very helpful for the first time since you will get a fully documented fi
 
 ### Custom (S)CSS
 
-Place a file named `_custom.scss` in your `assets/sass/` folder (create the directories if needed). This will override the theme's (empty) `_custom.scss` which is loaded in the internal main SCSS.
+Place a file named `_custom.scss` in your `assets/sass/` folder (create the directories if needed). This will override the theme's `_custom.scss` which is loaded in the internal main SCSS.
+
+> The theme's `_custom.scss` only contains comments which show some example rules, so don't be afraid to override and experiment.
+> Please also take a look at it if you want to restore some behaviour of the original Osprey theme.
+
 
 ### Custom HTML
 
