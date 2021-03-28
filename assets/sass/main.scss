@@ -228,75 +228,10 @@ a > .icon {
   height: 100vh;
 }
 
-.contact {
-  width: 100%;
-  padding-bottom: $vertical-rhythm * 2;
-  // TODO(kdevo): Maybe consider to change this to white if blog is not enabled:
-  background-color: $smoke;
-
-  form {
-    margin-top: $vertical-rhythm;
-  }
-
-  .contact-submit {
-    position: relative;
-  }
-
-  #form-submit {
-    display: block;
-    width: 50%;
-    margin: 0 auto;
-  }
-
-  #form-thankyou, #form-sending, #form-error {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-}
-
-input, button, select {
-  width: 100%;
-  margin: 8px 0;
-  padding: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
-  border-color: $smoke;
-  background-color: $white;
-  color: $black;
-
-  &[type="submit"] {
-    transition: .4s ease-out;
-    background-color: $storm;
-    color: $white;
-
-    &:hover {
-      background-color: $accent;
-      color: $white;
-      cursor: pointer;
-    }
-  }
-  
-  .icon {
-    color: $white
-  }
-}
-
-button {
-  white-space: nowrap;
-}
-
-textarea {
-  @extend input;
-  min-height: $vertical-rhythm * 4;
-  overflow: auto;
-}
-
 small {
   font-size: 0.8em;
   color: $grey;
 }
 
+@import "form";
 @import "custom";
