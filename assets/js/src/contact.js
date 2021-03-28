@@ -14,24 +14,20 @@
   $('#form-contact').addEventListener('submit', function (e) {
     e.preventDefault()
 
-    // Store form field values
-    var name = $('input[name=name]').value,
-      email = $('input[name=email]').value,
-      subject = $('input[name=_subject]').value,
-      matter = $('select[name=matter]').value,
-      message = realmsg.value,
-      honeypot = honeypotmsg.value
-
+    var email = $('input[name=email]').value
     // AJAX request
     var request = new XMLHttpRequest(),
       data = {
-        name: name,
+        name: $('input[name=name]').value,
         _replyto: email,
         email: email,
-        _subject: subject,
-        _matter: matter,
-        message: message,
+        _subject: $('input[name=_subject]').value,
+        {{ if isset .Site.Params.Contact "select" -}}
+        _matter: $('select[name=matter]').value,
+        {{- end }}
+        message: realmsg.value,
       }
+    var honeypot = honeypotmsg.value
     if (honeypot !== "") {
       data._anti_spam_honeypot = honeypot
     }
@@ -69,9 +65,7 @@
 
           thankYouFadeIn()
         } else {
-          // Reset form
-          $('#form-contact').reset()
-
+          setVisibility(sending, false)
           setVisibility(error, true)
         }
       }
