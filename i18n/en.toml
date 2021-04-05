@@ -33,25 +33,11 @@ other = "{{.Count}} minutes read"
 other = "Latest Posts"
 [enableJavaScript]
 other = "Please enable JavaScript to view comments powered by"
-[404Message]
-other = "WHAT DID YOU DO?!"
 [themeDevelopedBy]
 other = "Theme developed by"
 [copyright]
 other = "Copyright"
-[facebook]
-other = "Facebook"
-[github]
-other = "GitHub"
-[linkedin]
-other = "LinkedIn"
-[twitter]
-other = "Twitter"
-[instagram]
-other = "Instagram"
-[stackoverflow]
-other = "StackOverflow"
 [noJsMsg]
-other = "Oh, but first - please enable JavaScript in your browser. Otherwise, your expierence will be very limited!"
+other = "Please enable JavaScript for the full expierence!"
 [nojsForm]
 other = "Please enable JavaScript to use the contact form."

@@ -1,42 +1,43 @@
 [view]
-other = "Anzeigen"
+other = "Ansehen"
 [code]
 other = "Code"
+[repo]
+other = "Repository"
+[download]
+other = "Herunterladen"
 [viewAll]
-other = "Alles anzeigen"
+other = "Alles ansehen"
 [letsChat]
 other = "Kontakt"
 [name]
-other = "Name"
+other = "Dein Name"
 [email]
-other = "Email"
+other = "E-Mail Adresse"
 [subject]
 other = "Betreff"
 [message]
-other = "Nachricht"
+other = "Deine Nachricht"
 [send]
-other = "Sende"
+other = "Senden"
 [thanksForYourEmail]
 other = "Danke für deine Nachricht!"
+[errorWhileSendingEmail]
+other = "Sorry, die Nachricht konnte nicht gesendet werden. Bitte Seite neu laden."
+[sendingEmail]
+other = "Nachricht wird geliefert..."
 [minuteRead]
-one = "Eine Minute zu lesen"
-other = "{{.Count}} Minuten zu lesen"
+one = "Eine Minute Lesezeit"
+other = "{{.Count}} Minuten Lesezeit"
 [latestPosts]
-other = "Letzte Posts"
+other = "Neueste Beiträge"
 [enableJavaScript]
 other = "Bitte aktiviere JavaScript um die Kommentare anzuzeigen von"
-[404Message]
-other = "WAS HAST DU GETAN?!"
 [themeDevelopedBy]
 other = "Theme entwickelt von"
 [copyright]
 other = "Copyright"
-
-[generic]
-other = "Generic request"
-[coop]
-other = "Cooperation"
-[business]
-other = "Business-related"
-[project]
-other = "Project"
+[noJsMsg]
+other = "Aktivieren Sie bitte JavaScript für die bestmögliche Erfahrung."
+[nojsForm]
+other = "Bitte aktivieren Sie JavaScript um das Kontaktformular zu nutzen."
