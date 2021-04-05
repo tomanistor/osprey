@@ -1,6 +1,7 @@
+document.documentElement.className = "js"
+
 var $ = document.querySelector.bind(document),
   $$ = document.querySelectorAll.bind(document)
-
 /**
  * 
  * @param {Element} e Element for DOM modification 
@@ -22,5 +23,3 @@ function setVisibility(e, visible, useAttr = true) {
   e.classList.add(visible ? 'show' : 'hide')
   e.classList.remove(visible ? 'hide' : 'show')
 }
-
-function onLogoClick() { }

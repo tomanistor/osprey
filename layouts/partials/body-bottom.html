@@ -1,31 +1,25 @@
 {{ $scripts := slice }}
-{{ $scripts = $scripts | append (resources.Get "js/src/misc.js") }}
+{{ $scripts = $scripts | append (resources.Get "js/src/base.js") }}
+
 {{ if .Site.Params.Feat.useTermynal -}}
-{{ $scripts = $scripts | append (resources.Get "js/src/termynal.js" | resources.ExecuteAsTemplate "js/src/termynal.js" .) }}
+  {{ $scripts = $scripts | append (resources.Get "js/src/termynal.js" | resources.ExecuteAsTemplate "js/src/termynal.js" .) }}
 {{- end }}
+
 {{ if not (eq (len (where .Site.RegularPages "Section" "gallery")) 0) -}}
   {{ $scripts = $scripts | append (resources.Get "js/src/modal.js" | resources.ExecuteAsTemplate "js/src/modal.js" .) }}
 {{- end }}
-{{ $scripts = $scripts | append (resources.Get "js/src/nav.js"  | resources.ExecuteAsTemplate "js/src/nav.js" .) }}
+
+{{ $scripts = $scripts | append (resources.Get "js/src/nav.js" | resources.ExecuteAsTemplate "js/src/nav.js" .) }}
+{{ $scripts = $scripts | append (resources.Get "js/src/home.js") }}
+
 {{ if (.Site.Params.Feat.ajaxBasin) -}}
-{{ $scripts = $scripts | append (resources.Get "js/src/contact.js" | resources.ExecuteAsTemplate "js/src/contact.js" .) }}
+  {{ $scripts = $scripts | append (resources.Get "js/src/contact.js" | resources.ExecuteAsTemplate "js/src/contact.js" .) }}
 {{- end }}
-{{ if .Site.Params.Feat.useBlog -}}
-  <!-- If using the blog, it is probably worth it to serve a fingerprinted bundle (more page navigations/reloads) -->
-  <script src="{{ ($scripts | resources.Concat "js/bundle.js" | minify | fingerprint).Permalink }}" type="text/javascript"></script>
-  {{ if .IsHome -}}
-  <script>handleNavBar(true)</script>
-  {{- else -}}
-  <script>handleNavBar(false)</script>
-  {{- end }}
+<script>
+{{ if .IsHome }}
+  {{ ($scripts | resources.Concat "js/bundle-home.js" | js.Build (dict "minify" true)).Content | safeJS }}
 {{- else -}}
-  <!-- If not using the blog at all, serving the JS inline will reduce the request count and is probably the best option -->
-  <script>
-  {{ ($scripts | resources.Concat "js/bundle.js" | minify).Content | safeJS }}
-  {{ if .IsHome -}}
-  handleNavBar(true)
-  {{- else -}}
-  handleNavBar(false)
-  {{- end }}
-  </script>
-{{- end }}
+  {{ $scripts := (slice (resources.Get "js/src/base.js") (resources.Get "js/src/nav.js") )}}
+  {{ ($scripts | resources.Concat "js/bundle-blog.js" | js.Build (dict "minify" true)).Content | safeJS }}
+{{ end }}
+</script>
