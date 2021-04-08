@@ -34,8 +34,8 @@
 
 .modal-box {
   position: relative;
-  width: 80%;
-  max-width: 1000px;
+  width: 85%;
+  max-width: 1200px;
   max-height: 85vh;
   margin: auto;
   border-radius: 9px;
@@ -62,7 +62,7 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 40px;
+  padding: 4%;
 
   img {
     max-height: 100%;
@@ -75,11 +75,6 @@
   overflow-y: auto;
 }
 
-.term-content {
-  max-height: calc(80vh - 20vh);
-  overflow-y: auto;
-}
-
 .close {
   position: absolute;
   top: 10px;
@@ -88,6 +83,7 @@
   font-size: 30px;
   font-weight: bold;
   line-height: .5;
+  z-index: 100;
   transition: color .2s ease-out;
 
   &:hover,

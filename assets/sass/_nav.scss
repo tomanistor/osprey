@@ -1,0 +1,103 @@
+@media (max-width: 47.99em) {
+  nav {
+    // Hide menu links between logo and menu icon
+    div:not(:first-child):not(:last-child) {
+      display: none;
+    }
+
+    div.nav-toggle a {
+      display: inline-block;
+    }
+
+    div.logo {
+      padding-right: 30%;
+    }
+
+    div.nav-toggle {
+      padding-left: 30%;
+    }
+  }
+}
+
+@media (max-width: 25em) {
+  nav {
+    .logo,
+    .nav-toggle {
+      max-width: 50% !important;
+    }
+  }
+}
+
+nav {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: $vertical-rhythm * 2;
+  background-color: $white;
+  // box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+  text-align: center;
+
+  h3 {
+    margin: 0;
+    font-family: $font-body;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  img {
+    display: inline-block;
+    max-width: 10em;
+    max-height: 2.5em;
+    vertical-align: middle;
+  }
+
+  .logo,
+  .nav-toggle {
+    visibility: hidden;
+  }
+
+  .nav-toggle a {
+    display: none;
+  }
+
+  .nav-item-active a {
+    color: $accent;
+  }
+}
+
+.nav-shadow {
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .2);
+}
+
+
+.nav-fixed {
+  position: fixed;
+  top: 0;
+  bottom: auto;
+}
+
+.nav-full {
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  bottom: 0;
+  width: 100vw;
+  height: 100%;
+  transform: translate(0, 0);
+  transition: .3s ease-out;
+  background-color: $black;
+
+  a, .icon {
+    color: $white;
+
+    &:hover {
+      color: $accent;
+    }
+  }
+}
+
+.nav-full.active {
+  transform: translate(-100vw, 0);
+}

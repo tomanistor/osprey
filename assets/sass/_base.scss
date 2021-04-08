@@ -1,3 +1,68 @@
+// Base settings
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  vertical-align: baseline;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  box-sizing: inherit;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+main {
+  transition: .3s ease-in;
+  background-color: $smoke;
+
+  &.active {
+    transform: translate(-100vw, 0);
+  }
+}
+
+.container {
+  max-width: 43.75rem; // 700px
+  margin: auto;
+  padding: $vertical-rhythm * 4 0 $vertical-rhythm * 4;
+}
+
+@media (max-width: 25em) {
+  body .container {
+    padding: $vertical-rhythm * 4 $vertical-rhythm;
+  }
+}
+
+@media (max-width: 47.99em) {
+  body .container {
+    padding: $vertical-rhythm * 4 $vertical-rhythm;
+  }
+
+  .mobile-hidden {
+    visibility: hidden;
+  }
+}
+
+footer {
+  padding-bottom: 1em;
+  .icon {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
+  a > .icon {
+    color: $white;
+  }
+}
+
 // Font styles
 strong {
   font-weight: 600;
@@ -26,6 +91,11 @@ a {
   }
 }
 
+small {
+  font-size: 0.8em;
+  color: $grey;
+}
+
 // Images
 img {
   display: inline-block;
@@ -41,22 +111,28 @@ ol {
   li {
     margin-left: 1.25em;
 
-    code {
-      font-family: $font-code;
-    }
   }
 }
 
+code {
+  font-family: $font-code;
+}
 ul li {
   list-style-type: disc;
 }
 
 
-// Show or hide elements
-.show {
-  transition: opacity 600ms;
+p {
+  margin-bottom: $vertical-rhythm;
 }
 
-.hide {
-  opacity: 0;
+
+// Lazysizes
+.no-js img.lazyload {
+  display: none;
+}
+
+// Prevent "broken image" icon from showing up
+img.lazyload:not([src]) {
+	visibility: hidden;
 }

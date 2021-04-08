@@ -63,3 +63,12 @@
 .logo-anim {
   animation: scale-in-center .8s cubic-bezier(.25, .46, .45, .94) both;
 }
+
+// Show or hide elements TODO(kdevo): Refactor
+.show {
+  transition: opacity 600ms;
+}
+
+.hide {
+  opacity: 0;
+}

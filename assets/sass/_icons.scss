@@ -99,4 +99,13 @@ span.icon {
 @keyframes color {
     from {color: $accent;}
     to {color: $black;}
+}
+
+a > .icon {
+  color: $black;
+  transition: color .2s ease-out;
+  
+  &:not(.icon-menu):hover, &:not(.icon-menu):focus {
+    color: $accent;
   }
+}

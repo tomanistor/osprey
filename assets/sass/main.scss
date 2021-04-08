@@ -4,7 +4,7 @@ $accent_color: {{ . }};
 $accent_color: #0097a7;
 {{- end }}
 
-@import "flexboxgrid";
+@import "flexboxgrid-stripped";
 @import "colors";
 @import "fontface";
 @import "fontsizing";
@@ -15,186 +15,9 @@ $accent_color: #0097a7;
 @import "modal";
 @import "about";
 @import "gallery";
-
-
 {{ if .Site.Params.Feat.useBlog -}}
 @import "blog";
 {{- end }}
-
-{{ if .Site.Params.Feat.useTermynal -}}
-$term_title: "{{ .Site.Data.terminal.title }}";
-@import "termynal";
-{{- end }}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  color: inherit;
-  vertical-align: baseline;
-
-  &::before,
-  &::after {
-    box-sizing: border-box;
-  }
-}
-
-html {
-  box-sizing: inherit;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
-
-footer {
-  padding-bottom: 1em;
-  .icon {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-size: 2em;
-  }
-  a > .icon {
-    color: $white;
-  }
-}
-
-@media (max-width: 47.99em) {
-  body .container {
-    padding: $vertical-rhythm * 4 $vertical-rhythm;
-  }
-
-  nav {
-    // Hide menu links between logo and hamburger menu
-    div:not(:first-child):not(:last-child) {
-      display: none;
-    }
-
-    div.nav-toggle a {
-      display: inline-block;
-    }
-  }
-
-  .mobile-hidden {
-    visibility: hidden;
-  }
-}
-
-@media (max-width: 25em) {
-  body .container {
-    padding: $vertical-rhythm * 4 $vertical-rhythm;
-  }
-
-  nav {
-    div.logo,
-    div.nav-toggle {
-      max-width: 50% !important;
-    }
-  }
-}
-
-nav {
-  position: absolute;
-  z-index: 100;
-  bottom: 0;
-  width: 100%;
-  height: $vertical-rhythm * 2;
-  background-color: $white;
-  // box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
-  text-align: center;
-
-  h3 {
-    margin: 0;
-    font-family: $font-body;
-    font-weight: 600;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  img {
-    display: inline-block;
-    max-width: 10em;
-    max-height: 2.5em;
-    vertical-align: middle;
-  }
-
-  .logo,
-  .nav-toggle {
-    visibility: hidden;
-  }
-
-  .nav-toggle a {
-    display: none;
-  }
-
-  .nav-item-active a {
-    color: $accent;
-  }
-}
-
-// @media (min-width: 47.99) {
-//   nav {
-//     box-shadow: none;
-//   }
-// }
-
-.nav-shadow {
-  box-shadow: 0 3px 4px rgba(0, 0, 0, .2);
-}
-
-
-.nav-fixed {
-  position: fixed;
-  top: 0;
-  bottom: auto;
-}
-
-.nav-full {
-  position: fixed;
-  top: 0;
-  right: -100vw;
-  bottom: 0;
-  width: 100vw;
-  height: 100%;
-  transform: translate(0, 0);
-  transition: .3s ease-out;
-  background-color: $black;
-
-  a, .icon {
-    color: $white;
-
-    &:hover {
-      color: $accent;
-    }
-  }
-}
-
-.nav-full.active {
-  transform: translate(-100vw, 0);
-}
-
-main {
-  transition: .3s ease-in;
-  background-color: $smoke;
-
-  &.active {
-    transform: translate(-100vw, 0);
-  }
-}
-
-.container {
-  max-width: 43.75rem; // 700px
-  margin: auto;
-  padding: $vertical-rhythm * 4 0 $vertical-rhythm * 4;
-}
-
-p {
-  margin-bottom: $vertical-rhythm;
-
-  code {
-    font-family: $font-code;
-  }
-}
 
 h1,
 h2,
@@ -213,25 +36,71 @@ h3 {
   margin-bottom: $vertical-rhythm;
 }
 
-a > .icon {
-  color: $black;
-  transition: color .2s ease-out;
-  
-  &:not(.icon-menu):hover, &:not(.icon-menu):focus {
-    color: $accent;
-  }
+{{ if .Site.Params.Feat.useTermynal -}}
+$term_title: "{{ .Site.Data.terminal.title }}";
+@import "termynal";
+.term-content {
+  max-height: calc(80vh - 20vh);
+  overflow-y: auto;
 }
+{{- end }}
 
+@import "nav";
+
+// TODO(kdevo): only used in 404, refactor!
 .full {
   top: 0;
   bottom: 0;
   height: 100vh;
 }
 
-small {
-  font-size: 0.8em;
-  color: $grey;
-}
+@import "contact";
 
-@import "form";
+
+{{ if .Site.Params.background -}}
+  {{ $scratch := newScratch }}
+  {{ $imgSize := default "1920x" .Site.Params.Image.Background.resize }}
+  {{ $lqipSize := default "500x" .Site.Params.Image.Background.lqipSize }}
+  {{ $useLQIP := default true .Site.Params.Image.Background.lqip }}
+  {{ $resizeOptions := default "jpg q90 Lanczos" .Site.Params.Image.Background.resizeOptions }}
+  {{ with (resources.Get .Site.Params.background) -}}
+      {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
+      {{ $scratch.Set "img" $image.Permalink }}
+      {{ $scratch.Set "imgW" $image.Width }}
+      {{ $scratch.Set "imgH" $image.Height }}
+
+      {{ if $useLQIP -}}
+          {{ $lqip := $image.Resize (printf "%s Lanczos q95" $lqipSize) }}
+          {{ $scratch.Set "imgPreview" $lqip.Permalink }}
+          {{ $scratch.Set "imgPlaceholderRes" $lqip }}
+      {{- end }}
+  {{- else -}}
+      {{ $scratch.Set "img" .Site.Params.background }}
+  {{- end }}
+
+  .bg {
+    {{ with $scratch.Get "imgPlaceholderRes" }}
+      background-image: url("{{ .Permalink }}"); 
+    {{- else -}}
+      background-image: url("{{ $scratch.Get "img" }}");
+    {{- end }}
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+  }
+  .bg.lazyloaded {
+    transition: background-image 1.5s;
+    {{ with $scratch.Get "imgPlaceholderRes" }}
+      background-image: url("{{ $scratch.Get "img" }}"), url("{{ .Permalink }}"); 
+    {{- else -}}
+      background-image: url("{{ $scratch.Get "img" }}");
+    {{- end }}
+  }
+{{ end }}
 @import "custom";
