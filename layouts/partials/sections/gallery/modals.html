@@ -4,7 +4,7 @@
 
   {{ $scratch := newScratch }}
   {{ if eq .Params.type "github" -}}
-  {{ $scratch.Set "repo" (getJSON "https://api.github.com/repos/" .Params.github.repo) }}
+    {{ $scratch.Set "repo" (getJSON "https://api.github.com/repos/" .Params.github.repo) }}
   {{- end }}
 
   <div id="modal-{{ $modalID }}" class="modal">
@@ -15,7 +15,7 @@
       <div class="modal-container">
         <div class="modal-header">
           <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
-            {{ partial "gallery-img" . }}
+            {{ partial "sections/gallery/img" . }}
           </div>
         </div>
 

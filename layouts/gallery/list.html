@@ -1,1 +1,1 @@
-<meta http-equiv="refresh" content="0; url={{ .Site.BaseURL }}">
+<meta http-equiv="refresh" content="0; url={{ (index (where .Site.Menus.main "Identifier" "==" "gallery") 0).URL }}"/>

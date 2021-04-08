@@ -1,7 +1,7 @@
 <footer class="row middle-xs center-xs">
-  {{ range $name, $url := .Site.Params.Social -}}
+  {{ range .Site.Params.Social -}}
     <div class="col-xs-2">
-      <a target="_blank" rel="noopener" href="{{ $url }}"><i class="icon icon-{{ $name }}"></i></a>
+      <a target="_blank" rel="noopener" href="{{ .url }}"><i class="icon icon-{{ .type }}"></i></a>
     </div>
   {{- end }}
   {{ if (.Site.Params.copyright) -}}

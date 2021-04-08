@@ -1,5 +1,6 @@
 (function () {
   var realmsg = $('textarea[name=message2]')
+  // For spam protection, we use "message" as a honeypot field:
   var honeypotmsg = $('textarea[name=message]')
 
   if (realmsg === null) {
@@ -8,7 +9,6 @@
   setVisibility(realmsg, true)
   setVisibility(honeypotmsg, false)
 
-  // For spam protection, we use "message" as a honeypot field:
   honeypotmsg.removeAttribute("required")
 
   $('#form-contact').addEventListener('submit', function (e) {
@@ -22,7 +22,7 @@
         _replyto: email,
         email: email,
         _subject: $('input[name=_subject]').value,
-        {{ if isset .Site.Params.Contact "select" -}}
+        {{ if (.Page.Scratch.Get "contact").Page.Params.selectKeys -}}
         _matter: $('select[name=matter]').value,
         {{- end }}
         message: realmsg.value,

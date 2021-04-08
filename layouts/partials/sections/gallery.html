@@ -1,0 +1,4 @@
+{{ if gt (len (where $.Site.RegularPages "Section" "gallery")) 0 }}
+    {{ partial "sections/gallery/gallery.html" . }}
+    {{ partial "sections/gallery/modals.html" . }}
+{{ end }}

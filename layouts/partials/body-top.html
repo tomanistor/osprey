@@ -6,13 +6,9 @@
 {{ end }}
 
 {{ if .IsHome }}
-  <header class="row middle-xs center-xs">
+  <header class="row middle-xs center-xs bg lazyload">
     <div class="col-xs-12">
-      <div class="row middle-xs center-xs">
-        <div class="col-xs-12">
-          {{ partial "logo-img.html" . }}
-        </div>
-      </div>
+      {{ partial "logo-img.html" . }}
       <div class="row middle-xs center-xs">
         <div class="col-xs-12">
           {{ with .Site.Params.mdTagline -}}
@@ -21,7 +17,7 @@
               <h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1>
           {{- end }}
           <noscript>
-              <span class="icon icon-attention-circled icon-2x" style="color:red"></span>
+              <span class="icon icon-attention icon-2x" style="color:red"></span>
               <h2>{{ i18n "noJsMsg" }}</h2>
           </noscript>
         </div>
@@ -30,16 +26,35 @@
   </header>
 {{ end }}
 
-<nav class="row middle-xs center-xs">
-  <div class="col-xs-6 col-sm-1 logo">
-    <a href="{{ "#" | relLangURL }}"><img {{ if .Site.Params.Feat.lazyLoading }}data-src="{{ .Site.Params.logoSmall }}" class="lazyload" lazyload="on"{{ else }}src="{{ .Site.Params.logoSmall }}"{{ end }} alt="{{ .Site.Title }}"></a>
+<nav class="row middle-xs center-xs {{ if not .IsHome -}} nav-fixed nav-shadow {{- end }}">
+  <div class="col-xs-6 col-sm-1 logo" style="{{ if not .IsHome }}visibility: visible;{{- end }}">
+    <a href="{{ "#" | relLangURL }}">
+        {{ $scratch := newScratch }}
+        {{ with (resources.Get .Site.Params.logoSmall) -}}
+            {{ $scratch.Set "img" .Permalink }}
+            {{ $scratch.Set "imgW" .Width }}
+            {{ $scratch.Set "imgH" .Height }}
+        {{- else -}}
+            {{ $scratch.Set "img" .Site.Params.logoSmall }}
+        {{- end }}
+        <img 
+        {{ if .Site.Params.Feat.useLazySizes }}
+            data-src="{{ $scratch.Get "img" }}" 
+            class="lazyload"
+        {{ else }}
+            src="{{ $scratch.Get "img" }}"
+            onclick="onLogoClick()"  
+        {{ end }} 
+        alt="{{ .Site.Title }}"
+        >
+    </a>
   </div>
     {{ range .Site.Menus.main }}
       <div class="col-xs-3 col-sm-2 nav-item">
         <h3><a href="{{ .URL }}">{{ .Pre }}{{ .Name }}</a></h3>
       </div>
     {{ end }}
-  <div class="col-xs-6 col-sm-1 nav-toggle">
+  <div class="col-xs-6 col-sm-1 nav-toggle" style="{{ if not .IsHome -}} visibility: visible; {{- end }}">
       <a href="" class="nav-icon" onclick="return false">
         <i id="open" class="icon icon-2x icon-menu"></i>
       </a>

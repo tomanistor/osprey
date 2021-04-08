@@ -1,12 +1,29 @@
 {{ $res := resources.Get (.Get 0) }}
 {{ $img := $res.Resize (.Get 1) }}
-{{ $alt := default "Image by Protonaut Music" (.Get 2) }}
+{{ $width := $img.Width }}
+{{ $height := $img.Height }}
+{{ $alt := default "" (.Get 2) }}
 
+<noscript>
+<img
+src="{{ $img.Permalink }}"
+loading="lazy"
+alt="{{ $alt }}"
+style="width: {{ $width }}px; height: auto" 
+height="{{ $height }}"
+width="{{ $width }}"
+>
+</noscript>
 <img 
-{{ if .Site.Params.Feat.lazyLoading }} 
-data-src="{{ $img.Permalink }}" lazyload="on"
+{{ if .Site.Params.Feat.useLazySizes }} 
+data-src="{{ $img.Permalink }}" 
+class="lazyload"
 {{ else }}
-src="{{ .Site.Params.logoBig }}"
+src="{{ $img.Permalink }}"
+loading="lazy"
 {{ end }}
-alt="{{ $alt }}" class="{{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}">
-</div>
+alt="{{ $alt }}"
+style="width: {{ $width }}px; height: auto" 
+height="{{ $height }}"
+width="{{ $width }}"
+>

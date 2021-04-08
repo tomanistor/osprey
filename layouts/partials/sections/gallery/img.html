@@ -1,0 +1,69 @@
+{{ $scratch := newScratch }}
+{{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
+{{ $lqipSize := default "2x" .Site.Params.Image.Gallery.lqipSize }}
+{{ $useLQIP := default true .Site.Params.Image.Gallery.lqip }}
+{{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Gallery.resizeOptions }}
+{{ with .Params.image -}}
+    {{ with (resources.Get .) -}}
+        {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
+        {{ $scratch.Set "img" $image.Permalink }}
+        {{ $scratch.Set "imgW" $image.Width }}
+        {{ $scratch.Set "imgH" $image.Height }}
+
+        {{ if $useLQIP -}}
+            {{ $lqip := $image }}
+            {{ $lqip := $image | images.Filter (images.GaussianBlur 10) }}
+            {{ $lqip = $lqip.Resize (printf "%s png" $lqipSize) }}
+            {{ $scratch.Set "imgPlaceholderRes" $lqip }}
+        {{- end }}
+    {{- else -}}
+        {{ $scratch.Set "img" (. | absURL) }}
+    {{- end }}
+{{- else -}}
+    {{ with .Params.imageUrl }}
+        {{ $scratch.Set "img" (. | absURL) }}
+    {{- else -}}
+        {{ with .Params.github.repo -}}
+        {{ $scratch.Set "img" ((printf "https://raw.githubusercontent.com/%s/master/.github/logo.png" .) | absURL) }}
+        {{- end }}
+    {{- end }}
+{{- end }}
+<noscript>
+    <img
+    src="{{ $scratch.Get "img" }}" 
+    alt="{{ .Site.Title }}"
+    loading="lazy"
+    {{ with $scratch.Get "imgH" -}}
+        height="{{ . }}" 
+    {{- end }}
+    {{ with $scratch.Get "imgW" }}
+        width="{{ . }}"
+        style="width: {{ . }}px; height: auto;"
+    {{ end }}
+    >
+</noscript>
+<img 
+{{ if .Site.Params.Feat.useLazySizes }}
+    {{ with $scratch.Get "imgPlaceholderRes" }}
+    {{ $placeholderB64 := .Content | base64Encode }}
+        {{ if gt (len $placeholderB64) 3072 -}}
+            src="{{ .Permalink }}"
+        {{- else -}}
+            src="data:image/png;base64, {{ $placeholderB64 }}"
+        {{- end }}
+    {{- end }}
+    data-src="{{ $scratch.Get "img" }}" 
+    alt="{{ .Site.Title }}"
+    class="blur-up lazyload"
+    {{ with $scratch.Get "imgH" -}}
+        {{/* TODO(kdevo): Refactor this in SCSS */}}
+        style="height: {{ . }}px; width: auto;"
+    {{- end }}
+{{ else }}
+    src="{{ $scratch.Get "img" }}"
+    loading="lazy"
+{{ end }} 
+{{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
+{{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
+{{ if .Params.alt }} alt="{{ .Params.alt }}" {{ end }} 
+>

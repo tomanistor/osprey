@@ -2,9 +2,15 @@
 {{ $type := index $split 1 }}
 {{ $id := index $split 2 }}
 {{ $height := default "300px" (.Get "height") }}
-{{ $loading := default "lazy" (.Get "loading") }}
-<iframe src="https://open.spotify.com/embed/{{ $type }}/{{ $id }}"
-    style="width: 100%; height: {{ $height }}"
+{{ $loading := default "lazysizes" (.Get "loading") }}
+<iframe 
+    {{- if eq $loading "lazysizes" }}
+    data-src="https://open.spotify.com/embed/{{ $type }}/{{ $id }}"
+    class="lazyload"
+    {{- else -}}
+    src="https://open.spotify.com/embed/{{ $type }}/{{ $id }}"
     loading="{{ $loading }}" 
+    {{- end }}
+    style="width: 100%; height: {{ $height }}"
     frameborder="0" allowtransparency="true" allow="encrypted-media">
 </iframe>

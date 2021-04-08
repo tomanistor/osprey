@@ -6,7 +6,7 @@
     "url": "{{ .Site.BaseURL }}",
     "description": "{{ .Site.Params.Description }}",
 
-    {{ with .Site.Params.Feat.structuredDataFromGithub }}
+    {{ with .Site.Params.Feat.structuredDataGitHubUser }}
     {{ with (getJSON "https://api.github.com/users/" .) }}
         "image": "{{ .avatar_url }}",
         {{ if ne .login .Site.Params.author }}
@@ -22,8 +22,7 @@
         {{ $orgs := (getJSON .organizations_url) }}
         {{ with $orgs }}
         "affiliation": [
-        {{ range . -}}
-            {{ $count = add $count 1 }}
+        {{ range $i, $org := . -}}
             {{ with (getJSON .url) -}}
             {
                 "@type": "Organization",
@@ -32,7 +31,7 @@
                     "{{ .blog }}",
                     "{{ .html_url }}"
                 ]
-            }{{ if lt $count (len $orgs) }},{{ end }}
+            }{{ if lt $i (sub (len $orgs) 1) }},{{ end }}
             {{- end }}
         {{- end }}
         ],
@@ -41,10 +40,8 @@
     {{ end }}
 
     "sameAs": [
-        {{ $count := 0 }}
-        {{ range $key, $val := .Site.Params.Social -}}
-            {{ $count = add $count 1 }}
-            "{{ $val }}"{{ if lt $count (len $.Site.Params.Social) }},{{ end}}
+        {{ range $i, $url := .Site.Params.Social -}}
+            "{{ .url }}"{{ if lt $i (sub (len $.Site.Params.Social) 1) }},{{ end }}
         {{- end }}
     ]
 }

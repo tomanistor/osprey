@@ -1,14 +1,60 @@
 {{ $scratch := newScratch }}
+{{ $imgSize := default "1200x" .Site.Params.Image.Logo.resize }}
+{{ $lqipSize := default "300x" .Site.Params.Image.Logo.lqipSize }}
+{{ $useLQIP := default true .Site.Params.Image.Logo.lqip }}
+{{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Logo.resizeOptions }}
 {{ with (resources.Get .Site.Params.logoBig) -}}
-    {{/* TODO(kdevo): Make normalizing configurable */}}
-    {{ $image := .Resize "900x" }}
+    {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
     {{ $scratch.Set "img" $image.Permalink }}
-    {{/* $preview := .Fit "50x50 q25" */}}
-    {{/* $scratch.Set "imgPreview" $preview.Permalink */}}
+    {{ $scratch.Set "imgW" $image.Width }}
+    {{ $scratch.Set "imgH" $image.Height }}
+
+    {{ if $useLQIP -}}
+        {{ $lqip := .Resize (printf "%s %s" $lqipSize $resizeOptions) }}
+        {{/* $lqip = $lqip | images.Filter (images.Invert) */}}
+        {{ $scratch.Set "imgPreview" $lqip.Permalink }}
+        {{ $scratch.Set "imgPlaceholderRes" $lqip }}
+    {{- end }}
 {{- else -}}
     {{ $scratch.Set "img" .Site.Params.logoBig }}
 {{- end }}
-<img {{ if .Site.Params.Feat.lazyLoading }}
-data-src="{{ $scratch.Get "img" }}" onclick="onLogoClick()" lazyload="on"
-{{ else }}src="{{ $scratch.Get "img" }}"{{ end }} 
-alt="{{ .Site.Title }}" class="home-logo {{ if .Site.Params.Feat.lazyLoading }}lazyload{{ end }}">
+<noscript>
+    <img
+    src="{{ $scratch.Get "img" }}" 
+    alt="{{ .Site.Title }}"
+    class="home-logo logo-anim" 
+    loading="lazy"
+    style="height: auto;"
+    {{ with $scratch.Get "imgH" -}}
+        height="{{ . }}" 
+    {{- end }}
+    {{ with $scratch.Get "imgW" }}
+        width="{{ . }}"
+    {{ end }}
+    >
+</noscript>
+<img 
+{{ if .Site.Params.Feat.useLazySizes }}
+    {{ with $scratch.Get "imgPlaceholderRes" }}
+    {{ $placeholderB64 := .Content | base64Encode }}
+        {{ if gt (len $placeholderB64) 2048 -}}
+            src="{{ .Permalink }}"
+        {{- else -}}
+            src="data:{{ .MediaType }};base64, {{ $placeholderB64 }}"
+        {{- end }}
+    {{- end }}
+    data-src="{{ $scratch.Get "img" }}" 
+    alt="{{ .Site.Title }}"
+    class="home-logo blur-up logo-anim lazyload"
+    style="height: auto;"
+{{ else }}
+    src="{{ $scratch.Get "img" }}"
+    class="home-logo logo-anim"
+{{ end }} 
+{{ with $scratch.Get "imgH" -}}
+    height="{{ . }}" 
+{{- end }}
+{{ with $scratch.Get "imgW" }}
+    width="{{ . }}"
+{{ end }}
+>
