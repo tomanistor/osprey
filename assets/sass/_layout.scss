@@ -1,3 +1,28 @@
+$mobile-breakpoint: 47.99em;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  vertical-align: baseline;
+
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+html {
+  box-sizing: inherit;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  // Passing this down the DOM until header should actually result in "true viewport height"
+  // height: 100%;
+}
+
 body {
   @include size(p);
   display: flex;
@@ -7,10 +32,26 @@ body {
   color: $black;
   font-family: $font-body;
   line-height: $base-line-height;
+
+  background-color: $smoke;
+}
+
+main {
+  transition: .4s ease-in;
+
+  &::before {
+    background-color: $white;
+  }
+
+  &.active {
+    transform: translate(-100vw, 0);
+    opacity: 0.4;
+  }
 }
 
 header {
-  height: 100vh;
+  height: 100vh; 
+  // height: calc(var(--vh, 1vh) * 100); // --vh calculated by JS on each resize
   background-color: $white;
 
   div {
@@ -18,7 +59,11 @@ header {
   }
 
   img {
-    max-height: $vertical-rhythm * 6;
+    // max-height: $vertical-rhythm * 6;
+    // max-width: 100%;
+    height: auto;
+    // Actually not needed, but in case some CSS is overwritten for bad:
+    object-fit: contain;
   }
 
   h1 {
@@ -29,9 +74,38 @@ header {
 footer {
   height: $vertical-rhythm * 7;
   background-color: $black;
+}
 
-  div,
-  a, .icon {
+.container {
+  max-width: 43.75rem; // 700px
+  margin: auto;
+  padding: $vertical-rhythm * 4 0 $vertical-rhythm * 4;
+}
+
+@media (max-width: 25em) {
+  body .container {
+    padding: $vertical-rhythm * 4 $vertical-rhythm;
+  }
+}
+
+@media (max-width: $mobile-breakpoint) {
+  body .container {
+    padding: $vertical-rhythm * 4 $vertical-rhythm;
+  }
+
+  .mobile-hidden {
+    visibility: hidden;
+  }
+}
+
+footer {
+  padding-bottom: 1em;
+  .icon {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
+  a > .icon {
     color: $white;
   }
 }
