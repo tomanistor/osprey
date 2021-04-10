@@ -1,9 +1,3 @@
-{{ with .Site.Params.accentColor -}}
-$accent_color: {{ . }};
-{{- else -}}
-$accent_color: #0097a7;
-{{- end }}
-
 @import "flexboxgrid-stripped";
 @import "colors";
 @import "fontface";
@@ -85,22 +79,21 @@ $term_title: "{{ .Site.Data.terminal.title }}";
       background-image: url("{{ $scratch.Get "img" }}");
     {{- end }}
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center;
     background-attachment: fixed;
-
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+  }
 
+  {{ with $scratch.Get "imgPlaceholderRes" -}}
+  @media (min-width: {{.Width }}px) {
+      .bg.lazyloaded {
+        transition: background-image 1.5s;
+        background-image: url("{{ $scratch.Get "img" }}"), url("{{ .Permalink }}"); 
+      }
   }
-  .bg.lazyloaded {
-    transition: background-image 1.5s;
-    {{ with $scratch.Get "imgPlaceholderRes" }}
-      background-image: url("{{ $scratch.Get "img" }}"), url("{{ .Permalink }}"); 
-    {{- else -}}
-      background-image: url("{{ $scratch.Get "img" }}");
-    {{- end }}
-  }
+  {{- end }}
 {{ end }}
 @import "custom";

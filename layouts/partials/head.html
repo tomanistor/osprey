@@ -69,11 +69,9 @@
     <meta name="og:description" content="{{ .Summary }}">
   {{- end }}
 
-  {{ with .Site.Params.themeColor -}}
+  {{ with .Site.Params.themeColor }}
   <meta name="theme-color" content="{{ . }}">
-  {{- else -}}
-  <meta name="theme-color" content="{{ with .Site.Params.accentColor }}{{ .}}{{ else }}#0097a7{{ end }}">
-  {{- end }}
+  {{ end }}
 
   <link rel="canonical" href="{{ .Permalink }}">
   
