@@ -7,7 +7,6 @@ function setFixedNav(fixed) {
   if (fixed) {
     // Fixed to top
     nav.classList.add('nav-fixed')
-    nav.classList.add('nav-shadow')
 
     $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
       setVisibility(el, true, false)
@@ -15,7 +14,6 @@ function setFixedNav(fixed) {
   } else {
     // Not fixed
     nav.classList.remove('nav-fixed')
-    nav.classList.remove('nav-shadow')
 
     $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
       setVisibility(el, false, false)
@@ -25,11 +23,11 @@ function setFixedNav(fixed) {
 
 function toggle() {
   if (menuActive) {
-    $('#open').classList.remove('icon-active')
     menuActive = false
+    $('#open').classList.remove('icon-active')
   } else {
-    $('#open').classList.add('icon-active')
     menuActive = true
+    $('#open').classList.add('icon-active')
   }
 }
 
@@ -68,29 +66,4 @@ $('body').addEventListener('click', function () {
   } else {
     $('html').style.overflowY = 'scroll'
   }
-})
-
-// Mobile browsers viewport height bug fix
-// TODO(kdevo): Is this relevant anymore?
-function fullMobileViewport() {
-  var element = this,
-    viewportHeight = window.innerHeight,
-    heightChangeTolerance = 100 // Approximate address bar height in Chrome
-
-  $(window).resize(function () {
-    if (Math.abs(viewportHeight - window.innerHeight) > heightChangeTolerance) {
-      viewportHeight = window.innerHeight
-      update()
-    }
-  })
-
-  function update() {
-    element.style.height = (viewportHeight + 'px')
-  }
-
-  update()
-}
-
-$$('header').forEach(function () {
-  fullMobileViewport
 })

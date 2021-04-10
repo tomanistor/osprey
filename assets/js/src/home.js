@@ -29,4 +29,30 @@
       }
     });
   }, false);
+
+
+  var header = $('header')
+  var oldViewportHeight = 0;
+  const heightChangeThreshold = 120; // approximate address bar height fits for Chrome (100) and Brave (104)
+  // Viewport size in mobile is impaired by address bar that automatically collapses on scroll.
+  // This updates it to the "real dynamic viewport size"
+  function updateViewportToInner() {
+    /*---
+    // Adapted from: https://css-tricks.com/the-trick-to-viewport-units-on-mobile/
+    // let vh = window.innerHeight * 0.01;
+    // document.documentElement.style.setProperty('--vh', `${vh}px`);
+    */
+
+    // The following is a nasty hack and definitely not perfect: 
+    // We only want to change the height if the user directly resizes the window, 
+    // hence we aim to ignore "auto-collapse" address bar resize events by only resizing if guessed threshold was exceeded.
+    console.log(window.innerHeight);
+    if (Math.abs(oldViewportHeight - window.innerHeight) > heightChangeThreshold) {
+      // header.style.maxHeight = window.innerHeight + 'px'
+      header.style.height = window.innerHeight + 'px'
+      oldViewportHeight = window.innerHeight;
+    }
+  }
+  updateViewportToInner()
+  window.addEventListener('resize', updateViewportToInner);
 })()
