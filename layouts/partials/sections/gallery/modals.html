@@ -3,7 +3,7 @@
   {{ $modalID := .File.BaseFileName }}
 
   {{ $scratch := newScratch }}
-  {{ if eq .Params.type "github" -}}
+  {{ if .Params.github.repo -}}
     {{ $scratch.Set "repo" (getJSON "https://api.github.com/repos/" .Params.github.repo) }}
   {{- end }}
 
@@ -36,24 +36,14 @@
           </article>
           <!-- Links -->
           <div class="row center-xs">
-              {{ if .Params.linkView -}}
+            {{ range .Params.buttons -}}
               <div class="col-xs">
-                  <div class="box">
-                    <a href="{{ .Params.linkView }}">
-                      <button type="submit"><span class="icon icon-angle-circled-right"></span> {{ i18n "view" }}</button>
-                    </a>
-                  </div>
+                <a href="{{ .url }}" {{ if default true .newTab -}}target="_blank"{{- end }}>
+                  <button type="submit"><span class="icon icon-{{ default "angle-circled-right" .icon }}"></span> {{ i18n (default "view" .i18n) }}</button>
+                </a>
               </div>
-              {{- end }}
-              {{ if .Params.linkCode -}}
-              <div class="col-xs">
-                  <div class="box">
-                    <a href="{{ .Params.linkCode }}" target="_blank">
-                      <button type="submit"><span class="icon icon-terminal"></span>{{ i18n "code" }}</button>
-                    </a>
-                  </div>
-              </div>
-              {{- else -}}
+            {{- else -}}
+              {{ if (default true .Params.github.showButtons) }}
               {{ with $scratch.Get "repo" -}}
               <div class="col-xs">
                   <div class="box">
@@ -62,8 +52,6 @@
                     </a>
                   </div>
               </div>
-              {{- end }}
-              {{ with $scratch.Get "repo" -}}
               <div class="col-xs">
                   <div class="box">
                     <a href="{{ .html_url }}" target="_blank">
@@ -72,8 +60,8 @@
                   </div>
               </div>
               {{- end }}
-              {{- end }}
-
+              {{ end }}
+            {{- end }}
           </div>
           
           {{ if .Params.github.showInfo }}
@@ -93,7 +81,6 @@
             &bull; <a href="{{ .html_url }}/issues">{{ .open_issues_count }} open issues</a>
           </div></div>{{ end }}{{ end }}
         </div>
-
 
         {{ if .Params.terminal.lines -}}
           <div class="term-content">

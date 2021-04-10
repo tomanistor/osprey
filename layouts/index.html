@@ -10,7 +10,7 @@
           {{ $partial := printf "partials/sections/%s.html" $m.Identifier }}
           {{ if templates.Exists $partial }}
             {{ partial $partial $m.Page }}
-          {{ else }}
+          {{ else if .Page }}
             {{ partial "partials/sections/default.html" $m.Page }}
           {{- end }}
         </section>
