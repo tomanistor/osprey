@@ -4,6 +4,7 @@
 {{ $height := $img.Height }}
 {{ $alt := default "" (.Get 2) }}
 
+{{ if .Site.Params.Feat.useLazySizes }} 
 <noscript>
 <img
 src="{{ $img.Permalink }}"
@@ -14,6 +15,7 @@ height="{{ $height }}"
 width="{{ $width }}"
 >
 </noscript>
+{{ end }}
 <img 
 {{ if .Site.Params.Feat.useLazySizes }} 
 data-src="{{ $img.Permalink }}" 

@@ -18,13 +18,13 @@
 {{- else -}}
     {{ $scratch.Set "img" .Site.Params.logoBig }}
 {{- end }}
+{{ if .Site.Params.Feat.useLazySizes }}
 <noscript>
     <img
     src="{{ $scratch.Get "img" }}" 
     alt="{{ .Site.Title }}"
     class="home-logo logo-anim" 
     loading="lazy"
-    style="height: auto;"
     {{ with $scratch.Get "imgH" -}}
         height="{{ . }}" 
     {{- end }}
@@ -33,6 +33,7 @@
     {{ end }}
     >
 </noscript>
+{{ end }}
 <img 
 {{ if .Site.Params.Feat.useLazySizes }}
     {{ with $scratch.Get "imgPlaceholderRes" }}
@@ -46,7 +47,6 @@
     data-src="{{ $scratch.Get "img" }}" 
     alt="{{ .Site.Title }}"
     class="home-logo blur-up logo-anim lazyload"
-    style="height: auto;"
 {{ else }}
     src="{{ $scratch.Get "img" }}"
     class="home-logo logo-anim"

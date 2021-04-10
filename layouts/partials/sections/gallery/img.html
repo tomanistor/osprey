@@ -28,6 +28,7 @@
         {{- end }}
     {{- end }}
 {{- end }}
+{{ if .Site.Params.Feat.useLazySizes }}
 <noscript>
     <img
     src="{{ $scratch.Get "img" }}" 
@@ -42,6 +43,7 @@
     {{ end }}
     >
 </noscript>
+{{ end }} 
 <img 
 {{ if .Site.Params.Feat.useLazySizes }}
     {{ with $scratch.Get "imgPlaceholderRes" }}
