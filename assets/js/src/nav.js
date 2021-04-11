@@ -51,8 +51,8 @@ $$('.nav-full a').forEach(function (links) {
 
 // Fix logoBig drawing over nav when click on logoSmall while nav open
 $('.logo').addEventListener('click', function () {
-  toggle()
   if ($('.nav-full').classList.contains('active')) {
+    toggle()
     $$('.nav-full, main').forEach(function (el) {
       el.classList.toggle('active')
     })

@@ -20,11 +20,6 @@
     modalBoxes.forEach(function (box) {
       box.classList.remove('scale-in-center')
       box.classList.add('scale-out-center')
-      // Remove active class from modal after modal-box animation is done
-      // box.addEventListener('animationend', function() {
-      //   console.log('animation ended')
-      //   modal.classList.remove('active')
-      // })
       setTimeout(function () { modal.classList.remove('active') }, ANIMATION_TIME)
     })
   }
@@ -70,14 +65,21 @@
   // Open modal on link click
   openLinks.forEach(function (link) {
     link.onclick = function (e) {
-      e.preventDefault()
+      e.preventDefault()  // omits modal history if uncommented
       open($(`#modal-${e.target.getAttribute('href').substr(1)}`))
     }
-    const loc = window.location.href
-    const seg = loc.substring(loc.lastIndexOf('/') + 1)
-    if (link.getAttribute('href') == seg) {
-      open($(`#modal-${link.getAttribute('href').substr(1)}`))
+    function handleModalAnchorScroll() {
+      const loc = window.location.href
+      const seg = loc.substring(loc.lastIndexOf('/') + 1)
+      if (link.getAttribute('href') == seg) {
+        function waitForArrival() {
+          // TODO(kdevo): Add check if actually arrived at gallery item
+          open($(`#modal-${link.getAttribute('href').substr(1)}`))
+        }
+        setTimeout(waitForArrival, ANIMATION_TIME * 2)
+      }
     }
+    handleModalAnchorScroll()
   })
 
   // Close modal on close link
