@@ -1,7 +1,7 @@
 {{ $scratch := newScratch }}
 {{ $imgSize := default "1200x" .Site.Params.Image.Logo.resize }}
-{{ $lqipSize := default "300x" .Site.Params.Image.Logo.lqipSize }}
-{{ $useLQIP := default true .Site.Params.Image.Logo.lqip }}
+{{ $lqipSize := default "300x" .Site.Params.Image.Logo.sizeLQIP }}
+{{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Logo.useLQIP }}
 {{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Logo.resizeOptions }}
 {{ with (resources.Get .Site.Params.logoBig) -}}
     {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
@@ -23,7 +23,7 @@
     <img
     src="{{ $scratch.Get "img" }}" 
     alt="{{ .Site.Title }}"
-    class="home-logo logo-anim" 
+    class="home-logo" 
     loading="lazy"
     {{ with $scratch.Get "imgH" -}}
         height="{{ . }}" 
@@ -46,10 +46,10 @@
     {{- end }}
     data-src="{{ $scratch.Get "img" }}" 
     alt="{{ .Site.Title }}"
-    class="home-logo blur-up logo-anim lazyload"
+    class="home-logo blur-up lazyload"
 {{ else }}
     src="{{ $scratch.Get "img" }}"
-    class="home-logo logo-anim"
+    class="home-logo"
 {{ end }} 
 {{ with $scratch.Get "imgH" -}}
     height="{{ . }}" 

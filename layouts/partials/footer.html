@@ -1,7 +1,7 @@
 <footer class="row middle-xs center-xs">
   {{ range .Site.Params.Social -}}
     <div class="col-xs-2">
-      <a target="_blank" rel="noopener" href="{{ .url }}"><i class="icon icon-{{ .type }}"></i></a>
+      <a target="_blank" rel="noopener" href="{{ .url }}" alt="{{ .type | humanize }}"><i class="icon icon-{{ .type }}"></i></a>
     </div>
   {{- end }}
   {{ if (.Site.Params.copyright) -}}
@@ -12,7 +12,7 @@
       {{ end }}
       {{ if or (.Site.Params.credit) (eq (isset .Site.Params "credit") false) -}}
       <div class="col-xs-12">
-          <small>Theme: <a href="https://github.com/kdevo/osprey-delight" target="_blank">osprey-delight</a> (fork of <a href="https://github.com/tomanistor/osprey" target="_blank">osprey</a>).</small>
+          <small>Theme: <a href="https://github.com/kdevo/osprey-delight" target="_blank" rel="noopener">osprey-delight</a></small>
       </div>
       {{- end }}
       </small>

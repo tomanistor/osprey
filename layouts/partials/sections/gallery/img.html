@@ -1,7 +1,7 @@
 {{ $scratch := newScratch }}
 {{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
-{{ $lqipSize := default "2x" .Site.Params.Image.Gallery.lqipSize }}
-{{ $useLQIP := default true .Site.Params.Image.Gallery.lqip }}
+{{ $lqipSize := default "2x" .Site.Params.Image.Gallery.sizeLQIP }}
+{{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Gallery.useLQIP }}
 {{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Gallery.resizeOptions }}
 {{ with .Params.image -}}
     {{ with (resources.Get .) -}}
@@ -32,7 +32,7 @@
 <noscript>
     <img
     src="{{ $scratch.Get "img" }}" 
-    alt="{{ .Site.Title }}"
+    alt="{{ default .Params.title .Params.alt }}" 
     loading="lazy"
     {{ with $scratch.Get "imgH" -}}
         height="{{ . }}" 
@@ -55,7 +55,6 @@
         {{- end }}
     {{- end }}
     data-src="{{ $scratch.Get "img" }}" 
-    alt="{{ .Site.Title }}"
     class="blur-up lazyload"
     {{ with $scratch.Get "imgH" -}}
         {{/* TODO(kdevo): Refactor this in SCSS */}}
@@ -65,7 +64,7 @@
     src="{{ $scratch.Get "img" }}"
     loading="lazy"
 {{ end }} 
+alt="{{ default .Params.title .Params.alt }}" 
 {{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
 {{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
-{{ if .Params.alt }} alt="{{ .Params.alt }}" {{ end }} 
 >

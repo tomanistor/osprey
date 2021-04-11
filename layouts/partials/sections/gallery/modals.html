@@ -38,29 +38,28 @@
           <div class="row center-xs">
             {{ range .Params.buttons -}}
               <div class="col-xs">
-                <a href="{{ .url }}" {{ if default true .newTab -}}target="_blank"{{- end }}>
+                <a href="{{ .url }}" {{ if default false .newTab -}}target="_blank" rel="noopener"{{- end }}>
                   <button type="submit"><span class="icon icon-{{ default "angle-circled-right" .icon }}"></span> {{ i18n (default "view" .i18n) }}</button>
                 </a>
               </div>
-            {{- else -}}
-              {{ if (default true .Params.github.showButtons) }}
+            {{ end }}
+            {{ if (default true .Params.github.showButtons) }}
               {{ with $scratch.Get "repo" -}}
-              <div class="col-xs">
-                  <div class="box">
-                    <a href="{{ replace (replace .archive_url "{/ref}" "") "{archive_format}" "zipball" }}" target="_blank">
-                      <button type="submit"><span class="icon icon-download"></span>{{ i18n "download" }}</button>
-                    </a>
-                  </div>
-              </div>
-              <div class="col-xs">
-                  <div class="box">
-                    <a href="{{ .html_url }}" target="_blank">
-                      <button type="submit"><span class="icon icon-terminal"></span>{{ i18n "code" }}</button>
-                    </a>
-                  </div>
-              </div>
+                <div class="col-xs">
+                    <div class="box">
+                      <a href="{{ replace (replace .archive_url "{/ref}" "") "{archive_format}" "zipball" }}" target="_blank">
+                        <button type="submit"><span class="icon icon-download"></span>{{ i18n "download" }}</button>
+                      </a>
+                    </div>
+                </div>
+                <div class="col-xs">
+                    <div class="box">
+                      <a href="{{ .html_url }}" target="_blank" rel="noopener">
+                        <button type="submit"><span class="icon icon-terminal"></span>{{ i18n "code" }}</button>
+                      </a>
+                    </div>
+                </div>
               {{- end }}
-              {{ end }}
             {{- end }}
           </div>
           

@@ -54,8 +54,8 @@ $term_title: "{{ .Site.Data.terminal.title }}";
 {{ if .Site.Params.background -}}
   {{ $scratch := newScratch }}
   {{ $imgSize := default "1920x" .Site.Params.Image.Background.resize }}
-  {{ $lqipSize := default "500x" .Site.Params.Image.Background.lqipSize }}
-  {{ $useLQIP := default true .Site.Params.Image.Background.lqip }}
+  {{ $lqipSize := default "500x" .Site.Params.Image.Background.sizeLQIP }}
+  {{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Background.useLQIP }}
   {{ $resizeOptions := default "jpg q90 Lanczos" .Site.Params.Image.Background.resizeOptions }}
   {{ with (resources.Get .Site.Params.background) -}}
       {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}

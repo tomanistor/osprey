@@ -6,14 +6,16 @@
     <main>
 
       {{ range $i, $m := .Site.Menus.main -}}
-        <section class="{{ .Identifier }}" id="{{ replace (replace .URL "/" "") "#" "" }}">
           {{ $partial := printf "partials/sections/%s.html" $m.Identifier }}
           {{ if templates.Exists $partial }}
+            <section class="{{ .Identifier }}" id="{{ replace (replace .URL "/" "") "#" "" }}">
             {{ partial $partial $m.Page }}
+            </section>
           {{ else if .Page }}
+            <section class="default" id="{{ replace (replace .URL "/" "") "#" "" }}">
             {{ partial "partials/sections/default.html" $m.Page }}
+            </section>
           {{- end }}
-        </section>
       {{- end }}
 
     </main>

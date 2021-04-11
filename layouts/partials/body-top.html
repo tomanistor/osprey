@@ -30,8 +30,11 @@
   <div class="col-xs-6 col-sm-1 logo" style="{{ if not .IsHome }}visibility: visible;{{- end }}">
     <a href="{{ "#" | relLangURL }}">
         {{ $scratch := newScratch }}
+        {{ $imgSize := default "64x" .Site.Params.Image.NavLogo.resize }}
+        {{ $resizeOptions := default "q90" .Site.Params.Image.NavLogo.resizeOptions }}
         {{ with (resources.Get .Site.Params.logoSmall) -}}
-            {{ $scratch.Set "img" .Permalink }}
+            {{ $img := (slice (.Resize (printf "%s %s" $imgSize $resizeOptions))) | resources.Concat (printf "navlogo%s" (path.Ext .)) }}
+            {{ $scratch.Set "img" $img.Permalink }}
             {{ $scratch.Set "imgW" .Width }}
             {{ $scratch.Set "imgH" .Height }}
         {{- else -}}
@@ -45,8 +48,10 @@
             src="{{ $scratch.Get "img" }}"
             loading="lazy"
         {{ end }} 
-        alt="{{ .Site.Title }}"
+        alt="Home"
         onclick="onLogoClick()"  
+        {{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
+        {{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
         >
     </a>
   </div>
