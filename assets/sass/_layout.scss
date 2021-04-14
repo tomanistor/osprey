@@ -1,3 +1,4 @@
+
 $mobile-breakpoint: 47.99em;
 
 * {
@@ -15,12 +16,27 @@ $mobile-breakpoint: 47.99em;
   }
 }
 
+// ::-webkit-scrollbar {
+//   width: 3px;
+// }
+
+// ::-webkit-scrollbar-track {
+//   background: $white;
+// }
+
+// ::-webkit-scrollbar-thumb {
+//   background: $black;
+// }
+
+// ::-webkit-scrollbar-thumb:hover {
+//   background: $accent;
+// }
+
 html {
   box-sizing: inherit;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  // Passing this down the DOM until header should actually result in "true viewport height"
-  // height: 100%;
+  height: 100%;
 }
 
 body {
@@ -28,7 +44,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 100vh;
+  height: 100%;
   color: $black;
   font-family: $font-body;
   line-height: $base-line-height;
@@ -50,7 +66,10 @@ main {
 }
 
 header {
-  height: 100vh; 
+  height: 100%;
+  min-height: 100%;
+  // The following is now not needed anymore and was in fact problematic on mobile 🎉
+  // height: 100vh; 
   // height: calc(var(--vh, 1vh) * 100); // --vh calculated by JS on each resize
   background-color: $white;
 

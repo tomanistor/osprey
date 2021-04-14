@@ -78,8 +78,8 @@ nav {
       opacity: 1;
       transition: opacity 200ms;
   }
-  .icon-active {
-      color: $accent
+  a.icon-active > .icon {
+      color: $accent;
   }
 }
 
