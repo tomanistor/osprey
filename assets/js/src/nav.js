@@ -1,66 +1,62 @@
 var menuActive = false
 var navFixed = false
 var nav = $('nav')
+    navToggleAndLogo = $$('nav > .logo, nav > .nav-toggle')
 
-function setFixedNav(fixed) {
-  navFixed = fixed
-  if (fixed) {
-    // Fixed to top
+function fixNav(setFixed) {
+  if (setFixed) {
     nav.classList.add('nav-fixed')
-
-    $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
+    navToggleAndLogo.forEach((el) => {
       setVisibility(el, true, false)
     })
   } else {
-    // Not fixed
     nav.classList.remove('nav-fixed')
-
-    $$('nav > .logo, nav > .nav-toggle').forEach(function (el) {
+    navToggleAndLogo.forEach((el) => {
       setVisibility(el, false, false)
     })
   }
+  navFixed = setFixed
 }
 
-function toggle() {
+function toggleMenu() {
   if (menuActive) {
-    menuActive = false
-    $('#open').classList.remove('icon-active')
+    $('.nav-icon').classList.remove('icon-active')
   } else {
-    menuActive = true
-    $('#open').classList.add('icon-active')
+    $('.nav-icon').classList.add('icon-active')
   }
+  menuActive = !menuActive
 }
 
 // Full screen nav open on click
-$('.nav-icon').addEventListener('click', function () {
-  toggle()
-  $$('.nav-full, main').forEach(function (el) {
+$('.nav-icon').addEventListener('click', () => {
+  toggleMenu()
+  $$('.nav-full, main').forEach((el) => {
     el.classList.toggle('active')
   })
 })
 
 // Full screen nav close on click
-$$('.nav-full a').forEach(function (links) {
-  links.addEventListener('click', function () {
-    toggle()
-    $$('.nav-full, main').forEach(function (el) {
+$$('.nav-full a').forEach((links) => {
+  links.addEventListener('click', () => {
+    toggleMenu()
+    $$('.nav-full, main').forEach((el) => {
       el.classList.toggle('active')
     })
   })
 })
 
 // Fix logoBig drawing over nav when click on logoSmall while nav open
-$('.logo').addEventListener('click', function () {
+$('.logo').addEventListener('click', () => {
   if ($('.nav-full').classList.contains('active')) {
-    toggle()
-    $$('.nav-full, main').forEach(function (el) {
+    toggleMenu()
+    $$('.nav-full, main').forEach((el) => {
       el.classList.toggle('active')
     })
   }
 })
 
 // Disable scroll when full screen nav is open
-$('body').addEventListener('click', function () {
+$('body').addEventListener('click', () => {
   if ($('.nav-full').classList.contains('active')) {
     $('html').style.overflowY = 'hidden'
   } else {

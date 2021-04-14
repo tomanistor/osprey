@@ -1,4 +1,4 @@
-(function () {
+(() => {
   var realmsg = $('textarea[name=message2]')
   // For spam protection, we use "message" as a honeypot field:
   var honeypotmsg = $('textarea[name=message]')
@@ -11,7 +11,7 @@
 
   honeypotmsg.removeAttribute("required")
 
-  $('#form-contact').addEventListener('submit', function (e) {
+  $('#form-contact').addEventListener('submit', (e) => {
     e.preventDefault()
 
     var email = $('input[name=email]').value
@@ -45,7 +45,7 @@
     request.setRequestHeader('Content-Type', 'application/json')
     request.setRequestHeader('Accept', 'application/json')
     // Call function when the state changes
-    request.onreadystatechange = function () {
+    request.onreadystatechange = () => {
       if (request.readyState === XMLHttpRequest.DONE) {
         if (request.status === 200) {
           // Reset form
