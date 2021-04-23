@@ -9,7 +9,7 @@
 @import "modal";
 @import "about";
 @import "gallery";
-{{ if .Site.Params.Feat.useBlog -}}
+{{ if (.Page.Scratch.Get "blog") -}}
 @import "blog";
 {{- end }}
 
@@ -27,6 +27,7 @@ h3 {
 }
 
 .home-logo {
+  max-height: 10 * $vertical-rhythm;
   margin-bottom: $vertical-rhythm;
 }
 
@@ -54,8 +55,7 @@ $term_title: "{{ .Site.Data.terminal.title }}";
 {{ if .Site.Params.background -}}
   {{ $scratch := newScratch }}
   {{ $imgSize := default "1920x" .Site.Params.Image.Background.resize }}
-  {{ $lqipSize := default "500x" .Site.Params.Image.Background.sizeLQIP }}
-  {{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Background.useLQIP }}
+  {{ $lqipSize := default "500x" .Site.Params.Image.Background.resizeLQIP }}
   {{ $resizeOptions := default "jpg q90 Lanczos" .Site.Params.Image.Background.resizeOptions }}
   {{ with (resources.Get .Site.Params.background) -}}
       {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
@@ -63,8 +63,8 @@ $term_title: "{{ .Site.Data.terminal.title }}";
       {{ $scratch.Set "imgW" $image.Width }}
       {{ $scratch.Set "imgH" $image.Height }}
 
-      {{ if $useLQIP -}}
-          {{ $lqip := $image.Resize (printf "%s Lanczos q95" $lqipSize) }}
+      {{ if $lqipSize -}}
+          {{ $lqip := $image.Resize (printf "%s %s" $lqipSize $resizeOptions) }}
           {{ $scratch.Set "imgPreview" $lqip.Permalink }}
           {{ $scratch.Set "imgPlaceholderRes" $lqip }}
       {{- end }}
