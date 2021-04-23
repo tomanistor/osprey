@@ -1,47 +1,39 @@
-{
-    "@context": "http://www.schema.org",
-    "@type": "Person",
-    "@id": "{{ .Site.BaseURL }}",
-    "name": "{{ .Site.Params.author }}",
-    "url": "{{ .Site.BaseURL }}",
-    "description": "{{ .Site.Params.Description }}",
-
-    {{ with .Site.Params.Feat.structuredDataGitHubUser }}
+{{ $base := dict 
+    "@context" "http://www.schema.org"
+    "@type" "Person"
+    "@id" .Site.BaseURL 
+    "name" .Site.Params.author 
+    "url" .Site.BaseURL 
+    "description" .Site.Params.Description }}
+{{ with .Site.Params.Feat.structuredDataGitHubUser }}
     {{ with (getJSON "https://api.github.com/users/" .) }}
-        "image": "{{ .avatar_url }}",
+        {{ $github := dict 
+            "image" .avatar_url 
+            "email" .email 
+            "address" .location }}
         {{ if ne .login .Site.Params.author }}
-        "alternateName": "{{ .login }}",
+        {{ $github = merge (dict "alternateName" .login) $github }}
         {{ end }}
-        {{ with .email }}
-        "email": "{{ . }}",
-        {{ end }}
-        {{ with .location }}
-        "address": "{{ . }}",
-        {{ end }}
-        {{ $count := 0 }}
-        {{ $orgs := (getJSON .organizations_url) }}
-        {{ with $orgs }}
-        "affiliation": [
-        {{ range $i, $org := . -}}
-            {{ with (getJSON .url) -}}
-            {
-                "@type": "Organization",
-                "name": "{{ .name }}",
-                "sameAs": [
-                    "{{ .blog }}",
-                    "{{ .html_url }}"
-                ]
-            }{{ if lt $i (sub (len $orgs) 1) }},{{ end }}
+
+        {{ $affiliation := slice }}
+        {{ with (getJSON .organizations_url) }}
+            {{ range $i, $org := . -}}
+                {{ with (getJSON .url) -}}
+                    {{ $org := dict 
+                        "@type" "Organization" 
+                        "name" .name
+                        "sameAs" (slice .blog .html_url) }}
+                    {{ $affiliation = append $org $affiliation }}
+                {{ end }}
             {{- end }}
         {{- end }}
-        ],
-        {{ end }}
+        {{ $github = merge (dict "affiliation" $affiliation) $github }}
+        {{ $base = merge $github $base }}
     {{ end }}
-    {{ end }}
-
-    "sameAs": [
-        {{ range $i, $url := .Site.Params.Social -}}
-            "{{ .url }}"{{ if lt $i (sub (len $.Site.Params.Social) 1) }},{{ end }}
-        {{- end }}
-    ]
-}
+{{ end }}
+{{ $sameAs := slice }}
+{{ range $i, $url := .Site.Params.Social -}}
+    {{ $sameAs = append .url $sameAs }}
+{{- end }}
+{{ $base = merge (dict "sameAs" $sameAs) $base }}
+{{ jsonify $base }}
