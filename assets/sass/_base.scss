@@ -22,13 +22,13 @@ a {
   }
 
   &:hover {
-    color: $accent;
+    color: $accent-color;
   }
 }
 
 small {
   font-size: 0.8em;
-  color: $grey;
+  color: $alt-text-color;
 }
 
 // Images

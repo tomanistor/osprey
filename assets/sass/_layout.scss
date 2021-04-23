@@ -21,15 +21,15 @@ $mobile-breakpoint: 47.99em;
 // }
 
 // ::-webkit-scrollbar-track {
-//   background: $white;
+//   background: $primary-bg-color;
 // }
 
 // ::-webkit-scrollbar-thumb {
-//   background: $black;
+//   background: $primary-fg-color;
 // }
 
 // ::-webkit-scrollbar-thumb:hover {
-//   background: $accent;
+//   background: $accent-color;
 // }
 
 html {
@@ -39,24 +39,28 @@ html {
   height: 100%;
 }
 
+::selection {
+  background: $accent-color
+}
+
 body {
   @include size(p);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100%;
-  color: $black;
+  color: $primary-fg-color;
   font-family: $font-body;
   line-height: $base-line-height;
 
-  background-color: $smoke;
+  background-color: $secondary-bg-color;
 }
 
 main {
   transition: .4s ease-in;
 
   &::before {
-    background-color: $white;
+    background-color: $primary-bg-color;
   }
 
   &.active {
@@ -68,13 +72,15 @@ main {
 header {
   height: 100%;
   min-height: 100%;
-  // The following is now not needed anymore and was in fact problematic on mobile 🎉
-  // height: 100vh; 
-  // height: calc(var(--vh, 1vh) * 100); // --vh calculated by JS on each resize
-  background-color: $white;
+  background-color: $primary-bg-color;
+  color: $primary-fg-color;
 
   div {
     z-index: 101;
+  }
+
+  h1,h2,h3 {
+    font-family: $font-tagline;
   }
 
   img {
@@ -84,15 +90,6 @@ header {
     // Actually not needed, but in case some CSS is overwritten for bad:
     object-fit: contain;
   }
-
-  h1 {
-    font-family: $font-header;
-  }
-}
-
-footer {
-  height: $vertical-rhythm * 7;
-  background-color: $black;
 }
 
 .container {
@@ -118,13 +115,25 @@ footer {
 }
 
 footer {
-  padding-bottom: 1em;
-  .icon {
-    margin-top: 1em;
-    margin-bottom: 1em;
-    font-size: 2em;
+  height: $vertical-rhythm * 8;
+  background-color: $footer-bg-color;
+  // display: block;
+  padding-bottom: 2em;
+  // overflow: hidden;
+
+  // a {
+  //   color: $footer-icon-color;
+  // }
+  .social {
+    margin-top: $vertical-rhythm * 2;
+    margin-bottom: $vertical-rhythm * 2;
+    .icon {
+      color: $footer-icon-color;
+      font-size: 2em;
+    }
   }
-  a > .icon {
-    color: $white;
+
+  small {
+    color: $footer-text-color;
   }
 }

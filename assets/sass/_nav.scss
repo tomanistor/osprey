@@ -35,12 +35,12 @@ nav {
   bottom: 0;
   width: 100%;
   height: $vertical-rhythm * 2;
-  background-color: $white;
+  background-color: $primary-bg-color;
   text-align: center;
 
   h3 {
     margin: 0;
-    font-family: $font-body;
+    font-family: $nav-font;
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -64,7 +64,7 @@ nav {
   }
 
   .nav-item-active a {
-    color: $accent;
+    color: $accent-color;
   }
 }
 
@@ -79,7 +79,7 @@ nav {
       transition: opacity 200ms;
   }
   a.icon-active > .icon {
-      color: $accent;
+      color: $full-nav-bg-color;
   }
 }
 
@@ -94,13 +94,12 @@ nav {
   transform: translate(0, 0);
   transition: .3s ease-out;
 
-  background-color: $black;
 
   a, .icon {
-    color: $white;
+    color: $full-nav-fg-color;
 
     &:hover {
-      color: $accent;
+      color: $accent-color;
     }
   }
 }
@@ -109,6 +108,7 @@ nav {
 // Animation to translate in the font
 .nav-full.active {
   transform: translate(-100vw, 0);
-  transition: .3s ease-in;
-  background: $accent;
+  transition: .45s ease-in;
+  // background: $accent-color;
+  background: $full-nav-bg-color;
 }

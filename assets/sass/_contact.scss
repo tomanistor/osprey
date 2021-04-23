@@ -1,7 +1,7 @@
 .contact {
   width: 100%;
   padding-bottom: $vertical-rhythm * 2;
-  background-color: $smoke;
+  background-color: $secondary-bg-color;
 
   form {
     margin-top: $vertical-rhythm;
@@ -32,28 +32,28 @@ input, button, select {
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
-  border-color: $smoke;
-  background-color: $white;
-  color: $black;
+  border-color: $secondary-bg-color;
+  background-color: $primary-bg-color;
+  color: $primary-fg-color;
 
   &[type="submit"] {
     transition: .4s ease-out;
-    background-color: $storm;
-    color: $white;
+    background-color: $button-bg-color;
+    color: $button-fg-color;
 
     &:hover {
-      background-color: $accent;
-      color: $white;
+      background-color: $accent-color;
+      color: $primary-bg-color;
       cursor: pointer;
     }
   }
   
   .icon {
-    color: $white
+    color: $button-fg-color;
   }
 
   &:focus {
-    outline: $accent solid 2px;
+    outline: $accent-color solid 2px;
   }
 }
 

@@ -93,15 +93,15 @@ span.icon {
 }
 
 @keyframes color {
-    from {color: $accent;}
-    to {color: $black;}
+    from {color: $accent-color;}
+    to {color: $primary-fg-color;}
 }
 
 a > .icon {
-  color: $black;
+  color: $primary-fg-color;
   transition: color .2s ease-out;
   
   &:not(.icon-menu):hover, &:not(.icon-menu):focus {
-    color: $accent;
+    color: $accent-color;
   }
 }

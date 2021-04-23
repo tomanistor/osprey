@@ -6,9 +6,9 @@
  * @license MIT
  */
 
-$color-bg: $black;
-$color-text: $smoke;
-$color-text-subtle: $storm;
+$color-bg: $primary-fg-color;
+$color-text: $secondary-bg-color;
+$color-text-subtle: $alt-text-color;
 
 [data-termynal] {
     // width: 750px;
@@ -36,8 +36,8 @@ $color-text-subtle: $storm;
     border-radius: 50%;
     /* A little hack to display the window buttons in one pseudo element. */
     background: #d9515d;
-    -webkit-box-shadow: 25px 0 0 #f4c025, 50px 0 0 $accent;
-            box-shadow: 25px 0 0 #f4c025, 50px 0 0 $accent;
+    -webkit-box-shadow: 25px 0 0 #f4c025, 50px 0 0 $accent-color;
+            box-shadow: 25px 0 0 #f4c025, 50px 0 0 $accent-color;
 }
 
 [data-termynal]:after {

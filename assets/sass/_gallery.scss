@@ -29,19 +29,24 @@
     height: 100%;
     transition: .25s ease-out;
     opacity: 0;
-    background-color: $black; cursor: pointer;
+    background-color: $gallery-overlay-bg-color; 
+    cursor: pointer;
 
-    a {
-      color: $white;
+    // a {
+    //   color: $primary-bg-color;
 
-      &:hover {
-        color: $accent;
-      }
-    }
+    //   &:hover {
+    //     color: $accent-color;
+    //   }
+    // }
 
     h2 {
       margin: $vertical-rhythm;
-      color: $white;
+      color: $gallery-overlay-title-color;
+    }
+
+    h3 {
+      color: $gallery-overlay-subtitle-color;
     }
   }
 

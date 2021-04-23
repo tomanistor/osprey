@@ -15,7 +15,7 @@ pre {
   word-wrap: normal;
   // color: white;
   // line-height: 1.45; or inherit
-  // background-color: $smoke;
+  // background-color: $secondary-bg-color;
 }
 
 .mono,
@@ -39,7 +39,7 @@ q {
 
 %blockquote {
   content: "\201C";
-  color: $accent;
+  color: $accent-color;
   font-family: $font-header;
   font-size: 35px;
   float: left;
@@ -75,7 +75,7 @@ blockquote {
 time {
   @include size(p);
   margin-bottom: $vertical-rhythm;
-  color: $storm;
+  color: $alt-text-color;
 }
 
 .content {
@@ -87,21 +87,21 @@ time {
   }
 
   a {
-    background-image: linear-gradient($accent, $accent);
+    background-image: linear-gradient($accent-color, $accent-color);
     background-repeat: repeat-x;
     background-position: 0 95%;
     background-size: 1px 2px;
     text-decoration: none;
-    text-shadow: .03em 0 $white, -.03em 0 $white, 0 .03em $white, 0 -.03em $white,
-    .06em 0 $white, -.06em 0 $white, .09em 0 $white, -.09em 0 $white,
-    .12em 0 $white, -.12em 0 $white, .15em 0 $white, -.15em 0 $white,
-    .03em .075em $white, -.03em .075em $white, .06em .075em $white,
-    -.06em .075em $white, .09em .075em $white, -.09em .075em $white,
-    .12em .075em $white, -.12em .075em $white, .15em .075em $white,
-    -.15em .075em $white;
+    text-shadow: .03em 0 $link-shadow-color, -.03em 0 $link-shadow-color, 0 .03em $link-shadow-color, 0 -.03em $link-shadow-color,
+    .06em 0 $link-shadow-color, -.06em 0 $link-shadow-color, .09em 0 $link-shadow-color, -.09em 0 $link-shadow-color,
+    .12em 0 $link-shadow-color, -.12em 0 $link-shadow-color, .15em 0 $link-shadow-color, -.15em 0 $link-shadow-color,
+    .03em .075em $link-shadow-color, -.03em .075em $link-shadow-color, .06em .075em $link-shadow-color,
+    -.06em .075em $link-shadow-color, .09em .075em $link-shadow-color, -.09em .075em $link-shadow-color,
+    .12em .075em $link-shadow-color, -.12em .075em $link-shadow-color, .15em .075em $link-shadow-color,
+    -.15em .075em $link-shadow-color;
 
     &:hover {
-      color: $accent;
+      color: $accent-color;
     }
   }
 }
@@ -117,7 +117,7 @@ time {
 .blog {
   display: flex;
   min-height: 100vh;
-  background-color: $white;
+  background-color: $primary-bg-color;
 
   h2 {
     margin-bottom: 0;
