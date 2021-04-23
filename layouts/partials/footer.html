@@ -1,21 +1,25 @@
-<footer class="row middle-xs center-xs">
+<footer>
+  <div class="row center-xs social">
   {{ range .Site.Params.Social -}}
     <div class="col-xs-2">
-      <a target="_blank" rel="noopener" href="{{ .url }}" alt="{{ .type | humanize }}"><i class="icon icon-{{ .type }}"></i></a>
+      <a target="_blank" rel="noopener" href="{{ .url }}"><i class="icon icon-{{ .type }}"></i></a>
     </div>
   {{- end }}
+  </div>
   {{ if (.Site.Params.copyright) -}}
-    <div class="col-xs-12">
+  <div class="row center-xs">
+    <div class="col-xs">
       <small>
       {{ if .Site.Params.copyright }}
-      {{ i18n "copyright" }} &copy; {{ now.Format "2006" }} {{ .Site.Title }}
+        {{ i18n "copyright" }} &copy; {{ now.Format "2006" }} {{ .Site.Title }}
       {{ end }}
       {{ if or (.Site.Params.credit) (eq (isset .Site.Params "credit") false) -}}
-      <div class="col-xs-12">
-          <small>Theme: <a href="https://github.com/kdevo/osprey-delight" target="_blank" rel="noopener">osprey-delight</a></small>
+      <div class="col-xs">
+          <small>Theme: <a href="https://github.com/kdevo/osprey-delight" target="_blank" rel="noopener">Osprey Delight</a></small>
       </div>
       {{- end }}
       </small>
     </div>
+  </div>
   {{- end }}
 </footer>

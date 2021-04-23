@@ -9,7 +9,11 @@
           {{ $partial := printf "partials/sections/%s.html" $m.Identifier }}
           {{ if templates.Exists $partial }}
             <section class="{{ .Identifier }}" id="{{ replace (replace .URL "/" "") "#" "" }}">
-            {{ partial $partial $m.Page }}
+            {{ $page := $m.Page }}
+            {{ if eq $page nil -}}
+              {{ $page = $.Site.GetPage .Identifier }}
+            {{- end }}
+            {{ partial $partial $page }}
             </section>
           {{ else if .Page }}
             <section class="default" id="{{ replace (replace .URL "/" "") "#" "" }}">

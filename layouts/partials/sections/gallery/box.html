@@ -4,11 +4,12 @@
 <div class="gallery-img-container">{{ partial "sections/gallery/img" . }}</div>
 <div class="row center-xs middle-xs overlay" {{ with .Params.hoverColor }}style="background-color: {{ . }}"{{ end }}>
     {{ partial "sections/gallery/link.html" . }}
+    <div class="col-xs">
 
-    <h2>{{ .Title }}
-        {{ with .Params.subtitle }}
-        <br>
-        <small>{{ . }}</small>
-        {{- end }}
-    </h2>
+    <h2>{{ .Title }}</h2>
+    {{ with .Params.subtitle }}
+    <h3>{{ . }}</h3>
+    {{- end }}
+
+    </div>
 </div>

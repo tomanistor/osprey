@@ -9,8 +9,6 @@
   <header class="row middle-xs center-xs bg lazyload">
     <div class="col-xs-12">
       {{ partial "logo-img.html" . }}
-      <div class="row middle-xs center-xs">
-        <div class="col-xs-12">
           {{ with .Site.Params.mdTagline -}}
               {{ (replace (. | markdownify) "{cursor}" "<span class=\"cursor\">|</span>") | safeHTML }}
           {{- else -}}
@@ -21,8 +19,6 @@
               <h2>{{ i18n "noJsMsg" }}</h2>
           </noscript>
         </div>
-      </div>
-    </div>
   </header>
 {{ end }}
 
@@ -49,7 +45,6 @@
             loading="lazy"
         {{ end }} 
         alt="Home"
-        onclick="onLogoClick()"  
         {{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
         {{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
         >
@@ -62,7 +57,7 @@
     {{ end }}
   <div class="col-xs-6 col-sm-1 nav-toggle" style="{{ if not .IsHome -}} visibility: visible; {{- end }}">
       <a href="" class="nav-icon" onclick="return false">
-        <i id="open" class="icon icon-2x icon-menu"></i>
+        <i class="icon icon-2x icon-menu"></i>
       </a>
   </div>
 </nav>

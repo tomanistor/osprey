@@ -18,7 +18,7 @@
     {{ $scripts = $scripts | append (resources.Get "js/src/contact.js" | resources.ExecuteAsTemplate "js/src/contact.js" .) }}
   {{- end }}
   {{ $content := ($scripts | resources.Concat "js/bundle-home.js" | js.Build $buildOptions).Content }}
-  {{ if (gt (len $content) 4048) -}} {{ warnf "Performance: inlined JS is %dKB" (len $content) }} {{- end }}
+  {{ if (gt (len $content) 6144) -}} {{ warnf "Performance: inlined JS is %dKB" (len $content) }} {{- end }}
   <script>{{ $content | safeJS }}</script>
 {{- else -}}
   {{ $scripts := slice (resources.Get "js/src/base.js") (resources.Get "js/src/nav.js") }}

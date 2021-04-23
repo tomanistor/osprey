@@ -1,5 +1,5 @@
 <div class="row">
-  {{ $gallery := (where .Site.RegularPages "Section" "gallery") }}
+  {{ $gallery := (where site.RegularPages "Section" "gallery") }}
   {{ $galleryTotal := len $gallery }}
 
   {{ if modBool $galleryTotal 2 }}
