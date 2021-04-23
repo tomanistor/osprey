@@ -1,19 +1,53 @@
 {{ $scratch := newScratch }}
-{{ $imgSize := default "1200x" .Site.Params.Image.Logo.resize }}
-{{ $lqipSize := default "300x" .Site.Params.Image.Logo.sizeLQIP }}
-{{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Logo.useLQIP }}
-{{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Logo.resizeOptions }}
 {{ with (resources.Get .Site.Params.logoBig) -}}
-    {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
-    {{ $scratch.Set "img" $image.Permalink }}
-    {{ $scratch.Set "imgW" $image.Width }}
-    {{ $scratch.Set "imgH" $image.Height }}
+    {{ $resize := default (printf "%dx" (cond (lt .Width 1200) .Width 1200)) $.Site.Params.Image.Logo.resize }}
+    {{ $resizeOptions :=  default "MitchellNetravali q85" $.Site.Params.Image.Logo.resizeOptions }}
+    {{ $resizeLQIP := default "200x" $.Site.Params.Image.Logo.resizeLQIP }}
+    {{ $responsive := default true $.Site.Params.Image.Logo.responsive }}
+    {{ $name := default "homelogo" $.Site.Params.Image.Logo.name }}
 
-    {{ if $useLQIP -}}
-        {{ $lqip := .Resize (printf "%s %s" $lqipSize $resizeOptions) }}
-        {{/* $lqip = $lqip | images.Filter (images.Invert) */}}
-        {{ $scratch.Set "imgPreview" $lqip.Permalink }}
-        {{ $scratch.Set "imgPlaceholderRes" $lqip }}
+    <!-- Image resizing -->
+    {{ $img := .Resize (printf "%s %s" $resize $resizeOptions) }}
+    {{ $img := slice $img | resources.Concat (printf "%s-%d%s" $name . (path.Ext $img.Permalink)) }} 
+    {{ $scratch.Set "img" $img.Permalink }}
+    {{ $scratch.Set "imgW" $img.Width }}
+    {{ $scratch.Set "imgH" $img.Height }}
+
+
+    {{ if $resizeLQIP -}}
+        {{ $lqip := .Resize (printf "%s %s" $resizeLQIP $resizeOptions) }}
+        {{ $scratch.Set "lqipRes" $lqip }}
+    {{- end }}
+
+    {{ if and $responsive (gt $img.Width 200) -}}
+        <!-- Responsive dynamic resizing from $lqipSize to $resize -->
+        {{ $startWidth := (default 100 ($scratch.Get "lqipRes").Width) }}
+        {{ $sizes := seq $startWidth 50 $img.Width }}
+        {{ $n := 5 }}
+        {{ if gt $n (len $sizes) -}}
+        {{ $n = len $sizes }}
+        {{- end }}
+        {{ $part := int (div (len $sizes) $n) }}
+        {{ $wset := slice }}
+        {{ range (seq 1 (sub $n 1)) -}}
+            {{ $wset = append (index $sizes (mul $part .)) $wset }}
+        {{- end }}
+        {{ $wset = (uniq (append (int $img.Width) $wset)) }}
+
+        {{ $image := . }}
+        {{ $srcset := slice }}
+        {{ range $wset }}
+            <!-- Resize image and rename image -->
+            {{ $img := $image.Resize (printf "%dx %s" . $resizeOptions) }}
+            {{ $img := slice $img | resources.Concat (printf "%s-%d%s" $name . (path.Ext $img.Permalink)) }} 
+            {{ $scratch.Set "img" $img.Permalink }}
+            {{ $scratch.Set "imgW" $img.Width }}
+            {{ $scratch.Set "imgH" $img.Height }}
+            {{ $srcset = append (printf "%s %dw" $img.Permalink .) $srcset }}
+        {{- end }}
+        {{ $scratch.Set "srcset" (delimit $srcset ",\n") }}
+    {{ else if $responsive }}
+        {{ warnf "%s is too small (width: %dpx) to be resized to a responsive srcset!" . .Width }}
     {{- end }}
 {{- else -}}
     {{ $scratch.Set "img" .Site.Params.logoBig }}
@@ -36,12 +70,12 @@
 {{ end }}
 <img 
 {{ if .Site.Params.Feat.useLazySizes }}
-    {{ with $scratch.Get "imgPlaceholderRes" }}
+    {{ with $scratch.Get "lqipRes" }}
     {{ $placeholderB64 := .Content | base64Encode }}
         {{ if gt (len $placeholderB64) 2048 -}}
             src="{{ .Permalink }}"
         {{- else -}}
-            src="data:{{ .MediaType }};base64, {{ $placeholderB64 }}"
+            src="data:{{ .MediaType }};base64,{{ $placeholderB64 }}"
         {{- end }}
     {{- end }}
     data-src="{{ $scratch.Get "img" }}" 
@@ -51,6 +85,10 @@
     src="{{ $scratch.Get "img" }}"
     class="home-logo"
 {{ end }} 
+{{ with ($scratch.Get "srcset") }}
+    data-sizes="auto"
+    data-srcset="{{ . }}"
+{{ end }}
 {{ with $scratch.Get "imgH" -}}
     height="{{ . }}" 
 {{- end }}

@@ -1,7 +1,6 @@
 {{ $scratch := newScratch }}
 {{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
-{{ $lqipSize := default "2x" .Site.Params.Image.Gallery.sizeLQIP }}
-{{ $useLQIP := default .Site.Params.Feat.useLazySizes .Site.Params.Image.Gallery.useLQIP }}
+{{ $lqipSize := default "6x" .Site.Params.Image.Gallery.resizeLQIP }}
 {{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Gallery.resizeOptions }}
 {{ with .Params.image -}}
     {{ with (resources.Get .) -}}
@@ -10,7 +9,7 @@
         {{ $scratch.Set "imgW" $image.Width }}
         {{ $scratch.Set "imgH" $image.Height }}
 
-        {{ if $useLQIP -}}
+        {{ if $lqipSize -}}
             {{ $lqip := $image }}
             {{ $lqip := $image | images.Filter (images.GaussianBlur 10) }}
             {{ $lqip = $lqip.Resize (printf "%s png" $lqipSize) }}
@@ -20,12 +19,10 @@
         {{ $scratch.Set "img" (. | absURL) }}
     {{- end }}
 {{- else -}}
-    {{ with .Params.imageUrl }}
-        {{ $scratch.Set "img" (. | absURL) }}
-    {{- else -}}
-        {{ with .Params.github.repo -}}
+    {{ with .Params.github.repo -}}
         {{ $scratch.Set "img" ((printf "https://raw.githubusercontent.com/%s/master/.github/logo.png" .) | absURL) }}
-        {{- end }}
+    {{ else }}
+        {{ warnf "no gallery image set for %s" .File.FileName }}  
     {{- end }}
 {{- end }}
 {{ if .Site.Params.Feat.useLazySizes }}
@@ -51,15 +48,11 @@
         {{ if gt (len $placeholderB64) 3072 -}}
             src="{{ .Permalink }}"
         {{- else -}}
-            src="data:image/png;base64, {{ $placeholderB64 }}"
+            src="data:image/png;base64,{{ $placeholderB64 }}"
         {{- end }}
     {{- end }}
     data-src="{{ $scratch.Get "img" }}" 
     class="blur-up lazyload"
-    {{ with $scratch.Get "imgH" -}}
-        {{/* TODO(kdevo): Refactor this in SCSS */}}
-        style="height: {{ . }}px; width: auto;"
-    {{- end }}
 {{ else }}
     src="{{ $scratch.Get "img" }}"
     loading="lazy"
@@ -67,4 +60,8 @@
 alt="{{ default .Params.title .Params.alt }}" 
 {{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
 {{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
+{{ with $scratch.Get "imgW" -}}
+    {{/* TODO(kdevo): Refactor this in SCSS */}}
+    style="width: {{ . }}px; height: auto;"
+{{- end }}
 >
