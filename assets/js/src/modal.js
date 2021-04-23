@@ -3,7 +3,10 @@
 
   window.addEventListener('popstate', (event) => {
     if (event.state == null) {
-      close($('div.modal.active'))
+      active = $('div.modal.active')
+      if (active) {
+        close(active)
+      }
     } else if ('modal' in event.state) {
       open($(`#modal-${event.state.modal}`))
     }
@@ -15,9 +18,7 @@
     box.classList.remove('scale-in-center')
     box.classList.add('scale-out-center')
 
-    setTimeout(() => { 
-      modal.classList.remove('active') 
-    }, ANIMATION_TIME)
+    setTimeout(() => modal.classList.remove('active'), ANIMATION_TIME)
   }
 
 
@@ -27,9 +28,9 @@
     {{ range where .Site.RegularPages "Section" "gallery" }}
     {{ if .Params.terminal -}}
       {{ if .Params.terminal.options -}}
-    termOptions["{{ .File.BaseFileName }}"] = JSON.parse('{{ .Params.terminal.options | jsonify }}')
-    {{- else -}}
-    termOptions["{{ .File.BaseFileName }}"] = {}
+        termOptions["{{ .File.BaseFileName }}"] = JSON.parse('{{ .Params.terminal.options | jsonify }}')
+      {{- else -}}
+        termOptions["{{ .File.BaseFileName }}"] = {}
       {{- end }}
     {{- end }}
     {{- end }}

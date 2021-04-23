@@ -22,14 +22,15 @@
         _replyto: email,
         email: email,
         _subject: $('input[name=_subject]').value,
-        {{ if (.Page.Scratch.Get "contact").Page.Params.selectKeys -}}
-        _matter: $('select[name=matter]').value,
-        {{- end }}
         message: realmsg.value,
       }
     var honeypot = honeypotmsg.value
     if (honeypot !== "") {
       data._anti_spam_honeypot = honeypot
+    }
+    matter = $('select[name=matter]')
+    if (matter) {
+      data._matter = matter.value
     }
 
     var sending = $('#form-sending'),

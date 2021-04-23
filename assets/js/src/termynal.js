@@ -10,8 +10,6 @@
  * @license MIT
  */
 
-'use strict';
-
 /** Generate a terminal widget. */
 class Termynal {
     /**
