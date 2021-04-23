@@ -1,9 +1,9 @@
 ---
-weight: 20
+weight: 1 
 date: "2019-09-18T21:57:17-07:00"
 title: "Osprey Delight"
-image: "images/osprey-delight.png"
-color: "#C0C0C0	"
+image: "osprey-delight-logo.png"
+color: "#ffffff"
 type: "github"
 github:
     repo: "kdevo/osprey"
@@ -29,6 +29,5 @@ terminal:
       wait: 500
 ---
 
-{{! github-description !}}
-
-Check it out.
+{github-description}
+Check it out!

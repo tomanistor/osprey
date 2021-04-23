@@ -1,13 +1,11 @@
 +++
-title = "It's the Osprey Delight demo site."
+title = "About"
 date = "2017-06-27T17:39:21-07:00"
 draft = false
 +++
 
-## And [here's my repo!](https://github.com/kdevo/osprey-delight)
+Osprey Delight is the free-minded artist's choice for a clutter-free and fast single-page portfolio. 
 
-Osprey **De**light is a sugar-free version of the [awesome Osprey theme](https://github.com/tomanistor/osprey) by [Toma Nistor](https://tomanistor.com/) for [Hugo](https://gohugo.io/).
+It tastes a bit different than [the original great Osprey theme](https://github.com/tomanistor/osprey) and adds awesome new functionality to your Delight.
 
-It tastes a bit different than the original (hence the "light" in the name) but also adds some new functionality -- hopefully to your **delight**.
-
-Have fun using it! {{< icon "rocket icon-pulse-fast" >}}
+It's perfectly suited to show off your awesome work! {{< icon "rocket icon-pulse-fast" >}}

@@ -14,29 +14,22 @@ date: "{{ .Date }}"
 #   If the specified image is found in the 'assets' directory  the image will be normalized to a specified height. 
 #   If ommited AND type is 'github' (see below), will attempt to fetch from '{repo_url}/.github/logo.png'. 
 image: ""
-# [str] Alternatively, you can specify an absolute image URL (comment out the following line).
-# imageUrl: ""
 # [str] Alternative (image) description.
 #   If ommited with type 'github', will use 'description' field from GitHub API.
 alt: ""
 # [css] Background color of the gallery item.
 color: "#fff"
-# [enum] Possible types:
-#   - normal: Just as in the original Osprey theme
-#   - github: Fetch repo data using GitHub API
-type: "normal"
-# [str] Link to view the project.
-linkView: ""
-# [str] Link to show the project's code.
-#   If ommited with type 'github', will use 'html_url' field from GitHub API.
-linkCode: ""
-# [map] Configure 'github'-type specific options here:
+# [css] Optional gallery item hover color to set it individually.
+#hoverColor: "#fff"
+# [map] Configure github specific options here:
 github: 
     # [str] Repo is a combination of "{user_or_org}/{repository_name}", e.g. "kdevo/osprey-delight.
-    repo: "YOUR-GITHUB-NAME/{{ .TranslationBaseName }}"
+    #repo: "YOUR-GITHUB-NAME/{{ .TranslationBaseName }}"
     # [bool] Show repository information such project language below the buttons.
     showInfo: true
+    showButtons: true
 # [map] Configure optional terminal to be displayed when opening up the gallery item:
+#   Example (set "useTermynal" to true in config.yaml and comment out to test it):
 terminal:
     # lines:
     # - type: input
@@ -47,6 +40,14 @@ terminal:
     #   wait: 200
     # - data: ls: cannot access 'dummy/' directory.
     #   wait: 75
+buttons:
+  - i18n: view # i18n key (see i18n directory, see https://gohugo.io/functions/i18n/)
+    icon: angle-circled-right # optional: use an icon (in this case arrow right)
+    newTab: false # optional: controls if url should be opened in new tab
+    url: ""
+  - i18n: code 
+    icon: code
+    url: ""
 # [bool] Draft mode will decide if file will be published to 'public/' directory.
 draft: true
 ---

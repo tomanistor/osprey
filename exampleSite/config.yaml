@@ -1,0 +1,113 @@
+title: "Osprey Delight Demo"
+baseURL: "https://example.com"
+languageCode: "en-US"
+theme: "osprey-delight"
+tags: ["personal", "homepage", "portfolio"]
+#canonifyURLS: true
+#googleAnalytics: ""
+disableKinds: ["taxonomy", "taxonomyTerm"]
+enableEmoji: true
+pygmentsUseClasses: true
+
+## Generic theme parameters:
+Params:
+  author: "kdevo"
+  description: "Osprey Delight - Example Site"
+
+  # logoBig appears at the top of the page. Use a path relative to the assets dir for auto-resizing. 
+  logoBig: "osprey-delight.png"
+
+  # logoSmall is the logo that will be shown in the left corner of the nav bar.
+  #   Use a path relative to the assets dir for auto-resizing.
+  logoSmall: "favicon.png"
+
+  # tagline (followed by a cursor) is shown at the top, below the logo
+  #tagline: "Welcome!"
+
+  # mdTagline can be used instead to specify the tagline in Markdown for more customizability.
+  #   Note that {cursor} is a placeholder and will be replaced by the actual cursor HTML when rendering.
+  mdTagline: "# Welcome!\n ## This is Osprey Delight{cursor}"
+  favicon: "favicon.png"
+
+  opengraphImage: "/images/osprey-delight.png"
+
+  # enforceSinglePage will enforce redirection to the baseURL for all sub-directories/-pages.
+  #   Example: If you create about.md, Hugo will also create a '/about/index.html'. This file will contain only a redirect directive if this switch is enabled.
+  enforceSinglePage: false
+
+  # copyright flag generates a copyright notice in footer for your site.
+  copyright: true
+
+## Social links in footer:
+  Social:
+  - type: twitter # the icon to use. can be anything mentioned in "assets/sass/_icons.scss" 
+    url: ""
+  - type: linkedin 
+    url: ""
+  - type: github
+    url: github = "https://github.com/kdevo/osprey-delight"
+  - type: stackoverflow  
+    url: ""
+  - type: spotify
+    url: https://open.spotify.com/artist/5NhBOdJh6T1tgtM5Au1Opl
+
+
+## Theme features:
+  Feat:
+    # useLazySizes to lazy load images with lazysizes (recommended)
+    useLazySizes: true
+
+    # ajaxBasin uses Basin for a functional contact form.
+    ajaxBasin: "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
+
+    # useStructuredData for your own https://schema.org/Person (SEO-friendly).
+    #   This will be auto-generated dependent on the information you provide in this configuration.
+    useStructuredData: false
+
+    # structuredDataGitHubUser needs your USERNAME so that the GitHub API is used to fetch more information for structured data.
+    #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
+    #structuredDataGitHubUser = "USERNAME"
+
+    # useTermynal enables Termynal (https://github.com/ines/termynal), a small JS library for showing a terminal "animation" from within your gallery item.
+    #   The cool thing is that the library has been stripped-down to a minimum to only have the necessary functionality.
+    useTermynal: true
+
+    googleTagManager: ""
+  
+  # Expert mode: Configure image resizing (some of the settings are not yet publicly documented)
+  Image:
+    Logo:
+      resize: "300x"
+
+    Gallery:
+      resize: "400x"
+
+    # Background:
+    #   resize: "1920x"
+      
+
+## The menu items are automatically added to navbar. Use content files for more advanced usage.
+##   See: https://gohugo.io/content-management/menus/#add-content-to-menus
+Menu:
+  Main:
+    - name: "About"
+      identifier: about # the identifier controls the section type (and therewith the appearence).
+      url: "/#about"
+      weight: 1
+    - name: "Work"
+      identifier: gallery
+      url: "/#work"
+      weight: 2
+    - name: "Blog"
+      identifier: blog
+      url: "/#blog"
+      weight: 3
+    - name: "Contact"
+      identifier: contact
+      url: "/#contact"
+      weight: 4
+    # Use icon here to back reference an external site:
+    - pre: "<i class='icon icon-link-ext'></i>&nbsp;"
+      name: ""
+      url: "https://pyotek.dev"
+      weight: 5
