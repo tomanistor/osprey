@@ -56,6 +56,7 @@ $term_title: "{{ .Site.Data.terminal.title }}";
   {{ $scratch := newScratch }}
   {{ $imgSize := default "1920x" .Site.Params.Image.Background.resize }}
   {{ $lqipSize := default "500x" .Site.Params.Image.Background.resizeLQIP }}
+  {{ $useLQIP := default true .Site.Params.Image.Background.useLQIP }}
   {{ $resizeOptions := default "jpg q90 Lanczos" .Site.Params.Image.Background.resizeOptions }}
   {{ with (resources.Get .Site.Params.background) -}}
       {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
@@ -63,7 +64,7 @@ $term_title: "{{ .Site.Data.terminal.title }}";
       {{ $scratch.Set "imgW" $image.Width }}
       {{ $scratch.Set "imgH" $image.Height }}
 
-      {{ if $lqipSize -}}
+      {{ if $useLQIP -}}
           {{ $lqip := $image.Resize (printf "%s %s" $lqipSize $resizeOptions) }}
           {{ $scratch.Set "imgPreview" $lqip.Permalink }}
           {{ $scratch.Set "imgPlaceholderRes" $lqip }}
@@ -88,7 +89,7 @@ $term_title: "{{ .Site.Data.terminal.title }}";
   }
 
   {{ with $scratch.Get "imgPlaceholderRes" -}}
-  @media (min-width: {{.Width }}px) {
+  @media (min-width: {{ .Width }}px) {
       .bg.lazyloaded {
         transition: background-image 1.5s;
         background-image: url("{{ $scratch.Get "img" }}"), url("{{ .Permalink }}"); 

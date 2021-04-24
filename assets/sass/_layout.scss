@@ -16,22 +16,6 @@ $mobile-breakpoint: 47.99em;
   }
 }
 
-// ::-webkit-scrollbar {
-//   width: 3px;
-// }
-
-// ::-webkit-scrollbar-track {
-//   background: $primary-bg-color;
-// }
-
-// ::-webkit-scrollbar-thumb {
-//   background: $primary-fg-color;
-// }
-
-// ::-webkit-scrollbar-thumb:hover {
-//   background: $accent-color;
-// }
-
 html {
   box-sizing: inherit;
   overflow-x: hidden;
@@ -79,8 +63,9 @@ header {
     z-index: 101;
   }
 
-  h1,h2,h3 {
+  h1, h2, h3 {
     font-family: $font-tagline;
+    color: $tagline-color;
   }
 
   img {
