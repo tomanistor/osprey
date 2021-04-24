@@ -3,6 +3,7 @@
     {{ $resize := default (printf "%dx" (cond (lt .Width 1200) .Width 1200)) $.Site.Params.Image.Logo.resize }}
     {{ $resizeOptions :=  default "MitchellNetravali q85" $.Site.Params.Image.Logo.resizeOptions }}
     {{ $resizeLQIP := default "200x" $.Site.Params.Image.Logo.resizeLQIP }}
+    {{ $useLQIP := default true $.Site.Params.Image.Logo.useLQIP }}
     {{ $responsive := default true $.Site.Params.Image.Logo.responsive }}
     {{ $name := default "homelogo" $.Site.Params.Image.Logo.name }}
 
@@ -14,7 +15,7 @@
     {{ $scratch.Set "imgH" $img.Height }}
 
 
-    {{ if $resizeLQIP -}}
+    {{ if $useLQIP -}}
         {{ $lqip := .Resize (printf "%s %s" $resizeLQIP $resizeOptions) }}
         {{ $scratch.Set "lqipRes" $lqip }}
     {{- end }}
@@ -72,11 +73,11 @@
 {{ if .Site.Params.Feat.useLazySizes }}
     {{ with $scratch.Get "lqipRes" }}
     {{ $placeholderB64 := .Content | base64Encode }}
-        {{ if gt (len $placeholderB64) 2048 -}}
-            src="{{ .Permalink }}"
-        {{- else -}}
-            src="data:{{ .MediaType }};base64,{{ $placeholderB64 }}"
-        {{- end }}
+    {{ if gt (len $placeholderB64) 3072 -}}
+        src="{{ .Permalink }}"
+    {{- else -}}
+        src="data:{{ .MediaType }};base64,{{ $placeholderB64 }}"
+    {{- end }}
     {{- end }}
     data-src="{{ $scratch.Get "img" }}" 
     alt="{{ .Site.Title }}"

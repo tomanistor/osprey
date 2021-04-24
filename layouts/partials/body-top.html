@@ -26,8 +26,8 @@
   <div class="col-xs-6 col-sm-1 logo" style="{{ if not .IsHome }}visibility: visible;{{- end }}">
     <a href="{{ "#" | relLangURL }}">
         {{ $scratch := newScratch }}
-        {{ $imgSize := default "64x" .Site.Params.Image.NavLogo.resize }}
-        {{ $resizeOptions := default "q90" .Site.Params.Image.NavLogo.resizeOptions }}
+        {{ $imgSize := default "96x" .Site.Params.Image.NavLogo.resize }}
+        {{ $resizeOptions := default "q90 Gaussian" .Site.Params.Image.NavLogo.resizeOptions }}
         {{ with (resources.Get .Site.Params.logoSmall) -}}
             {{ $img := (slice (.Resize (printf "%s %s" $imgSize $resizeOptions))) | resources.Concat (printf "navlogo%s" (path.Ext .)) }}
             {{ $scratch.Set "img" $img.Permalink }}

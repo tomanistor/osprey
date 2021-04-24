@@ -1,6 +1,7 @@
 {{ $scratch := newScratch }}
 {{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
 {{ $lqipSize := default "6x" .Site.Params.Image.Gallery.resizeLQIP }}
+{{ $useLQIP := default true .Site.Params.Image.Gallery.useLQIP }}
 {{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Gallery.resizeOptions }}
 {{ with .Params.image -}}
     {{ with (resources.Get .) -}}
@@ -9,7 +10,7 @@
         {{ $scratch.Set "imgW" $image.Width }}
         {{ $scratch.Set "imgH" $image.Height }}
 
-        {{ if $lqipSize -}}
+        {{ if $useLQIP -}}
             {{ $lqip := $image }}
             {{ $lqip := $image | images.Filter (images.GaussianBlur 10) }}
             {{ $lqip = $lqip.Resize (printf "%s png" $lqipSize) }}
