@@ -34,8 +34,20 @@
               {{- end }}
             {{- end }}
           </article>
-          <!-- Links -->
+
+          <!-- Buttons -->
           <div class="row center-xs">
+            <!-- The following two params are left for backward-compatibility -->
+            {{ with .Params.linkView }}
+              <div class="col-xs">
+                <a href="{{ . }}"><button type="submit"><span class="icon icon-angle-circled-right"></span> {{ i18n "view" }}</button></a>
+              </div>
+            {{ end }}
+            {{ with .Params.linkCode }}
+              <div class="col-xs">
+                <a href="{{ . }}"><button type="submit"><span class="icon icon-terminal"></span> {{ i18n "code" }}</button></a>
+              </div>
+            {{ end }}
             {{ range .Params.buttons -}}
               <div class="col-xs">
                 <a href="{{ .url }}" {{ if default false .newTab -}}target="_blank" rel="noopener"{{- end }}>
