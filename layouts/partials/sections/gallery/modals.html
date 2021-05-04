@@ -11,7 +11,7 @@
 
     <!-- Modal box -->
     <div class="modal-box">
-      <span class="close icon icon-cancel"></span>
+      <div class="close">{{ partial "icon" "close" }}</div>
       <div class="modal-container">
         <div class="modal-header">
           <div class="modal-header-img-container" {{ if .Params.color }}style="background-color:{{ .Params.color }}"{{ end }}>
@@ -40,18 +40,18 @@
             <!-- The following two params are left for backward-compatibility -->
             {{ with .Params.linkView }}
               <div class="col-xs">
-                <a href="{{ . }}"><button type="submit"><span class="icon icon-angle-circled-right"></span> {{ i18n "view" }}</button></a>
+                <a href="{{ . }}"><button type="submit">{{ partial "icon" "view" }}  {{ i18n "view" }}</button></a>
               </div>
             {{ end }}
             {{ with .Params.linkCode }}
               <div class="col-xs">
-                <a href="{{ . }}"><button type="submit"><span class="icon icon-terminal"></span> {{ i18n "code" }}</button></a>
+                <a href="{{ . }}"><button type="submit">{{ partial "icon" "code" }} {{ i18n "code" }}</button></a>
               </div>
             {{ end }}
             {{ range .Params.buttons -}}
               <div class="col-xs">
                 <a href="{{ .url }}" {{ if default false .newTab -}}target="_blank" rel="noopener"{{- end }}>
-                  <button type="submit">{{ with .icon }}<span class="icon icon-{{ . }}"></span>{{ end }} {{ i18n (default "view" .i18n) }}</button>
+                  <button type="submit">{{ with .icon }}{{ partial "icon" . }}{{ end }} {{ i18n (default "view" .i18n) }}</button>
                 </a>
               </div>
             {{ end }}
@@ -59,12 +59,12 @@
               {{ with $scratch.Get "repo" -}}
                 <div class="col-xs">
                   <a href="{{ replace (replace .archive_url "{/ref}" "") "{archive_format}" "zipball" }}" target="_blank">
-                    <button type="submit"><span class="icon icon-download"></span>{{ i18n "download" }}</button>
+                    <button type="submit">{{ partial "icon" "download" }} {{ i18n "download" }}</button>
                   </a>
                 </div>
                 <div class="col-xs">
                   <a href="{{ .html_url }}" target="_blank" rel="noopener">
-                    <button type="submit"><span class="icon icon-terminal"></span>{{ i18n "code" }}</button>
+                    <button type="submit">{{ partial "icon" "code" }} {{ i18n "code" }}</button>
                   </a>
                 </div>
               {{- end }}
@@ -79,13 +79,14 @@
             {{ $scratch.Set "repo-lang-sum" $sum }}
             {{ $scratch.Set "repo-lang-main" (math.Round (mul 100 (div (index . ($scratch.Get "repo").language) $sum))) }}
             {{- end }}
-            {{ with $scratch.Get "repo" }}<div class="row center-xs"><div class="repo-info">
-            <a href="{{ .html_url }}/pulse"><span class="icon icon-github-octocat"></span></a>
-            <a href="{{ .languages_url }}">{{ .language }}{{ with ($scratch.Get "repo-lang-main") }}{{ if lt . 100.0 }} ({{ . }}%) {{ end }}{{ end }}</a>
-            {{ with .license }}{{ with (getJSON .url) }} &bull; <a href="{{ .html_url }}">{{ .spdx_id }}</a> {{ end }} {{ end }}
-            {{ if gt .stargazers_count 0 }} &bull; <a href="{{ .html_url }}/stargazers"> {{ .stargazers_count }} stars </a>{{ end }}
-            {{ if gt .forks_count 0 }} &bull; <a href="{{ .html_url }}/network/members"> {{ .forks_count }} forks </a>{{ end }}
-            &bull; <a href="{{ .html_url }}/issues">{{ .open_issues_count }} open issues</a>
+            {{ with $scratch.Get "repo" }}
+              <div class="row center-xs"><div class="repo-info">
+              <a href="{{ .html_url }}/pulse">{{ partial "icon" (dict "name" "github-octocat" "loader" "svg-use-text") }}</a> 
+              <a href="{{ .languages_url }}">{{ .language }}{{ with ($scratch.Get "repo-lang-main") }}{{ if lt . 100.0 }} ({{ . }}%) {{ end }}{{ end }}</a>
+              {{ with .license }}{{ with (getJSON .url) }} &bull; <a href="{{ .html_url }}">{{ .spdx_id }}</a> {{ end }} {{ end }}
+              {{ if gt .stargazers_count 0 }} &bull; <a href="{{ .html_url }}/stargazers"> {{ .stargazers_count }} stars </a>{{ end }}
+              {{ if gt .forks_count 0 }} &bull; <a href="{{ .html_url }}/network/members"> {{ .forks_count }} forks </a>{{ end }}
+              &bull; <a href="{{ .html_url }}/issues">{{ .open_issues_count }} open issues</a>
           </div></div>{{ end }}{{ end }}
         </div>
 

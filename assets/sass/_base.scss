@@ -21,7 +21,7 @@ a {
     border: 0;
   }
 
-  &:hover {
+  &:not(.nav-icon):hover {
     color: $accent-color;
   }
 }
@@ -52,15 +52,14 @@ ol {
 code {
   font-family: $font-code;
 }
+
 ul li {
   list-style-type: disc;
 }
 
-
 p {
   margin-bottom: $vertical-rhythm;
 }
-
 
 // Lazysizes
 .no-js img.lazyload {

@@ -1,0 +1,35 @@
+# General
+warning:
+  id: fas exclamation-triangle
+  title: Warning
+menu: 
+  id: fas bars
+  title:
+  description: Menu
+
+external: 
+  id: fas external-link-alt
+
+# Modal
+close: 
+  id: fas times
+  title: Close
+download: fas download
+code: fas terminal
+view: fas angle-right
+github-octocat: fab github-alt
+
+# Contact
+mail:
+  id: fas envelope
+  title: E-Mail
+sending: fas space-shuttle
+ok: fas check-circle
+
+# Social
+stackoverflow: fab stack-overflow
+linkedin: fab linkedin
+github: fab github
+medium: fab medium
+instagram: fab instagram
+twitter: fab twitter

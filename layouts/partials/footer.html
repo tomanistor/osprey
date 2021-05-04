@@ -2,7 +2,9 @@
   <div class="row center-xs social">
   {{ range .Site.Params.Social -}}
     <div class="col-xs-2">
-      <a target="_blank" rel="noopener" href="{{ .url }}"><i class="icon icon-{{ .type }}"></i></a>
+      <a target="_blank" rel="noopener" href="{{ .url }}">
+        {{ partial "icon" .type }}
+      </a>
     </div>
   {{- end }}
   </div>

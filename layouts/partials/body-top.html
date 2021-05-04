@@ -15,8 +15,8 @@
               <h1>{{ .Site.Params.tagline }}<span class="cursor">|</span></h1>
           {{- end }}
           <noscript>
-              <span class="icon icon-attention icon-2x" style="color:red"></span>
-              <h2>{{ i18n "noJsMsg" }}</h2>
+          <h2>{{ partial "icon" "warning" }}</h2>
+          <h2>{{ i18n "noJsMsg" }}</h2>
           </noscript>
         </div>
   </header>
@@ -57,7 +57,7 @@
     {{ end }}
   <div class="col-xs-6 col-sm-1 nav-toggle" style="{{ if not .IsHome -}} visibility: visible; {{- end }}">
       <a href="" class="nav-icon" onclick="return false">
-        <i class="icon icon-2x icon-menu"></i>
+        {{ partial "icon" "menu" }}
       </a>
   </div>
 </nav>

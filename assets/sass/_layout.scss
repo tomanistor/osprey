@@ -105,15 +105,12 @@ footer {
   // display: block;
   padding-bottom: 2em;
   // overflow: hidden;
+  color: $footer-icon-color;
 
-  // a {
-  //   color: $footer-icon-color;
-  // }
   .social {
     margin-top: $vertical-rhythm * 2;
     margin-bottom: $vertical-rhythm * 2;
     .icon {
-      color: $footer-icon-color;
       font-size: 2em;
     }
   }

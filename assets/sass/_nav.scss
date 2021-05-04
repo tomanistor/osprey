@@ -79,7 +79,7 @@ nav {
       transition: opacity 200ms;
   }
   a.icon-active > .icon {
-      color: $full-nav-bg-color;
+      fill: $full-nav-bg-color;
   }
 }
 
@@ -97,6 +97,7 @@ nav {
 
   a, .icon {
     color: $full-nav-fg-color;
+    fill: $full-nav-fg-color;
 
     &:hover {
       color: $accent-color;
@@ -104,11 +105,14 @@ nav {
   }
 }
 
-
-// Animation to translate in the font
+// Animation to translate-in the texts
 .nav-full.active {
   transform: translate(-100vw, 0);
   transition: .45s ease-in;
   // background: $accent-color;
   background: $full-nav-bg-color;
+}
+
+.nav-icon {
+  font-size: $base-font-size * 1.75;
 }

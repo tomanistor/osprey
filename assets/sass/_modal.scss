@@ -79,20 +79,21 @@
 
 .close {
   position: absolute;
-  top: 4px;
-  right: -3px;
-  color: $gallery-modal-close-color;
-  font-size: 1.75em;
-  font-weight: bold;
+  top: -4px;
+  right: 5px;
+  font-size: 1.6em;
   z-index: 100;
   transition: color .2s ease-out;
 
   &:hover,
   &:focus {
-    color: $accent-color;
-    text-decoration: none;
+    // fill: $accent-color;
     cursor: pointer;
   }
+}
+
+#icon-close {
+  fill: $gallery-modal-close-color;
 }
 
 .repo-info {

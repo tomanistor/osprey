@@ -25,3 +25,4 @@
   {{ $content := ($scripts | resources.Concat "js/bundle-blog.js" | js.Build $buildOptions).Content }}
   <script>{{ $content | safeJS }}</script>
 {{ end }}
+{{ partial "icon-data" . }}

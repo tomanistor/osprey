@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row center-xs">
     <div class="col-xs-12">
-      <h1><span class="icon icon-mail"></span>{{ i18n "letsChat" }}</h1>
+      <h1>{{ partial "icon" (dict "name" "mail" "loader" "svg-use-text") }} {{ i18n "letsChat" }}</h1>
       <noscript>{{ i18n "nojsForm" }}</noscript>
     </div>
   </div>
@@ -31,9 +31,9 @@
       </div>
       <div class="col-xs-12 contact-submit">
         <input id="form-submit" type="submit" value="{{ i18n "send" }}">
-        <span id="form-sending" hidden><span class="icon icon-rocket"></span>{{ i18n "sendingEmail" }}</span>
-        <span id="form-thankyou" hidden><span class="icon icon-ok"></span>{{ i18n "thanksForYourEmail" }}</span>
-        <span id="form-error" hidden><span class="icon icon-attention"></span>{{ i18n "errorWhileSendingEmail" }}</span>
+        <span id="form-sending" hidden>{{ partial "icon" "sending" }} {{ i18n "sendingEmail" }}</span>
+        <span id="form-thankyou" hidden>{{ partial "icon" "ok" }} {{ i18n "thanksForYourEmail" }}</span>
+        <span id="form-error" hidden>{{ partial "icon" "warning" }} {{ i18n "errorWhileSendingEmail" }}</span>
       </div>
     </div>
   </form>
