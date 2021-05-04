@@ -22,12 +22,12 @@ color: "#fff"
 # [css] Optional gallery item hover color to set it individually.
 #hoverColor: "#fff"
 # [map] Configure github specific options here:
-github: 
-    # [str] Repo is a combination of "{user_or_org}/{repository_name}", e.g. "kdevo/osprey-delight.
-    #repo: "YOUR-GITHUB-NAME/{{ .TranslationBaseName }}"
+# github: 
+    # [str] Repo is a combination of "{user_or_org}/{repository_name}"
+    # repo: "kdevo/osprey-delight"
     # [bool] Show repository information such project language below the buttons.
-    showInfo: true
-    showButtons: true
+    # showInfo: true
+    # showButtons: true
 # [map] Configure optional terminal to be displayed when opening up the gallery item:
 #   Example (set "useTermynal" to true in config.yaml and comment out to test it):
 terminal:
@@ -42,7 +42,7 @@ terminal:
     #   wait: 75
 buttons:
   - i18n: view # i18n key (see i18n directory, see https://gohugo.io/functions/i18n/)
-    icon: angle-circled-right # optional: use an icon (in this case arrow right)
+    icon: view # optional: use an icon from icons.yaml
     newTab: false # optional: controls if url should be opened in new tab
     url: ""
   - i18n: code 
