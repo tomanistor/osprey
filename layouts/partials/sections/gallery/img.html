@@ -2,7 +2,7 @@
 {{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
 {{ $lqipSize := default "6x" .Site.Params.Image.Gallery.resizeLQIP }}
 {{ $useLQIP := default true .Site.Params.Image.Gallery.useLQIP }}
-{{ $resizeOptions := default "MitchellNetravali q85" .Site.Params.Image.Gallery.resizeOptions }}
+{{ $resizeOptions := default "MitchellNetravali q85" (default .Page.Params.resizeOptions .Site.Params.Image.Gallery.resizeOptions) }}
 {{ with .Params.image -}}
     {{ with (resources.Get .) -}}
         {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
