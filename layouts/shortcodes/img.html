@@ -1,16 +1,29 @@
-{{ $res := resources.Get (.Get 0) }}
-{{ $img := $res.Resize (.Get 1) }}
+{{ $res := resources.Get (.Get "img") }}
+{{ $alt := default "" (.Get "alt") }}
+{{ $parentResize := false }}
+{{ with .Parent }}
+    {{ $parentResize = .Get "resize" }}
+{{ end }}
+
+{{ $resize := default "Lanczos 500x" (default $parentResize (.Get "resize")) }}
+{{ $class := default "" (.Get "div") }}
+{{ $img := $res.Resize $resize }}
 {{ $width := $img.Width }}
 {{ $height := $img.Height }}
-{{ $alt := default "" (.Get 2) }}
+
 
 {{ if .Site.Params.Feat.useLazySizes }} 
+{{ with $class }}
+<div class="{{ . }}">
+{{ end }}
 <noscript>
 <img
 src="{{ $img.Permalink }}"
 loading="lazy"
-alt="{{ $alt }}"
-style="width: {{ $width }}px; height: auto" 
+{{ with $alt }}
+alt="{{ . }}"
+{{ end }}
+style="max-width: 100%; height: auto" 
 height="{{ $height }}"
 width="{{ $width }}"
 >
@@ -24,8 +37,13 @@ class="lazyload"
 src="{{ $img.Permalink }}"
 loading="lazy"
 {{ end }}
-alt="{{ $alt }}"
-style="width: {{ $width }}px; height: auto" 
+style="max-width: 100%; height: auto" 
+{{ with $alt }}
+alt="{{ . }}"
+{{ end }}
 height="{{ $height }}"
 width="{{ $width }}"
 >
+{{ with $class }}
+</div>
+{{ end }}
