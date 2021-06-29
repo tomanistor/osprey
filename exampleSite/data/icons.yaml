@@ -1,0 +1,10 @@
+# Add custom icons and use them accordingly as social icon as 'type' in config.yaml:
+spotify: fab spotify
+bandcamp: fab bandcamp
+
+# This rocket will be displayed in the about section (see about.md):
+rocket: fas rocket
+
+# Overriding the default icons is just as easy! 
+# This will switch the gallery modals close button to a circled close icon, comment it out to see the difference:
+close: fas times-circle

@@ -9,6 +9,10 @@ disableKinds: ["taxonomy", "taxonomyTerm"]
 enableEmoji: true
 pygmentsUseClasses: true
 
+module:
+  imports:
+  - path: github.com/hugo-mods/icons
+
 ## Generic theme parameters:
 Params:
   author: "kdevo"
@@ -50,6 +54,8 @@ Params:
     url: ""
   - type: spotify
     url: https://open.spotify.com/artist/5NhBOdJh6T1tgtM5Au1Opl
+  - type: bandcamp
+    url: https://protonautmusic.bandcamp.com 
 
 
 ## Theme features:

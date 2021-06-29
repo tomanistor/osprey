@@ -8,4 +8,4 @@ Osprey Delight is the free-minded artist's choice for a clutter-free and fast si
 
 It tastes a bit different than [the original great Osprey theme](https://github.com/tomanistor/osprey) and adds awesome new functionality to your Delight.
 
-It's perfectly suited to show off your awesome work! {{< icon "rocket icon-pulse-fast" >}}
+It's perfectly suited to show off your awesome work! {{< icon "rocket" >}}
