@@ -1,0 +1,8 @@
+[module]
+    [module.hugoVersion]
+        extended = true
+        min = "0.83.0"
+    [[module.imports]]
+        path = "github.com/hugo-mods/icons"
+    [[module.imports]]
+        path = "github.com/hugo-mods/lazyimg"

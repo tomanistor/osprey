@@ -1,17 +1,27 @@
 name = "Osprey Delight"
 license = "Apache License 2.0"
 licenselink = "https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md"
-description = "Osprey Delight is a sugar-free version of the Osprey theme by Toma Nistor functioning as a blazingly fast single page portfolio perfectly suited to show off your awesome work!"
-homepage = "https://github.com/kdevo/osprey-delight"
-tags = ["portfolio", "gallery", "minimalist", "responsive", "flexbox", "projects", "onepage", "fast"]
-features = ["portfolio", "contact-form", "github", "lazyload", "blog"]
-min_version = "0.80.0"
+description = "Blazingly fast, beautiful and modular portfolio theme perfectly suited to highlight your work."
 
-authors = [
-  {name = "kdevo", homepage = "https://kdevo.github.io/"}
+homepage = "https://github.com/kdevo/osprey-delight"
+demo = "https://kdevo.github.io/"
+
+tags = ["portfolio", "projects", "minimal", "personal", "landing", "onepage", "single-page", "hugo-mods", "responsive", "blog"]
+features = [
+  "gallery", "flexbox", # gallery/work portfolio
+  "contact", "contact-form", # basin contact formular with spambot protection 
+  "blog", # optional blog
+  "scroll-spy", "background", "lazyload", "blur-up", "lqip", "webp", "image-processing", "asset-driven", "lazyimg", # technical features
+  "github", "github-integration", "termynal", "social-icons", # some extras
+  "structured-data", "opengraph", "pagespeed-insights", # seo
+  "themeable", "hugo-mods", # customizability
 ]
 
+[author]
+  name = "kdevo"
+  homepage = "https://kdevo.github.io/"
+
 [original]
-    author = "Toma Nistor"
-    homepage = "https://tomanistor.com"
-    repo = "https://github.com/tomanistor/osprey/"
+  author = "Toma Nistor"
+  homepage = "https://tomanistor.com"
+  repo = "https://github.com/tomanistor/osprey/"
