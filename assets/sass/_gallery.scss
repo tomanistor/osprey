@@ -1,5 +1,6 @@
 .gallery {
   .gallery-item {
+    background-color: $gallery-bg-color;
     position: relative;
     width: 50%;
     padding: 0;
@@ -62,6 +63,7 @@
     img {
       padding: $vertical-rhythm * 3;
       max-height: 100%;
+      height: auto;
     }
   }
 
