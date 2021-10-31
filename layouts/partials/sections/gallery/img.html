@@ -1,68 +1,10 @@
-{{ $scratch := newScratch }}
-{{ $imgSize := default "500x" .Site.Params.Image.Gallery.resize }}
-{{ $lqipSize := default "6x" .Site.Params.Image.Gallery.resizeLQIP }}
-{{ $useLQIP := default true .Site.Params.Image.Gallery.useLQIP }}
-{{ $resizeOptions := default "MitchellNetravali q85" (default .Page.Params.resizeOptions .Site.Params.Image.Gallery.resizeOptions) }}
-{{ with .Params.image -}}
-    {{ with (resources.Get .) -}}
-        {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
-        {{ $scratch.Set "img" $image.Permalink }}
-        {{ $scratch.Set "imgW" $image.Width }}
-        {{ $scratch.Set "imgH" $image.Height }}
-
-        {{ if $useLQIP -}}
-            {{ $lqip := $image }}
-            {{ $lqip := $image | images.Filter (images.GaussianBlur 10) }}
-            {{ $lqip = $lqip.Resize (printf "%s png" $lqipSize) }}
-            {{ $scratch.Set "imgPlaceholderRes" $lqip }}
-        {{- end }}
-    {{- else -}}
-        {{ $scratch.Set "img" (. | absURL) }}
-    {{- end }}
-{{- else -}}
-    {{ with .Params.github.repo -}}
-        {{ $scratch.Set "img" ((printf "https://raw.githubusercontent.com/%s/master/.github/logo.png" .) | absURL) }}
-    {{ else }}
-        {{ warnf "no gallery image set for %s" .File.FileName }}  
-    {{- end }}
-{{- end }}
-{{ if .Site.Params.Feat.useLazySizes }}
-<noscript>
-    <img
-    src="{{ $scratch.Get "img" }}" 
-    alt="{{ default .Params.title .Params.alt }}" 
-    loading="lazy"
-    {{ with $scratch.Get "imgH" -}}
-        height="{{ . }}" 
-    {{- end }}
-    {{ with $scratch.Get "imgW" }}
-        width="{{ . }}"
-        style="width: {{ . }}px; height: auto;"
-    {{ end }}
-    >
-</noscript>
-{{ end }} 
-<img 
-{{ if .Site.Params.Feat.useLazySizes }}
-    {{ with $scratch.Get "imgPlaceholderRes" }}
-    {{ $placeholderB64 := .Content | base64Encode }}
-        {{ if gt (len $placeholderB64) 3072 -}}
-            src="{{ .Permalink }}"
-        {{- else -}}
-            src="data:image/png;base64,{{ $placeholderB64 }}"
-        {{- end }}
-    {{- end }}
-    data-src="{{ $scratch.Get "img" }}" 
-    class="blur-up lazyload"
-{{ else }}
-    src="{{ $scratch.Get "img" }}"
-    loading="lazy"
-{{ end }} 
-alt="{{ default .Params.title .Params.alt }}" 
-{{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
-{{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
-{{ with $scratch.Get "imgW" -}}
-    {{/* TODO(kdevo): Refactor this in SCSS */}}
-    style="width: {{ . }}px; height: auto;"
-{{- end }}
->
+{{ partial "lazyimg" (dict 
+    "img" .Params.image
+    "maxsize" (default "600x" site.Params.Image.Gallery.resize)
+    "responsivesizes" (default (slice "420x" "600x"))
+    "lqipsize" (default "16x Gaussian" site.Params.Gallery.Gallery.resizeLQIP)
+    "resizeoptions" (default "q90 MitchellNetravali" site.Params.Image.Gallery.resizeOptions)
+    "alt" (default .Params.title .Params.alt) 
+    "class" ""
+    "renderer" (default "lqip-webp" site.Params.Image.Gallery.renderer)
+    "resizer" (default "responsive" site.Params.Image.Gallery.resizer)) }}

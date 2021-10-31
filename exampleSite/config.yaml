@@ -60,9 +60,6 @@ Params:
 
 ## Theme features:
   Feat:
-    # useLazySizes to lazy load images with lazysizes (recommended)
-    useLazySizes: true
-
     # ajaxBasin uses Basin for a functional contact form.
     ajaxBasin: "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
 

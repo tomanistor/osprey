@@ -25,29 +25,15 @@
 <nav class="row middle-xs center-xs {{ if not .IsHome -}} nav-fixed nav-shadow {{- end }}">
   <div class="col-xs-6 col-sm-1 logo" style="{{ if not .IsHome }}visibility: visible;{{- end }}">
     <a href="{{ "#" | relLangURL }}">
-        {{ $scratch := newScratch }}
-        {{ $imgSize := default "96x" .Site.Params.Image.NavLogo.resize }}
-        {{ $resizeOptions := default "q90 Gaussian" .Site.Params.Image.NavLogo.resizeOptions }}
-        {{ with (resources.Get .Site.Params.logoSmall) -}}
-            {{ $img := (slice (.Resize (printf "%s %s" $imgSize $resizeOptions))) | resources.Concat (printf "navlogo%s" (path.Ext .)) }}
-            {{ $scratch.Set "img" $img.Permalink }}
-            {{ $scratch.Set "imgW" .Width }}
-            {{ $scratch.Set "imgH" .Height }}
-        {{- else -}}
-            {{ $scratch.Set "img" .Site.Params.logoSmall }}
-        {{- end }}
-        <img 
-        {{ if .Site.Params.Feat.useLazySizes }}
-            data-src="{{ $scratch.Get "img" }}" 
-            class="lazyload"
-        {{ else }}
-            src="{{ $scratch.Get "img" }}"
-            loading="lazy"
-        {{ end }} 
-        alt="Home"
-        {{ with $scratch.Get "imgH" -}} height="{{ . }}" {{- end }}
-        {{ with $scratch.Get "imgW" }} width="{{ . }}" {{ end }}
-        >
+      {{ partial "lazyimg" (dict 
+        "img" (resources.Get .Site.Params.logoSmall)
+        "maxsize" (default "96x" site.Params.Image.NavLogo.resize)
+        "lqipsize" (default "16x" site.Params.Image.NavLogo.resize)
+        "resizeoptions" (default "q92 Gaussian" site.Params.Image.NavLogo.resizeOptions)
+        "alt" "Home"
+        "renderer" "webp"
+        "noscript" false
+      ) }}
     </a>
   </div>
     {{ range .Site.Menus.main }}

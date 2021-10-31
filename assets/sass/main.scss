@@ -53,32 +53,16 @@ $term_title: "{{ .Site.Data.terminal.title }}";
 
 
 {{ if .Site.Params.background -}}
-  {{ $scratch := newScratch }}
-  {{ $imgSize := default "1920x" .Site.Params.Image.Background.resize }}
-  {{ $lqipSize := default "500x" .Site.Params.Image.Background.resizeLQIP }}
-  {{ $useLQIP := default true .Site.Params.Image.Background.useLQIP }}
-  {{ $resizeOptions := default "jpg q90 Lanczos" .Site.Params.Image.Background.resizeOptions }}
-  {{ with (resources.Get .Site.Params.background) -}}
-      {{ $image := .Resize (printf "%s %s" $imgSize $resizeOptions) }}
-      {{ $scratch.Set "img" $image.Permalink }}
-      {{ $scratch.Set "imgW" $image.Width }}
-      {{ $scratch.Set "imgH" $image.Height }}
-
-      {{ if $useLQIP -}}
-          {{ $lqip := $image.Resize (printf "%s %s" $lqipSize $resizeOptions) }}
-          {{ $scratch.Set "imgPreview" $lqip.Permalink }}
-          {{ $scratch.Set "imgPlaceholderRes" $lqip }}
-      {{- end }}
-  {{- else -}}
-      {{ $scratch.Set "img" .Site.Params.background }}
-  {{- end }}
+  {{ $imgDict := partial "resizer/responsive" (dict 
+    "img" (resources.Get .Site.Params.background)
+    "maxsize" (default "1920x" site.Params.Image.Background.resize)
+    "lqipsize" (default "512x Gaussian" site.Params.Image.Background.resizeLQIP)
+    "responsivesizes" (slice "512x" "640x" "1280x" "1600x" "1920x")
+    "resizeoptions" (default "jpg q92" site.Params.Image.Background.resizeOptions)
+  ) }}
 
   .bg {
-    {{ with $scratch.Get "imgPlaceholderRes" }}
-      background-image: url("{{ .Permalink }}"); 
-    {{- else -}}
-      background-image: url("{{ $scratch.Get "img" }}");
-    {{- end }}
+    background-image: url("{{ $imgDict.lqip.Permalink }}"); 
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
@@ -88,13 +72,13 @@ $term_title: "{{ .Site.Data.terminal.title }}";
     background-size: cover;
   }
 
-  {{ with $scratch.Get "imgPlaceholderRes" -}}
-  @media (min-width: {{ .Width }}px) {
+  {{ range $imgDict.responsive }}
+  @media (min-width: {{ math.Round (mul .Width 0.5) }}px) {
       .bg.lazyloaded {
         transition: background-image 1.5s;
-        background-image: url("{{ $scratch.Get "img" }}"), url("{{ .Permalink }}"); 
+        background-image: url("{{ .Permalink }}"), url("{{ $imgDict.lqip.Permalink }}"); 
       }
   }
-  {{- end }}
+  {{ end }}
 {{ end }}
 @import "custom";

@@ -79,8 +79,6 @@
   {{- end }}
 
   <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}">
-  <!-- <link rel="stylesheet" href="critical.css"> -->
-  <!-- <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "targetPath" "style.css" "outputStyle" "compressed") | resources.Fingerprint).Permalink }}" media="print" onload="this.media='all'"> -->
 
   {{ if .Site.Params.Feat.useStructuredData -}}
     {{ $s := (resources.Get "person.json" | resources.ExecuteAsTemplate "person.json" .).Content }}
@@ -91,9 +89,7 @@
     {{ $_ := unmarshal $s }}
   {{- end }}
 
-  {{ if .Site.Params.Feat.useLazySizes -}}
-    <script src="{{ (resources.Get "js/vendor/lazysizes.min.js").Permalink }}" async></script>
-  {{- end }}
+  {{ partial "lazyimg-setup" . }}
 
   {{ if .Site.Params.Feat.googleTagManager }}
     <!-- Google Tag Manager -->
