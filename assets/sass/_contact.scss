@@ -48,12 +48,9 @@ input, button, select {
     }
   }
   
-  .icon {
-    color: $button-fg-color;
-  }
-
   &:focus {
     outline: $accent-color solid 2px;
+    transition: all .4s ease-out;
   }
 }
 
