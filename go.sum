@@ -1,0 +1,6 @@
+github.com/FortAwesome/Font-Awesome v0.0.0-20210316185733-d79d85c3fad8/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/aFarkas/lazysizes v0.0.0-20210408151554-27c7ceb7d737/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
+github.com/hugo-mods/icons v0.0.0-20210829123108-ff66eab2332c h1:8eEG4rcYj959u1AbjdPl52i0ICQ6IFpfcrisj+VJixo=
+github.com/hugo-mods/icons v0.0.0-20210829123108-ff66eab2332c/go.mod h1:sPodUyqumOYz75PKIwmqOYZXLIcLAujn7V9+1Hk4VW8=
+github.com/hugo-mods/lazyimg v0.0.0-20211031211233-5d343cb6506b h1:0MDKO30RMN6Q3D3tqSRdZpaofnS0qVRP6fIgU1XZuAA=
+github.com/hugo-mods/lazyimg v0.0.0-20211031211233-5d343cb6506b/go.mod h1:mUw/5rIlzxiJfDnKsFnZAITZ29I7n3QeDd8WwGsBmTI=
