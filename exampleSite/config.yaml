@@ -11,7 +11,7 @@ pygmentsUseClasses: true
 
 module:
   imports:
-  - path: github.com/hugo-mods/icons
+  - path: github.com/kdevo/osprey-delight 
 
 ## Generic theme parameters:
 Params:
@@ -27,7 +27,6 @@ Params:
 
   # tagline (followed by a cursor) is shown at the top, below the logo
   #tagline: "Welcome!"
-
   # mdTagline can be used instead to specify the tagline in Markdown for more customizability.
   #   Note that {cursor} is a placeholder and will be replaced by the actual cursor HTML when rendering.
   mdTagline: "# Welcome!\n ## This is Osprey Delight{cursor}"
@@ -36,20 +35,21 @@ Params:
   opengraphImage: "/images/osprey-delight.png"
 
   # enforceSinglePage will enforce redirection to the baseURL for all sub-directories/-pages.
-  #   Example: If you create about.md, Hugo will also create a '/about/index.html'. This file will contain only a redirect directive if this switch is enabled.
+  #   Example: If you create about.md, Hugo will also create a '/about/index.html' which might not be what you want for a *single* page site. 
+  #   If this switch is enabled, all these "orphan" files will contain only a redirect directive.
   enforceSinglePage: false
 
-  # copyright flag generates a copyright notice in footer for your site.
+  # copyright flag generates a copyright notice in footer of your site.
   copyright: true
 
 ## Social links in footer:
   Social:
-  - type: twitter # the icon to use. can be anything mentioned in "assets/sass/_icons.scss" 
+  - type: twitter # references the icon to use
     url: ""
   - type: linkedin 
     url: ""
   - type: github
-    url: github = "https://github.com/kdevo/osprey-delight"
+    url: "https://github.com/kdevo/osprey-delight"
   - type: stackoverflow  
     url: ""
   - type: spotify
@@ -60,14 +60,14 @@ Params:
 
 ## Theme features:
   Feat:
-    # ajaxBasin uses Basin for a functional contact form.
+    # ajaxBasin requires Basin setup for a free contact form (see instructions in README).
     ajaxBasin: "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
 
     # useStructuredData for your own https://schema.org/Person (SEO-friendly).
     #   This will be auto-generated dependent on the information you provide in this configuration.
     useStructuredData: false
 
-    # structuredDataGitHubUser needs your USERNAME so that the GitHub API is used to fetch more information for structured data.
+    # structuredDataGitHubUser will tell the theme to use your USERNAME for querying the GitHub API to fetch more information about you for structured data.
     #   This will use information that is publically available about your GitHub user profile at https://api.github.com/users/{USERNAME}.
     #structuredDataGitHubUser = "USERNAME"
 
@@ -77,7 +77,7 @@ Params:
 
     googleTagManager: ""
   
-  # Expert mode: Configure image resizing (some of the settings are not yet publicly documented)
+  # Image resizing can be configured here (see README for more info):
   Image:
     Logo:
       resize: "300x"
@@ -89,13 +89,16 @@ Params:
     #   resize: "1920x"
       
 
-## The menu items are automatically added to navbar. Use content files for more advanced usage.
+## Menu items are automatically added to navbar. Use content files for more advanced usage.
 ##   See: https://gohugo.io/content-management/menus/#add-content-to-menus
 Menu:
   Main:
     - name: "About"
-      identifier: about # the identifier controls the section type (and therewith the appearence).
+      # identifier controls the section type (and therewith the appearence).
+      identifier: about 
+      # url must be an anchor, for smooth scrolling to it when clicking on the menu item.
       url: "/#about"
+      # weight controls the order of the menu items.
       weight: 1
     - name: "Work"
       identifier: gallery
@@ -109,8 +112,8 @@ Menu:
       identifier: contact
       url: "/#contact"
       weight: 4
-    # Use icon here to back reference an external site:
-    - pre: "<i class='icon icon-link-ext'></i>&nbsp;"
-      name: ""
-      url: "https://pyotek.dev"
-      weight: 5
+    # - name: ""
+    #   # pre makes it possible to use arbitrary HTML before the name, e.g. referencing icons here is possible:
+    #   pre: '<svg class="icon"><use xlink:href="#icon-external"/></svg>&nbsp;'
+    #   url: "https://pyotek.dev"
+    #   weight: 5

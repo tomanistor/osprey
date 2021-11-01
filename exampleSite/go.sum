@@ -1,3 +1,11 @@
 github.com/FortAwesome/Font-Awesome v0.0.0-20210316185733-d79d85c3fad8/go.mod h1:IUgezN/MFpCDIlFezw3L8j83oeiIuYoj28Miwr/KUYo=
+github.com/aFarkas/lazysizes v0.0.0-20210408151554-27c7ceb7d737/go.mod h1:xl3heUINAn0oPowV1biDQ2Pyw1w3x66I7KEbWkaxox0=
 github.com/hugo-mods/icons v0.0.0-20210529220701-c35284b03de7 h1:QXVb2NaUpupbHlbas1WKUjFjPihTYKmFrdiXVZkSl54=
 github.com/hugo-mods/icons v0.0.0-20210529220701-c35284b03de7/go.mod h1:sPodUyqumOYz75PKIwmqOYZXLIcLAujn7V9+1Hk4VW8=
+github.com/hugo-mods/icons v0.0.0-20210829123108-ff66eab2332c/go.mod h1:sPodUyqumOYz75PKIwmqOYZXLIcLAujn7V9+1Hk4VW8=
+github.com/hugo-mods/lazyimg v0.0.0-20211031211233-5d343cb6506b h1:0MDKO30RMN6Q3D3tqSRdZpaofnS0qVRP6fIgU1XZuAA=
+github.com/hugo-mods/lazyimg v0.0.0-20211031211233-5d343cb6506b/go.mod h1:mUw/5rIlzxiJfDnKsFnZAITZ29I7n3QeDd8WwGsBmTI=
+github.com/kdevo/osprey-delight v1.3.2-0.20211101194641-3a580e4f06b2 h1:v09K4Vu0XMRvh7mWCS4knR6fCSkzBjgzkuRsXj3zW6c=
+github.com/kdevo/osprey-delight v1.3.2-0.20211101194641-3a580e4f06b2/go.mod h1:8p2Oq2PICLU6ualceG/l/DnGs9Pfp4NEDg+zM2eUmMw=
+github.com/kdevo/osprey-delight v4.0.0+incompatible h1:xxe08qGTZKbCw6SQnjVne+/5WHZjeVdfT13pjdhPhjs=
+github.com/kdevo/osprey-delight v4.0.0+incompatible/go.mod h1:otTJ/We100AdzCRIojN8r+9nCm8X/o3Z3ut3N4RIY04=
