@@ -1,0 +1,19 @@
+.about {
+  .center-xs:nth-child(2) {
+      text-align: left;
+  }
+}
+.blog {
+  .center-xs:nth-child(2) {
+      text-align: left;
+  }
+}
+
+.contact {
+  h1 {
+    text-align: left;
+  }
+  .icon {
+    display: none;
+  }
+}
