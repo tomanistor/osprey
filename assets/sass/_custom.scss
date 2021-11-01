@@ -1,60 +1,18 @@
-// Original Osprey text aligning on main page
-/* 
-.about {
-  .center-xs:nth-child(2) {
-      text-align: left;
-  }
-}
-.blog {
-  .center-xs:nth-child(2) {
-      text-align: left;
-  }
-}
-*/
-
-
-// Customized scrollbar based on color-scheme
-/* 
-::-webkit-scrollbar {
-  width: 3px;
-}
-::-webkit-scrollbar-track {
-  background: $primary-bg-color;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $primary-fg-color;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: $accent-color;
-}
-*/
-
-
 // Show navbar only after scroll on mobile
-/* 
-nav {
-  @media (max-width: $mobile-breakpoint) {
-    opacity: 0;
-  }
-}
-*/
-
+// nav {
+//   @media (max-width: $mobile-breakpoint) {
+//     opacity: 0;
+//   }
+// }
 
 // If using background, attach it on mobile devices to increase performance (down-side: no parallax effect anymore)
-/*
-@media (max-width: $mobile-breakpoint) {
-  .bg {
-    background-attachment: scroll;
-  }
-}
-*/
-
+// @media (max-width: $mobile-breakpoint) {
+//   .bg {
+//     background-attachment: scroll;
+//   }
+// }
 
 // Home logo animation as soon as page loads
-/*
-.home-logo { 
-  animation: scale-in-center .8s cubic-bezier(.25, .46, .45, .94) both;
-}
-*/
+// .home-logo { 
+//   animation: scale-in-center .8s cubic-bezier(.25, .46, .45, .94) both;
+// }

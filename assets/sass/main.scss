@@ -1,7 +1,15 @@
+{{ $theme := default "" .Site.Params.Theme }}
+
 @import "flexboxgrid-stripped";
-@import "colors";
-@import "fontface";
-@import "fontsizing";
+// Theme-loading: Prefer theme's SCSS (if found), otherwise use fallback:
+{{ range (slice "colors" "fontface" "fontsizing") }}
+  {{ if resources.Get (printf "sass/themes/%s/_%s.scss" $theme .) }}
+    @import "themes/{{ $theme }}/{{ . }}";
+  {{ else }}
+    @import "{{ . }}";
+  {{ end }}
+{{ end }}
+
 @import "icons";
 @import "animation";
 @import "layout";
@@ -52,6 +60,7 @@ $term_title: "{{ .Site.Data.terminal.title }}";
 @import "contact";
 
 
+// Background image
 {{ if .Site.Params.background -}}
   {{ $imgDict := partial "resizer/responsive" (dict 
     "img" (resources.Get .Site.Params.background)
@@ -80,5 +89,9 @@ $term_title: "{{ .Site.Data.terminal.title }}";
       }
   }
   {{ end }}
+{{ end }}
+
+{{ if resources.Get (printf "sass/themes/%s/_custom.scss" $theme) }}
+  @import "themes/{{ $theme }}/custom";
 {{ end }}
 @import "custom";

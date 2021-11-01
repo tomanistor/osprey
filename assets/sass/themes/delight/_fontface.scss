@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'),
+      url('./fonts/roboto/roboto-v20-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+      url('./fonts/roboto/roboto-v20-latin-regular.woff') format('woff'); /* Chrome 26+, Opera 23+, Firefox 39+ */
+}
+
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto Slab Regular'), local('RobotoSlab-Regular'),
+       url('./fonts/roboto/roboto-slab-v9-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('./fonts/roboto/roboto-slab-v9-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+$font-header: "Roboto Slab", "Bitter", "Ubuntu", Georgia, serif;
+$font-body: "Roboto", "Rubic", "Poppins", "Hel­vetica", Arial, sans-serif;
+$font-code: "Roboto Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+$font-tagline: $font-header;
+$nav-font: $font-body;

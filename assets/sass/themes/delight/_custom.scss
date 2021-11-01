@@ -1,0 +1,13 @@
+// Customized scrollbar based on color-scheme
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: $primary-bg-color;
+}
+::-webkit-scrollbar-thumb {
+  background: $primary-fg-color;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: $accent-color;
+}
