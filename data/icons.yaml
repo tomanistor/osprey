@@ -20,7 +20,7 @@ view: fas angle-right
 github-octocat: fab github-alt
 
 # Contact
-mail:
+contact:
   id: fas envelope
   title: E-Mail
 sending: fas space-shuttle
