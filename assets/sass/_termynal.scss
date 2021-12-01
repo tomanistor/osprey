@@ -54,6 +54,7 @@ $color-text-subtle: $alt-text-color;
     display: block;
     line-height: 2;
     color: $color-text;
+    white-space: pre;
 }
 
 [data-ty]:before {
