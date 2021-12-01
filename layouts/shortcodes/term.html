@@ -1,3 +1,17 @@
-<div id="termynal" data-termynal>
-{{ with .Inner -}}{{ . | safeHTML }}{{- end }}
+<div id="termynal-{{ urlize .Page.File.BaseFileName }}" data-termynal>
+    <div class="term-content">
+    {{ if eq (.Get 0) "html" }}
+        {{ .Inner | safeHTML }}
+    {{ else }}
+    {{ with .Inner }}
+        {{ range (transform.Unmarshal .).lines }}
+            {{ if eq .type "progress" }}
+            <span data-ty="{{ .type }}" data-ty-delay="{{ .wait }}" data-ty-progressPercent="{{ .data }}"></span>
+            {{ else }}
+            <span data-ty="{{ .type }}" data-ty-delay="{{ .wait }}">{{ .data }}</span>
+            {{ end }}
+        {{ end }}
+    {{ end }}
+    {{ end }}
+    </div>
 </div>
