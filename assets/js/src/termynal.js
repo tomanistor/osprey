@@ -1,9 +1,12 @@
+/** 
+ * Attention: Contains modifications to make it even more lightweight!
+**/
+
 /**
  * termynal.js
  * A lightweight, modern and extensible animated terminal window, using
  * async/await.
  * 
- * Attention: Contains modifications for osprey-light to make it even more lightweight!
  * 
  * @author Ines Montani <ines@ines.io>
  * @version 0.0.1
@@ -30,14 +33,14 @@ class Termynal {
     constructor(container = '#termynal', options = {}) {
         this.container = (typeof container === 'string') ? document.querySelector(container) : container;
         this.pfx = `data-${options.prefix || 'ty'}`;
-        this.startDelay = options.startdelay || {{ .Site.Data.terminal.startDelay }};
-        this.typeDelay = options.typedelay || {{ .Site.Data.terminal.typeDelay }};
-        this.lineDelay = options.linedelay || {{ .Site.Data.terminal.lineDelay }};
-        this.progressLength = options.progresslength || {{ .Site.Data.terminal.progressLength }};
-        this.progressChar = options.progresschar || '{{ .Site.Data.terminal.progressChar }}';
+        this.startDelay = options.startdelay || {{ site.Data.termynal.startDelay }};
+        this.typeDelay = options.typedelay || {{ site.Data.termynal.typeDelay }};
+        this.lineDelay = options.linedelay || {{ site.Data.termynal.lineDelay }};
+        this.progressLength = options.progresslength || {{ site.Data.termynal.progressLength }};
+        this.progressChar = options.progresschar || '{{ site.Data.termynal.progressChar }}';
         this.progressPercent = options.progressPercent || 100;
         this.showPercent = ("showpercent" in options && options.showpercent)
-                           || (!"showpercent" in options && {{ .Site.Data.terminal.showPercent }});
+                           || (!"showpercent" in options && {{ site.Data.termynal.showPercent }});
         this.onExitCommand = options.onExitCommand;
         this.cursor = options.cursor || '▋';
         if (!options.noInit) this.init()
