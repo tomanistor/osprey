@@ -25,10 +25,10 @@
           <!-- Content -->
           <article class="entry-content">
             {{ if eq (len (trim .Content "\r\n" )) 0 -}}
-              <p>{{ with $scratch.Get "repo" }}{{ .description }}{{ end }}</p>
+              <p>{{ with $scratch.Get "repo" }}{{ .description | emojify }}{{ end }}</p>
             {{- else -}}
               {{ if $scratch.Get "repo" }}
-                {{ replace .Content "{github-description}" ($scratch.Get "repo").description | safeHTML }}
+                {{ replace .Content "{github-description}" ($scratch.Get "repo").description | emojify | safeHTML }}
               {{- else -}}
                 {{ .Content }}
               {{- end }}
