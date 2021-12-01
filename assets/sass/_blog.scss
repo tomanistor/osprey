@@ -104,6 +104,11 @@ time {
       color: $accent-color;
     }
   }
+
+  img {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+  }
 }
 
 .pagination {
