@@ -1,4 +1,4 @@
-{{ if .Site.Params.enforceSinglePage -}}
+{{ if site.Params.enforceSinglePage -}}
   {{ warnf "enforceSinglePage is set to true. This is very likely not what you want for blog posts which will always redirect to main page with this option!"}}
 {{- end }}
 <div class="container">
