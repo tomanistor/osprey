@@ -91,10 +91,14 @@ Params:
     #structuredDataGitHubUser = "USERNAME"
 
     # useTermynal enables Termynal (https://github.com/ines/termynal), a small JS library for showing a terminal "animation" from within your gallery item.
-    #   The cool thing is that the library has been stripped-down to a minimum to only have the necessary functionality.
+    #   The library has been stripped-down to a minimum to only have the necessary functionality.
     useTermynal: true
 
     googleTagManager: ""
+
+    # notifyOnNewThemeVersion enables a notification for every new minor/major version of this theme.
+    #   Whenever there is a new one, a warning is printed to console.
+    notifyOnNewThemeVersion: true
   
   # Image resizing can be configured here (see README for more info):
   Image:

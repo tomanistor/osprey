@@ -27,3 +27,6 @@
     {{ partial "body-bottom" . }}
   </body>
 </html>
+{{ if .Site.Params.Feat.notifyOnNewThemeVersion }}
+  {{ partial "release-notify" site.Data.release_notify }}
+{{ end }}

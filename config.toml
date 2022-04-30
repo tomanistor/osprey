@@ -6,3 +6,5 @@
         path = "github.com/hugo-mods/icons"
     [[module.imports]]
         path = "github.com/hugo-mods/lazyimg"
+    [[module.imports]]
+        path = "github.com/hugo-mods/release-notify"
