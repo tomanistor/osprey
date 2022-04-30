@@ -1,6 +1,8 @@
 # Add custom icons and use them accordingly as social icon as 'type' in config.yaml:
 spotify: fab spotify
 bandcamp: fab bandcamp
+heart: fas heart
+gift: fas gift
 
 # This rocket will be displayed in the about section (see about.md):
 rocket: fas rocket

@@ -7,8 +7,9 @@
 
 ---
 [![GitHub Release](https://img.shields.io/github/v/release/kdevo/osprey-delight?style=flat-square&color=%230097a7&logo=github)](https://github.com/kdevo/osprey-delight/releases/latest)
-[![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.80-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
-[![Project Status](https://img.shields.io/website?label=kdevo&style=flat-square&up_color=%230097a7&url=https%3A%2F%2Fkdevo.github.io)](#keep-it-up)
+[![Discussions](https://img.shields.io/badge/GitHub-Discussions-%230097a7?logo=github&style=flat-square)](https://github.com/kdevo/osprey-delight/discussions)
+[![Hugo Minimum Version](https://img.shields.io/badge/hugo-%3E=v0.83-%230097a7?logo=hugo&style=flat-square)](https://github.com/gohugoio/hugo/releases)
+[![Built with hugo-mods](https://img.shields.io/static/v1?label=%E2%9D%A4&message=hugo-mods&color=0097a7&style=flat-square)](https://github.com/hugo-mods)
 
 ## Overview
 
@@ -16,89 +17,95 @@ Osprey Delight is the free-minded artist's choice for a clutter-free and blazing
 
 It's perfectly suited to show off your awesome work!
 
-> It tastes a bit different than [the original great Osprey theme](https://github.com/tomanistor/osprey) and adds awesome new functionality to your **delight**.
+> It tastes a bit different than [the great Osprey theme](https://github.com/tomanistor/osprey) and adds awesome modular functionality to your **delight**.
 
-### Showcase 
+### Showcase
 
 Check out how Osprey Delight performs in the real-world:
 
-- [Protonaut Music](https://protonautmusic.com/) - Musician and top contributor whose highly individualized site got kickstarted by Osprey Delight.
-- [KDEVO](https://kdevo.github.io/) - The maintainer's site. It wouldn't be me if I would not run this theme personally. It's basically in the vanilla version.
+- [Hugo Mods](https://hugo-mods.github.io/) - This theme is built around the Hugo Mods presented on the site. This site also has the [complete source code available](https://github.com/hugo-mods/hugo-mods.github.io).
+- [Protonaut Music](https://protonautmusic.com/) - Musician and top contributor whose highly recognizable site got kickstarted by the theme.
+- [KDEVO](https://kdevo.github.io/) - It wouldn't be me if I would not run this theme personally to ensure that everything runs smoothly.
 
 ### Features
 
-- Single page made out of extensible section building blocks
+- Modular and made out of extensible section building blocks:
   - About: Introduce yourself
   - Gallery: Show your work using a grid-based gallery with interactive modal boxes
   - Blog: Lightweight blog features
   - Contact: Contact form with Basin support and built-in spambot protection
-- Images are [asset-driven](https://gohugo.io/categories/asset-management). Use your high-quality images without the hassle of manually resizing them! 
-    - Image lazy-loading via [lazySizes](https://github.com/aFarkas/lazysizes)
+- Use your high-quality images [assets](https://gohugo.io/categories/asset-management):
+    - Lazy image loading plus completely automatic resizing using [lazyimg](https://github.com/hugo-mods/lazyimg) module
     - Blur-up technique using automatic low-quality image placeholders (LQIP)
-- SEO-optimized
-  - [Score 100 at PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io%2F). Every bit is fine-tuned for performance 
+    - Modern WebP support with fallback for older browsers
+- SEO:
+  - [Score 100 at PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fkdevo.github.io%2F). Every bit is fine-tuned with performance in mind! 
   - Auto-generated structured ensures that everyone finds you
-- Delightful UX 
+- Delightful UX:
+    - Choose between different themes
+    - Awesome social icons in footer via [icons module](https://github.com/hugo-mods/icons)
     - Smooth scrolling plus scroll-spy
-    - Awesome social icons in footer
-    - Automatically fetches GitHub repo data for you 
+    - Automatically fetches GitHub repo data
     - Sane fallbacks for No-Script/No-JS users
-    - Intelli-404: Automatically searches for suitable matches - never loose the link to your content
 - Heavily [customizable](#customize-it) - no need to maintain a fork!
 
-In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved.
+In general, many [open issues](https://github.com/tomanistor/osprey/issues) of the original theme have been resolved and code has been rewritten.
 
-### Contribute
+### Contribute and show your support
 
 There are multiple ways to show your support if you like this project:
+
+- ❤️ [Become a sponsor](https://github.com/sponsors/kdevo)
+- ⭐ Give the project a star to ensure everyone finds it
 - Start [contributing](https://github.com/kdevo/osprey-delight/blob/master/CONTRIBUTING.md)
-- Become a sponsor or [donate anything to my non-profit organization](https://pyotek.dev/donate) via various options
-- Push the [![GitHub stars](https://img.shields.io/github/stars/kdevo/osprey-delight?style=social)](https://github.com/kdevo/osprey-delight/stargazers) button - a small gesture with huge effect
 
 ## Quickstart
 
+> Please make sure to have [Hugo's extended version](https://github.com/gohugoio/hugo/releases) and [Go](https://go.dev/) installed.
+> If you're new to Hugo, [visit the docs](https://gohugo.io/getting-started/quick-start/) for more info and general site setup.
 
-The recommended way to setup this theme is to use a git submodule so that further upgrades can be received without any hassle.
-Invoke the following from your Hugo site directory:
+Initialize your repo as a module (replace `<username>` and `<projectname>`):
 
-```shell
-git submodule add https://github.com/kdevo/osprey-delight.git themes/osprey-delight
+```sh
+hugo mod init github.com/<username>/<projectname>
 ```
 
-Now, simply copy the [exampleSite](/exampleSite) directory's *content* to your project's root, it's a great starting point.
+Download the [documented config file](https://github.com/kdevo/osprey-delight/blob/master/exampleSite/config.yaml), e.g. via curl:
 
-> [Visit the Hugo docs](https://gohugo.io/getting-started/quick-start/#step-3-add-a-theme) for more info and general setup of a Hugo site.
+```sh
+curl https://raw.githubusercontent.com/kdevo/osprey-delight/master/exampleSite/config.yaml -O
+```
+
+Continue reading for [configuration options](#config).
 
 ### Upgrade
 
-Receive the latest features of the theme by pulling the latest changes from `master`:
+Receive the latest features of the theme:
 
 ```
-cd themes/osprey-delight
-git pull
+hugo mod get -u
 ```
 
 > It is good practice to [check the release notes](https://github.com/kdevo/osprey-delight/releases) before upgrading (especially before using new major versions).
 
+## Configuration and Usage <a href="config"></a>
 
-## Configuration and Usage
-
-It's best if you simply check out the fully commented [config file](/exampleSite/config.yaml).
+It's best if you simply check out the fully commented [config file](https://github.com/kdevo/osprey-delight/blob/master/exampleSite/config.yaml).
 This theme follows a learning-by-doing approach.
 
 ### Images 
 
 This theme is asset-driven! It "knows" how to handle your precious assets, and there usually is no need for manual resizing.
-Therefore, the recommended approach for images is to provide high-res images in the [`assets` directory](https://gohugo.io/hugo-pipes/introduction/#asset-directory).
+For that to work, provide all of the following images in the [`assets` directory](https://gohugo.io/hugo-pipes/introduction/#asset-directory) (do not use the `static` directory).
 
-The following table shows some guidelines regarding the assets:
+The following table shows recommendations regarding the required assets:
 
 Image Type          | Config Key                        | Minimum Width          | Note
 --------------------|---------------------------------- |------------------------|---------------------------------------------------
 Logo                | `logoBig` (config.yaml)           | 200px                  | Transparent, minimum margin top/bottom
 Navbar-Logo         | `logoSmall` (config.yaml)         | 96px                   | Transparent, small margin top/bottom, prefer square format
-Gallery             | `image` (content/gallery/*)       | 400px                  | Transparent, medium margin top/bottom/left/right, prefer square format
-Background          | `background` (config.yaml)        | 1200px                 | Optional, use a high-quality JPG
+Gallery             | `image` (content/gallery/*)       | 400px                  | Transparent, medium margin top/bottom/left/right, prefer square or landscape format
+Background          | `background` (config.yaml)        | 1920px                 | Optional, use a high-quality JPG
 
 ### Content files
 
@@ -107,7 +114,7 @@ Background          | `background` (config.yaml)        | 1200px                
 To create an about section that renders on the home page, run:
 
 ```console
-$ hugo new about.md
+hugo new about.md
 ```
 
 #### Gallery item
@@ -115,33 +122,43 @@ $ hugo new about.md
 To create a new gallery item, run:
 
 ```console
-$ hugo new gallery/item-name.md
+hugo new gallery/my-item.md
 ```
 
-This is very helpful for the first time since you will get a fully documented file.
-
-> ⚠️ Please make sure that `item-name` is unique on the whole page because it will be used as an anchor/identifier!
+You will get a fully documented file, which describes each config option separately.
 
 ### Contact form
 
-Basin is a free AJAX contact form service that is used by this theme. To use set it up, [sign up for a free account](https://usebasin.com/users/sign_up) and create a form. Copy and paste your form's URL endpoint to the `ajaxBasin` config.yaml parameter. Select the `Submit this form via AJAX` option on your Basin dashboard.
+Basin is a free AJAX contact form service that is used by this theme. 
+
+To set it up: 
+1. [Sign up for a free account](https://usebasin.com/users/sign_up) and create a form. 
+2. Copy and paste your form's URL endpoint to the `ajaxBasin` config.yaml parameter. 
+3. Select the `Submit this form via AJAX` option on your Basin dashboard.
 
 ![Basin AJAX setup](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-ajax-setup.png)
 
-#### Spambot protection
+#### Enable spambot protection
 
-Under Setup/"Set a Custom Honeypot Field", enter `_anti_spam_honeypot`.
+Under "Setup" → "Set a Custom Honeypot Field", input `_anti_spam_honeypot`.
 Basin will [ignore all messages that contain this specific field](https://usebasin.com/docs/features/spam-filtering). This should work since there is a hidden field that users normally do not use, but spambots will blindly input their data.
 
 ![Basin Anti Spambot](https://raw.githubusercontent.com/kdevo/osprey-delight/master/images/basin-custom-honeypot.png)
 
-## Next
+[Please do not make a tick in the "reCAPTCHA" checkbox](https://github.com/kdevo/osprey-delight/discussions/22), this service is not supported and also typically not necessary.
+
+## Learn more
+
+### Customize it <a href="customize-it"></a>
+
+Want to have full control over appearance? Check out [how to customize the theme more granularly](https://github.com/kdevo/osprey-delight/blob/master/CUSTOMIZING.md).
+
+### Need help?
+
+This theme has a GitHub-powered [community forum](https://github.com/kdevo/osprey-delight/discussions)!
+Feel free to ask questions in the [Q&A](https://github.com/kdevo/osprey-delight/discussions/categories/q-a) (please make sure to completely read the docs and existing discussions/questions).
 
 ### Help wanted
 
 This README probably needs some documentation improvements for the latest features.
-Any PR regarding this is welcome and please also check out [how to contribute](CONTRIBUTING.md)!
-
-### Customize it
-
-Want to have full control over appearance? Check out [how to customize the theme more granularly](https://github.com/kdevo/osprey-delight/blob/master/CUSTOMIZING.md).
+Any PR regarding this is welcome. Please also check out [how to contribute](https://github.com/kdevo/osprey-delight/blob/master/CONTRIBUTING.md)!

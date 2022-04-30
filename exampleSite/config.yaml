@@ -1,7 +1,7 @@
 title: "Osprey Delight Demo"
 baseURL: "https://example.com"
 languageCode: "en-US"
-theme: "osprey-delight"
+theme: "github.com/kdevo/osprey-delight"
 tags: ["personal", "homepage", "portfolio"]
 #canonifyURLS: true
 #googleAnalytics: ""
@@ -11,12 +11,15 @@ pygmentsUseClasses: true
 
 module:
   imports:
-  - path: github.com/kdevo/osprey-delight 
+  - path: github.com/kdevo/osprey-delight
+  # useful for local development of the theme:
+  # replacements:
+  # - github.com/kdevo/osprey-delight -> ../../.
 
 ## Generic theme parameters:
 Params:
   author: "kdevo"
-  description: "Osprey Delight - Example Site"
+  description: "Osprey Delight: Example Site"
 
   # logoBig appears at the top of the page. Use a path relative to the assets dir for auto-resizing. 
   logoBig: "osprey-delight.png"
@@ -24,15 +27,27 @@ Params:
   # logoSmall is the logo that will be shown in the left corner of the nav bar.
   #   Use a path relative to the assets dir for auto-resizing.
   logoSmall: "favicon.png"
+  
+  # background can optionally be specified as an image layer behind logoBig at the top of the page (parallax effect).
+  #background: "background.jpg"
+  
+  # opengraphImage specifies the image that is shown when previewing the site in a messenger or Google Search.
+  opengraphImage: "/images/osprey-delight.png"
+
+  # favicon of the site (e.g. smaller version of logoSmall).
+  favicon: "favicon.png"
+
+  # theme your site by choosing one of the themes under assets/sass/themes:
+  #   - delight is the light version of osprey-delight
+  #   - dedark is the dark version of "delight"
+  #   - origin is the legacy version (similar to https://github.com/tomanistor/osprey)
+  theme: "delight"
 
   # tagline (followed by a cursor) is shown at the top, below the logo
   #tagline: "Welcome!"
   # mdTagline can be used instead to specify the tagline in Markdown for more customizability.
   #   Note that {cursor} is a placeholder and will be replaced by the actual cursor HTML when rendering.
   mdTagline: "# Welcome!\n ## This is Osprey Delight{cursor}"
-  favicon: "favicon.png"
-
-  opengraphImage: "/images/osprey-delight.png"
 
   # enforceSinglePage will enforce redirection to the baseURL for all sub-directories/-pages.
   #   Example: If you create about.md, Hugo will also create a '/about/index.html' which might not be what you want for a *single* page site. 
@@ -42,23 +57,27 @@ Params:
   # copyright flag generates a copyright notice in footer of your site.
   copyright: true
 
+  # credit to the theme. If you want to support the theme by please leave this in, it's kept very tiny and short.
+  # credit: true
+
 ## Social links in footer:
+##   The type specifies the icon to use. For more information, see: 
+##   https://github.com/kdevo/osprey-delight/blob/dev/CUSTOMIZING.md#icons
   Social:
   - type: twitter # references the icon to use
     url: ""
   - type: linkedin 
     url: ""
   - type: github
-    url: "https://github.com/kdevo/osprey-delight"
+    url: "https://github.com/hugo-mods/"
+  - type: heart
+    url: "https://github.com/sponsors/kdevo"
   - type: stackoverflow  
     url: ""
   - type: spotify
     url: https://open.spotify.com/artist/5NhBOdJh6T1tgtM5Au1Opl
-  - type: bandcamp
-    url: https://protonautmusic.bandcamp.com 
 
-
-## Theme features:
+## Additional theme features:
   Feat:
     # ajaxBasin requires Basin setup for a free contact form (see instructions in README).
     ajaxBasin: "https://usebasin.com/f/{YOUR-12-CHAR-FORM-KEY-HERE}"
@@ -80,16 +99,33 @@ Params:
   # Image resizing can be configured here (see README for more info):
   Image:
     Logo:
-      resize: "300x"
+      resize: "600x"
 
     Gallery:
-      resize: "400x"
+      resize: "600x"
 
-    # Background:
-    #   resize: "1920x"
+    Background:
+      resize: "1920x"
+      resizeLQIP: "256x"
+
+  # Advanced configuration for lazyimg module (comment out if needed):
+  # lazyimg:
+  #   resizer: auto
+  #   renderer: lqip-webp
+
+  #   # Resizer options:
+  #   lqipSize: "120x Gaussian"
+  #   maxSize: "1920x"
+  #   responsiveSizes: ["320x", "640x", "768x", "1024x", "1366x", "1600x", "1920x"]
+  #   resizeOptions: "Lanczos q95"
+
+  #   # Renderer options:
+  #   #class: ""
+  #   #alt: ""
+  #   noscript: true
       
 
-## Menu items are automatically added to navbar. Use content files for more advanced usage.
+## Menu items are automatically added to navbar.
 ##   See: https://gohugo.io/content-management/menus/#add-content-to-menus
 Menu:
   Main:

@@ -4,7 +4,7 @@ licenselink = "https://github.com/kdevo/osprey-delight/blob/master/LICENSE.md"
 description = "Blazingly fast, beautiful and modular portfolio theme perfectly suited to highlight your work."
 
 homepage = "https://github.com/kdevo/osprey-delight"
-demo = "https://kdevo.github.io/"
+demosite = "https://hugo-mods.github.io/"
 
 tags = ["portfolio", "projects", "minimal", "personal", "landing", "onepage", "single-page", "hugo-mods", "responsive", "blog"]
 features = [

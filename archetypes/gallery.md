@@ -10,35 +10,34 @@ title: "{{ replace .TranslationBaseName "-" " " | title }}"
 #   You can use 'weight' to order (primarily) for more control (sometimes it makes sense to put old items before new ones).
 #   The specifics are documented here: https://gohugo.io/templates/lists/#order-content
 date: "{{ .Date }}"
-# [str] Gallery image file. 
-#   If the specified image is found in the 'assets' directory  the image will be normalized to a specified height. 
-#   If ommited AND type is 'github' (see below), will attempt to fetch from '{repo_url}/.github/logo.png'. 
-image: ""
+# [str] Gallery image file from the assets directory. 
+image: "images/{{ .File.BaseFileName }}.png"
 # [str] Alternative (image) description.
-#   If ommited with type 'github', will use 'description' field from GitHub API.
 alt: ""
-# [css] Background color of the gallery item.
+# [css] Optional background color of the gallery item (if omitted, will use theme's fallback).
 color: "#fff"
-# [css] Optional gallery item hover color to set it individually.
+# [css] Optional gallery item hover color (if omitted, will use theme's fallback).
 #hoverColor: "#fff"
 # [map] Configure github specific options here:
 # github: 
-    # [str] Repo is a combination of "{user_or_org}/{repository_name}"
-    # repo: "kdevo/osprey-delight"
+    # [str] Repo is a combination of "<user_or_org>/<repository_name>"
+    # repo: "{{ default "<username>" site.Params.Feat.structuredDataGitHubUser }}/{{ default "<reponame>" (urlize .File.BaseFileName) }}"
     # [bool] Show repository information such project language below the buttons.
     # showInfo: true
     # showButtons: true
-# [map] Configure optional terminal to be displayed when opening up the gallery item:
+# [map] Optionally configure terminal to be displayed when opening up the gallery item:
 #   Example (set "useTermynal" to true in config.yaml and comment out to test it):
-terminal:
+# terminal:
     # lines:
     # - type: input
-    #   data: ls -ltra dummy/
+    #   data: hugo mod get -u github.com/hugo-mods/lazyimg 
     #   wait: 1250
     # - type: progress
     #   data: 100
     #   wait: 200
-    # - data: ls: cannot access 'dummy/' directory.
+    # - data: ✓ Done.
+    #   wait: 75
+    # - data: exit
     #   wait: 75
 buttons:
   - i18n: view # i18n key (see i18n directory, see https://gohugo.io/functions/i18n/)
@@ -49,5 +48,5 @@ buttons:
     icon: code
     url: ""
 # [bool] Draft mode will decide if file will be published to 'public/' directory.
-draft: true
+draft: false
 ---
